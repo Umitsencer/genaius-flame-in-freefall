@@ -2,6 +2,10 @@
 
 Last verified: 2026-11-15.
 
+## Jury presentation
+
+`docs/presentation/index.html` and `genaius-presentation.pdf` contain seven revised slides (Turkish slides, English five-minute speaker script). Current UI captures show Material Lab, canonical scenario matching, the restored FLEX model panel, the revised VI-3 story and Data records. Old tolerances, obsolete UI screenshots and operational-alarm wording were replaced. `sources.md` records the claim boundaries and reproduction method. The PDF has seven 16:9 pages; all pages were rendered and visually inspected. HTML navigation, print layout and local assets were checked with headless Chrome; this does not replace broader manual acceptance of the application.
+
 ## Objective
 
 Deliver an independent NASA Space Apps Flame in Freefall research dashboard with traceable table evidence, report retrieval, scenario coverage and separate statistical FLEX estimates.
