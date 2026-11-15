@@ -1,0 +1,19 @@
+/* Two-handle range slider (js/range.js) */
+.rs { margin-top: 16px; min-width: 0; }
+.rs-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin-bottom: 2px; }
+.rs-label { font-weight: 500; font-size: 14px; }
+.rs-out { font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.rs-out.on { color: var(--cream); font-weight: 600; }
+.rs-track { position: relative; height: 30px; }
+.rs-rail { position: absolute; left: 9px; right: 9px; top: 13px; height: 4px; border-radius: 2px; background: var(--line2); }
+.rs-fill { position: absolute; top: 13px; height: 4px; border-radius: 2px; background: var(--cream); }
+.rs-track input { position: absolute; left: 0; top: 0; width: 100%; height: 30px; margin: 0; padding: 0; background: none; pointer-events: none; -webkit-appearance: none; appearance: none; }
+.rs-track input::-webkit-slider-runnable-track { background: transparent; height: 30px; }
+.rs-track input::-moz-range-track { background: transparent; height: 30px; }
+.rs-track input::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; pointer-events: auto; width: 18px; height: 18px; margin-top: 6px; border-radius: 50%; background: var(--cream); border: 3px solid var(--night); box-shadow: 0 0 0 1px rgba(243, 235, 224, .6); cursor: grab; }
+.rs-track input::-moz-range-thumb { pointer-events: auto; width: 12px; height: 12px; border-radius: 50%; background: var(--cream); border: 3px solid var(--night); box-shadow: 0 0 0 1px rgba(243, 235, 224, .6); cursor: grab; }
+.rs-track input:active::-webkit-slider-thumb { cursor: grabbing; }
+.rs-track input:focus-visible { outline: none; }
+.rs-track input:focus-visible::-webkit-slider-thumb { outline: 2px solid var(--cream); outline-offset: 3px; }
+.rs-track input:focus-visible::-moz-range-thumb { outline: 2px solid var(--cream); outline-offset: 3px; }
+.ctl .rs { width: 270px; margin-top: 0; }

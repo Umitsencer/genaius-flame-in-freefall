@@ -1,0 +1,787 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "saffire_iv_vi_cabin_air",
+  "title": "What did the fire do to the air?",
+  "subtitle": "Saffire IV–VI cabin atmosphere, heat release, and smoke detection evidence in unmanned Cygnus spacecraft",
+  "audit_date": "2026-11-14",
+  "boundary_statements": [
+    "This case study presents traceable published results from unmanned Cygnus Saffire IV–VI experiments and related SAME/Fortenberry detection research; it is not a fire-safety certification, material ranking, or human crew exposure calculation.",
+    "Strictly isolated from PSI-99 (SAFFIRE-II 9 physical sample cards), PSI-39 (CFI), FLEX droplet prediction, and the 403 core PSI-25/PSI-69 dataset.",
+    "Table 2 gas values represent campaign/event concentration or partial-pressure increases measured near the Far Field Diagnostics (FFD) inlet, not baseline-plus-fire crew exposure levels inside an inhabited habitat.",
+    "Blank or missing cells for V-3 and V-4 gas/calorimetry fields are preserved as null/unreported and never coerced to zero.",
+    "Ambient oxygen partial pressure (pO2_kPa = pressure_kPa * oxygen_mol_percent / 100) and the VI-3 elapsed delta between ignition (637 s) and 1 mg/m3 threshold crossing (981 s -> 344 s) are explicitly tagged as derived values rather than verbatim NASA metrics."
+  ],
+  "what_this_does_not_establish": [
+    "Does not certify crew survival limits, habitability safety compliance, or safe exposure durations with or without cabin scrubbing.",
+    "Does not provide a full gas or heat-release dataset for Saffire V-3 or V-4 (neither appears in NTRS 20240002981 Table 1/2 gas or calorimetry results).",
+    "Does not establish quantitative false-alarm or detection percentages from the paywalled Fire Safety Journal article (DOI: 10.1016/j.firesaf.2018.04.004 full text was not accessed).",
+    "Does not extrapolate microgravity Cygnus results (16.7–19.0 m3 unmanned spacecraft) directly to partial-gravity Lunar (1/6g) or Martian (3/8g) habitats without physical validation."
+  ],
+  "verified_sources": [
+    {
+      "source_id": "NTRS-20240002981",
+      "title": "Preliminary Results from the Saffire VI Experiment (ICES-2024-365)",
+      "authors": "Urban, D. L. et al.",
+      "date": "2024-07-21",
+      "url": "https://ntrs.nasa.gov/citations/20240002981",
+      "download_url": "https://ntrs.nasa.gov/api/citations/20240002981/downloads/ICES-2024-365%20final%20v2.pdf",
+      "sha256": "7f875da1d6abeeeeac64aeba67d3f160074cf98430e714fe7606b34b37e0aa59",
+      "pages_verified": "PDF pp. 1–7 (Abstract, Hardware, Table 1 p.3, Results pp.4–5, Figs. 4–7 p.5, Table 2 p.6, References p.7)",
+      "access_status": "verified_open_ntrs"
+    },
+    {
+      "source_id": "NTRS-20240007488",
+      "title": "Preliminary Results from the Saffire VI Experiment — Presentation Slides (53rd ICES)",
+      "authors": "Urban, D. L. et al.",
+      "date": "2024-07-21",
+      "url": "https://ntrs.nasa.gov/citations/20240007488",
+      "download_url": "https://ntrs.nasa.gov/api/citations/20240007488/downloads/Urban%20-%20Saffire%20VI%20-%20ICES%20-%20final%20v3.pdf",
+      "sha256": "bd0bfb9819bc52514ee3531e4723d2786ef79894ce30af002b9d827b00a330f5",
+      "pages_verified": "Slides 1–21 (Test matrix slide 11, Sample dimensions slide 12, VI-3 traces & ignition 637 s / 1120 s / 1420 s slides 16–19, Table 2 & limits slide 20, conclusions slide 21)",
+      "access_status": "verified_open_ntrs"
+    },
+    {
+      "source_id": "NTRS-20210011521",
+      "title": "Fire Safety Implications of Preliminary Results from Saffire IV and V Experiments on Large Scale Spacecraft Fires (ICES-2021-266)",
+      "authors": "Urban, D. L. et al.",
+      "date": "2021-07-12",
+      "url": "https://ntrs.nasa.gov/citations/20210011521",
+      "download_url": "https://ntrs.nasa.gov/api/citations/20210011521/downloads/ICES-2021-266%20draft%20v5.pdf",
+      "sha256": "d25b394f43774ee79a3223b53e90571be299c8996d1cff2512c76e3308e107f5",
+      "pages_verified": "PDF pp. 1–12 (Flight dates May 2020 / Jan 2021 p.2, Table 1 p.3, V-2 flow shutdown pp.4–5, V-3/V-4 5 cm/s cooling pp.5–9, V-4 deflagration p.7, Table 2 p.8, V-3 11 cm @ 450 s p.9)",
+      "access_status": "verified_open_ntrs"
+    },
+    {
+      "source_id": "NTRS-20220009167",
+      "title": "Progress and Challenges in Spacecraft Fire Detection",
+      "authors": "Fortenberry, C. (USRA at NASA Glenn Research Center)",
+      "date": "2022-06-15",
+      "url": "https://ntrs.nasa.gov/citations/20220009167",
+      "download_url": "https://ntrs.nasa.gov/api/citations/20220009167/downloads/DRI%20Talk%20v2.pdf",
+      "sha256": "76ccf3a7b77f5b9a7c574e00822f113d473ae33d4b09094dd0d6ef31f5be9b5a",
+      "pages_verified": "Slides 1–18 (SAME summary slide 7, FFD diagram slide 11, DustTrak/Ion slide 12, Saffire-IV PM1 & outlet clogging slide 13, Saffire-V PM1 & PMMA > 4 um slide 14)",
+      "access_status": "verified_open_ntrs"
+    },
+    {
+      "source_id": "NIST-1335761",
+      "title": "NIST/NASA Study Shows One Detector Doesn't 'Fit All' for Smoke in Spacecraft",
+      "authors": "NIST (quoting Marit Meyer & Tom Cleary)",
+      "date": "2018-05-01",
+      "url": "https://www.nist.gov/node/1335761",
+      "download_url": "https://www.nist.gov/news-events/news/2018/05/nistnasa-study-shows-one-detector-doesnt-fit-all-smoke-spacecraft",
+      "sha256": null,
+      "pages_verified": "Full NIST public news article retrieved 2026-11-14",
+      "access_status": "verified_open_nist"
+    },
+    {
+      "source_id": "LOCAL-SAME2-20130000422",
+      "title": "Particle Morphology and Size Results from the Smoke Aerosol Measurement Experiment-2 (AIAA 2012-3536)",
+      "authors": "Urban, D. L. et al.",
+      "date": "2012-07-15",
+      "url": "https://ntrs.nasa.gov/citations/20130000422",
+      "local_relpath": "data/raw/psi/same_r_probe/20130000422_same2.pdf",
+      "sha256": "bdc5e7e0d65f569c2c4a0b8899870d2d47e8f0d644cfe033a450d9fd892375aa",
+      "pages_verified": "Local PDF pp. 1–13 (200–400 nm avg sizes p.1, Shuttle ionization vs ISS forward-scattering >1 um p.2, zero-flow coagulation pp.11–12)",
+      "access_status": "verified_local_pdf"
+    },
+    {
+      "source_id": "FSJ-2018-ABSTRACT",
+      "title": "Evaluation of spacecraft smoke detector performance in the low-gravity environment (Fire Safety Journal 98, 74–81)",
+      "authors": "Meyer, M., Urban, D., Mulholland, G., Bryg, V., Yuan, Z., Ruff, G., Cleary, T., Yang, J.",
+      "date": "2018-06-01",
+      "url": "https://doi.org/10.1016/j.firesaf.2018.04.004",
+      "sha256": null,
+      "pages_verified": "CrossRef bibliographic metadata only; full text behind publisher paywall (unread)",
+      "access_status": "paywalled_metadata_only"
+    }
+  ],
+  "regulatory_reference_thresholds": {
+    "co2_partial_pressure_1h_mmhg": {
+      "value": 3.0,
+      "unit": "mmHg",
+      "standard": "NASA-STD-3001 Volume 2, Revision D (2023-09-15)",
+      "source_locator": "NTRS 20240002981 p.5 & p.7 Ref. 8; NTRS 20240007488 slide 20",
+      "comparison_note": "Saffire VI PMMA tests exceeded this 1-hour average limit (VI-3: 3.51 mmHg, VI-4: 3.37 mmHg reported ΔCO2 partial pressure); author benchmark only, not a crew habitability certification."
+    },
+    "co_smac_24h_ppm": {
+      "value": 100.0,
+      "unit": "ppm",
+      "standard": "JSC 20584, Revision A (April 2020) — 24-hour SMAC",
+      "source_locator": "NTRS 20240002981 p.5 & p.7 Ref. 7; NTRS 20240007488 slide 20",
+      "comparison_note": "VI-2 (120 ppm), VI-3 (308 ppm), and VI-4 (320 ppm) reported FFD ΔCO increases above 100 ppm; IV-1 (80 ppm) and V-2 (83 ppm) were below 100 ppm."
+    },
+    "co_smac_1h_ppm": {
+      "value": 425.0,
+      "unit": "ppm",
+      "standard": "JSC 20584, Revision A (April 2020) — 1-hour SMAC",
+      "source_locator": "NTRS 20240002981 p.5 & p.7 Ref. 7; NTRS 20240007488 slide 20",
+      "comparison_note": "None of the five Table 2 ΔCO increases exceeded 425 ppm, though VI-3 (308 ppm) and VI-4 (320 ppm) were described by the authors as quite close to the 1-hour level."
+    },
+    "smoke_alarm_threshold_mg_m3": {
+      "value": 1.0,
+      "unit": "mg/m³",
+      "standard": "Selected tight terrestrial smoke alarm threshold (NTRS 20240002981 p.5)",
+      "source_locator": "NTRS 20240002981 p.5; NTRS 20240007488 slide 21",
+      "comparison_note": "The authors report crossing their selected 1 mg/m³ smoke-concentration criterion at 981 s in Saffire VI-3. Figure 7 separately plots ionization-detector voltage and DustTrak mass concentration; it does not establish a calibrated 1 mg/m³ ionization-alarm setting."
+    }
+  },
+  "condition_records": [
+    {
+      "test_id": "IV-1",
+      "flight": "Saffire IV",
+      "flight_vehicle": "NG-13 Cygnus",
+      "flight_date": "May 2020",
+      "material": "SIBAL Cloth",
+      "material_detail": "Cotton/fiberglass blend (75% cotton, 25% fiberglass; 18.05 mg/cm² area density)",
+      "fuel_group": "thin_textile",
+      "sample_length_cm": 50.0,
+      "sample_width_cm": 41.0,
+      "sample_thickness_mm": null,
+      "initial_air_flow_cm_s": 20.0,
+      "flow_direction": "Concurrent",
+      "ambient_pressure_kpa": 100.0,
+      "oxygen_mol_percent": 22.0,
+      "free_volume_m3": 17.9,
+      "pressurized_volume_m3": 18.7,
+      "burn_duration_s": 130.0,
+      "o2_peak_heat_release_w": null,
+      "o2_total_heat_release_kj": null,
+      "fuel_avg_heat_release_w": 3150.0,
+      "fuel_total_heat_release_kj": 409.0,
+      "max_temp_sfu_outlet_c": 45.0,
+      "max_temp_ffd_c": 25.0,
+      "co2_increase_ppm": 1390.0,
+      "co2_partial_pressure_increase_mmhg": 1.03,
+      "co_increase_ppm": 80.0,
+      "gas_calorimetry_reported": true,
+      "flow_protocol": [
+        {
+          "time_label": "0 s onward (burn duration 130 s)",
+          "flow_speed_cm_s": 20.0,
+          "status": "reported",
+          "note": "Concurrent air flow at 20 cm/s in 100.0 kPa / 22.0 mol% O2.",
+          "locator": "20240002981 Table 1 p.3 & Table 2 p.6; 20210011521 Table 1 p.3"
+        }
+      ],
+      "structured_notes": {
+        "steady_flame_size_cm": 8.5,
+        "max_flame_size_cm": 11.0,
+        "calorimetry_method_note": "Fuel consumption calorimetry only; O2 consumption calorimetry unavailable on Saffire IV due to SFU outlet sensor placement (20240002981 p.2).",
+        "source_discrepancy_note": "20210011521 abstract p.1 mentions 40 cm width while 20210011521 Table 2 (p.8), 20240002981 (p.2), and 20240007488 (slide 12) specify 41 cm sample width."
+      },
+      "source_locators": [
+        "NTRS 20240002981 Table 1 (p.3) & Table 2 (p.6)",
+        "NTRS 20240007488 slides 11 & 20",
+        "NTRS 20210011521 Table 1 (p.3) & Table 2 (p.8)"
+      ]
+    },
+    {
+      "test_id": "V-2",
+      "flight": "Saffire V",
+      "flight_vehicle": "NG-14 Cygnus",
+      "flight_date": "January 2021",
+      "material": "Cotton Jersey",
+      "material_detail": "Cotton jersey fabric (18.1 mg/cm² area density)",
+      "fuel_group": "thin_textile",
+      "sample_length_cm": 50.0,
+      "sample_width_cm": 41.0,
+      "sample_thickness_mm": null,
+      "initial_air_flow_cm_s": 20.0,
+      "flow_direction": "Concurrent",
+      "ambient_pressure_kpa": 70.7,
+      "oxygen_mol_percent": 26.2,
+      "free_volume_m3": 19.0,
+      "pressurized_volume_m3": 19.2,
+      "burn_duration_s": 200.0,
+      "o2_peak_heat_release_w": null,
+      "o2_total_heat_release_kj": null,
+      "fuel_avg_heat_release_w": 2800.0,
+      "fuel_total_heat_release_kj": 560.0,
+      "max_temp_sfu_outlet_c": 46.0,
+      "max_temp_ffd_c": 23.0,
+      "co2_increase_ppm": 2360.0,
+      "co2_partial_pressure_increase_mmhg": 1.26,
+      "co_increase_ppm": 83.0,
+      "gas_calorimetry_reported": true,
+      "flow_protocol": [
+        {
+          "time_label": "Initial burn (~300 s; fan off ~280 s)",
+          "flow_speed_cm_s": 20.0,
+          "status": "reported",
+          "note": "Steady concurrent burning before fan shutdown.",
+          "locator": "20210011521 p.4 & Fig. 3"
+        },
+        {
+          "time_label": "70 s quiescent interval",
+          "flow_speed_cm_s": 0.0,
+          "status": "reported",
+          "note": "Fan turned off for 70 s; surviving small blue flamelets and glowing char embers remained visible at 10 s after shutoff.",
+          "locator": "20210011521 pp.4–5"
+        },
+        {
+          "time_label": "Flow restarted (~150 s burn)",
+          "flow_speed_cm_s": 20.0,
+          "status": "reported",
+          "note": "Flame regrew upon flow resumption and burned another 150 s until sample consumption.",
+          "locator": "20210011521 p.4"
+        }
+      ],
+      "structured_notes": {
+        "steady_flame_size_cm": 10.0,
+        "max_flame_size_cm": 14.0,
+        "calorimetry_method_note": "Fuel consumption calorimetry only; O2 consumption calorimetry unavailable on Saffire V (20240002981 p.2).",
+        "source_discrepancy_note": null
+      },
+      "source_locators": [
+        "NTRS 20240002981 Table 1 (p.3) & Table 2 (p.6)",
+        "NTRS 20240007488 slides 11 & 20",
+        "NTRS 20210011521 Table 1 (p.3), pp.4–5, & Table 2 (p.8)"
+      ]
+    },
+    {
+      "test_id": "V-3",
+      "flight": "Saffire V",
+      "flight_vehicle": "NG-14 Cygnus",
+      "flight_date": "January 2021",
+      "material": "One-Sided PMMA",
+      "material_detail": "Flat cast polymethyl methacrylate, 1-sided, 5 mm thick",
+      "fuel_group": "thick_pmma",
+      "sample_length_cm": 18.0,
+      "sample_width_cm": 41.0,
+      "sample_thickness_mm": 5.0,
+      "initial_air_flow_cm_s": 20.0,
+      "flow_direction": "Concurrent",
+      "ambient_pressure_kpa": 71.3,
+      "oxygen_mol_percent": 25.4,
+      "free_volume_m3": 19.0,
+      "pressurized_volume_m3": 19.2,
+      "burn_duration_s": null,
+      "o2_peak_heat_release_w": null,
+      "o2_total_heat_release_kj": null,
+      "fuel_avg_heat_release_w": null,
+      "fuel_total_heat_release_kj": null,
+      "max_temp_sfu_outlet_c": null,
+      "max_temp_ffd_c": null,
+      "co2_increase_ppm": null,
+      "co2_partial_pressure_increase_mmhg": null,
+      "co_increase_ppm": null,
+      "gas_calorimetry_reported": false,
+      "flow_protocol": [
+        {
+          "time_label": "Initial burn",
+          "flow_speed_cm_s": 20.0,
+          "status": "reported",
+          "note": "Concurrent 20 cm/s flow; flame grew to limiting length of 11 cm after 450 s.",
+          "locator": "20210011521 Table 1 p.3 & p.9"
+        },
+        {
+          "time_label": "Reduced-flow cooling (300 s)",
+          "flow_speed_cm_s": 5.0,
+          "status": "reported",
+          "note": "Flow stepped down from 20 cm/s to 5 cm/s for 300 s before fan shutdown; sample extinguished immediately when fan stopped.",
+          "locator": "20210011521 pp.5–6 & Fig. 5"
+        }
+      ],
+      "structured_notes": {
+        "steady_flame_size_cm": 11.0,
+        "time_to_reach_length_s": 450.0,
+        "calorimetry_method_note": "No CO/CO2 or calorimetry table data reported for V-3 in NTRS 20240002981 (outlet gas sensor placement issue prevented Saffire IV/V PMMA calorimetry; condition data only from NTRS 20210011521 Table 1 p.3).",
+        "source_discrepancy_note": "V-3 is excluded from 20240002981 Table 1/2; gas and heat-release values remain null/unreported."
+      },
+      "source_locators": [
+        "NTRS 20210011521 Table 1 (p.3), pp.5–6, & p.9"
+      ]
+    },
+    {
+      "test_id": "V-4",
+      "flight": "Saffire V",
+      "flight_vehicle": "NG-14 Cygnus",
+      "flight_date": "January 2021",
+      "material": "Structured PMMA",
+      "material_detail": "Ribbed PMMA sample (10 ribs: 1 mm to 10 mm wide, 3 mm high, 2 cm channel spacing, 10 mm thick base)",
+      "fuel_group": "thick_pmma",
+      "sample_length_cm": 20.0,
+      "sample_width_cm": 41.0,
+      "sample_thickness_mm": 10.0,
+      "initial_air_flow_cm_s": 20.0,
+      "flow_direction": "Opposed",
+      "ambient_pressure_kpa": 72.6,
+      "oxygen_mol_percent": 25.7,
+      "free_volume_m3": 19.0,
+      "pressurized_volume_m3": 19.2,
+      "burn_duration_s": null,
+      "o2_peak_heat_release_w": null,
+      "o2_total_heat_release_kj": null,
+      "fuel_avg_heat_release_w": null,
+      "fuel_total_heat_release_kj": null,
+      "max_temp_sfu_outlet_c": null,
+      "max_temp_ffd_c": null,
+      "co2_increase_ppm": null,
+      "co2_partial_pressure_increase_mmhg": null,
+      "co_increase_ppm": null,
+      "gas_calorimetry_reported": false,
+      "flow_protocol": [
+        {
+          "time_label": "Initial burn (~645 s ignition peak)",
+          "flow_speed_cm_s": 20.0,
+          "status": "reported",
+          "note": "Opposed 20 cm/s flow after 10 min preheat; initial deflagration expanded across field of view within 100 ms; opposed spread faster on thinner ribs.",
+          "locator": "20210011521 pp.7–9 & Fig. 8"
+        },
+        {
+          "time_label": "Reduced-flow cooling (300 s)",
+          "flow_speed_cm_s": 5.0,
+          "status": "reported",
+          "note": "Flow held at 5 cm/s for 300 s; rapid extinction occurred when fan stopped completely.",
+          "locator": "20210011521 pp.5–6 & Fig. 6"
+        }
+      ],
+      "structured_notes": {
+        "calorimetry_method_note": "No CO/CO2 or calorimetry table data reported for V-4 in NTRS 20240002981; condition parameters and opposed-spread/cooling behavior come from NTRS 20210011521 Table 1 (p.3) and pp.5–9.",
+        "source_discrepancy_note": "V-4 is excluded from 20240002981 Table 1/2; gas and heat-release values remain null/unreported."
+      },
+      "source_locators": [
+        "NTRS 20210011521 Table 1 (p.3) & pp.5–9"
+      ]
+    },
+    {
+      "test_id": "VI-2",
+      "flight": "Saffire VI",
+      "flight_vehicle": "Cygnus",
+      "flight_date": "December 2023",
+      "material": "SIBAL Cloth",
+      "material_detail": "Cotton/fiberglass blend (75% cotton, 25% fiberglass; 18.05 mg/cm² area density)",
+      "fuel_group": "thin_textile",
+      "sample_length_cm": 50.0,
+      "sample_width_cm": 41.0,
+      "sample_thickness_mm": null,
+      "initial_air_flow_cm_s": 20.0,
+      "flow_direction": "Concurrent",
+      "ambient_pressure_kpa": 54.1,
+      "oxygen_mol_percent": 31.0,
+      "free_volume_m3": 16.7,
+      "pressurized_volume_m3": null,
+      "burn_duration_s": 112.0,
+      "o2_peak_heat_release_w": 3217.0,
+      "o2_total_heat_release_kj": 580.0,
+      "fuel_avg_heat_release_w": 3650.0,
+      "fuel_total_heat_release_kj": 409.0,
+      "max_temp_sfu_outlet_c": 48.0,
+      "max_temp_ffd_c": 20.0,
+      "co2_increase_ppm": 2800.0,
+      "co2_partial_pressure_increase_mmhg": 1.15,
+      "co_increase_ppm": 120.0,
+      "gas_calorimetry_reported": true,
+      "flow_protocol": [
+        {
+          "time_label": "0 s onward (burn duration 112 s)",
+          "flow_speed_cm_s": 20.0,
+          "status": "reported",
+          "note": "Concurrent 20 cm/s flow at exploration atmosphere (54.1 kPa, 31.0 mol% O2); outlet gas sensor moved to verified mixed location.",
+          "locator": "20240002981 pp.2–6 & Fig. 3"
+        }
+      ],
+      "structured_notes": {
+        "calorimetry_method_note": "Both calorimetry columns appear for VI-2: Oxygen Consumption Calorimetry (Huggett 13.1 kJ/g O2: 3217 W peak, 580 kJ total) and Fuel Consumption Calorimetry (spread-rate estimate: 3650 W average, 409 kJ total). Authors report (p.4) both methods agree within 15% without publishing an empirical reconciliation for total kJ variance.",
+        "source_discrepancy_note": null
+      },
+      "source_locators": [
+        "NTRS 20240002981 Table 1 (p.3), p.4, & Table 2 (p.6)",
+        "NTRS 20240007488 slides 11, 13, & 20"
+      ]
+    },
+    {
+      "test_id": "VI-3",
+      "flight": "Saffire VI",
+      "flight_vehicle": "Cygnus",
+      "flight_date": "December 2023",
+      "material": "Two-Sided PMMA",
+      "material_detail": "Flat cast polymethyl methacrylate, 2-sided, 10 mm (1 cm) thick",
+      "fuel_group": "thick_pmma",
+      "sample_length_cm": 18.0,
+      "sample_width_cm": 41.0,
+      "sample_thickness_mm": 10.0,
+      "initial_air_flow_cm_s": 20.0,
+      "flow_direction": "Concurrent",
+      "ambient_pressure_kpa": 54.6,
+      "oxygen_mol_percent": 30.3,
+      "free_volume_m3": 16.7,
+      "pressurized_volume_m3": null,
+      "burn_duration_s": 780.0,
+      "o2_peak_heat_release_w": 3080.0,
+      "o2_total_heat_release_kj": 1280.0,
+      "fuel_avg_heat_release_w": null,
+      "fuel_total_heat_release_kj": null,
+      "max_temp_sfu_outlet_c": 77.0,
+      "max_temp_ffd_c": 21.0,
+      "co2_increase_ppm": 8539.0,
+      "co2_partial_pressure_increase_mmhg": 3.51,
+      "co_increase_ppm": 308.0,
+      "gas_calorimetry_reported": true,
+      "flow_protocol": [
+        {
+          "time_label": "0 s to 1120 s (ignition at 637 s)",
+          "time_start_s": 0.0,
+          "time_end_s": 1120.0,
+          "flow_speed_cm_s": 20.0,
+          "status": "reported",
+          "note": "Concurrent 20 cm/s flow. Continuous growth in outlet temp, O2 consumption, CO, and CO2 until flow reduction.",
+          "locator": "20240002981 p.4–5 Figs. 4–6; 20240007488 slides 16–18"
+        },
+        {
+          "time_label": "1120 s to 1420 s",
+          "time_start_s": 1120.0,
+          "time_end_s": 1420.0,
+          "flow_speed_cm_s": 5.0,
+          "status": "reported",
+          "note": "Flow reduced from 20 cm/s to 5 cm/s at 1120 s; SFU outlet CO2 and CO concentrations increased further under lower ambient flow.",
+          "locator": "20240002981 p.5 Figs. 4–6; 20240007488 slides 16–18"
+        },
+        {
+          "time_label": "1420 s",
+          "time_start_s": 1420.0,
+          "time_end_s": null,
+          "flow_speed_cm_s": 0.0,
+          "status": "reported",
+          "note": "Duct flow terminated at 1420 s (outlet traces end). Table 2 reports burn duration 780 s.",
+          "locator": "20240002981 p.5 Figs. 4–6 & Table 2 p.6; 20240007488 slides 16–18"
+        }
+      ],
+      "calorimetry_note": "O2 consumption calorimetry only; fuel consumption calorimetry cannot be estimated from camera images on thick PMMA because subsurface/surface burning is obscured (20240002981 p.4).",
+      "structured_notes": {
+        "calorimetry_method_note": "Oxygen consumption calorimetry only (3080 W peak, 1280 kJ total); thick PMMA surface regression prevents camera-based fuel-consumption estimate (20240002981 p.4).",
+        "source_discrepancy_note": null
+      },
+      "source_locators": [
+        "NTRS 20240002981 Table 1 (p.3), pp.4–6, Figs. 4–7, Table 2 (p.6)",
+        "NTRS 20240007488 slides 11, 16–21"
+      ]
+    },
+    {
+      "test_id": "VI-4",
+      "flight": "Saffire VI",
+      "flight_vehicle": "Cygnus",
+      "flight_date": "December 2023",
+      "material": "One-Sided PMMA",
+      "material_detail": "Flat cast polymethyl methacrylate, 1-sided, 5 mm (0.5 cm) thick",
+      "fuel_group": "thick_pmma",
+      "sample_length_cm": 18.0,
+      "sample_width_cm": 41.0,
+      "sample_thickness_mm": 5.0,
+      "initial_air_flow_cm_s": 20.0,
+      "flow_direction": "Concurrent",
+      "ambient_pressure_kpa": 55.2,
+      "oxygen_mol_percent": 28.8,
+      "free_volume_m3": 16.7,
+      "pressurized_volume_m3": null,
+      "burn_duration_s": 1200.0,
+      "o2_peak_heat_release_w": 1507.0,
+      "o2_total_heat_release_kj": 830.0,
+      "fuel_avg_heat_release_w": null,
+      "fuel_total_heat_release_kj": null,
+      "max_temp_sfu_outlet_c": 57.0,
+      "max_temp_ffd_c": 21.0,
+      "co2_increase_ppm": 8117.0,
+      "co2_partial_pressure_increase_mmhg": 3.37,
+      "co_increase_ppm": 320.0,
+      "gas_calorimetry_reported": true,
+      "flow_protocol": [
+        {
+          "time_label": "Burn duration 1200 s (initial flow 20 cm/s)",
+          "flow_speed_cm_s": 20.0,
+          "status": "reported",
+          "note": "Longest reported burn duration (1200 s) with highest reported FFD CO increase (320 ppm) at lower peak HRR (1507 W).",
+          "locator": "20240002981 Table 1 p.3, Fig. 3 p.4, & Table 2 p.6"
+        }
+      ],
+      "structured_notes": {
+        "calorimetry_method_note": "Oxygen consumption calorimetry only (1507 W peak, 830 kJ total); thick PMMA excludes fuel consumption calorimetry column.",
+        "source_discrepancy_note": null
+      },
+      "source_locators": [
+        "NTRS 20240002981 Table 1 (p.3), p.4, & Table 2 (p.6)",
+        "NTRS 20240007488 slides 11, 13, & 20"
+      ]
+    }
+  ],
+  "vi3_timeline": {
+    "test_id": "VI-3",
+    "ignition_time_s": 637.0,
+    "alarm_threshold_mg_m3": 1.0,
+    "alarm_threshold_time_s": 981.0,
+    "flow_reduced_time_s": 1120.0,
+    "flow_reduced_from_cm_s": 20.0,
+    "flow_reduced_to_cm_s": 5.0,
+    "flow_terminated_time_s": 1420.0,
+    "reported_burn_duration_s": 780.0,
+    "events": [
+      {
+        "event_id": "start",
+        "time_s": 0.0,
+        "kind": "reported",
+        "label": "Pre-ignition duct flow stabilized at 20 cm/s",
+        "detail": "Concurrent forced flow in SFU at 54.6 kPa and 30.3 mol% O2.",
+        "locator": "NTRS 20240002981 Table 1 (p.3) & Figs. 4–6 (p.5)"
+      },
+      {
+        "event_id": "ignition",
+        "time_s": 637.0,
+        "kind": "reported",
+        "label": "VI-3 Ignition",
+        "detail": "Hot-wire ignition occurred at 637 s (indicated by igniter current peak and flame traces in presentation slides 16–18).",
+        "locator": "NTRS 20240007488 slides 16, 17, 18"
+      },
+      {
+        "event_id": "alarm_threshold",
+        "time_s": 981.0,
+        "kind": "reported",
+        "label": "Authors' selected smoke-concentration threshold crossed at 981 s",
+        "detail": "Using a selected smoke mass concentration criterion of 1 mg/m³, the authors report a threshold crossing at 981 s in the FFD measurements, after much hazardous gas release. Figure 7 separately plots ionization-detector voltage and DustTrak mass concentration; this is not evidence of a calibrated 1 mg/m³ ionization-alarm setting.",
+        "locator": "NTRS 20240002981 p.5; NTRS 20240007488 slide 21"
+      },
+      {
+        "event_id": "flow_reduced",
+        "time_s": 1120.0,
+        "kind": "reported",
+        "label": "Flow step down: 20 cm/s -> 5 cm/s",
+        "detail": "Duct flow was reduced to 5 cm/s at 1120 s; outlet CO and CO2 levels climbed under lower flow dilution.",
+        "locator": "NTRS 20240002981 p.5 Figs. 4–6; NTRS 20240007488 slides 16–18"
+      },
+      {
+        "event_id": "flow_terminated",
+        "time_s": 1420.0,
+        "kind": "reported",
+        "label": "Duct flow terminated",
+        "detail": "SFU duct fan flow ended at 1420 s; reported Table 2 burn duration is 780 s.",
+        "locator": "NTRS 20240002981 p.5 Figs. 4–6 & Table 2 p.6; NTRS 20240007488 slides 16–18"
+      }
+    ]
+  },
+  "detection_evidence": [
+    {
+      "evidence_id": "DET-A",
+      "category": "saffire_vi3_alarm_timing",
+      "title": "Saffire VI-3 authors' selected smoke-concentration threshold (981 s at 1 mg/m³)",
+      "reported_metrics": {
+        "ignition_time_s": 637.0,
+        "alarm_threshold_time_s": 981.0,
+        "alarm_threshold_mg_m3": 1.0,
+        "flow_reduced_time_s": 1120.0,
+        "flow_terminated_time_s": 1420.0
+      },
+      "derived_note": "Derived elapsed time 344 s (= 981 s - 637 s) from slide-annotated ignition (20240007488 slides 16–18) and NTRS-reported authors' selected 1 mg/m³ tight alarm threshold crossing (20240002981 p.5). It is not verbatim labeled 'alarm latency' by NASA.",
+      "summary": "In Saffire VI-3, the authors report crossing their selected 1 mg/m³ smoke-concentration criterion at 981 s, after much hazardous gas release. Figure 7 separately plots ionization-detector voltage and DustTrak mass concentration.",
+      "limitations": "The selected mass-concentration criterion is not a demonstrated calibrated ionization-detector alarm setting. These FFD measurements in unmanned Cygnus do not establish crewed ISS/Orion operational alarm logic.",
+      "locators": [
+        "NTRS 20240002981 p.5 & Fig. 7",
+        "NTRS 20240007488 slides 16–19 & 21"
+      ],
+      "source_ids": [
+        "NTRS-20240002981",
+        "NTRS-20240007488"
+      ]
+    },
+    {
+      "evidence_id": "DET-B",
+      "category": "same_detector_bias",
+      "title": "SAME / SAME-2 (ISS): No single detector fits all smoke particle sizes",
+      "reported_metrics": {
+        "missions": "SAME-1 (2007) & SAME-2 (Jul–Sep 2010, ISS Expedition 24)",
+        "flow_range_cm_s": "0 (quiescent) to 8 cm/s",
+        "aging_time_range_s": "11 to 1800 s",
+        "typical_average_size_nm": "200–400 nm (larger under quiescent/zero-flow conditions)"
+      },
+      "summary": "Overheated cellulose, Kapton, silicone rubber, Teflon, and Pyrell in ISS microgravity showed strong detector bias by particle size: the ISS light-scattering photoelectric detector easily picked up larger particles from cellulose, silicone, and Pyrell but frequently failed to detect smaller particles from Teflon and Kapton (widely used in electronics); the Shuttle ionization detector fared slightly better for Teflon and submicron particulate.",
+      "limitations": "Primary verification comes from public NIST release (May 1, 2018), local AIAA 2012-3536 SAME-2 paper (20130000422), and Fortenberry NTRS 20220009167 slide 7. Fire Safety Journal Vol. 98 pp.74–81 full text (DOI 10.1016/j.firesaf.2018.04.004) is paywalled and unread; quantitative percentage sensitivity figures are omitted.",
+      "locators": [
+        "NIST news node/1335761 (May 1, 2018)",
+        "AIAA 2012-3536 / NTRS 20130000422 pp.1–2, 11–12",
+        "NTRS 20220009167 slides 6–8"
+      ],
+      "source_ids": [
+        "NIST-1335761",
+        "LOCAL-SAME2-20130000422",
+        "NTRS-20220009167",
+        "FSJ-2018-ABSTRACT"
+      ]
+    },
+    {
+      "evidence_id": "DET-C",
+      "category": "fortenberry_particle_size",
+      "title": "Saffire IV–V Aerosol Size Distribution (Fortenberry, June 2022): Submicron PM1 dominance & screen clogging",
+      "reported_metrics": {
+        "instrument": "DustTrak DRX (Model 8533) & modified First Alert Ionization Chambers at FFD",
+        "dominant_fraction": "PM1 (dp <= 1 µm)",
+        "larger_fraction_threshold_um": "> 4 µm (higher in PMMA events than SIBAL or cotton jersey)"
+      },
+      "summary": "Particle mass concentration at the Far Field Diagnostics unit was dominated by submicron particles (PM1, dp <= 1 µm) across all five measured burn events in Saffire IV and V, while PMMA burns produced higher concentrations of larger particles (dp > 4 µm) compared with SIBAL or cotton jersey.",
+      "limitations": "Crucial experimental caveat on slide 13: avionics temperatures and imagery indicated clogging of the SFU outlet screen, meaning FFD measurements likely missed a significant fraction of larger particles.",
+      "locators": [
+        "NTRS 20220009167 slides 11–14 (Claire Fortenberry, PhD, USRA / NASA GRC, June 15, 2022)"
+      ],
+      "source_ids": [
+        "NTRS-20220009167"
+      ]
+    }
+  ],
+  "unresolved_items": [
+    {
+      "id": "UNRES-FSJ-PAYWALL",
+      "field": "DET-B (Fire Safety Journal 98:74–81)",
+      "status": "paywalled_unread",
+      "detail": "CrossRef metadata confirmed for DOI 10.1016/j.firesaf.2018.04.004 (June 2018), but publisher full text is behind a paywall. Quantitative per-material percentage tables from FSJ are excluded rather than estimated."
+    },
+    {
+      "id": "UNRES-V3-V4-GASES",
+      "field": "Saffire V-3 & V-4 gas and calorimetry columns",
+      "status": "unreported_in_source",
+      "detail": "Saffire V-3 and V-4 appear in NTRS 20210011521 Table 1 (test conditions) and narrative text, but are omitted from NTRS 20240002981 Table 1 and Table 2. All gas/temperature/HRR values remain strictly null."
+    },
+    {
+      "id": "UNRES-VI2-TOTAL-HEAT",
+      "field": "VI-2 O2 consumption (580 kJ) vs Fuel consumption (409 kJ)",
+      "status": "dual_method_reported",
+      "detail": "NTRS 20240002981 Table 2 reports both 580 kJ (O2 peak 3217 W) and 409 kJ (fuel avg 3650 W) and states (p.4) both methods agree within ~15%. No separate cause is hypothesized for the 580 vs 409 kJ total-energy difference."
+    },
+    {
+      "id": "UNRES-WIDTH-40-VS-41",
+      "field": "Saffire IV–VI sample width (40 cm vs 41 cm)",
+      "status": "minor_document_variance",
+      "detail": "NTRS 20210011521 abstract (p.1) writes '40 cm wide' whereas 20210011521 Table 2 (p.8), 20240002981 (p.2), and 20240007488 (slide 12) report 41 cm. 41 cm is retained with this variance documented."
+    },
+    {
+      "id": "UNRES-SAME-LOCAL-CSVS",
+      "field": "Local PSI-101 (SAME-R) & PSI-102 (SAME) CSVs",
+      "status": "partial_local_coverage",
+      "detail": "Local CSVs PSI-101 and PSI-102 record sample materials, airflow, aging durations, Rt/R0, and weight loss rates, without direct detector alarm-response columns."
+    }
+  ],
+  "passages": [
+    {
+      "chunk_id": "SC-NTRS20240002981-P2",
+      "document_id": "NTRS-20240002981",
+      "investigation_id": "SAFFIRE-CASE",
+      "section_number": "I-II",
+      "section_title": "Saffire VI Experimental Hardware & IV/V Calorimetry Limitation",
+      "source_text": "Saffire IV–VI spanned 1.5 to 3.2 kW fires across 17 to 19 m³ free air volumes in orbiting Cygnus vehicles (samples 41 cm wide; SIBAL cloth 50 cm long; 2-sided PMMA 1 cm thick, 18 cm long; 1-sided PMMA 0.5 cm thick, 18 cm long). On Saffire IV and V, the SFU outlet gas sensor had been moved from the verified mixing location so outlet gas measurements could not provide oxygen-consumption calorimetry for high-heat-release PMMA tests; for Saffire VI the sensor was moved back to the verified mixed outlet location.",
+      "printed_page_start": "2",
+      "printed_page_end": "2",
+      "pdf_page_start": 2,
+      "pdf_page_end": 2,
+      "source_url": "https://ntrs.nasa.gov/citations/20240002981",
+      "source_relpath": "data/processed/saffire_case_reference.json"
+    },
+    {
+      "chunk_id": "SC-NTRS20240002981-P3-T1",
+      "document_id": "NTRS-20240002981",
+      "investigation_id": "SAFFIRE-CASE",
+      "section_number": "II",
+      "section_title": "Table 1 Test Conditions (IV-1, V-2, VI-2, VI-3, VI-4)",
+      "source_text": "Before testing, Cygnus free volume was measured by CO2 release, followed by venting and O2 backfill. Executed conditions in Table 1: IV-1 (SIBAL, 50 cm, 20 cm/s Concurrent, 100.0 kPa, 22.0 mol% O2, 17.9 m³); V-2 (Cotton Jersey, 50 cm, 20 cm/s Concurrent, 70.7 kPa, 26.2 mol% O2, 19.0 m³); VI-2 (SIBAL, 50 cm, 20 cm/s Concurrent, 54.1 kPa, 31.0 mol% O2, 16.7 m³); VI-3 (Two-Sided PMMA, 18 cm, 20 cm/s Concurrent, 54.6 kPa, 30.3 mol% O2, 16.7 m³); VI-4 (One-Sided PMMA, 18 cm, 20 cm/s Concurrent, 55.2 kPa, 28.8 mol% O2, 16.7 m³). Nomex on Saffire VI did not ignite.",
+      "printed_page_start": "3",
+      "printed_page_end": "4",
+      "pdf_page_start": 3,
+      "pdf_page_end": 4,
+      "source_url": "https://ntrs.nasa.gov/citations/20240002981",
+      "source_relpath": "data/processed/saffire_case_reference.json"
+    },
+    {
+      "chunk_id": "SC-NTRS20240002981-P4-CAL",
+      "document_id": "NTRS-20240002981",
+      "investigation_id": "SAFFIRE-CASE",
+      "section_number": "III",
+      "section_title": "Heat Release Dual Methods (Oxygen vs Fuel Consumption Calorimetry)",
+      "source_text": "Heat release was calculated from oxygen consumption using Huggett's factor of 13.1 kJ per gram of oxygen consumed (Table 2: VI-2 peak 3217 W / 580 kJ total; VI-3 peak 3080 W / 1280 kJ total; VI-4 peak 1507 W / 830 kJ total). Fuel consumption calorimetry estimated heat release from fuel consumption / spread rate for thin materials (IV-1 avg 3150 W / 409 kJ; V-2 avg 2800 W / 560 kJ; VI-2 avg 3650 W / 409 kJ). For thick PMMA slabs, surface regression obscures burning rate from cameras so fuel-consumption calorimetry is omitted. For VI-2 SIBAL both methods were used and authors state they agree within 15%.",
+      "printed_page_start": "4",
+      "printed_page_end": "6",
+      "pdf_page_start": 4,
+      "pdf_page_end": 6,
+      "source_url": "https://ntrs.nasa.gov/citations/20240002981",
+      "source_relpath": "data/processed/saffire_case_reference.json"
+    },
+    {
+      "chunk_id": "SC-NTRS20240002981-P5-ALARM",
+      "document_id": "NTRS-20240002981",
+      "investigation_id": "SAFFIRE-CASE",
+      "section_number": "III",
+      "section_title": "Saffire VI-3 Flow Schedule, 981 s Detection Threshold, and SMAC / NASA-STD-3001 Comparison",
+      "source_text": "Curated paraphrase, not a verbatim quotation. In Saffire VI-3 (two-sided PMMA), duct flow was reduced from 20 cm/s to 5 cm/s at 1120 s and terminated at 1420 s; under 5 cm/s flow, SFU outlet CO2 and CO rose higher. The authors report crossing their selected smoke mass concentration criterion of 1 mg/m³ at 981 s, after much hazardous gas release. Figure 7 separately plots ionization-detector voltage and DustTrak mass concentration; this does not establish a calibrated ionization-alarm setting in mg/m³. Near the FFD, temperature rose only slightly (20–25 °C vs 45–77 °C at SFU outlet). The authors compare CO increases with CO SMAC benchmarks (24-hour: 100 ppm; 1-hour: 425 ppm, JSC 20584 Rev A) and CO2 increases with the 3 mmHg 1-hour average limit in NASA-STD-3001 Vol 2 Rev D. Table 2 reports ΔCO = 80, 83, 120, 308, 320 ppm and ΔCO2 = 3.51 mmHg for VI-3 and 3.37 mmHg for VI-4. These reported increases do not establish time-averaged human exposure or a crew exposure-limit violation. Thin fuels had lower ΔCO2 (1390–2800 ppm, 1.03–1.26 mmHg) and ΔCO (80–120 ppm) than thick PMMA (8117–8539 ppm CO2, 3.37–3.51 mmHg, 308–320 ppm CO).",
+      "printed_page_start": "5",
+      "printed_page_end": "6",
+      "pdf_page_start": 5,
+      "pdf_page_end": 6,
+      "source_url": "https://ntrs.nasa.gov/citations/20240002981",
+      "source_relpath": "data/processed/saffire_case_reference.json"
+    },
+    {
+      "chunk_id": "SC-NTRS20240007488-S16-21",
+      "document_id": "NTRS-20240007488",
+      "investigation_id": "SAFFIRE-CASE",
+      "section_number": "Slides 16–21",
+      "section_title": "Saffire VI-3 Ignition at 637 s, Flow Steps, and Conclusions",
+      "source_text": "Saffire VI flew in December 2023 (Saffire IV in May 2020, Saffire V in January 2021). Slides 16–18 annotate Saffire VI-3 traces: Ignition at 637 s, flow reduced from 20 cm/s to 5 cm/s at 1120 s, and duct flow terminated at 1420 s. Slide 20 lists Table 2 alongside the 3 mmHg 1-hour CO2 limit and 425 ppm (1-hour) / 100 ppm (24-hour) CO limits. Slide 21 concludes heat from these 1.5–3.2 kW spacecraft fires was localized near the fire, while smoke and gaseous products were the principal hazard.",
+      "printed_page_start": "Slide 4, 16–21",
+      "printed_page_end": "Slide 21",
+      "pdf_page_start": 16,
+      "pdf_page_end": 21,
+      "source_url": "https://ntrs.nasa.gov/citations/20240007488",
+      "source_relpath": "data/processed/saffire_case_reference.json"
+    },
+    {
+      "chunk_id": "SC-NTRS20210011521-V3-V4",
+      "document_id": "NTRS-20210011521",
+      "investigation_id": "SAFFIRE-CASE",
+      "section_number": "II-III",
+      "section_title": "Saffire V-3 and V-4 Conditions and Unreported Gas/Heat Status",
+      "source_text": "NTRS 20210011521 (ICES-2021-266) Table 1 (p.3) documents V-3 (1-sided 5 mm PMMA, 18 cm long, 20 cm/s concurrent flow, 71.3 kPa, 25.4 mol% O2, 19.0 m³ free volume) and V-4 (structured ribbed PMMA 1–10 mm ribs / 3 mm high, 20 cm long, 20 cm/s opposed flow, 72.6 kPa, 25.7 mol% O2, 19.0 m³ free volume). On p.5–6, reducing flow from 20 cm/s to 5 cm/s for 300 s cooled V-3 and V-4 enough for immediate extinction when fan stopped. On p.7 Fig.8, V-4 exhibited an initial ignition deflagration (~645 s radiometer peak, expanding in 100 ms). On p.9, V-3 concurrent PMMA flame grew to a limiting 11 cm length after 450 s. Neither V-3 nor V-4 has published gas (CO/CO2) or calorimetry values in NTRS 20240002981.",
+      "printed_page_start": "3",
+      "printed_page_end": "9",
+      "pdf_page_start": 3,
+      "pdf_page_end": 9,
+      "source_url": "https://ntrs.nasa.gov/citations/20210011521",
+      "source_relpath": "data/processed/saffire_case_reference.json"
+    },
+    {
+      "chunk_id": "SC-NIST-1335761-SAME",
+      "document_id": "NIST-1335761",
+      "investigation_id": "SAFFIRE-CASE",
+      "section_number": "NIST Release",
+      "section_title": "SAME ISS Detector Size Bias (Meyer / Cleary, NIST May 1, 2018)",
+      "source_text": "In the Smoke and Aerosol Measurement Experiment (SAME) on the ISS (2007 and 2010), overheated cellulose, Kapton, silicone rubber, Teflon, and Pyrell were tested across heating rates, flows (up to 8 cm/s vs zero flow), and aging. Lead author Marit Meyer reported that the ISS light-scattering photoelectric detector easily detected larger particles from cellulose, silicone, and Pyrell, but frequently failed to detect smaller smoke particles from Teflon and Kapton (used heavily in electronics), while the Space Shuttle ionization detector fared only slightly better for Teflon. Researchers concluded no single current detection method detects all smoke particle sizes.",
+      "printed_page_start": "Web 2018-05-01",
+      "printed_page_end": "Web 2018-05-01",
+      "pdf_page_start": 1,
+      "pdf_page_end": 1,
+      "source_url": "https://www.nist.gov/node/1335761",
+      "source_relpath": "data/processed/saffire_case_reference.json"
+    },
+    {
+      "chunk_id": "SC-NTRS20220009167-FORTENBERRY",
+      "document_id": "NTRS-20220009167",
+      "investigation_id": "SAFFIRE-CASE",
+      "section_number": "Slides 7–14",
+      "section_title": "Fortenberry (2022): Saffire IV–V Submicron PM1 Dominance & Screen Clogging",
+      "source_text": "Claire Fortenberry (USRA / NASA GRC, June 15, 2022) slides 11–14 show DustTrak DRX (PM1, PM2.5, PM4, PM10) and modified First Alert ionization chamber measurements at FFD in Saffire IV and V. Particle mass concentration was dominated by submicron particles (PM1, dp <= 1 µm) across all five burn events measured. PMMA events produced higher concentrations of larger particles (dp > 4 µm) compared to SIBAL or cotton jersey. However, slide 13 explicitly warns that avionics temperatures and imagery indicated clogging of the SFU outlet screen, so FFD measurements likely missed a significant fraction of larger particles.",
+      "printed_page_start": "Slide 11–14",
+      "printed_page_end": "Slide 14",
+      "pdf_page_start": 11,
+      "pdf_page_end": 14,
+      "source_url": "https://ntrs.nasa.gov/citations/20220009167",
+      "source_relpath": "data/processed/saffire_case_reference.json"
+    },
+    {
+      "chunk_id": "SC-SAME2-20130000422",
+      "document_id": "LOCAL-SAME2-20130000422",
+      "investigation_id": "SAFFIRE-CASE",
+      "section_number": "AIAA 2012-3536",
+      "section_title": "SAME-2 Expedition 24 Aerosol Moments and Ionization vs Light Scattering Sensitivity",
+      "source_text": "SAME-2 (Expedition 24, July–September 2010) measured zero-, first-, and third-moment smoke aerosol distributions from Teflon, Kapton, cotton lampwick, silicone rubber, and Pyrell across 0–8 cm/s flow and 11–1800 s aging. Average smoke particle sizes were mostly 200–400 nm (larger by 2–3x for zero flow vs 8 cm/s flow). Space Shuttle ionization detectors (proportional to first moment) readily detected submicron particulates from all five materials, whereas ISS near-IR forward scattering detectors are most sensitive to particles larger than 1 µm.",
+      "printed_page_start": "1–2, 11–12",
+      "printed_page_end": "12",
+      "pdf_page_start": 1,
+      "pdf_page_end": 12,
+      "source_url": "https://ntrs.nasa.gov/citations/20130000422",
+      "source_relpath": "data/raw/psi/same_r_probe/20130000422_same2.pdf"
+    }
+  ]
+}

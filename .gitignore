@@ -1,0 +1,91 @@
+# ==============================================================================
+# .gitignore — NASA Space Apps Challenge (Flame in Freefall)
+# ==============================================================================
+# DİKKAT: .gitignore mekanizması dosya boyutuna göre otomatik filtreleme YAPMAZ.
+# Yalnızca dosya adı, klasör ve uzantı desenlerine göre çalışır.
+# Ekip tercihi olarak 50 MB üzerindeki büyük dosyalar depoya commit edilmemelidir.
+# ==============================================================================
+
+# 1. Ortam Değişkenleri ve Gizli Anahtarlar (Secrets & Credentials)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.pkcs12
+*.pfx
+secrets.json
+credentials.json
+token.json
+id_rsa
+id_ecdsa
+id_ed25519
+
+# 2. Sanal Ortamlar (Python Virtual Environments)
+venv/
+.venv/
+env/
+.env/
+ENV/
+env.bak/
+venv.bak/
+
+# 3. Python Derleme ve Önbellek Dosyaları (Bytecode & Caches)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# 4. Yerel Ham Veri, İndirmeler ve Büyük Arşivler
+# (Not: docs/ altındaki araştırma belgeleri hariç tutulmaz)
+data/raw/
+data/interim/
+data/cache/
+downloads/
+temp/
+tmp/
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.gz
+*.7z
+*.rar
+*.mp4
+*.avi
+*.mov
+*.mkv
+
+# 5. Kişiye Özel IDE ve Editör Dosyaları
+.vscode/
+!.vscode/settings.json.example
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# 6. Sistem ve Çalışma Günlükleri (Logs)
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 7. Node Bağımlılıkları, Geçici Derleme ve Yerel Scratch
+node_modules/
+web/node_modules/
+dist/
+scratch/
+
+
+# 9. Paket kurulum artıkları
+*.egg-info/
+build/

@@ -1,0 +1,48 @@
+/* Shared navigation pill. Used by every page through js/nav.js. All selectors are prefixed gn- so it can sit on top of other stylesheets. */
+.gn-nav { --gn-cream: #f3ebe0; --gn-dim: #c9c4bb; --gn-ink: #15161c;
+  position: fixed; left: 50%; top: 16px; transform: translateX(-50%); z-index: 1000; width: min(720px, calc(100% - 24px)); height: 64px; border-radius: 999px;
+  display: flex; align-items: center; justify-content: space-between; padding: 0 12px; box-sizing: border-box;
+  background: rgba(14, 16, 22, .84); border: 1px solid rgba(243, 235, 224, .16); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  font: 500 15px/1.2 "Inter", "Segoe UI", system-ui, sans-serif; }
+.gn-grp { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2px; width: calc(50% - 56px); }
+.gn-it { display: flex; align-items: center; justify-content: center; padding: 10px 12px; border-radius: 999px; color: var(--gn-dim); text-align: center; text-decoration: none; white-space: nowrap; }
+a.gn-it:hover { background: rgba(243, 235, 224, .1); color: var(--gn-cream); }
+.gn-it.on { background: var(--gn-cream); color: var(--gn-ink); }
+.gn-it.off { color: #5d6573; cursor: default; }
+.gn-brand-wrap { position: absolute; left: 50%; top: 50%; width: 200px; height: 64px; transform: translate(-50%, -50%); pointer-events: none; }
+.gn-badge { position: absolute; left: 50%; top: 50%; width: 72px; height: 72px; transform: translate(-50%, -50%); border-radius: 50%; background: #121218;
+  border: 1px solid rgba(243, 235, 224, .22); overflow: hidden; box-shadow: 0 0 0 6px rgba(14, 16, 22, .84); pointer-events: auto; }
+.gn-badge:hover { border-color: rgba(243, 235, 224, .48); }
+.gn-badge img { position: absolute; left: 50%; top: 50%; width: 196%; transform: translate(-50%, -50%); }
+.gn-nav a:focus-visible { outline: 2px solid var(--gn-cream); outline-offset: 2px; }
+.gn-skip { position: fixed; left: -999px; top: 8px; z-index: 1001; background: #f3ebe0; color: #15161c; padding: 8px 14px; border-radius: 999px; font: 500 14px "Inter", system-ui, sans-serif; }
+.gn-skip:focus { left: 12px; }
+.gn-short { display: none; }
+@media (max-width: 520px) {
+  .gn-full { display: none; }
+  .gn-short { display: inline; }
+}
+@media (max-width: 860px) {
+  .gn-nav { left: 10px; right: 56px; width: auto; transform: none; padding: 0 8px; }
+}
+@media (max-width: 640px) {
+  .gn-it { padding: 8px 7px; font-size: 12.5px; }
+  .gn-it.off { display: none; }
+  .gn-grp { width: calc(50% - 28px); gap: 1px; }
+  .gn-brand-wrap { width: 126px; height: 64px; }
+  .gn-badge { width: 46px; height: 46px; box-shadow: 0 0 0 4px rgba(14, 16, 22, .84); }
+}
+
+/* language button, top right, level with the pill */
+.gn-lang { position: fixed; top: 28px; right: 24px; z-index: 1000; width: 40px; height: 40px; border-radius: 50%; padding: 0; border: 1px solid rgba(243, 235, 224, .16);
+  background: rgba(14, 16, 22, .84); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); color: #f3ebe0; font: 500 13px/1 "Inter", system-ui, sans-serif; cursor: pointer; }
+.gn-lang:hover { background: rgba(243, 235, 224, .14); }
+.gn-lang:focus-visible { outline: 2px solid #f3ebe0; outline-offset: 2px; }
+@media (max-width: 860px) { .gn-lang { top: 30px; right: 12px; width: 38px; height: 38px; font-size: 12px; } }
+
+/* Reveal on upward scroll; preserve the existing desktop/mobile alignment. */
+.gn-nav, .gn-lang { transition: transform .28s ease, opacity .28s ease; }
+.gn-nav.gn-hidden { transform: translate(-50%, calc(-100% - 32px)); opacity: 0; pointer-events: none; }
+.gn-lang.gn-hidden { transform: translateY(-90px); opacity: 0; pointer-events: none; }
+@media (max-width: 860px) { .gn-nav.gn-hidden { transform: translateY(calc(-100% - 32px)); } }
+@media (prefers-reduced-motion: reduce) { .gn-nav, .gn-lang { transition: none; } }

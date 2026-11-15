@@ -1,0 +1,39 @@
+/* Scenario Evidence Check panel (fire page, under the animation). Uses the page's own colour tokens. */
+.sc-panel { margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--rule); }
+.sc-panel h2 { font-family: var(--serif, Georgia, serif); font-size: 24px; margin: 0 0 6px; }
+.sc-panel .sc-lead { color: var(--muted); font-size: 14px; margin: 0 0 12px; max-width: 70ch; }
+.sc-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: end; margin-bottom: 8px; }
+.sc-row label { font-size: 13px; color: var(--muted); display: flex; flex-direction: column; gap: 4px; }
+.sc-row select, .sc-row input { padding: 7px 9px; font: inherit; }
+.sc-cond { font-size: 13px; color: var(--muted); margin: 0 0 12px; }
+.sc-badge { display: inline-block; font-weight: 600; letter-spacing: .08em; padding: 3px 12px; border-radius: 4px; color: #fff; margin-right: 8px; }
+.sc-badge.TESTED { background: #2f8f64; }
+.sc-badge.PARTIAL { background: #e8b45c; color: #15161c; }
+.sc-badge.GAP { background: #c4452b; }
+.sc-panel h3 { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin: 16px 0 6px; font-weight: 600; }
+.sc-panel ul { margin: 0; padding-left: 20px; }
+.sc-panel table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.sc-panel th, .sc-panel td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--rule); }
+.sc-panel .sc-note { color: var(--muted); font-size: 12.5px; margin-top: 14px; }
+.sc-tablewrap { overflow-x: auto; }
+/* the map scrolls inside its own box, so on a phone it never widens the page */
+#sc-map { min-width: 0; max-width: 100%; overflow-x: auto; contain: inline-size; }
+.sc-panel { min-width: 0; max-width: 100%; }
+.layout > .col { min-width: 0; }
+.sc-grid { display: grid; gap: 2px; max-width: 760px; min-width: 430px; }
+.sc-mh { font-size: 11px; color: var(--muted); text-align: center; align-self: center; }
+.sc-cell { border: 0; border-radius: 2px; padding: 0; min-width: 22px; height: 22px; font: 600 11px var(--font, sans-serif); color: #fff; cursor: pointer; }
+.sc-cell.TESTED { background: #2f8f64; }
+.sc-cell.PARTIAL { background: #e8b45c; color: #15161c; }
+.sc-cell.GAP { background: #4a2a24; color: #e9b8ad; }
+.sc-cell.now { outline: 2px solid var(--ink, #fff); outline-offset: 1px; position: relative; z-index: 1; }
+.sc-cell:focus-visible { outline: 2px solid var(--ink, #fff); outline-offset: 1px; }
+#sc-map { margin-top: 8px; }
+.sc-report { margin: 0 0 22px; padding: 14px 0; border-bottom: 1px solid var(--rule); }
+.sc-report h3 { margin-top: 0; }
+.sc-rb[aria-pressed="true"] { outline: 2px solid var(--ink, #fff); outline-offset: 2px; }
+.sc-warn { border-left: 3px solid var(--gap, #e8b45c); padding: 4px 0 4px 10px; margin: 0 0 8px; font-size: 13.5px; color: var(--ink, #fff); max-width: 70ch; }
+.sc-hint { color: var(--gap, #e8b45c); font-size: 13px; margin: 0 0 8px; }
+.sc-hint:empty { display: none; }
+.sc-reptable td { vertical-align: top; }
+.sc-reptable .sc-badge { font-size: 12px; padding: 2px 8px; margin-right: 0; }

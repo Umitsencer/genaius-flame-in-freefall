@@ -1,0 +1,8878 @@
+{
+  "schema_version": "1.0.0",
+  "model_version": "flex_phys_v1",
+  "training_data_path": "data/raw/psi/experimental_tables/PSI-69/PSI-69_Experimental table_FLEX.csv",
+  "training_data_sha256": "37c88ce8ae9391b7544ff630a45ce87543d04d317cdbfbed104fe7d5c27e1b96",
+  "disclaimer": "Trained exclusively on NASA/PSI-69 FLEX single free-floating droplet microgravity tests (Methanol and Heptane only). Extinction score reflects empirical test frequency against Completion + Disruption (excluding post-test variables and FLEX-114 P=0 anomaly); it is NOT a calibrated spacecraft fire-safety probability and has a grouped-CV false-positive rate of ~40% on Non-Extinction tests (confounded by Section 5.2 needle-contamination Disruptions and rare Completions). Local Shapley contributions reflect observational association, not causal proof.",
+  "eligibility": {
+    "psi69_total_rows": 274,
+    "classification_usable_rows": 261,
+    "classification_excluded": [
+      {
+        "test_id": "9",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "24",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "53",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "80",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "81",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "83",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "96",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "114",
+        "reason": "corrupted_nonpositive_ambient_pressure"
+      },
+      {
+        "test_id": "138",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "210",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "223",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "237",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "242",
+        "reason": "missing_droplet_initial_diameter_mm"
+      }
+    ],
+    "regression_usable_rows": 257,
+    "regression_excluded": [
+      {
+        "test_id": "9",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "12",
+        "reason": "missing_burning_rate_mm2_s"
+      },
+      {
+        "test_id": "14",
+        "reason": "missing_burning_rate_mm2_s"
+      },
+      {
+        "test_id": "15",
+        "reason": "missing_burning_rate_mm2_s"
+      },
+      {
+        "test_id": "17",
+        "reason": "missing_burning_rate_mm2_s"
+      },
+      {
+        "test_id": "24",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "53",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "80",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "81",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "83",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "96",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "114",
+        "reason": "corrupted_nonpositive_ambient_pressure"
+      },
+      {
+        "test_id": "138",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "210",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "223",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "237",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "242",
+        "reason": "missing_droplet_initial_diameter_mm"
+      }
+    ],
+    "post_test_leakage_excluded": [
+      "burn_time_s",
+      "visible_flame_extinction_diameter_mm",
+      "burning_rate_mm2_s",
+      "test_end"
+    ]
+  },
+  "regression_model": {
+    "weights": [
+      0.5022178988326851,
+      -0.01745658600382073,
+      0.08726816931666591,
+      -0.023941746862367833,
+      0.04939635114751127,
+      0.009410753559654022,
+      -0.04359428096003251,
+      0.030068482997446418,
+      0.01487005611963779
+    ],
+    "means": [
+      0.4163424124513619,
+      0.20089494163424132,
+      0.114396887159533,
+      0.049027237354085595,
+      -0.11601913095524384,
+      2.994863813229571,
+      0.08653696498054478,
+      0.020233463035019456
+    ],
+    "stds": [
+      0.4929517299346285,
+      0.04772220862662188,
+      0.1619498351199181,
+      0.11386825634422275,
+      0.23359630568980363,
+      0.6930893458821477,
+      0.10624503465317342,
+      0.07523726393294972
+    ],
+    "l2": 2.0,
+    "n_train": 257,
+    "name": "ridge_phys8",
+    "target": "burning_rate_mm2_s",
+    "unit": "mm^2/s",
+    "transformed_features": [
+      "fuel_is_heptane",
+      "o2",
+      "co2",
+      "he",
+      "ln(P/760)",
+      "d0",
+      "o2*fuel",
+      "he*fuel"
+    ],
+    "accepted": true,
+    "cv_group_atm_p": {
+      "mae": 0.0475,
+      "rmse": 0.0738,
+      "r2": 0.7116,
+      "fold_r2": [
+        0.8861,
+        0.641,
+        0.6544,
+        0.6831,
+        0.7103
+      ],
+      "fold_r2_std": 0.0888
+    },
+    "cv_group_fuel_atm_p": {
+      "mae": 0.0485,
+      "rmse": 0.075,
+      "r2": 0.7022,
+      "fold_r2": [
+        0.6935,
+        0.782,
+        0.6832,
+        0.6266,
+        0.7434
+      ],
+      "fold_r2_std": 0.0532
+    }
+  },
+  "classification_model": {
+    "weights": [
+      1.1391262348022624,
+      -1.1067996765712849,
+      -1.6738630449270389,
+      0.07668753403209462,
+      0.43078450159172404,
+      0.05715173841728892,
+      0.4542746935423675,
+      -1.0614912274253123,
+      0.35938429768705166,
+      0.06871667557769455,
+      1.421258026406252
+    ],
+    "means": [
+      0.41379310344827586,
+      0.20103448275862074,
+      0.12337164750957845,
+      0.04827586206896551,
+      -0.09960036700490223,
+      3.000804597701149,
+      0.08601532567049812,
+      0.038888888888888896,
+      0.01992337164750958,
+      1.1934099616858238
+    ],
+    "stds": [
+      0.49251230541674823,
+      0.04736831674895165,
+      0.1760707032117201,
+      0.11315273199687431,
+      0.26719771010206445,
+      0.6952089215311916,
+      0.10610946308378147,
+      0.10344224475111041,
+      0.07469987119432059,
+      1.5006403041211682
+    ],
+    "l2": 2.0,
+    "n_train": 261,
+    "name": "logit_phys10",
+    "target": "test_end == Extinction",
+    "threshold": 0.5,
+    "transformed_features": [
+      "fuel_is_heptane",
+      "o2",
+      "co2",
+      "he",
+      "ln(P/760)",
+      "d0",
+      "o2*fuel",
+      "co2*fuel",
+      "he*fuel",
+      "d0*fuel"
+    ],
+    "accepted": true,
+    "cv_group_atm_p": {
+      "n": 261,
+      "positive_extinction": 179,
+      "negative_non_extinction": 82,
+      "confusion_matrix": {
+        "tp": 168,
+        "fp": 33,
+        "tn": 49,
+        "fn": 11
+      },
+      "accuracy": 0.8314,
+      "precision": 0.8358,
+      "recall": 0.9385,
+      "false_positive_rate_on_non_extinction": 0.4024,
+      "roc_auc": 0.8939,
+      "brier_score": 0.1161,
+      "false_positives_by_true_end": {
+        "Disruption": "21/55",
+        "Completion": "12/27"
+      },
+      "fold_auc": [
+        0.8444,
+        0.9412,
+        0.9609,
+        0.8571,
+        0.8536
+      ],
+      "fold_auc_std": 0.0492
+    },
+    "cv_group_fuel_atm_p": {
+      "n": 261,
+      "positive_extinction": 179,
+      "negative_non_extinction": 82,
+      "confusion_matrix": {
+        "tp": 171,
+        "fp": 33,
+        "tn": 49,
+        "fn": 8
+      },
+      "accuracy": 0.8429,
+      "precision": 0.8382,
+      "recall": 0.9553,
+      "false_positive_rate_on_non_extinction": 0.4024,
+      "roc_auc": 0.8801,
+      "brier_score": 0.1215,
+      "false_positives_by_true_end": {
+        "Disruption": "19/55",
+        "Completion": "14/27"
+      },
+      "fold_auc": [
+        0.8333,
+        0.8687,
+        0.8839,
+        0.9046,
+        0.8919
+      ],
+      "fold_auc_std": 0.0245
+    },
+    "cv_sensitivity_no_disruption": {
+      "n": 206,
+      "positive_extinction": 179,
+      "negative_non_extinction": 27,
+      "confusion_matrix": {
+        "tp": 178,
+        "fp": 17,
+        "tn": 10,
+        "fn": 1
+      },
+      "accuracy": 0.9126,
+      "precision": 0.9128,
+      "recall": 0.9944,
+      "false_positive_rate_on_non_extinction": 0.6296,
+      "roc_auc": 0.8665,
+      "brier_score": 0.0756,
+      "false_positives_by_true_end": {
+        "Disruption": "0/0",
+        "Completion": "17/27"
+      },
+      "fold_auc": [
+        0.9375,
+        0.8127,
+        0.9231,
+        0.8966,
+        0.8412
+      ],
+      "fold_auc_std": 0.0479
+    }
+  },
+  "support_reference": {
+    "distance_metric": "standardized_euclidean_within_fuel_and_diluent_regime",
+    "distance_threshold_std": 1.5,
+    "continuous_feature_names": [
+      "o2_mol_frac",
+      "co2_mol_frac",
+      "he_mol_frac",
+      "pressure_mmhg",
+      "droplet_initial_diameter_mm"
+    ],
+    "global_feature_stds": [
+      0.047368316748951644,
+      0.17607070321172008,
+      0.11315273199687427,
+      277.2332796323548,
+      0.6952089215311914
+    ],
+    "gas_sum_bounds": [
+      0.98,
+      1.01
+    ],
+    "n2_bounds": [
+      0.09,
+      0.88
+    ],
+    "regime_envelopes": {
+      "Heptane|Air": {
+        "fuel": "Heptane",
+        "diluent_regime": "Air",
+        "count": 41,
+        "bounds": {
+          "o2_mol_frac": {
+            "min": 0.13,
+            "max": 0.34
+          },
+          "co2_mol_frac": {
+            "min": 0.0,
+            "max": 0.0
+          },
+          "he_mol_frac": {
+            "min": 0.0,
+            "max": 0.0
+          },
+          "pressure_mmhg": {
+            "min": 534.9,
+            "max": 771.4
+          },
+          "droplet_initial_diameter_mm": {
+            "min": 1.1,
+            "max": 4.67
+          }
+        }
+      },
+      "Heptane|CO2": {
+        "fuel": "Heptane",
+        "diluent_regime": "CO2",
+        "count": 46,
+        "bounds": {
+          "o2_mol_frac": {
+            "min": 0.17,
+            "max": 0.25
+          },
+          "co2_mol_frac": {
+            "min": 0.05,
+            "max": 0.7
+          },
+          "he_mol_frac": {
+            "min": 0.0,
+            "max": 0.0
+          },
+          "pressure_mmhg": {
+            "min": 531.1,
+            "max": 2319.9
+          },
+          "droplet_initial_diameter_mm": {
+            "min": 1.34,
+            "max": 4.14
+          }
+        }
+      },
+      "Heptane|He": {
+        "fuel": "Heptane",
+        "diluent_regime": "He",
+        "count": 21,
+        "bounds": {
+          "o2_mol_frac": {
+            "min": 0.16,
+            "max": 0.24
+          },
+          "co2_mol_frac": {
+            "min": 0.0,
+            "max": 0.0
+          },
+          "he_mol_frac": {
+            "min": 0.05,
+            "max": 0.45
+          },
+          "pressure_mmhg": {
+            "min": 528.0,
+            "max": 766.5
+          },
+          "droplet_initial_diameter_mm": {
+            "min": 1.49,
+            "max": 3.78
+          }
+        }
+      },
+      "Methanol|Air": {
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "count": 53,
+        "bounds": {
+          "o2_mol_frac": {
+            "min": 0.12,
+            "max": 0.34
+          },
+          "co2_mol_frac": {
+            "min": 0.0,
+            "max": 0.0
+          },
+          "he_mol_frac": {
+            "min": 0.0,
+            "max": 0.0
+          },
+          "pressure_mmhg": {
+            "min": 534.3,
+            "max": 774.1
+          },
+          "droplet_initial_diameter_mm": {
+            "min": 1.61,
+            "max": 3.97
+          }
+        }
+      },
+      "Methanol|CO2": {
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "count": 74,
+        "bounds": {
+          "o2_mol_frac": {
+            "min": 0.14,
+            "max": 0.25
+          },
+          "co2_mol_frac": {
+            "min": 0.05,
+            "max": 0.7
+          },
+          "he_mol_frac": {
+            "min": 0.0,
+            "max": 0.0
+          },
+          "pressure_mmhg": {
+            "min": 526.3,
+            "max": 2319.7
+          },
+          "droplet_initial_diameter_mm": {
+            "min": 1.66,
+            "max": 4.53
+          }
+        }
+      },
+      "Methanol|He": {
+        "fuel": "Methanol",
+        "diluent_regime": "He",
+        "count": 26,
+        "bounds": {
+          "o2_mol_frac": {
+            "min": 0.13,
+            "max": 0.24
+          },
+          "co2_mol_frac": {
+            "min": 0.0,
+            "max": 0.0
+          },
+          "he_mol_frac": {
+            "min": 0.05,
+            "max": 0.45
+          },
+          "pressure_mmhg": {
+            "min": 527.6,
+            "max": 763.5
+          },
+          "droplet_initial_diameter_mm": {
+            "min": 1.84,
+            "max": 3.87
+          }
+        }
+      }
+    },
+    "reference_runs": [
+      {
+        "test_id": "1",
+        "record_pk": "PSI-69:1",
+        "csv_row": 2,
+        "flex_identifier": "20CAL08",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.21,
+        "n2_mol_frac": 0.79,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 757.7,
+        "droplet_initial_diameter_mm": 1.69,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.52
+      },
+      {
+        "test_id": "2",
+        "record_pk": "PSI-69:2",
+        "csv_row": 3,
+        "flex_identifier": "20CAL10",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.21,
+        "n2_mol_frac": 0.79,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 762.0,
+        "droplet_initial_diameter_mm": 1.86,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.6
+      },
+      {
+        "test_id": "3",
+        "record_pk": "PSI-69:3",
+        "csv_row": 4,
+        "flex_identifier": "20CAL12",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.21,
+        "n2_mol_frac": 0.79,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 764.2,
+        "droplet_initial_diameter_mm": 1.61,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.58
+      },
+      {
+        "test_id": "4",
+        "record_pk": "PSI-69:4",
+        "csv_row": 5,
+        "flex_identifier": "30CAL02",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.21,
+        "n2_mol_frac": 0.79,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 760.0,
+        "droplet_initial_diameter_mm": 2.06,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.6
+      },
+      {
+        "test_id": "5",
+        "record_pk": "PSI-69:5",
+        "csv_row": 6,
+        "flex_identifier": "30CAL03",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.21,
+        "n2_mol_frac": 0.79,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 760.0,
+        "droplet_initial_diameter_mm": 1.92,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.48
+      },
+      {
+        "test_id": "6",
+        "record_pk": "PSI-69:6",
+        "csv_row": 7,
+        "flex_identifier": "40CAL01",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.21,
+        "n2_mol_frac": 0.79,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 760.0,
+        "droplet_initial_diameter_mm": 2.54,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.51
+      },
+      {
+        "test_id": "7",
+        "record_pk": "PSI-69:7",
+        "csv_row": 8,
+        "flex_identifier": "20CAL13",
+        "fuel": "Heptane",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.21,
+        "n2_mol_frac": 0.79,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 761.3,
+        "droplet_initial_diameter_mm": 1.87,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.67
+      },
+      {
+        "test_id": "8",
+        "record_pk": "PSI-69:8",
+        "csv_row": 9,
+        "flex_identifier": "30CAL06",
+        "fuel": "Heptane",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.21,
+        "n2_mol_frac": 0.79,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 762.4,
+        "droplet_initial_diameter_mm": 2.95,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.79
+      },
+      {
+        "test_id": "10",
+        "record_pk": "PSI-69:10",
+        "csv_row": 11,
+        "flex_identifier": "256F002",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.21,
+        "n2_mol_frac": 0.09,
+        "co2_mol_frac": 0.7,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 2319.7,
+        "droplet_initial_diameter_mm": 3.86,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.37
+      },
+      {
+        "test_id": "11",
+        "record_pk": "PSI-69:11",
+        "csv_row": 12,
+        "flex_identifier": "256R001",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.21,
+        "n2_mol_frac": 0.09,
+        "co2_mol_frac": 0.7,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 2318.8,
+        "droplet_initial_diameter_mm": 3.03,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.4
+      },
+      {
+        "test_id": "12",
+        "record_pk": "PSI-69:12",
+        "csv_row": 13,
+        "flex_identifier": "264F003",
+        "fuel": "Heptane",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.21,
+        "n2_mol_frac": 0.09,
+        "co2_mol_frac": 0.7,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 2319.9,
+        "droplet_initial_diameter_mm": 2.74,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": null
+      },
+      {
+        "test_id": "13",
+        "record_pk": "PSI-69:13",
+        "csv_row": 14,
+        "flex_identifier": "256R002",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.21,
+        "n2_mol_frac": 0.09,
+        "co2_mol_frac": 0.7,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 2074.2,
+        "droplet_initial_diameter_mm": 2.59,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.49
+      },
+      {
+        "test_id": "14",
+        "record_pk": "PSI-69:14",
+        "csv_row": 15,
+        "flex_identifier": "256F007",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.21,
+        "n2_mol_frac": 0.09,
+        "co2_mol_frac": 0.7,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 2055.6,
+        "droplet_initial_diameter_mm": 3.7,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": null
+      },
+      {
+        "test_id": "15",
+        "record_pk": "PSI-69:15",
+        "csv_row": 16,
+        "flex_identifier": "256F008",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.21,
+        "n2_mol_frac": 0.09,
+        "co2_mol_frac": 0.7,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 2066.6,
+        "droplet_initial_diameter_mm": 4.42,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": null
+      },
+      {
+        "test_id": "16",
+        "record_pk": "PSI-69:16",
+        "csv_row": 17,
+        "flex_identifier": "256F009",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.21,
+        "n2_mol_frac": 0.09,
+        "co2_mol_frac": 0.7,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 2072.1,
+        "droplet_initial_diameter_mm": 1.66,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.53
+      },
+      {
+        "test_id": "17",
+        "record_pk": "PSI-69:17",
+        "csv_row": 18,
+        "flex_identifier": "240R003",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.21,
+        "n2_mol_frac": 0.09,
+        "co2_mol_frac": 0.7,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 1545.7,
+        "droplet_initial_diameter_mm": 2.67,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": null
+      },
+      {
+        "test_id": "18",
+        "record_pk": "PSI-69:18",
+        "csv_row": 19,
+        "flex_identifier": "248F001",
+        "fuel": "Heptane",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.21,
+        "n2_mol_frac": 0.09,
+        "co2_mol_frac": 0.7,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 1553.8,
+        "droplet_initial_diameter_mm": 2.74,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.61
+      },
+      {
+        "test_id": "19",
+        "record_pk": "PSI-69:19",
+        "csv_row": 20,
+        "flex_identifier": "196F001",
+        "fuel": "Heptane",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.34,
+        "n2_mol_frac": 0.66,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 539.1,
+        "droplet_initial_diameter_mm": 3.39,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.9
+      },
+      {
+        "test_id": "20",
+        "record_pk": "PSI-69:20",
+        "csv_row": 21,
+        "flex_identifier": "192F001",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.34,
+        "n2_mol_frac": 0.66,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 539.5,
+        "droplet_initial_diameter_mm": 3.4,
+        "test_end": "Completion",
+        "burning_rate_mm2_s": 0.53
+      },
+      {
+        "test_id": "21",
+        "record_pk": "PSI-69:21",
+        "csv_row": 22,
+        "flex_identifier": "192F002",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.34,
+        "n2_mol_frac": 0.66,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 540.6,
+        "droplet_initial_diameter_mm": 3.49,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.66
+      },
+      {
+        "test_id": "22",
+        "record_pk": "PSI-69:22",
+        "csv_row": 23,
+        "flex_identifier": "192F003",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.34,
+        "n2_mol_frac": 0.66,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 540.5,
+        "droplet_initial_diameter_mm": 3.5,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.65
+      },
+      {
+        "test_id": "23",
+        "record_pk": "PSI-69:23",
+        "csv_row": 24,
+        "flex_identifier": "196F002",
+        "fuel": "Heptane",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.34,
+        "n2_mol_frac": 0.66,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 541.8,
+        "droplet_initial_diameter_mm": 3.01,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.73
+      },
+      {
+        "test_id": "25",
+        "record_pk": "PSI-69:25",
+        "csv_row": 26,
+        "flex_identifier": "191R001",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.3,
+        "n2_mol_frac": 0.7,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 537.3,
+        "droplet_initial_diameter_mm": 2.6,
+        "test_end": "Completion",
+        "burning_rate_mm2_s": 0.65
+      },
+      {
+        "test_id": "26",
+        "record_pk": "PSI-69:26",
+        "csv_row": 27,
+        "flex_identifier": "191F001",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.3,
+        "n2_mol_frac": 0.7,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 538.4,
+        "droplet_initial_diameter_mm": 3.63,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.62
+      },
+      {
+        "test_id": "27",
+        "record_pk": "PSI-69:27",
+        "csv_row": 28,
+        "flex_identifier": "195F001",
+        "fuel": "Heptane",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.3,
+        "n2_mol_frac": 0.7,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 540.7,
+        "droplet_initial_diameter_mm": 3.87,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.64
+      },
+      {
+        "test_id": "28",
+        "record_pk": "PSI-69:28",
+        "csv_row": 29,
+        "flex_identifier": "195F002",
+        "fuel": "Heptane",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.3,
+        "n2_mol_frac": 0.7,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 539.7,
+        "droplet_initial_diameter_mm": 3.36,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.64
+      },
+      {
+        "test_id": "29",
+        "record_pk": "PSI-69:29",
+        "csv_row": 30,
+        "flex_identifier": "178R001",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.3,
+        "n2_mol_frac": 0.7,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 766.9,
+        "droplet_initial_diameter_mm": 2.57,
+        "test_end": "Completion",
+        "burning_rate_mm2_s": 0.74
+      },
+      {
+        "test_id": "30",
+        "record_pk": "PSI-69:30",
+        "csv_row": 31,
+        "flex_identifier": "178F001",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.3,
+        "n2_mol_frac": 0.7,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 769.2,
+        "droplet_initial_diameter_mm": 3.26,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.59
+      },
+      {
+        "test_id": "31",
+        "record_pk": "PSI-69:31",
+        "csv_row": 32,
+        "flex_identifier": "182F001",
+        "fuel": "Heptane",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.3,
+        "n2_mol_frac": 0.7,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 770.5,
+        "droplet_initial_diameter_mm": 3.39,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.85
+      },
+      {
+        "test_id": "32",
+        "record_pk": "PSI-69:32",
+        "csv_row": 33,
+        "flex_identifier": "182F002",
+        "fuel": "Heptane",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.3,
+        "n2_mol_frac": 0.7,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 771.0,
+        "droplet_initial_diameter_mm": 3.07,
+        "test_end": "Completion",
+        "burning_rate_mm2_s": 0.68
+      },
+      {
+        "test_id": "33",
+        "record_pk": "PSI-69:33",
+        "csv_row": 34,
+        "flex_identifier": "177R002",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.21,
+        "n2_mol_frac": 0.79,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 764.5,
+        "droplet_initial_diameter_mm": 2.62,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.48
+      },
+      {
+        "test_id": "34",
+        "record_pk": "PSI-69:34",
+        "csv_row": 35,
+        "flex_identifier": "177F001",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.21,
+        "n2_mol_frac": 0.79,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 767.7,
+        "droplet_initial_diameter_mm": 3.89,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.44
+      },
+      {
+        "test_id": "35",
+        "record_pk": "PSI-69:35",
+        "csv_row": 36,
+        "flex_identifier": "181F001",
+        "fuel": "Heptane",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.21,
+        "n2_mol_frac": 0.79,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 768.1,
+        "droplet_initial_diameter_mm": 3.85,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.43
+      },
+      {
+        "test_id": "36",
+        "record_pk": "PSI-69:36",
+        "csv_row": 37,
+        "flex_identifier": "190R002",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.2,
+        "n2_mol_frac": 0.8,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 539.0,
+        "droplet_initial_diameter_mm": 2.4,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.45
+      },
+      {
+        "test_id": "37",
+        "record_pk": "PSI-69:37",
+        "csv_row": 38,
+        "flex_identifier": "220R001",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.34,
+        "n2_mol_frac": 0.66,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 534.3,
+        "droplet_initial_diameter_mm": 3.31,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.72
+      },
+      {
+        "test_id": "38",
+        "record_pk": "PSI-69:38",
+        "csv_row": 39,
+        "flex_identifier": "220R002",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.34,
+        "n2_mol_frac": 0.66,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 534.4,
+        "droplet_initial_diameter_mm": 3.59,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.71
+      },
+      {
+        "test_id": "39",
+        "record_pk": "PSI-69:39",
+        "csv_row": 40,
+        "flex_identifier": "224F001",
+        "fuel": "Heptane",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.34,
+        "n2_mol_frac": 0.66,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 534.9,
+        "droplet_initial_diameter_mm": 2.91,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.8
+      },
+      {
+        "test_id": "40",
+        "record_pk": "PSI-69:40",
+        "csv_row": 41,
+        "flex_identifier": "219R001",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.3,
+        "n2_mol_frac": 0.7,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 535.1,
+        "droplet_initial_diameter_mm": 3.77,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.62
+      },
+      {
+        "test_id": "41",
+        "record_pk": "PSI-69:41",
+        "csv_row": 42,
+        "flex_identifier": "219F001",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.3,
+        "n2_mol_frac": 0.7,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 534.3,
+        "droplet_initial_diameter_mm": 3.35,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.65
+      },
+      {
+        "test_id": "42",
+        "record_pk": "PSI-69:42",
+        "csv_row": 43,
+        "flex_identifier": "223F001",
+        "fuel": "Heptane",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.3,
+        "n2_mol_frac": 0.7,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 535.0,
+        "droplet_initial_diameter_mm": 2.92,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.58
+      },
+      {
+        "test_id": "43",
+        "record_pk": "PSI-69:43",
+        "csv_row": 44,
+        "flex_identifier": "223F002",
+        "fuel": "Heptane",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.3,
+        "n2_mol_frac": 0.7,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 534.9,
+        "droplet_initial_diameter_mm": 2.97,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.78
+      },
+      {
+        "test_id": "44",
+        "record_pk": "PSI-69:44",
+        "csv_row": 45,
+        "flex_identifier": "206F001",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.3,
+        "n2_mol_frac": 0.7,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 766.8,
+        "droplet_initial_diameter_mm": 3.49,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.63
+      },
+      {
+        "test_id": "45",
+        "record_pk": "PSI-69:45",
+        "csv_row": 46,
+        "flex_identifier": "206R001",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.3,
+        "n2_mol_frac": 0.7,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 768.3,
+        "droplet_initial_diameter_mm": 2.42,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.73
+      },
+      {
+        "test_id": "46",
+        "record_pk": "PSI-69:46",
+        "csv_row": 47,
+        "flex_identifier": "205R001",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.21,
+        "n2_mol_frac": 0.79,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 769.5,
+        "droplet_initial_diameter_mm": 2.78,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.54
+      },
+      {
+        "test_id": "47",
+        "record_pk": "PSI-69:47",
+        "csv_row": 48,
+        "flex_identifier": "209F001",
+        "fuel": "Heptane",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.21,
+        "n2_mol_frac": 0.79,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 770.1,
+        "droplet_initial_diameter_mm": 3.36,
+        "test_end": "Completion",
+        "burning_rate_mm2_s": 0.5
+      },
+      {
+        "test_id": "48",
+        "record_pk": "PSI-69:48",
+        "csv_row": 49,
+        "flex_identifier": "205F001",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.21,
+        "n2_mol_frac": 0.79,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 768.7,
+        "droplet_initial_diameter_mm": 3.66,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.27
+      },
+      {
+        "test_id": "49",
+        "record_pk": "PSI-69:49",
+        "csv_row": 50,
+        "flex_identifier": "209F003",
+        "fuel": "Heptane",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.21,
+        "n2_mol_frac": 0.79,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 764.9,
+        "droplet_initial_diameter_mm": 3.46,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.59
+      },
+      {
+        "test_id": "50",
+        "record_pk": "PSI-69:50",
+        "csv_row": 51,
+        "flex_identifier": "209F004",
+        "fuel": "Heptane",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.21,
+        "n2_mol_frac": 0.79,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 770.1,
+        "droplet_initial_diameter_mm": 3.57,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.52
+      },
+      {
+        "test_id": "51",
+        "record_pk": "PSI-69:51",
+        "csv_row": 52,
+        "flex_identifier": "209F005",
+        "fuel": "Heptane",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.21,
+        "n2_mol_frac": 0.79,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 771.4,
+        "droplet_initial_diameter_mm": 2.41,
+        "test_end": "Completion",
+        "burning_rate_mm2_s": 0.65
+      },
+      {
+        "test_id": "52",
+        "record_pk": "PSI-69:52",
+        "csv_row": 53,
+        "flex_identifier": "210F002",
+        "fuel": "Heptane",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.3,
+        "n2_mol_frac": 0.7,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 771.1,
+        "droplet_initial_diameter_mm": 3.53,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.7
+      },
+      {
+        "test_id": "54",
+        "record_pk": "PSI-69:54",
+        "csv_row": 55,
+        "flex_identifier": "190F003",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.2,
+        "n2_mol_frac": 0.8,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 541.4,
+        "droplet_initial_diameter_mm": 3.56,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.41
+      },
+      {
+        "test_id": "55",
+        "record_pk": "PSI-69:55",
+        "csv_row": 56,
+        "flex_identifier": "218F001",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.2,
+        "n2_mol_frac": 0.8,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 542.6,
+        "droplet_initial_diameter_mm": 3.37,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.46
+      },
+      {
+        "test_id": "56",
+        "record_pk": "PSI-69:56",
+        "csv_row": 57,
+        "flex_identifier": "194F001",
+        "fuel": "Heptane",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.2,
+        "n2_mol_frac": 0.79,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 544.1,
+        "droplet_initial_diameter_mm": 3.56,
+        "test_end": "Completion",
+        "burning_rate_mm2_s": 0.44
+      },
+      {
+        "test_id": "57",
+        "record_pk": "PSI-69:57",
+        "csv_row": 58,
+        "flex_identifier": "303F001",
+        "fuel": "Heptane",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.2,
+        "n2_mol_frac": 0.79,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 544.4,
+        "droplet_initial_diameter_mm": 3.1,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.54
+      },
+      {
+        "test_id": "58",
+        "record_pk": "PSI-69:58",
+        "csv_row": 59,
+        "flex_identifier": "176F001",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.18,
+        "n2_mol_frac": 0.82,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 773.3,
+        "droplet_initial_diameter_mm": 3.69,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.42
+      },
+      {
+        "test_id": "59",
+        "record_pk": "PSI-69:59",
+        "csv_row": 60,
+        "flex_identifier": "176R001",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.18,
+        "n2_mol_frac": 0.82,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 769.2,
+        "droplet_initial_diameter_mm": 2.93,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.43
+      },
+      {
+        "test_id": "60",
+        "record_pk": "PSI-69:60",
+        "csv_row": 61,
+        "flex_identifier": "204F001",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.18,
+        "n2_mol_frac": 0.82,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 773.7,
+        "droplet_initial_diameter_mm": 3.43,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.45
+      },
+      {
+        "test_id": "61",
+        "record_pk": "PSI-69:61",
+        "csv_row": 62,
+        "flex_identifier": "204R001",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.18,
+        "n2_mol_frac": 0.82,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 774.1,
+        "droplet_initial_diameter_mm": 3.68,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.41
+      },
+      {
+        "test_id": "62",
+        "record_pk": "PSI-69:62",
+        "csv_row": 63,
+        "flex_identifier": "301F001",
+        "fuel": "Heptane",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.18,
+        "n2_mol_frac": 0.82,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 761.8,
+        "droplet_initial_diameter_mm": 3.43,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.39
+      },
+      {
+        "test_id": "63",
+        "record_pk": "PSI-69:63",
+        "csv_row": 64,
+        "flex_identifier": "301F002",
+        "fuel": "Heptane",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.18,
+        "n2_mol_frac": 0.81,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 767.6,
+        "droplet_initial_diameter_mm": 2.15,
+        "test_end": "Completion",
+        "burning_rate_mm2_s": 0.51
+      },
+      {
+        "test_id": "64",
+        "record_pk": "PSI-69:64",
+        "csv_row": 65,
+        "flex_identifier": "302F001",
+        "fuel": "Heptane",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.18,
+        "n2_mol_frac": 0.81,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 764.6,
+        "droplet_initial_diameter_mm": 2.69,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.6
+      },
+      {
+        "test_id": "65",
+        "record_pk": "PSI-69:65",
+        "csv_row": 66,
+        "flex_identifier": "189R001",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.15,
+        "n2_mol_frac": 0.85,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 765.9,
+        "droplet_initial_diameter_mm": 3.37,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.4
+      },
+      {
+        "test_id": "66",
+        "record_pk": "PSI-69:66",
+        "csv_row": 67,
+        "flex_identifier": "189F001",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.15,
+        "n2_mol_frac": 0.85,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 766.8,
+        "droplet_initial_diameter_mm": 2.52,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.38
+      },
+      {
+        "test_id": "67",
+        "record_pk": "PSI-69:67",
+        "csv_row": 68,
+        "flex_identifier": "189F002",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.15,
+        "n2_mol_frac": 0.85,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 767.7,
+        "droplet_initial_diameter_mm": 3.97,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.36
+      },
+      {
+        "test_id": "68",
+        "record_pk": "PSI-69:68",
+        "csv_row": 69,
+        "flex_identifier": "189R003",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.15,
+        "n2_mol_frac": 0.84,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 768.8,
+        "droplet_initial_diameter_mm": 2.38,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.39
+      },
+      {
+        "test_id": "69",
+        "record_pk": "PSI-69:69",
+        "csv_row": 70,
+        "flex_identifier": "193R002",
+        "fuel": "Heptane",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.14,
+        "n2_mol_frac": 0.84,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 767.1,
+        "droplet_initial_diameter_mm": 1.1,
+        "test_end": "Completion",
+        "burning_rate_mm2_s": 0.94
+      },
+      {
+        "test_id": "70",
+        "record_pk": "PSI-69:70",
+        "csv_row": 71,
+        "flex_identifier": "193F001",
+        "fuel": "Heptane",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.15,
+        "n2_mol_frac": 0.84,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 761.0,
+        "droplet_initial_diameter_mm": 4.67,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.41
+      },
+      {
+        "test_id": "71",
+        "record_pk": "PSI-69:71",
+        "csv_row": 72,
+        "flex_identifier": "189R002",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.15,
+        "n2_mol_frac": 0.84,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 768.3,
+        "droplet_initial_diameter_mm": 2.25,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.4
+      },
+      {
+        "test_id": "72",
+        "record_pk": "PSI-69:72",
+        "csv_row": 73,
+        "flex_identifier": "193R001",
+        "fuel": "Heptane",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.15,
+        "n2_mol_frac": 0.84,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 765.2,
+        "droplet_initial_diameter_mm": 1.13,
+        "test_end": "Completion",
+        "burning_rate_mm2_s": 0.52
+      },
+      {
+        "test_id": "73",
+        "record_pk": "PSI-69:73",
+        "csv_row": 74,
+        "flex_identifier": "193F001",
+        "fuel": "Heptane",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.15,
+        "n2_mol_frac": 0.84,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 761.0,
+        "droplet_initial_diameter_mm": 4.64,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.56
+      },
+      {
+        "test_id": "74",
+        "record_pk": "PSI-69:74",
+        "csv_row": 75,
+        "flex_identifier": "221F001",
+        "fuel": "Heptane",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.15,
+        "n2_mol_frac": 0.84,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 765.9,
+        "droplet_initial_diameter_mm": 1.33,
+        "test_end": "Completion",
+        "burning_rate_mm2_s": 0.77
+      },
+      {
+        "test_id": "75",
+        "record_pk": "PSI-69:75",
+        "csv_row": 76,
+        "flex_identifier": "203R002",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.13,
+        "n2_mol_frac": 0.85,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 770.8,
+        "droplet_initial_diameter_mm": 2.54,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.37
+      },
+      {
+        "test_id": "76",
+        "record_pk": "PSI-69:76",
+        "csv_row": 77,
+        "flex_identifier": "203F001",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.13,
+        "n2_mol_frac": 0.85,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 769.5,
+        "droplet_initial_diameter_mm": 3.21,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.37
+      },
+      {
+        "test_id": "77",
+        "record_pk": "PSI-69:77",
+        "csv_row": 78,
+        "flex_identifier": "175R001",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.14,
+        "n2_mol_frac": 0.85,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 768.4,
+        "droplet_initial_diameter_mm": 3.33,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.34
+      },
+      {
+        "test_id": "78",
+        "record_pk": "PSI-69:78",
+        "csv_row": 79,
+        "flex_identifier": "175F001",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.14,
+        "n2_mol_frac": 0.85,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 766.0,
+        "droplet_initial_diameter_mm": 2.66,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.35
+      },
+      {
+        "test_id": "79",
+        "record_pk": "PSI-69:79",
+        "csv_row": 80,
+        "flex_identifier": "179F001",
+        "fuel": "Heptane",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.13,
+        "n2_mol_frac": 0.85,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 768.1,
+        "droplet_initial_diameter_mm": 2.92,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.25
+      },
+      {
+        "test_id": "82",
+        "record_pk": "PSI-69:82",
+        "csv_row": 83,
+        "flex_identifier": "304F001",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.13,
+        "n2_mol_frac": 0.87,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 764.6,
+        "droplet_initial_diameter_mm": 2.84,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.35
+      },
+      {
+        "test_id": "84",
+        "record_pk": "PSI-69:84",
+        "csv_row": 85,
+        "flex_identifier": "304R001",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.12,
+        "n2_mol_frac": 0.87,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 767.2,
+        "droplet_initial_diameter_mm": 2.35,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.35
+      },
+      {
+        "test_id": "85",
+        "record_pk": "PSI-69:85",
+        "csv_row": 86,
+        "flex_identifier": "304R002",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.12,
+        "n2_mol_frac": 0.87,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 771.2,
+        "droplet_initial_diameter_mm": 2.4,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.35
+      },
+      {
+        "test_id": "86",
+        "record_pk": "PSI-69:86",
+        "csv_row": 87,
+        "flex_identifier": "305F002",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.12,
+        "n2_mol_frac": 0.87,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 770.0,
+        "droplet_initial_diameter_mm": 3.07,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.35
+      },
+      {
+        "test_id": "87",
+        "record_pk": "PSI-69:87",
+        "csv_row": 88,
+        "flex_identifier": "305F003",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.12,
+        "n2_mol_frac": 0.87,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 771.2,
+        "droplet_initial_diameter_mm": 2.64,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.38
+      },
+      {
+        "test_id": "88",
+        "record_pk": "PSI-69:88",
+        "csv_row": 89,
+        "flex_identifier": "053R001",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.25,
+        "n2_mol_frac": 0.6,
+        "co2_mol_frac": 0.15,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 537.5,
+        "droplet_initial_diameter_mm": 3.01,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.53
+      },
+      {
+        "test_id": "89",
+        "record_pk": "PSI-69:89",
+        "csv_row": 90,
+        "flex_identifier": "053F001",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.25,
+        "n2_mol_frac": 0.6,
+        "co2_mol_frac": 0.15,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 537.4,
+        "droplet_initial_diameter_mm": 3.7,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.51
+      },
+      {
+        "test_id": "90",
+        "record_pk": "PSI-69:90",
+        "csv_row": 91,
+        "flex_identifier": "141R001",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.25,
+        "n2_mol_frac": 0.6,
+        "co2_mol_frac": 0.15,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 539.2,
+        "droplet_initial_diameter_mm": 3.62,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.53
+      },
+      {
+        "test_id": "91",
+        "record_pk": "PSI-69:91",
+        "csv_row": 92,
+        "flex_identifier": "141F001",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.25,
+        "n2_mol_frac": 0.6,
+        "co2_mol_frac": 0.15,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 538.3,
+        "droplet_initial_diameter_mm": 3.51,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.51
+      },
+      {
+        "test_id": "92",
+        "record_pk": "PSI-69:92",
+        "csv_row": 93,
+        "flex_identifier": "061F002",
+        "fuel": "Heptane",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.25,
+        "n2_mol_frac": 0.6,
+        "co2_mol_frac": 0.15,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 536.3,
+        "droplet_initial_diameter_mm": 3.41,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.55
+      },
+      {
+        "test_id": "93",
+        "record_pk": "PSI-69:93",
+        "csv_row": 94,
+        "flex_identifier": "149F001",
+        "fuel": "Heptane",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.25,
+        "n2_mol_frac": 0.6,
+        "co2_mol_frac": 0.15,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 537.3,
+        "droplet_initial_diameter_mm": 2.48,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.71
+      },
+      {
+        "test_id": "94",
+        "record_pk": "PSI-69:94",
+        "csv_row": 95,
+        "flex_identifier": "C08H101",
+        "fuel": "Heptane",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.24,
+        "n2_mol_frac": 0.56,
+        "co2_mol_frac": 0.2,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 533.6,
+        "droplet_initial_diameter_mm": 3.53,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.51
+      },
+      {
+        "test_id": "95",
+        "record_pk": "PSI-69:95",
+        "csv_row": 96,
+        "flex_identifier": "C08H201",
+        "fuel": "Heptane",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.24,
+        "n2_mol_frac": 0.56,
+        "co2_mol_frac": 0.2,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 534.4,
+        "droplet_initial_diameter_mm": 3.6,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.58
+      },
+      {
+        "test_id": "97",
+        "record_pk": "PSI-69:97",
+        "csv_row": 98,
+        "flex_identifier": "C08M101",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.23,
+        "n2_mol_frac": 0.56,
+        "co2_mol_frac": 0.2,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 534.2,
+        "droplet_initial_diameter_mm": 4.25,
+        "test_end": "Completion",
+        "burning_rate_mm2_s": 0.45
+      },
+      {
+        "test_id": "98",
+        "record_pk": "PSI-69:98",
+        "csv_row": 99,
+        "flex_identifier": "C09M201",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.23,
+        "n2_mol_frac": 0.52,
+        "co2_mol_frac": 0.25,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 537.1,
+        "droplet_initial_diameter_mm": 3.64,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.47
+      },
+      {
+        "test_id": "99",
+        "record_pk": "PSI-69:99",
+        "csv_row": 100,
+        "flex_identifier": "C09M101",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.23,
+        "n2_mol_frac": 0.52,
+        "co2_mol_frac": 0.25,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 535.0,
+        "droplet_initial_diameter_mm": 4.28,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.42
+      },
+      {
+        "test_id": "100",
+        "record_pk": "PSI-69:100",
+        "csv_row": 101,
+        "flex_identifier": "C09H101",
+        "fuel": "Heptane",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.23,
+        "n2_mol_frac": 0.52,
+        "co2_mol_frac": 0.25,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 536.7,
+        "droplet_initial_diameter_mm": 4.14,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.34
+      },
+      {
+        "test_id": "101",
+        "record_pk": "PSI-69:101",
+        "csv_row": 102,
+        "flex_identifier": "C09H201",
+        "fuel": "Heptane",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.23,
+        "n2_mol_frac": 0.52,
+        "co2_mol_frac": 0.25,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 538.7,
+        "droplet_initial_diameter_mm": 3.88,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.5
+      },
+      {
+        "test_id": "102",
+        "record_pk": "PSI-69:102",
+        "csv_row": 103,
+        "flex_identifier": "C10H101",
+        "fuel": "Heptane",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.21,
+        "n2_mol_frac": 0.49,
+        "co2_mol_frac": 0.3,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 534.2,
+        "droplet_initial_diameter_mm": 3.57,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.33
+      },
+      {
+        "test_id": "103",
+        "record_pk": "PSI-69:103",
+        "csv_row": 104,
+        "flex_identifier": "C10H201",
+        "fuel": "Heptane",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.21,
+        "n2_mol_frac": 0.49,
+        "co2_mol_frac": 0.3,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 534.3,
+        "droplet_initial_diameter_mm": 4.0,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.35
+      },
+      {
+        "test_id": "104",
+        "record_pk": "PSI-69:104",
+        "csv_row": 105,
+        "flex_identifier": "C08M201",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.23,
+        "n2_mol_frac": 0.56,
+        "co2_mol_frac": 0.2,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 534.1,
+        "droplet_initial_diameter_mm": 3.6,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.49
+      },
+      {
+        "test_id": "105",
+        "record_pk": "PSI-69:105",
+        "csv_row": 106,
+        "flex_identifier": "C08M301",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.23,
+        "n2_mol_frac": 0.56,
+        "co2_mol_frac": 0.2,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 534.6,
+        "droplet_initial_diameter_mm": 4.17,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.47
+      },
+      {
+        "test_id": "106",
+        "record_pk": "PSI-69:106",
+        "csv_row": 107,
+        "flex_identifier": "C09M401",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.23,
+        "n2_mol_frac": 0.52,
+        "co2_mol_frac": 0.25,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 538.3,
+        "droplet_initial_diameter_mm": 3.08,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.51
+      },
+      {
+        "test_id": "107",
+        "record_pk": "PSI-69:107",
+        "csv_row": 108,
+        "flex_identifier": "C08M401",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.23,
+        "n2_mol_frac": 0.56,
+        "co2_mol_frac": 0.2,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 535.0,
+        "droplet_initial_diameter_mm": 3.18,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.52
+      },
+      {
+        "test_id": "108",
+        "record_pk": "PSI-69:108",
+        "csv_row": 109,
+        "flex_identifier": "C09M301",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.23,
+        "n2_mol_frac": 0.52,
+        "co2_mol_frac": 0.25,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 538.3,
+        "droplet_initial_diameter_mm": 3.75,
+        "test_end": "Completion",
+        "burning_rate_mm2_s": 0.47
+      },
+      {
+        "test_id": "109",
+        "record_pk": "PSI-69:109",
+        "csv_row": 110,
+        "flex_identifier": "C10M102",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.21,
+        "n2_mol_frac": 0.49,
+        "co2_mol_frac": 0.3,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 536.5,
+        "droplet_initial_diameter_mm": 3.56,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.42
+      },
+      {
+        "test_id": "110",
+        "record_pk": "PSI-69:110",
+        "csv_row": 111,
+        "flex_identifier": "C10M201",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.21,
+        "n2_mol_frac": 0.49,
+        "co2_mol_frac": 0.3,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 537.0,
+        "droplet_initial_diameter_mm": 2.83,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.45
+      },
+      {
+        "test_id": "111",
+        "record_pk": "PSI-69:111",
+        "csv_row": 112,
+        "flex_identifier": "C10M303",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.21,
+        "n2_mol_frac": 0.49,
+        "co2_mol_frac": 0.3,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 536.9,
+        "droplet_initial_diameter_mm": 3.37,
+        "test_end": "Completion",
+        "burning_rate_mm2_s": 0.45
+      },
+      {
+        "test_id": "112",
+        "record_pk": "PSI-69:112",
+        "csv_row": 113,
+        "flex_identifier": "C10M401",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.21,
+        "n2_mol_frac": 0.49,
+        "co2_mol_frac": 0.3,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 530.7,
+        "droplet_initial_diameter_mm": 3.99,
+        "test_end": "Completion",
+        "burning_rate_mm2_s": 0.43
+      },
+      {
+        "test_id": "113",
+        "record_pk": "PSI-69:113",
+        "csv_row": 114,
+        "flex_identifier": "C11M101",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.2,
+        "n2_mol_frac": 0.45,
+        "co2_mol_frac": 0.35,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 534.6,
+        "droplet_initial_diameter_mm": 4.2,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.49
+      },
+      {
+        "test_id": "115",
+        "record_pk": "PSI-69:115",
+        "csv_row": 116,
+        "flex_identifier": "C11M301",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.2,
+        "n2_mol_frac": 0.45,
+        "co2_mol_frac": 0.35,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 535.8,
+        "droplet_initial_diameter_mm": 3.97,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.41
+      },
+      {
+        "test_id": "116",
+        "record_pk": "PSI-69:116",
+        "csv_row": 117,
+        "flex_identifier": "C11M401",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.2,
+        "n2_mol_frac": 0.45,
+        "co2_mol_frac": 0.35,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 536.3,
+        "droplet_initial_diameter_mm": 3.16,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.46
+      },
+      {
+        "test_id": "117",
+        "record_pk": "PSI-69:117",
+        "csv_row": 118,
+        "flex_identifier": "C11H101",
+        "fuel": "Heptane",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.2,
+        "n2_mol_frac": 0.45,
+        "co2_mol_frac": 0.35,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 531.1,
+        "droplet_initial_diameter_mm": 3.84,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.25
+      },
+      {
+        "test_id": "118",
+        "record_pk": "PSI-69:118",
+        "csv_row": 119,
+        "flex_identifier": "C11H201",
+        "fuel": "Heptane",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.2,
+        "n2_mol_frac": 0.44,
+        "co2_mol_frac": 0.35,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 532.8,
+        "droplet_initial_diameter_mm": 3.03,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.38
+      },
+      {
+        "test_id": "119",
+        "record_pk": "PSI-69:119",
+        "csv_row": 120,
+        "flex_identifier": "C12H103",
+        "fuel": "Heptane",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.18,
+        "n2_mol_frac": 0.42,
+        "co2_mol_frac": 0.4,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 532.6,
+        "droplet_initial_diameter_mm": 2.6,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.37
+      },
+      {
+        "test_id": "120",
+        "record_pk": "PSI-69:120",
+        "csv_row": 121,
+        "flex_identifier": "C12H201",
+        "fuel": "Heptane",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.18,
+        "n2_mol_frac": 0.42,
+        "co2_mol_frac": 0.4,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 532.5,
+        "droplet_initial_diameter_mm": 2.45,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.38
+      },
+      {
+        "test_id": "121",
+        "record_pk": "PSI-69:121",
+        "csv_row": 122,
+        "flex_identifier": "C12M101",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.18,
+        "n2_mol_frac": 0.42,
+        "co2_mol_frac": 0.4,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 526.3,
+        "droplet_initial_diameter_mm": 4.25,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.34
+      },
+      {
+        "test_id": "122",
+        "record_pk": "PSI-69:122",
+        "csv_row": 123,
+        "flex_identifier": "C12M201",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.18,
+        "n2_mol_frac": 0.42,
+        "co2_mol_frac": 0.4,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 531.2,
+        "droplet_initial_diameter_mm": 3.46,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.41
+      },
+      {
+        "test_id": "123",
+        "record_pk": "PSI-69:123",
+        "csv_row": 124,
+        "flex_identifier": "C12M301",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.18,
+        "n2_mol_frac": 0.42,
+        "co2_mol_frac": 0.4,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 532.0,
+        "droplet_initial_diameter_mm": 4.13,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.35
+      },
+      {
+        "test_id": "124",
+        "record_pk": "PSI-69:124",
+        "csv_row": 125,
+        "flex_identifier": "C12M401",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.18,
+        "n2_mol_frac": 0.42,
+        "co2_mol_frac": 0.4,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 532.4,
+        "droplet_initial_diameter_mm": 2.87,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.3
+      },
+      {
+        "test_id": "125",
+        "record_pk": "PSI-69:125",
+        "csv_row": 126,
+        "flex_identifier": "C13M103",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.17,
+        "n2_mol_frac": 0.38,
+        "co2_mol_frac": 0.45,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 537.2,
+        "droplet_initial_diameter_mm": 3.63,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.35
+      },
+      {
+        "test_id": "126",
+        "record_pk": "PSI-69:126",
+        "csv_row": 127,
+        "flex_identifier": "C13M201",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.17,
+        "n2_mol_frac": 0.38,
+        "co2_mol_frac": 0.45,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 536.1,
+        "droplet_initial_diameter_mm": 2.8,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.4
+      },
+      {
+        "test_id": "127",
+        "record_pk": "PSI-69:127",
+        "csv_row": 128,
+        "flex_identifier": "C13M301",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.17,
+        "n2_mol_frac": 0.38,
+        "co2_mol_frac": 0.45,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 536.7,
+        "droplet_initial_diameter_mm": 3.22,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.38
+      },
+      {
+        "test_id": "128",
+        "record_pk": "PSI-69:128",
+        "csv_row": 129,
+        "flex_identifier": "C13M401",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.17,
+        "n2_mol_frac": 0.38,
+        "co2_mol_frac": 0.45,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 537.3,
+        "droplet_initial_diameter_mm": 2.91,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.39
+      },
+      {
+        "test_id": "129",
+        "record_pk": "PSI-69:129",
+        "csv_row": 130,
+        "flex_identifier": "C13H102",
+        "fuel": "Heptane",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.17,
+        "n2_mol_frac": 0.38,
+        "co2_mol_frac": 0.45,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 536.2,
+        "droplet_initial_diameter_mm": 3.33,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.33
+      },
+      {
+        "test_id": "130",
+        "record_pk": "PSI-69:130",
+        "csv_row": 131,
+        "flex_identifier": "C13H201",
+        "fuel": "Heptane",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.17,
+        "n2_mol_frac": 0.38,
+        "co2_mol_frac": 0.45,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 537.2,
+        "droplet_initial_diameter_mm": 2.91,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.05
+      },
+      {
+        "test_id": "131",
+        "record_pk": "PSI-69:131",
+        "csv_row": 132,
+        "flex_identifier": "C21H101",
+        "fuel": "Heptane",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.24,
+        "n2_mol_frac": 0.56,
+        "co2_mol_frac": 0.2,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 763.9,
+        "droplet_initial_diameter_mm": 1.72,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.61
+      },
+      {
+        "test_id": "132",
+        "record_pk": "PSI-69:132",
+        "csv_row": 133,
+        "flex_identifier": "C21H201",
+        "fuel": "Heptane",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.24,
+        "n2_mol_frac": 0.56,
+        "co2_mol_frac": 0.2,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 765.2,
+        "droplet_initial_diameter_mm": 2.63,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.6
+      },
+      {
+        "test_id": "133",
+        "record_pk": "PSI-69:133",
+        "csv_row": 134,
+        "flex_identifier": "C21H301",
+        "fuel": "Heptane",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.24,
+        "n2_mol_frac": 0.56,
+        "co2_mol_frac": 0.2,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 766.7,
+        "droplet_initial_diameter_mm": 3.25,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.56
+      },
+      {
+        "test_id": "134",
+        "record_pk": "PSI-69:134",
+        "csv_row": 135,
+        "flex_identifier": "C21H401",
+        "fuel": "Heptane",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.24,
+        "n2_mol_frac": 0.56,
+        "co2_mol_frac": 0.2,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 767.2,
+        "droplet_initial_diameter_mm": 3.66,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.56
+      },
+      {
+        "test_id": "135",
+        "record_pk": "PSI-69:135",
+        "csv_row": 136,
+        "flex_identifier": "C21H501",
+        "fuel": "Heptane",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.24,
+        "n2_mol_frac": 0.56,
+        "co2_mol_frac": 0.2,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 768.2,
+        "droplet_initial_diameter_mm": 2.78,
+        "test_end": "Completion",
+        "burning_rate_mm2_s": 0.59
+      },
+      {
+        "test_id": "136",
+        "record_pk": "PSI-69:136",
+        "csv_row": 137,
+        "flex_identifier": "C21H302",
+        "fuel": "Heptane",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.24,
+        "n2_mol_frac": 0.56,
+        "co2_mol_frac": 0.2,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 768.1,
+        "droplet_initial_diameter_mm": 3.08,
+        "test_end": "Completion",
+        "burning_rate_mm2_s": 0.51
+      },
+      {
+        "test_id": "137",
+        "record_pk": "PSI-69:137",
+        "csv_row": 138,
+        "flex_identifier": "C21H303",
+        "fuel": "Heptane",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.24,
+        "n2_mol_frac": 0.56,
+        "co2_mol_frac": 0.2,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 768.2,
+        "droplet_initial_diameter_mm": 3.13,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.55
+      },
+      {
+        "test_id": "139",
+        "record_pk": "PSI-69:139",
+        "csv_row": 140,
+        "flex_identifier": "C21H305",
+        "fuel": "Heptane",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.24,
+        "n2_mol_frac": 0.56,
+        "co2_mol_frac": 0.2,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 768.0,
+        "droplet_initial_diameter_mm": 1.75,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.63
+      },
+      {
+        "test_id": "140",
+        "record_pk": "PSI-69:140",
+        "csv_row": 141,
+        "flex_identifier": "C14M101",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.15,
+        "n2_mol_frac": 0.35,
+        "co2_mol_frac": 0.5,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 533.5,
+        "droplet_initial_diameter_mm": 3.98,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.2
+      },
+      {
+        "test_id": "141",
+        "record_pk": "PSI-69:141",
+        "csv_row": 142,
+        "flex_identifier": "C14M201",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.15,
+        "n2_mol_frac": 0.35,
+        "co2_mol_frac": 0.5,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 534.1,
+        "droplet_initial_diameter_mm": 2.86,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.3
+      },
+      {
+        "test_id": "142",
+        "record_pk": "PSI-69:142",
+        "csv_row": 143,
+        "flex_identifier": "C14M301",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.15,
+        "n2_mol_frac": 0.35,
+        "co2_mol_frac": 0.5,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 534.5,
+        "droplet_initial_diameter_mm": 1.86,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.39
+      },
+      {
+        "test_id": "143",
+        "record_pk": "PSI-69:143",
+        "csv_row": 144,
+        "flex_identifier": "C14M302",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.15,
+        "n2_mol_frac": 0.35,
+        "co2_mol_frac": 0.5,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 534.7,
+        "droplet_initial_diameter_mm": 2.25,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.36
+      },
+      {
+        "test_id": "144",
+        "record_pk": "PSI-69:144",
+        "csv_row": 145,
+        "flex_identifier": "C01M101",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.2,
+        "n2_mol_frac": 0.75,
+        "co2_mol_frac": 0.05,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 761.9,
+        "droplet_initial_diameter_mm": 3.53,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.45
+      },
+      {
+        "test_id": "145",
+        "record_pk": "PSI-69:145",
+        "csv_row": 146,
+        "flex_identifier": "C01M201",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.2,
+        "n2_mol_frac": 0.75,
+        "co2_mol_frac": 0.05,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 763.5,
+        "droplet_initial_diameter_mm": 3.33,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.45
+      },
+      {
+        "test_id": "146",
+        "record_pk": "PSI-69:146",
+        "csv_row": 147,
+        "flex_identifier": "C01M301",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.2,
+        "n2_mol_frac": 0.75,
+        "co2_mol_frac": 0.05,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 765.5,
+        "droplet_initial_diameter_mm": 4.35,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.41
+      },
+      {
+        "test_id": "147",
+        "record_pk": "PSI-69:147",
+        "csv_row": 148,
+        "flex_identifier": "C13M102",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.17,
+        "n2_mol_frac": 0.38,
+        "co2_mol_frac": 0.45,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 535.7,
+        "droplet_initial_diameter_mm": 3.02,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.4
+      },
+      {
+        "test_id": "148",
+        "record_pk": "PSI-69:148",
+        "csv_row": 149,
+        "flex_identifier": "C01H101",
+        "fuel": "Heptane",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.2,
+        "n2_mol_frac": 0.75,
+        "co2_mol_frac": 0.05,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 764.4,
+        "droplet_initial_diameter_mm": 2.58,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.54
+      },
+      {
+        "test_id": "149",
+        "record_pk": "PSI-69:149",
+        "csv_row": 150,
+        "flex_identifier": "C01H201",
+        "fuel": "Heptane",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.2,
+        "n2_mol_frac": 0.75,
+        "co2_mol_frac": 0.05,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 766.2,
+        "droplet_initial_diameter_mm": 2.21,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.53
+      },
+      {
+        "test_id": "150",
+        "record_pk": "PSI-69:150",
+        "csv_row": 151,
+        "flex_identifier": "C01H302",
+        "fuel": "Heptane",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.2,
+        "n2_mol_frac": 0.75,
+        "co2_mol_frac": 0.05,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 767.6,
+        "droplet_initial_diameter_mm": 3.18,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.46
+      },
+      {
+        "test_id": "151",
+        "record_pk": "PSI-69:151",
+        "csv_row": 152,
+        "flex_identifier": "C03M101",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.18,
+        "n2_mol_frac": 0.67,
+        "co2_mol_frac": 0.15,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 762.5,
+        "droplet_initial_diameter_mm": 3.86,
+        "test_end": "Completion",
+        "burning_rate_mm2_s": 0.36
+      },
+      {
+        "test_id": "152",
+        "record_pk": "PSI-69:152",
+        "csv_row": 153,
+        "flex_identifier": "C03M201",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.18,
+        "n2_mol_frac": 0.67,
+        "co2_mol_frac": 0.15,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 765.0,
+        "droplet_initial_diameter_mm": 3.33,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.43
+      },
+      {
+        "test_id": "153",
+        "record_pk": "PSI-69:153",
+        "csv_row": 154,
+        "flex_identifier": "C03M301",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.18,
+        "n2_mol_frac": 0.67,
+        "co2_mol_frac": 0.15,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 765.6,
+        "droplet_initial_diameter_mm": 2.78,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.42
+      },
+      {
+        "test_id": "154",
+        "record_pk": "PSI-69:154",
+        "csv_row": 155,
+        "flex_identifier": "C03H101",
+        "fuel": "Heptane",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.18,
+        "n2_mol_frac": 0.67,
+        "co2_mol_frac": 0.15,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 762.3,
+        "droplet_initial_diameter_mm": 3.7,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.34
+      },
+      {
+        "test_id": "155",
+        "record_pk": "PSI-69:155",
+        "csv_row": 156,
+        "flex_identifier": "C03H201",
+        "fuel": "Heptane",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.18,
+        "n2_mol_frac": 0.67,
+        "co2_mol_frac": 0.15,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 764.9,
+        "droplet_initial_diameter_mm": 2.73,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.39
+      },
+      {
+        "test_id": "156",
+        "record_pk": "PSI-69:156",
+        "csv_row": 157,
+        "flex_identifier": "C03H401",
+        "fuel": "Heptane",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.18,
+        "n2_mol_frac": 0.67,
+        "co2_mol_frac": 0.15,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 765.7,
+        "droplet_initial_diameter_mm": 1.34,
+        "test_end": "Completion",
+        "burning_rate_mm2_s": 0.48
+      },
+      {
+        "test_id": "157",
+        "record_pk": "PSI-69:157",
+        "csv_row": 158,
+        "flex_identifier": "C05M101",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.16,
+        "n2_mol_frac": 0.59,
+        "co2_mol_frac": 0.25,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 762.1,
+        "droplet_initial_diameter_mm": 4.24,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.3
+      },
+      {
+        "test_id": "158",
+        "record_pk": "PSI-69:158",
+        "csv_row": 159,
+        "flex_identifier": "C05M201",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.16,
+        "n2_mol_frac": 0.59,
+        "co2_mol_frac": 0.25,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 764.4,
+        "droplet_initial_diameter_mm": 3.7,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.37
+      },
+      {
+        "test_id": "159",
+        "record_pk": "PSI-69:159",
+        "csv_row": 160,
+        "flex_identifier": "C05M301",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.16,
+        "n2_mol_frac": 0.59,
+        "co2_mol_frac": 0.25,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 765.5,
+        "droplet_initial_diameter_mm": 2.71,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.38
+      },
+      {
+        "test_id": "160",
+        "record_pk": "PSI-69:160",
+        "csv_row": 161,
+        "flex_identifier": "C05M401",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.16,
+        "n2_mol_frac": 0.59,
+        "co2_mol_frac": 0.25,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 767.6,
+        "droplet_initial_diameter_mm": 2.77,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.38
+      },
+      {
+        "test_id": "161",
+        "record_pk": "PSI-69:161",
+        "csv_row": 162,
+        "flex_identifier": "C06M101",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.15,
+        "n2_mol_frac": 0.54,
+        "co2_mol_frac": 0.32,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 763.3,
+        "droplet_initial_diameter_mm": 3.72,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.28
+      },
+      {
+        "test_id": "162",
+        "record_pk": "PSI-69:162",
+        "csv_row": 163,
+        "flex_identifier": "C06M201",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.15,
+        "n2_mol_frac": 0.53,
+        "co2_mol_frac": 0.32,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 764.4,
+        "droplet_initial_diameter_mm": 3.05,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.37
+      },
+      {
+        "test_id": "163",
+        "record_pk": "PSI-69:163",
+        "csv_row": 164,
+        "flex_identifier": "C06M301",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.15,
+        "n2_mol_frac": 0.53,
+        "co2_mol_frac": 0.32,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 765.9,
+        "droplet_initial_diameter_mm": 2.59,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.37
+      },
+      {
+        "test_id": "164",
+        "record_pk": "PSI-69:164",
+        "csv_row": 165,
+        "flex_identifier": "C06M401",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.15,
+        "n2_mol_frac": 0.53,
+        "co2_mol_frac": 0.32,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 766.1,
+        "droplet_initial_diameter_mm": 2.59,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.42
+      },
+      {
+        "test_id": "165",
+        "record_pk": "PSI-69:165",
+        "csv_row": 166,
+        "flex_identifier": "C03H302",
+        "fuel": "Heptane",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.18,
+        "n2_mol_frac": 0.67,
+        "co2_mol_frac": 0.15,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 765.4,
+        "droplet_initial_diameter_mm": 1.96,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.54
+      },
+      {
+        "test_id": "166",
+        "record_pk": "PSI-69:166",
+        "csv_row": 167,
+        "flex_identifier": "C07M101",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.14,
+        "n2_mol_frac": 0.5,
+        "co2_mol_frac": 0.36,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 760.8,
+        "droplet_initial_diameter_mm": 3.22,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.28
+      },
+      {
+        "test_id": "167",
+        "record_pk": "PSI-69:167",
+        "csv_row": 168,
+        "flex_identifier": "C07M201",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.14,
+        "n2_mol_frac": 0.5,
+        "co2_mol_frac": 0.36,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 761.6,
+        "droplet_initial_diameter_mm": 2.32,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.37
+      },
+      {
+        "test_id": "168",
+        "record_pk": "PSI-69:168",
+        "csv_row": 169,
+        "flex_identifier": "C15M101",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.21,
+        "n2_mol_frac": 0.64,
+        "co2_mol_frac": 0.15,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 763.4,
+        "droplet_initial_diameter_mm": 3.03,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.48
+      },
+      {
+        "test_id": "169",
+        "record_pk": "PSI-69:169",
+        "csv_row": 170,
+        "flex_identifier": "C15M201",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.21,
+        "n2_mol_frac": 0.64,
+        "co2_mol_frac": 0.15,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 766.1,
+        "droplet_initial_diameter_mm": 3.05,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.51
+      },
+      {
+        "test_id": "170",
+        "record_pk": "PSI-69:170",
+        "csv_row": 171,
+        "flex_identifier": "C15M301",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.21,
+        "n2_mol_frac": 0.64,
+        "co2_mol_frac": 0.15,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 766.7,
+        "droplet_initial_diameter_mm": 3.53,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.46
+      },
+      {
+        "test_id": "171",
+        "record_pk": "PSI-69:171",
+        "csv_row": 172,
+        "flex_identifier": "C03H501",
+        "fuel": "Heptane",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.18,
+        "n2_mol_frac": 0.67,
+        "co2_mol_frac": 0.15,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 759.9,
+        "droplet_initial_diameter_mm": 3.74,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.35
+      },
+      {
+        "test_id": "172",
+        "record_pk": "PSI-69:172",
+        "csv_row": 173,
+        "flex_identifier": "C03H601",
+        "fuel": "Heptane",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.18,
+        "n2_mol_frac": 0.67,
+        "co2_mol_frac": 0.15,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 762.0,
+        "droplet_initial_diameter_mm": 2.4,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.46
+      },
+      {
+        "test_id": "173",
+        "record_pk": "PSI-69:173",
+        "csv_row": 174,
+        "flex_identifier": "C03H701",
+        "fuel": "Heptane",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.18,
+        "n2_mol_frac": 0.67,
+        "co2_mol_frac": 0.15,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 762.1,
+        "droplet_initial_diameter_mm": 1.35,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.5
+      },
+      {
+        "test_id": "174",
+        "record_pk": "PSI-69:174",
+        "csv_row": 175,
+        "flex_identifier": "C08H502",
+        "fuel": "Heptane",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.24,
+        "n2_mol_frac": 0.56,
+        "co2_mol_frac": 0.2,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 531.7,
+        "droplet_initial_diameter_mm": 2.5,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.56
+      },
+      {
+        "test_id": "175",
+        "record_pk": "PSI-69:175",
+        "csv_row": 176,
+        "flex_identifier": "C08H601",
+        "fuel": "Heptane",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.24,
+        "n2_mol_frac": 0.56,
+        "co2_mol_frac": 0.2,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 532.1,
+        "droplet_initial_diameter_mm": 2.88,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.55
+      },
+      {
+        "test_id": "176",
+        "record_pk": "PSI-69:176",
+        "csv_row": 177,
+        "flex_identifier": "C08M501",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.24,
+        "n2_mol_frac": 0.56,
+        "co2_mol_frac": 0.2,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 536.9,
+        "droplet_initial_diameter_mm": 4.53,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.46
+      },
+      {
+        "test_id": "177",
+        "record_pk": "PSI-69:177",
+        "csv_row": 178,
+        "flex_identifier": "C08M601",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.24,
+        "n2_mol_frac": 0.56,
+        "co2_mol_frac": 0.2,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 537.0,
+        "droplet_initial_diameter_mm": 3.02,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.52
+      },
+      {
+        "test_id": "178",
+        "record_pk": "PSI-69:178",
+        "csv_row": 179,
+        "flex_identifier": "C09H501",
+        "fuel": "Heptane",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.23,
+        "n2_mol_frac": 0.52,
+        "co2_mol_frac": 0.25,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 533.6,
+        "droplet_initial_diameter_mm": 3.32,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.5
+      },
+      {
+        "test_id": "179",
+        "record_pk": "PSI-69:179",
+        "csv_row": 180,
+        "flex_identifier": "C09H601",
+        "fuel": "Heptane",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.23,
+        "n2_mol_frac": 0.52,
+        "co2_mol_frac": 0.25,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 534.4,
+        "droplet_initial_diameter_mm": 2.07,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.57
+      },
+      {
+        "test_id": "180",
+        "record_pk": "PSI-69:180",
+        "csv_row": 181,
+        "flex_identifier": "C02H101",
+        "fuel": "Heptane",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.19,
+        "n2_mol_frac": 0.71,
+        "co2_mol_frac": 0.1,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 758.4,
+        "droplet_initial_diameter_mm": 3.4,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.41
+      },
+      {
+        "test_id": "181",
+        "record_pk": "PSI-69:181",
+        "csv_row": 182,
+        "flex_identifier": "C02H201",
+        "fuel": "Heptane",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.19,
+        "n2_mol_frac": 0.71,
+        "co2_mol_frac": 0.1,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 759.1,
+        "droplet_initial_diameter_mm": 2.48,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.49
+      },
+      {
+        "test_id": "182",
+        "record_pk": "PSI-69:182",
+        "csv_row": 183,
+        "flex_identifier": "C02H202",
+        "fuel": "Heptane",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.19,
+        "n2_mol_frac": 0.71,
+        "co2_mol_frac": 0.1,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 759.0,
+        "droplet_initial_diameter_mm": 1.64,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.54
+      },
+      {
+        "test_id": "183",
+        "record_pk": "PSI-69:183",
+        "csv_row": 184,
+        "flex_identifier": "C09M501",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.23,
+        "n2_mol_frac": 0.52,
+        "co2_mol_frac": 0.25,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 534.4,
+        "droplet_initial_diameter_mm": 3.72,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.53
+      },
+      {
+        "test_id": "184",
+        "record_pk": "PSI-69:184",
+        "csv_row": 185,
+        "flex_identifier": "C09M502",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.23,
+        "n2_mol_frac": 0.52,
+        "co2_mol_frac": 0.25,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 535.1,
+        "droplet_initial_diameter_mm": 3.42,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.51
+      },
+      {
+        "test_id": "185",
+        "record_pk": "PSI-69:185",
+        "csv_row": 186,
+        "flex_identifier": "C09M601",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.23,
+        "n2_mol_frac": 0.52,
+        "co2_mol_frac": 0.25,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 535.2,
+        "droplet_initial_diameter_mm": 2.8,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.51
+      },
+      {
+        "test_id": "186",
+        "record_pk": "PSI-69:186",
+        "csv_row": 187,
+        "flex_identifier": "C09M701",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.23,
+        "n2_mol_frac": 0.52,
+        "co2_mol_frac": 0.25,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 536.2,
+        "droplet_initial_diameter_mm": 2.47,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.52
+      },
+      {
+        "test_id": "187",
+        "record_pk": "PSI-69:187",
+        "csv_row": 188,
+        "flex_identifier": "C02M101",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.19,
+        "n2_mol_frac": 0.71,
+        "co2_mol_frac": 0.1,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 758.0,
+        "droplet_initial_diameter_mm": 3.38,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.47
+      },
+      {
+        "test_id": "188",
+        "record_pk": "PSI-69:188",
+        "csv_row": 189,
+        "flex_identifier": "C02M201",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.19,
+        "n2_mol_frac": 0.71,
+        "co2_mol_frac": 0.1,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 758.1,
+        "droplet_initial_diameter_mm": 2.47,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.46
+      },
+      {
+        "test_id": "189",
+        "record_pk": "PSI-69:189",
+        "csv_row": 190,
+        "flex_identifier": "C03M501",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.18,
+        "n2_mol_frac": 0.67,
+        "co2_mol_frac": 0.15,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 761.2,
+        "droplet_initial_diameter_mm": 3.77,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.42
+      },
+      {
+        "test_id": "190",
+        "record_pk": "PSI-69:190",
+        "csv_row": 191,
+        "flex_identifier": "C03M601",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.18,
+        "n2_mol_frac": 0.67,
+        "co2_mol_frac": 0.15,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 764.6,
+        "droplet_initial_diameter_mm": 2.74,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.5
+      },
+      {
+        "test_id": "191",
+        "record_pk": "PSI-69:191",
+        "csv_row": 192,
+        "flex_identifier": "C03M701",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.18,
+        "n2_mol_frac": 0.67,
+        "co2_mol_frac": 0.15,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 765.3,
+        "droplet_initial_diameter_mm": 1.76,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.46
+      },
+      {
+        "test_id": "192",
+        "record_pk": "PSI-69:192",
+        "csv_row": 193,
+        "flex_identifier": "C04M101",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.17,
+        "n2_mol_frac": 0.63,
+        "co2_mol_frac": 0.2,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 759.5,
+        "droplet_initial_diameter_mm": 3.46,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.39
+      },
+      {
+        "test_id": "193",
+        "record_pk": "PSI-69:193",
+        "csv_row": 194,
+        "flex_identifier": "C04M201",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.17,
+        "n2_mol_frac": 0.63,
+        "co2_mol_frac": 0.2,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 759.1,
+        "droplet_initial_diameter_mm": 2.77,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.4
+      },
+      {
+        "test_id": "194",
+        "record_pk": "PSI-69:194",
+        "csv_row": 195,
+        "flex_identifier": "C04H101",
+        "fuel": "Heptane",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.17,
+        "n2_mol_frac": 0.63,
+        "co2_mol_frac": 0.2,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 752.0,
+        "droplet_initial_diameter_mm": 3.76,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.29
+      },
+      {
+        "test_id": "195",
+        "record_pk": "PSI-69:195",
+        "csv_row": 196,
+        "flex_identifier": "C04H201",
+        "fuel": "Heptane",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.17,
+        "n2_mol_frac": 0.63,
+        "co2_mol_frac": 0.2,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 752.5,
+        "droplet_initial_diameter_mm": 2.9,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.36
+      },
+      {
+        "test_id": "196",
+        "record_pk": "PSI-69:196",
+        "csv_row": 197,
+        "flex_identifier": "C01H501",
+        "fuel": "Heptane",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.2,
+        "n2_mol_frac": 0.75,
+        "co2_mol_frac": 0.05,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 758.4,
+        "droplet_initial_diameter_mm": 3.06,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.52
+      },
+      {
+        "test_id": "197",
+        "record_pk": "PSI-69:197",
+        "csv_row": 198,
+        "flex_identifier": "C01H601",
+        "fuel": "Heptane",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.2,
+        "n2_mol_frac": 0.75,
+        "co2_mol_frac": 0.05,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 759.8,
+        "droplet_initial_diameter_mm": 3.04,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.49
+      },
+      {
+        "test_id": "198",
+        "record_pk": "PSI-69:198",
+        "csv_row": 199,
+        "flex_identifier": "C01H701",
+        "fuel": "Heptane",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.2,
+        "n2_mol_frac": 0.75,
+        "co2_mol_frac": 0.05,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 760.1,
+        "droplet_initial_diameter_mm": 2.12,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.53
+      },
+      {
+        "test_id": "199",
+        "record_pk": "PSI-69:199",
+        "csv_row": 200,
+        "flex_identifier": "C01M501",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.2,
+        "n2_mol_frac": 0.75,
+        "co2_mol_frac": 0.05,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 754.0,
+        "droplet_initial_diameter_mm": 3.37,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.49
+      },
+      {
+        "test_id": "200",
+        "record_pk": "PSI-69:200",
+        "csv_row": 201,
+        "flex_identifier": "C01M602",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.2,
+        "n2_mol_frac": 0.75,
+        "co2_mol_frac": 0.05,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 756.1,
+        "droplet_initial_diameter_mm": 2.57,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.47
+      },
+      {
+        "test_id": "201",
+        "record_pk": "PSI-69:201",
+        "csv_row": 202,
+        "flex_identifier": "C01M603",
+        "fuel": "Methanol",
+        "diluent_regime": "CO2",
+        "o2_mol_frac": 0.2,
+        "n2_mol_frac": 0.75,
+        "co2_mol_frac": 0.05,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 756.9,
+        "droplet_initial_diameter_mm": 2.4,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.48
+      },
+      {
+        "test_id": "202",
+        "record_pk": "PSI-69:202",
+        "csv_row": 203,
+        "flex_identifier": "N01M101",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.21,
+        "n2_mol_frac": 0.79,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 760.2,
+        "droplet_initial_diameter_mm": 3.3,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.47
+      },
+      {
+        "test_id": "203",
+        "record_pk": "PSI-69:203",
+        "csv_row": 204,
+        "flex_identifier": "N01M201",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.21,
+        "n2_mol_frac": 0.79,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 761.6,
+        "droplet_initial_diameter_mm": 2.75,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.52
+      },
+      {
+        "test_id": "204",
+        "record_pk": "PSI-69:204",
+        "csv_row": 205,
+        "flex_identifier": "N01H101",
+        "fuel": "Heptane",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.21,
+        "n2_mol_frac": 0.79,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 756.5,
+        "droplet_initial_diameter_mm": 3.56,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.43
+      },
+      {
+        "test_id": "205",
+        "record_pk": "PSI-69:205",
+        "csv_row": 206,
+        "flex_identifier": "N01H102",
+        "fuel": "Heptane",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.21,
+        "n2_mol_frac": 0.79,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 757.3,
+        "droplet_initial_diameter_mm": 3.58,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.42
+      },
+      {
+        "test_id": "206",
+        "record_pk": "PSI-69:206",
+        "csv_row": 207,
+        "flex_identifier": "N01H201",
+        "fuel": "Heptane",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.21,
+        "n2_mol_frac": 0.79,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 760.2,
+        "droplet_initial_diameter_mm": 2.96,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.5
+      },
+      {
+        "test_id": "207",
+        "record_pk": "PSI-69:207",
+        "csv_row": 208,
+        "flex_identifier": "N01H202",
+        "fuel": "Heptane",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.21,
+        "n2_mol_frac": 0.79,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 762.7,
+        "droplet_initial_diameter_mm": 2.72,
+        "test_end": "Completion",
+        "burning_rate_mm2_s": 0.54
+      },
+      {
+        "test_id": "208",
+        "record_pk": "PSI-69:208",
+        "csv_row": 209,
+        "flex_identifier": "N01H301",
+        "fuel": "Heptane",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.21,
+        "n2_mol_frac": 0.79,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 762.9,
+        "droplet_initial_diameter_mm": 2.92,
+        "test_end": "Completion",
+        "burning_rate_mm2_s": 0.69
+      },
+      {
+        "test_id": "209",
+        "record_pk": "PSI-69:209",
+        "csv_row": 210,
+        "flex_identifier": "N02H101",
+        "fuel": "Heptane",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.16,
+        "n2_mol_frac": 0.84,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 759.8,
+        "droplet_initial_diameter_mm": 3.34,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.34
+      },
+      {
+        "test_id": "211",
+        "record_pk": "PSI-69:211",
+        "csv_row": 212,
+        "flex_identifier": "N02H203",
+        "fuel": "Heptane",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.16,
+        "n2_mol_frac": 0.84,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 759.9,
+        "droplet_initial_diameter_mm": 2.52,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.42
+      },
+      {
+        "test_id": "212",
+        "record_pk": "PSI-69:212",
+        "csv_row": 213,
+        "flex_identifier": "N03H101",
+        "fuel": "Heptane",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.15,
+        "n2_mol_frac": 0.85,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 764.0,
+        "droplet_initial_diameter_mm": 2.55,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.37
+      },
+      {
+        "test_id": "213",
+        "record_pk": "PSI-69:213",
+        "csv_row": 214,
+        "flex_identifier": "N04H101",
+        "fuel": "Heptane",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.14,
+        "n2_mol_frac": 0.86,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 759.8,
+        "droplet_initial_diameter_mm": 4.16,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.24
+      },
+      {
+        "test_id": "214",
+        "record_pk": "PSI-69:214",
+        "csv_row": 215,
+        "flex_identifier": "N04H201",
+        "fuel": "Heptane",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.14,
+        "n2_mol_frac": 0.86,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 759.9,
+        "droplet_initial_diameter_mm": 1.83,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.39
+      },
+      {
+        "test_id": "215",
+        "record_pk": "PSI-69:215",
+        "csv_row": 216,
+        "flex_identifier": "N04M101",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.14,
+        "n2_mol_frac": 0.86,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 757.6,
+        "droplet_initial_diameter_mm": 3.5,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.3
+      },
+      {
+        "test_id": "216",
+        "record_pk": "PSI-69:216",
+        "csv_row": 217,
+        "flex_identifier": "N04M201",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.14,
+        "n2_mol_frac": 0.86,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 758.3,
+        "droplet_initial_diameter_mm": 2.67,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.38
+      },
+      {
+        "test_id": "217",
+        "record_pk": "PSI-69:217",
+        "csv_row": 218,
+        "flex_identifier": "N05M101",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.13,
+        "n2_mol_frac": 0.87,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 759.4,
+        "droplet_initial_diameter_mm": 3.46,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.36
+      },
+      {
+        "test_id": "218",
+        "record_pk": "PSI-69:218",
+        "csv_row": 219,
+        "flex_identifier": "N05M201",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.13,
+        "n2_mol_frac": 0.87,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 760.6,
+        "droplet_initial_diameter_mm": 2.75,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.35
+      },
+      {
+        "test_id": "219",
+        "record_pk": "PSI-69:219",
+        "csv_row": 220,
+        "flex_identifier": "N06M101",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.12,
+        "n2_mol_frac": 0.88,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 761.6,
+        "droplet_initial_diameter_mm": 2.6,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.36
+      },
+      {
+        "test_id": "220",
+        "record_pk": "PSI-69:220",
+        "csv_row": 221,
+        "flex_identifier": "N06M201",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.12,
+        "n2_mol_frac": 0.88,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 761.9,
+        "droplet_initial_diameter_mm": 1.94,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.35
+      },
+      {
+        "test_id": "221",
+        "record_pk": "PSI-69:221",
+        "csv_row": 222,
+        "flex_identifier": "N06M202",
+        "fuel": "Methanol",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.12,
+        "n2_mol_frac": 0.88,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 763.7,
+        "droplet_initial_diameter_mm": 1.84,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.38
+      },
+      {
+        "test_id": "222",
+        "record_pk": "PSI-69:222",
+        "csv_row": 223,
+        "flex_identifier": "H01M102",
+        "fuel": "Methanol",
+        "diluent_regime": "He",
+        "o2_mol_frac": 0.2,
+        "n2_mol_frac": 0.75,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.05,
+        "pressure_mmhg": 759.2,
+        "droplet_initial_diameter_mm": 2.91,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.51
+      },
+      {
+        "test_id": "224",
+        "record_pk": "PSI-69:224",
+        "csv_row": 225,
+        "flex_identifier": "H01H102",
+        "fuel": "Heptane",
+        "diluent_regime": "He",
+        "o2_mol_frac": 0.2,
+        "n2_mol_frac": 0.75,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.05,
+        "pressure_mmhg": 755.3,
+        "droplet_initial_diameter_mm": 2.25,
+        "test_end": "Completion",
+        "burning_rate_mm2_s": 0.57
+      },
+      {
+        "test_id": "225",
+        "record_pk": "PSI-69:225",
+        "csv_row": 226,
+        "flex_identifier": "H02M101",
+        "fuel": "Methanol",
+        "diluent_regime": "He",
+        "o2_mol_frac": 0.19,
+        "n2_mol_frac": 0.71,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.1,
+        "pressure_mmhg": 753.4,
+        "droplet_initial_diameter_mm": 2.78,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.57
+      },
+      {
+        "test_id": "226",
+        "record_pk": "PSI-69:226",
+        "csv_row": 227,
+        "flex_identifier": "H03M101",
+        "fuel": "Methanol",
+        "diluent_regime": "He",
+        "o2_mol_frac": 0.18,
+        "n2_mol_frac": 0.67,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.15,
+        "pressure_mmhg": 759.2,
+        "droplet_initial_diameter_mm": 2.79,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.51
+      },
+      {
+        "test_id": "227",
+        "record_pk": "PSI-69:227",
+        "csv_row": 228,
+        "flex_identifier": "H03M201",
+        "fuel": "Methanol",
+        "diluent_regime": "He",
+        "o2_mol_frac": 0.18,
+        "n2_mol_frac": 0.67,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.15,
+        "pressure_mmhg": 760.3,
+        "droplet_initial_diameter_mm": 2.95,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.53
+      },
+      {
+        "test_id": "228",
+        "record_pk": "PSI-69:228",
+        "csv_row": 229,
+        "flex_identifier": "N01H401",
+        "fuel": "Heptane",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.21,
+        "n2_mol_frac": 0.79,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 767.4,
+        "droplet_initial_diameter_mm": 3.32,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.52
+      },
+      {
+        "test_id": "229",
+        "record_pk": "PSI-69:229",
+        "csv_row": 230,
+        "flex_identifier": "N01H502",
+        "fuel": "Heptane",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.21,
+        "n2_mol_frac": 0.79,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 768.1,
+        "droplet_initial_diameter_mm": 2.39,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.57
+      },
+      {
+        "test_id": "230",
+        "record_pk": "PSI-69:230",
+        "csv_row": 231,
+        "flex_identifier": "N01H601",
+        "fuel": "Heptane",
+        "diluent_regime": "Air",
+        "o2_mol_frac": 0.21,
+        "n2_mol_frac": 0.79,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.0,
+        "pressure_mmhg": 769.2,
+        "droplet_initial_diameter_mm": 3.65,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.57
+      },
+      {
+        "test_id": "231",
+        "record_pk": "PSI-69:231",
+        "csv_row": 232,
+        "flex_identifier": "H02H101",
+        "fuel": "Heptane",
+        "diluent_regime": "He",
+        "o2_mol_frac": 0.19,
+        "n2_mol_frac": 0.71,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.1,
+        "pressure_mmhg": 758.8,
+        "droplet_initial_diameter_mm": 2.59,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.54
+      },
+      {
+        "test_id": "232",
+        "record_pk": "PSI-69:232",
+        "csv_row": 233,
+        "flex_identifier": "H03H101",
+        "fuel": "Heptane",
+        "diluent_regime": "He",
+        "o2_mol_frac": 0.18,
+        "n2_mol_frac": 0.67,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.15,
+        "pressure_mmhg": 763.7,
+        "droplet_initial_diameter_mm": 3.52,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.41
+      },
+      {
+        "test_id": "233",
+        "record_pk": "PSI-69:233",
+        "csv_row": 234,
+        "flex_identifier": "H03H201",
+        "fuel": "Heptane",
+        "diluent_regime": "He",
+        "o2_mol_frac": 0.18,
+        "n2_mol_frac": 0.67,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.15,
+        "pressure_mmhg": 765.9,
+        "droplet_initial_diameter_mm": 2.3,
+        "test_end": "Completion",
+        "burning_rate_mm2_s": 0.49
+      },
+      {
+        "test_id": "234",
+        "record_pk": "PSI-69:234",
+        "csv_row": 235,
+        "flex_identifier": "H03H202",
+        "fuel": "Heptane",
+        "diluent_regime": "He",
+        "o2_mol_frac": 0.18,
+        "n2_mol_frac": 0.67,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.15,
+        "pressure_mmhg": 766.5,
+        "droplet_initial_diameter_mm": 2.27,
+        "test_end": "Completion",
+        "burning_rate_mm2_s": 0.51
+      },
+      {
+        "test_id": "235",
+        "record_pk": "PSI-69:235",
+        "csv_row": 236,
+        "flex_identifier": "H04H101",
+        "fuel": "Heptane",
+        "diluent_regime": "He",
+        "o2_mol_frac": 0.17,
+        "n2_mol_frac": 0.63,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.2,
+        "pressure_mmhg": 759.3,
+        "droplet_initial_diameter_mm": 2.85,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.46
+      },
+      {
+        "test_id": "236",
+        "record_pk": "PSI-69:236",
+        "csv_row": 237,
+        "flex_identifier": "H04H201",
+        "fuel": "Heptane",
+        "diluent_regime": "He",
+        "o2_mol_frac": 0.17,
+        "n2_mol_frac": 0.63,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.2,
+        "pressure_mmhg": 759.3,
+        "droplet_initial_diameter_mm": 2.12,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.59
+      },
+      {
+        "test_id": "238",
+        "record_pk": "PSI-69:238",
+        "csv_row": 239,
+        "flex_identifier": "H04H303",
+        "fuel": "Heptane",
+        "diluent_regime": "He",
+        "o2_mol_frac": 0.17,
+        "n2_mol_frac": 0.63,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.2,
+        "pressure_mmhg": 759.8,
+        "droplet_initial_diameter_mm": 1.61,
+        "test_end": "Completion",
+        "burning_rate_mm2_s": 0.91
+      },
+      {
+        "test_id": "239",
+        "record_pk": "PSI-69:239",
+        "csv_row": 240,
+        "flex_identifier": "H04M101",
+        "fuel": "Methanol",
+        "diluent_regime": "He",
+        "o2_mol_frac": 0.17,
+        "n2_mol_frac": 0.63,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.2,
+        "pressure_mmhg": 754.2,
+        "droplet_initial_diameter_mm": 2.99,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.49
+      },
+      {
+        "test_id": "240",
+        "record_pk": "PSI-69:240",
+        "csv_row": 241,
+        "flex_identifier": "H04M202",
+        "fuel": "Methanol",
+        "diluent_regime": "He",
+        "o2_mol_frac": 0.17,
+        "n2_mol_frac": 0.63,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.2,
+        "pressure_mmhg": 757.0,
+        "droplet_initial_diameter_mm": 2.9,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.51
+      },
+      {
+        "test_id": "241",
+        "record_pk": "PSI-69:241",
+        "csv_row": 242,
+        "flex_identifier": "H05M102",
+        "fuel": "Methanol",
+        "diluent_regime": "He",
+        "o2_mol_frac": 0.16,
+        "n2_mol_frac": 0.59,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.25,
+        "pressure_mmhg": 759.9,
+        "droplet_initial_diameter_mm": 3.4,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.51
+      },
+      {
+        "test_id": "243",
+        "record_pk": "PSI-69:243",
+        "csv_row": 244,
+        "flex_identifier": "H05H103",
+        "fuel": "Heptane",
+        "diluent_regime": "He",
+        "o2_mol_frac": 0.16,
+        "n2_mol_frac": 0.59,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.25,
+        "pressure_mmhg": 757.9,
+        "droplet_initial_diameter_mm": 1.49,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.6
+      },
+      {
+        "test_id": "244",
+        "record_pk": "PSI-69:244",
+        "csv_row": 245,
+        "flex_identifier": "H06M102",
+        "fuel": "Methanol",
+        "diluent_regime": "He",
+        "o2_mol_frac": 0.15,
+        "n2_mol_frac": 0.55,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.3,
+        "pressure_mmhg": 755.6,
+        "droplet_initial_diameter_mm": 3.67,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.43
+      },
+      {
+        "test_id": "245",
+        "record_pk": "PSI-69:245",
+        "csv_row": 246,
+        "flex_identifier": "H06M201",
+        "fuel": "Methanol",
+        "diluent_regime": "He",
+        "o2_mol_frac": 0.15,
+        "n2_mol_frac": 0.55,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.3,
+        "pressure_mmhg": 756.7,
+        "droplet_initial_diameter_mm": 2.52,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.56
+      },
+      {
+        "test_id": "246",
+        "record_pk": "PSI-69:246",
+        "csv_row": 247,
+        "flex_identifier": "H07M101",
+        "fuel": "Methanol",
+        "diluent_regime": "He",
+        "o2_mol_frac": 0.14,
+        "n2_mol_frac": 0.51,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.35,
+        "pressure_mmhg": 759.2,
+        "droplet_initial_diameter_mm": 2.44,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.56
+      },
+      {
+        "test_id": "247",
+        "record_pk": "PSI-69:247",
+        "csv_row": 248,
+        "flex_identifier": "H07M202",
+        "fuel": "Methanol",
+        "diluent_regime": "He",
+        "o2_mol_frac": 0.14,
+        "n2_mol_frac": 0.51,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.35,
+        "pressure_mmhg": 759.8,
+        "droplet_initial_diameter_mm": 1.88,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.58
+      },
+      {
+        "test_id": "248",
+        "record_pk": "PSI-69:248",
+        "csv_row": 249,
+        "flex_identifier": "H08M101",
+        "fuel": "Methanol",
+        "diluent_regime": "He",
+        "o2_mol_frac": 0.13,
+        "n2_mol_frac": 0.47,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.4,
+        "pressure_mmhg": 763.5,
+        "droplet_initial_diameter_mm": 3.56,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.51
+      },
+      {
+        "test_id": "249",
+        "record_pk": "PSI-69:249",
+        "csv_row": 250,
+        "flex_identifier": "H10H101",
+        "fuel": "Heptane",
+        "diluent_regime": "He",
+        "o2_mol_frac": 0.24,
+        "n2_mol_frac": 0.56,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.2,
+        "pressure_mmhg": 534.0,
+        "droplet_initial_diameter_mm": 3.78,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.72
+      },
+      {
+        "test_id": "250",
+        "record_pk": "PSI-69:250",
+        "csv_row": 251,
+        "flex_identifier": "H11H101",
+        "fuel": "Heptane",
+        "diluent_regime": "He",
+        "o2_mol_frac": 0.23,
+        "n2_mol_frac": 0.52,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.25,
+        "pressure_mmhg": 532.2,
+        "droplet_initial_diameter_mm": 2.8,
+        "test_end": "Completion",
+        "burning_rate_mm2_s": 0.71
+      },
+      {
+        "test_id": "251",
+        "record_pk": "PSI-69:251",
+        "csv_row": 252,
+        "flex_identifier": "H10M101",
+        "fuel": "Methanol",
+        "diluent_regime": "He",
+        "o2_mol_frac": 0.24,
+        "n2_mol_frac": 0.56,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.2,
+        "pressure_mmhg": 534.3,
+        "droplet_initial_diameter_mm": 2.82,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.62
+      },
+      {
+        "test_id": "252",
+        "record_pk": "PSI-69:252",
+        "csv_row": 253,
+        "flex_identifier": "H10M102",
+        "fuel": "Methanol",
+        "diluent_regime": "He",
+        "o2_mol_frac": 0.24,
+        "n2_mol_frac": 0.56,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.2,
+        "pressure_mmhg": 534.6,
+        "droplet_initial_diameter_mm": 2.79,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.7
+      },
+      {
+        "test_id": "253",
+        "record_pk": "PSI-69:253",
+        "csv_row": 254,
+        "flex_identifier": "H11M101",
+        "fuel": "Methanol",
+        "diluent_regime": "He",
+        "o2_mol_frac": 0.23,
+        "n2_mol_frac": 0.52,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.25,
+        "pressure_mmhg": 531.7,
+        "droplet_initial_diameter_mm": 2.45,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.6
+      },
+      {
+        "test_id": "254",
+        "record_pk": "PSI-69:254",
+        "csv_row": 255,
+        "flex_identifier": "H11M102",
+        "fuel": "Methanol",
+        "diluent_regime": "He",
+        "o2_mol_frac": 0.23,
+        "n2_mol_frac": 0.52,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.25,
+        "pressure_mmhg": 531.8,
+        "droplet_initial_diameter_mm": 2.61,
+        "test_end": "Disruption",
+        "burning_rate_mm2_s": 0.73
+      },
+      {
+        "test_id": "255",
+        "record_pk": "PSI-69:255",
+        "csv_row": 256,
+        "flex_identifier": "H12M101",
+        "fuel": "Methanol",
+        "diluent_regime": "He",
+        "o2_mol_frac": 0.21,
+        "n2_mol_frac": 0.49,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.3,
+        "pressure_mmhg": 531.9,
+        "droplet_initial_diameter_mm": 3.22,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.56
+      },
+      {
+        "test_id": "256",
+        "record_pk": "PSI-69:256",
+        "csv_row": 257,
+        "flex_identifier": "H12M102",
+        "fuel": "Methanol",
+        "diluent_regime": "He",
+        "o2_mol_frac": 0.21,
+        "n2_mol_frac": 0.49,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.3,
+        "pressure_mmhg": 531.2,
+        "droplet_initial_diameter_mm": 3.25,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.65
+      },
+      {
+        "test_id": "257",
+        "record_pk": "PSI-69:257",
+        "csv_row": 258,
+        "flex_identifier": "H12M201",
+        "fuel": "Methanol",
+        "diluent_regime": "He",
+        "o2_mol_frac": 0.21,
+        "n2_mol_frac": 0.49,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.3,
+        "pressure_mmhg": 531.2,
+        "droplet_initial_diameter_mm": 2.67,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.7
+      },
+      {
+        "test_id": "258",
+        "record_pk": "PSI-69:258",
+        "csv_row": 259,
+        "flex_identifier": "H12H101",
+        "fuel": "Heptane",
+        "diluent_regime": "He",
+        "o2_mol_frac": 0.21,
+        "n2_mol_frac": 0.49,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.3,
+        "pressure_mmhg": 529.6,
+        "droplet_initial_diameter_mm": 3.23,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.67
+      },
+      {
+        "test_id": "259",
+        "record_pk": "PSI-69:259",
+        "csv_row": 260,
+        "flex_identifier": "H12H201",
+        "fuel": "Heptane",
+        "diluent_regime": "He",
+        "o2_mol_frac": 0.21,
+        "n2_mol_frac": 0.49,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.3,
+        "pressure_mmhg": 529.0,
+        "droplet_initial_diameter_mm": 2.86,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.7
+      },
+      {
+        "test_id": "260",
+        "record_pk": "PSI-69:260",
+        "csv_row": 261,
+        "flex_identifier": "H13H101",
+        "fuel": "Heptane",
+        "diluent_regime": "He",
+        "o2_mol_frac": 0.2,
+        "n2_mol_frac": 0.45,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.35,
+        "pressure_mmhg": 532.5,
+        "droplet_initial_diameter_mm": 3.69,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.61
+      },
+      {
+        "test_id": "261",
+        "record_pk": "PSI-69:261",
+        "csv_row": 262,
+        "flex_identifier": "H13H201",
+        "fuel": "Heptane",
+        "diluent_regime": "He",
+        "o2_mol_frac": 0.2,
+        "n2_mol_frac": 0.45,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.35,
+        "pressure_mmhg": 532.0,
+        "droplet_initial_diameter_mm": 3.08,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.67
+      },
+      {
+        "test_id": "262",
+        "record_pk": "PSI-69:262",
+        "csv_row": 263,
+        "flex_identifier": "H13M102",
+        "fuel": "Methanol",
+        "diluent_regime": "He",
+        "o2_mol_frac": 0.2,
+        "n2_mol_frac": 0.45,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.35,
+        "pressure_mmhg": 527.6,
+        "droplet_initial_diameter_mm": 3.87,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.6
+      },
+      {
+        "test_id": "263",
+        "record_pk": "PSI-69:263",
+        "csv_row": 264,
+        "flex_identifier": "H13M201",
+        "fuel": "Methanol",
+        "diluent_regime": "He",
+        "o2_mol_frac": 0.2,
+        "n2_mol_frac": 0.45,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.35,
+        "pressure_mmhg": 527.9,
+        "droplet_initial_diameter_mm": 2.95,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.63
+      },
+      {
+        "test_id": "264",
+        "record_pk": "PSI-69:264",
+        "csv_row": 265,
+        "flex_identifier": "H14M101",
+        "fuel": "Methanol",
+        "diluent_regime": "He",
+        "o2_mol_frac": 0.18,
+        "n2_mol_frac": 0.42,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.4,
+        "pressure_mmhg": 532.4,
+        "droplet_initial_diameter_mm": 3.5,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.59
+      },
+      {
+        "test_id": "265",
+        "record_pk": "PSI-69:265",
+        "csv_row": 266,
+        "flex_identifier": "H14M201",
+        "fuel": "Methanol",
+        "diluent_regime": "He",
+        "o2_mol_frac": 0.18,
+        "n2_mol_frac": 0.42,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.4,
+        "pressure_mmhg": 532.9,
+        "droplet_initial_diameter_mm": 2.7,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.63
+      },
+      {
+        "test_id": "266",
+        "record_pk": "PSI-69:266",
+        "csv_row": 267,
+        "flex_identifier": "H14M202",
+        "fuel": "Methanol",
+        "diluent_regime": "He",
+        "o2_mol_frac": 0.18,
+        "n2_mol_frac": 0.42,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.4,
+        "pressure_mmhg": 533.2,
+        "droplet_initial_diameter_mm": 1.84,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.62
+      },
+      {
+        "test_id": "267",
+        "record_pk": "PSI-69:267",
+        "csv_row": 268,
+        "flex_identifier": "H14H101",
+        "fuel": "Heptane",
+        "diluent_regime": "He",
+        "o2_mol_frac": 0.18,
+        "n2_mol_frac": 0.42,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.4,
+        "pressure_mmhg": 528.0,
+        "droplet_initial_diameter_mm": 2.27,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.71
+      },
+      {
+        "test_id": "268",
+        "record_pk": "PSI-69:268",
+        "csv_row": 269,
+        "flex_identifier": "H14H201",
+        "fuel": "Heptane",
+        "diluent_regime": "He",
+        "o2_mol_frac": 0.18,
+        "n2_mol_frac": 0.42,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.4,
+        "pressure_mmhg": 530.3,
+        "droplet_initial_diameter_mm": 1.86,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.77
+      },
+      {
+        "test_id": "269",
+        "record_pk": "PSI-69:269",
+        "csv_row": 270,
+        "flex_identifier": "H15H101",
+        "fuel": "Heptane",
+        "diluent_regime": "He",
+        "o2_mol_frac": 0.17,
+        "n2_mol_frac": 0.38,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.45,
+        "pressure_mmhg": 532.2,
+        "droplet_initial_diameter_mm": 2.22,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.76
+      },
+      {
+        "test_id": "270",
+        "record_pk": "PSI-69:270",
+        "csv_row": 271,
+        "flex_identifier": "H15H201",
+        "fuel": "Heptane",
+        "diluent_regime": "He",
+        "o2_mol_frac": 0.17,
+        "n2_mol_frac": 0.38,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.45,
+        "pressure_mmhg": 532.5,
+        "droplet_initial_diameter_mm": 1.61,
+        "test_end": "Completion",
+        "burning_rate_mm2_s": 1.06
+      },
+      {
+        "test_id": "271",
+        "record_pk": "PSI-69:271",
+        "csv_row": 272,
+        "flex_identifier": "H15M102",
+        "fuel": "Methanol",
+        "diluent_regime": "He",
+        "o2_mol_frac": 0.17,
+        "n2_mol_frac": 0.38,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.45,
+        "pressure_mmhg": 530.4,
+        "droplet_initial_diameter_mm": 2.79,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.63
+      },
+      {
+        "test_id": "272",
+        "record_pk": "PSI-69:272",
+        "csv_row": 273,
+        "flex_identifier": "H15M201",
+        "fuel": "Methanol",
+        "diluent_regime": "He",
+        "o2_mol_frac": 0.17,
+        "n2_mol_frac": 0.38,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.45,
+        "pressure_mmhg": 531.5,
+        "droplet_initial_diameter_mm": 2.68,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.66
+      },
+      {
+        "test_id": "273",
+        "record_pk": "PSI-69:273",
+        "csv_row": 274,
+        "flex_identifier": "H19H101",
+        "fuel": "Heptane",
+        "diluent_regime": "He",
+        "o2_mol_frac": 0.21,
+        "n2_mol_frac": 0.64,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.15,
+        "pressure_mmhg": 764.7,
+        "droplet_initial_diameter_mm": 3.54,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.55
+      },
+      {
+        "test_id": "274",
+        "record_pk": "PSI-69:274",
+        "csv_row": 275,
+        "flex_identifier": "H19H201",
+        "fuel": "Heptane",
+        "diluent_regime": "He",
+        "o2_mol_frac": 0.21,
+        "n2_mol_frac": 0.64,
+        "co2_mol_frac": 0.0,
+        "he_mol_frac": 0.15,
+        "pressure_mmhg": 766.2,
+        "droplet_initial_diameter_mm": 2.82,
+        "test_end": "Extinction",
+        "burning_rate_mm2_s": 0.65
+      }
+    ]
+  },
+  "background_reg_raw6": [
+    [
+      0.0,
+      0.21,
+      0.0,
+      0.0,
+      757.7,
+      1.69
+    ],
+    [
+      0.0,
+      0.21,
+      0.0,
+      0.0,
+      762.0,
+      1.86
+    ],
+    [
+      0.0,
+      0.21,
+      0.0,
+      0.0,
+      764.2,
+      1.61
+    ],
+    [
+      0.0,
+      0.21,
+      0.0,
+      0.0,
+      760.0,
+      2.06
+    ],
+    [
+      0.0,
+      0.21,
+      0.0,
+      0.0,
+      760.0,
+      1.92
+    ],
+    [
+      0.0,
+      0.21,
+      0.0,
+      0.0,
+      760.0,
+      2.54
+    ],
+    [
+      1.0,
+      0.21,
+      0.0,
+      0.0,
+      761.3,
+      1.87
+    ],
+    [
+      1.0,
+      0.21,
+      0.0,
+      0.0,
+      762.4,
+      2.95
+    ],
+    [
+      0.0,
+      0.21,
+      0.7,
+      0.0,
+      2319.7,
+      3.86
+    ],
+    [
+      0.0,
+      0.21,
+      0.7,
+      0.0,
+      2318.8,
+      3.03
+    ],
+    [
+      0.0,
+      0.21,
+      0.7,
+      0.0,
+      2074.2,
+      2.59
+    ],
+    [
+      0.0,
+      0.21,
+      0.7,
+      0.0,
+      2072.1,
+      1.66
+    ],
+    [
+      1.0,
+      0.21,
+      0.7,
+      0.0,
+      1553.8,
+      2.74
+    ],
+    [
+      1.0,
+      0.34,
+      0.0,
+      0.0,
+      539.1,
+      3.39
+    ],
+    [
+      0.0,
+      0.34,
+      0.0,
+      0.0,
+      539.5,
+      3.4
+    ],
+    [
+      0.0,
+      0.34,
+      0.0,
+      0.0,
+      540.6,
+      3.49
+    ],
+    [
+      0.0,
+      0.34,
+      0.0,
+      0.0,
+      540.5,
+      3.5
+    ],
+    [
+      1.0,
+      0.34,
+      0.0,
+      0.0,
+      541.8,
+      3.01
+    ],
+    [
+      0.0,
+      0.3,
+      0.0,
+      0.0,
+      537.3,
+      2.6
+    ],
+    [
+      0.0,
+      0.3,
+      0.0,
+      0.0,
+      538.4,
+      3.63
+    ],
+    [
+      1.0,
+      0.3,
+      0.0,
+      0.0,
+      540.7,
+      3.87
+    ],
+    [
+      1.0,
+      0.3,
+      0.0,
+      0.0,
+      539.7,
+      3.36
+    ],
+    [
+      0.0,
+      0.3,
+      0.0,
+      0.0,
+      766.9,
+      2.57
+    ],
+    [
+      0.0,
+      0.3,
+      0.0,
+      0.0,
+      769.2,
+      3.26
+    ],
+    [
+      1.0,
+      0.3,
+      0.0,
+      0.0,
+      770.5,
+      3.39
+    ],
+    [
+      1.0,
+      0.3,
+      0.0,
+      0.0,
+      771.0,
+      3.07
+    ],
+    [
+      0.0,
+      0.21,
+      0.0,
+      0.0,
+      764.5,
+      2.62
+    ],
+    [
+      0.0,
+      0.21,
+      0.0,
+      0.0,
+      767.7,
+      3.89
+    ],
+    [
+      1.0,
+      0.21,
+      0.0,
+      0.0,
+      768.1,
+      3.85
+    ],
+    [
+      0.0,
+      0.2,
+      0.0,
+      0.0,
+      539.0,
+      2.4
+    ],
+    [
+      0.0,
+      0.34,
+      0.0,
+      0.0,
+      534.3,
+      3.31
+    ],
+    [
+      0.0,
+      0.34,
+      0.0,
+      0.0,
+      534.4,
+      3.59
+    ],
+    [
+      1.0,
+      0.34,
+      0.0,
+      0.0,
+      534.9,
+      2.91
+    ],
+    [
+      0.0,
+      0.3,
+      0.0,
+      0.0,
+      535.1,
+      3.77
+    ],
+    [
+      0.0,
+      0.3,
+      0.0,
+      0.0,
+      534.3,
+      3.35
+    ],
+    [
+      1.0,
+      0.3,
+      0.0,
+      0.0,
+      535.0,
+      2.92
+    ],
+    [
+      1.0,
+      0.3,
+      0.0,
+      0.0,
+      534.9,
+      2.97
+    ],
+    [
+      0.0,
+      0.3,
+      0.0,
+      0.0,
+      766.8,
+      3.49
+    ],
+    [
+      0.0,
+      0.3,
+      0.0,
+      0.0,
+      768.3,
+      2.42
+    ],
+    [
+      0.0,
+      0.21,
+      0.0,
+      0.0,
+      769.5,
+      2.78
+    ],
+    [
+      1.0,
+      0.21,
+      0.0,
+      0.0,
+      770.1,
+      3.36
+    ],
+    [
+      0.0,
+      0.21,
+      0.0,
+      0.0,
+      768.7,
+      3.66
+    ],
+    [
+      1.0,
+      0.21,
+      0.0,
+      0.0,
+      764.9,
+      3.46
+    ],
+    [
+      1.0,
+      0.21,
+      0.0,
+      0.0,
+      770.1,
+      3.57
+    ],
+    [
+      1.0,
+      0.21,
+      0.0,
+      0.0,
+      771.4,
+      2.41
+    ],
+    [
+      1.0,
+      0.3,
+      0.0,
+      0.0,
+      771.1,
+      3.53
+    ],
+    [
+      0.0,
+      0.2,
+      0.0,
+      0.0,
+      541.4,
+      3.56
+    ],
+    [
+      0.0,
+      0.2,
+      0.0,
+      0.0,
+      542.6,
+      3.37
+    ],
+    [
+      1.0,
+      0.2,
+      0.0,
+      0.0,
+      544.1,
+      3.56
+    ],
+    [
+      1.0,
+      0.2,
+      0.0,
+      0.0,
+      544.4,
+      3.1
+    ],
+    [
+      0.0,
+      0.18,
+      0.0,
+      0.0,
+      773.3,
+      3.69
+    ],
+    [
+      0.0,
+      0.18,
+      0.0,
+      0.0,
+      769.2,
+      2.93
+    ],
+    [
+      0.0,
+      0.18,
+      0.0,
+      0.0,
+      773.7,
+      3.43
+    ],
+    [
+      0.0,
+      0.18,
+      0.0,
+      0.0,
+      774.1,
+      3.68
+    ],
+    [
+      1.0,
+      0.18,
+      0.0,
+      0.0,
+      761.8,
+      3.43
+    ],
+    [
+      1.0,
+      0.18,
+      0.0,
+      0.0,
+      767.6,
+      2.15
+    ],
+    [
+      1.0,
+      0.18,
+      0.0,
+      0.0,
+      764.6,
+      2.69
+    ],
+    [
+      0.0,
+      0.15,
+      0.0,
+      0.0,
+      765.9,
+      3.37
+    ],
+    [
+      0.0,
+      0.15,
+      0.0,
+      0.0,
+      766.8,
+      2.52
+    ],
+    [
+      0.0,
+      0.15,
+      0.0,
+      0.0,
+      767.7,
+      3.97
+    ],
+    [
+      0.0,
+      0.15,
+      0.0,
+      0.0,
+      768.8,
+      2.38
+    ],
+    [
+      1.0,
+      0.14,
+      0.0,
+      0.0,
+      767.1,
+      1.1
+    ],
+    [
+      1.0,
+      0.15,
+      0.0,
+      0.0,
+      761.0,
+      4.67
+    ],
+    [
+      0.0,
+      0.15,
+      0.0,
+      0.0,
+      768.3,
+      2.25
+    ],
+    [
+      1.0,
+      0.15,
+      0.0,
+      0.0,
+      765.2,
+      1.13
+    ],
+    [
+      1.0,
+      0.15,
+      0.0,
+      0.0,
+      761.0,
+      4.64
+    ],
+    [
+      1.0,
+      0.15,
+      0.0,
+      0.0,
+      765.9,
+      1.33
+    ],
+    [
+      0.0,
+      0.13,
+      0.0,
+      0.0,
+      770.8,
+      2.54
+    ],
+    [
+      0.0,
+      0.13,
+      0.0,
+      0.0,
+      769.5,
+      3.21
+    ],
+    [
+      0.0,
+      0.14,
+      0.0,
+      0.0,
+      768.4,
+      3.33
+    ],
+    [
+      0.0,
+      0.14,
+      0.0,
+      0.0,
+      766.0,
+      2.66
+    ],
+    [
+      1.0,
+      0.13,
+      0.0,
+      0.0,
+      768.1,
+      2.92
+    ],
+    [
+      0.0,
+      0.13,
+      0.0,
+      0.0,
+      764.6,
+      2.84
+    ],
+    [
+      0.0,
+      0.12,
+      0.0,
+      0.0,
+      767.2,
+      2.35
+    ],
+    [
+      0.0,
+      0.12,
+      0.0,
+      0.0,
+      771.2,
+      2.4
+    ],
+    [
+      0.0,
+      0.12,
+      0.0,
+      0.0,
+      770.0,
+      3.07
+    ],
+    [
+      0.0,
+      0.12,
+      0.0,
+      0.0,
+      771.2,
+      2.64
+    ],
+    [
+      0.0,
+      0.25,
+      0.15,
+      0.0,
+      537.5,
+      3.01
+    ],
+    [
+      0.0,
+      0.25,
+      0.15,
+      0.0,
+      537.4,
+      3.7
+    ],
+    [
+      0.0,
+      0.25,
+      0.15,
+      0.0,
+      539.2,
+      3.62
+    ],
+    [
+      0.0,
+      0.25,
+      0.15,
+      0.0,
+      538.3,
+      3.51
+    ],
+    [
+      1.0,
+      0.25,
+      0.15,
+      0.0,
+      536.3,
+      3.41
+    ],
+    [
+      1.0,
+      0.25,
+      0.15,
+      0.0,
+      537.3,
+      2.48
+    ],
+    [
+      1.0,
+      0.24,
+      0.2,
+      0.0,
+      533.6,
+      3.53
+    ],
+    [
+      1.0,
+      0.24,
+      0.2,
+      0.0,
+      534.4,
+      3.6
+    ],
+    [
+      0.0,
+      0.23,
+      0.2,
+      0.0,
+      534.2,
+      4.25
+    ],
+    [
+      0.0,
+      0.23,
+      0.25,
+      0.0,
+      537.1,
+      3.64
+    ],
+    [
+      0.0,
+      0.23,
+      0.25,
+      0.0,
+      535.0,
+      4.28
+    ],
+    [
+      1.0,
+      0.23,
+      0.25,
+      0.0,
+      536.7,
+      4.14
+    ],
+    [
+      1.0,
+      0.23,
+      0.25,
+      0.0,
+      538.7,
+      3.88
+    ],
+    [
+      1.0,
+      0.21,
+      0.3,
+      0.0,
+      534.2,
+      3.57
+    ],
+    [
+      1.0,
+      0.21,
+      0.3,
+      0.0,
+      534.3,
+      4.0
+    ],
+    [
+      0.0,
+      0.23,
+      0.2,
+      0.0,
+      534.1,
+      3.6
+    ],
+    [
+      0.0,
+      0.23,
+      0.2,
+      0.0,
+      534.6,
+      4.17
+    ],
+    [
+      0.0,
+      0.23,
+      0.25,
+      0.0,
+      538.3,
+      3.08
+    ],
+    [
+      0.0,
+      0.23,
+      0.2,
+      0.0,
+      535.0,
+      3.18
+    ],
+    [
+      0.0,
+      0.23,
+      0.25,
+      0.0,
+      538.3,
+      3.75
+    ],
+    [
+      0.0,
+      0.21,
+      0.3,
+      0.0,
+      536.5,
+      3.56
+    ],
+    [
+      0.0,
+      0.21,
+      0.3,
+      0.0,
+      537.0,
+      2.83
+    ],
+    [
+      0.0,
+      0.21,
+      0.3,
+      0.0,
+      536.9,
+      3.37
+    ],
+    [
+      0.0,
+      0.21,
+      0.3,
+      0.0,
+      530.7,
+      3.99
+    ],
+    [
+      0.0,
+      0.2,
+      0.35,
+      0.0,
+      534.6,
+      4.2
+    ],
+    [
+      0.0,
+      0.2,
+      0.35,
+      0.0,
+      535.8,
+      3.97
+    ],
+    [
+      0.0,
+      0.2,
+      0.35,
+      0.0,
+      536.3,
+      3.16
+    ],
+    [
+      1.0,
+      0.2,
+      0.35,
+      0.0,
+      531.1,
+      3.84
+    ],
+    [
+      1.0,
+      0.2,
+      0.35,
+      0.0,
+      532.8,
+      3.03
+    ],
+    [
+      1.0,
+      0.18,
+      0.4,
+      0.0,
+      532.6,
+      2.6
+    ],
+    [
+      1.0,
+      0.18,
+      0.4,
+      0.0,
+      532.5,
+      2.45
+    ],
+    [
+      0.0,
+      0.18,
+      0.4,
+      0.0,
+      526.3,
+      4.25
+    ],
+    [
+      0.0,
+      0.18,
+      0.4,
+      0.0,
+      531.2,
+      3.46
+    ],
+    [
+      0.0,
+      0.18,
+      0.4,
+      0.0,
+      532.0,
+      4.13
+    ],
+    [
+      0.0,
+      0.18,
+      0.4,
+      0.0,
+      532.4,
+      2.87
+    ],
+    [
+      0.0,
+      0.17,
+      0.45,
+      0.0,
+      537.2,
+      3.63
+    ],
+    [
+      0.0,
+      0.17,
+      0.45,
+      0.0,
+      536.1,
+      2.8
+    ],
+    [
+      0.0,
+      0.17,
+      0.45,
+      0.0,
+      536.7,
+      3.22
+    ],
+    [
+      0.0,
+      0.17,
+      0.45,
+      0.0,
+      537.3,
+      2.91
+    ],
+    [
+      1.0,
+      0.17,
+      0.45,
+      0.0,
+      536.2,
+      3.33
+    ],
+    [
+      1.0,
+      0.17,
+      0.45,
+      0.0,
+      537.2,
+      2.91
+    ],
+    [
+      1.0,
+      0.24,
+      0.2,
+      0.0,
+      763.9,
+      1.72
+    ],
+    [
+      1.0,
+      0.24,
+      0.2,
+      0.0,
+      765.2,
+      2.63
+    ],
+    [
+      1.0,
+      0.24,
+      0.2,
+      0.0,
+      766.7,
+      3.25
+    ],
+    [
+      1.0,
+      0.24,
+      0.2,
+      0.0,
+      767.2,
+      3.66
+    ],
+    [
+      1.0,
+      0.24,
+      0.2,
+      0.0,
+      768.2,
+      2.78
+    ],
+    [
+      1.0,
+      0.24,
+      0.2,
+      0.0,
+      768.1,
+      3.08
+    ],
+    [
+      1.0,
+      0.24,
+      0.2,
+      0.0,
+      768.2,
+      3.13
+    ],
+    [
+      1.0,
+      0.24,
+      0.2,
+      0.0,
+      768.0,
+      1.75
+    ],
+    [
+      0.0,
+      0.15,
+      0.5,
+      0.0,
+      533.5,
+      3.98
+    ],
+    [
+      0.0,
+      0.15,
+      0.5,
+      0.0,
+      534.1,
+      2.86
+    ],
+    [
+      0.0,
+      0.15,
+      0.5,
+      0.0,
+      534.5,
+      1.86
+    ],
+    [
+      0.0,
+      0.15,
+      0.5,
+      0.0,
+      534.7,
+      2.25
+    ],
+    [
+      0.0,
+      0.2,
+      0.05,
+      0.0,
+      761.9,
+      3.53
+    ],
+    [
+      0.0,
+      0.2,
+      0.05,
+      0.0,
+      763.5,
+      3.33
+    ],
+    [
+      0.0,
+      0.2,
+      0.05,
+      0.0,
+      765.5,
+      4.35
+    ],
+    [
+      0.0,
+      0.17,
+      0.45,
+      0.0,
+      535.7,
+      3.02
+    ],
+    [
+      1.0,
+      0.2,
+      0.05,
+      0.0,
+      764.4,
+      2.58
+    ],
+    [
+      1.0,
+      0.2,
+      0.05,
+      0.0,
+      766.2,
+      2.21
+    ],
+    [
+      1.0,
+      0.2,
+      0.05,
+      0.0,
+      767.6,
+      3.18
+    ],
+    [
+      0.0,
+      0.18,
+      0.15,
+      0.0,
+      762.5,
+      3.86
+    ],
+    [
+      0.0,
+      0.18,
+      0.15,
+      0.0,
+      765.0,
+      3.33
+    ],
+    [
+      0.0,
+      0.18,
+      0.15,
+      0.0,
+      765.6,
+      2.78
+    ],
+    [
+      1.0,
+      0.18,
+      0.15,
+      0.0,
+      762.3,
+      3.7
+    ],
+    [
+      1.0,
+      0.18,
+      0.15,
+      0.0,
+      764.9,
+      2.73
+    ],
+    [
+      1.0,
+      0.18,
+      0.15,
+      0.0,
+      765.7,
+      1.34
+    ],
+    [
+      0.0,
+      0.16,
+      0.25,
+      0.0,
+      762.1,
+      4.24
+    ],
+    [
+      0.0,
+      0.16,
+      0.25,
+      0.0,
+      764.4,
+      3.7
+    ],
+    [
+      0.0,
+      0.16,
+      0.25,
+      0.0,
+      765.5,
+      2.71
+    ],
+    [
+      0.0,
+      0.16,
+      0.25,
+      0.0,
+      767.6,
+      2.77
+    ],
+    [
+      0.0,
+      0.15,
+      0.32,
+      0.0,
+      763.3,
+      3.72
+    ],
+    [
+      0.0,
+      0.15,
+      0.32,
+      0.0,
+      764.4,
+      3.05
+    ],
+    [
+      0.0,
+      0.15,
+      0.32,
+      0.0,
+      765.9,
+      2.59
+    ],
+    [
+      0.0,
+      0.15,
+      0.32,
+      0.0,
+      766.1,
+      2.59
+    ],
+    [
+      1.0,
+      0.18,
+      0.15,
+      0.0,
+      765.4,
+      1.96
+    ],
+    [
+      0.0,
+      0.14,
+      0.36,
+      0.0,
+      760.8,
+      3.22
+    ],
+    [
+      0.0,
+      0.14,
+      0.36,
+      0.0,
+      761.6,
+      2.32
+    ],
+    [
+      0.0,
+      0.21,
+      0.15,
+      0.0,
+      763.4,
+      3.03
+    ],
+    [
+      0.0,
+      0.21,
+      0.15,
+      0.0,
+      766.1,
+      3.05
+    ],
+    [
+      0.0,
+      0.21,
+      0.15,
+      0.0,
+      766.7,
+      3.53
+    ],
+    [
+      1.0,
+      0.18,
+      0.15,
+      0.0,
+      759.9,
+      3.74
+    ],
+    [
+      1.0,
+      0.18,
+      0.15,
+      0.0,
+      762.0,
+      2.4
+    ],
+    [
+      1.0,
+      0.18,
+      0.15,
+      0.0,
+      762.1,
+      1.35
+    ],
+    [
+      1.0,
+      0.24,
+      0.2,
+      0.0,
+      531.7,
+      2.5
+    ],
+    [
+      1.0,
+      0.24,
+      0.2,
+      0.0,
+      532.1,
+      2.88
+    ],
+    [
+      0.0,
+      0.24,
+      0.2,
+      0.0,
+      536.9,
+      4.53
+    ],
+    [
+      0.0,
+      0.24,
+      0.2,
+      0.0,
+      537.0,
+      3.02
+    ],
+    [
+      1.0,
+      0.23,
+      0.25,
+      0.0,
+      533.6,
+      3.32
+    ],
+    [
+      1.0,
+      0.23,
+      0.25,
+      0.0,
+      534.4,
+      2.07
+    ],
+    [
+      1.0,
+      0.19,
+      0.1,
+      0.0,
+      758.4,
+      3.4
+    ],
+    [
+      1.0,
+      0.19,
+      0.1,
+      0.0,
+      759.1,
+      2.48
+    ],
+    [
+      1.0,
+      0.19,
+      0.1,
+      0.0,
+      759.0,
+      1.64
+    ],
+    [
+      0.0,
+      0.23,
+      0.25,
+      0.0,
+      534.4,
+      3.72
+    ],
+    [
+      0.0,
+      0.23,
+      0.25,
+      0.0,
+      535.1,
+      3.42
+    ],
+    [
+      0.0,
+      0.23,
+      0.25,
+      0.0,
+      535.2,
+      2.8
+    ],
+    [
+      0.0,
+      0.23,
+      0.25,
+      0.0,
+      536.2,
+      2.47
+    ],
+    [
+      0.0,
+      0.19,
+      0.1,
+      0.0,
+      758.0,
+      3.38
+    ],
+    [
+      0.0,
+      0.19,
+      0.1,
+      0.0,
+      758.1,
+      2.47
+    ],
+    [
+      0.0,
+      0.18,
+      0.15,
+      0.0,
+      761.2,
+      3.77
+    ],
+    [
+      0.0,
+      0.18,
+      0.15,
+      0.0,
+      764.6,
+      2.74
+    ],
+    [
+      0.0,
+      0.18,
+      0.15,
+      0.0,
+      765.3,
+      1.76
+    ],
+    [
+      0.0,
+      0.17,
+      0.2,
+      0.0,
+      759.5,
+      3.46
+    ],
+    [
+      0.0,
+      0.17,
+      0.2,
+      0.0,
+      759.1,
+      2.77
+    ],
+    [
+      1.0,
+      0.17,
+      0.2,
+      0.0,
+      752.0,
+      3.76
+    ],
+    [
+      1.0,
+      0.17,
+      0.2,
+      0.0,
+      752.5,
+      2.9
+    ],
+    [
+      1.0,
+      0.2,
+      0.05,
+      0.0,
+      758.4,
+      3.06
+    ],
+    [
+      1.0,
+      0.2,
+      0.05,
+      0.0,
+      759.8,
+      3.04
+    ],
+    [
+      1.0,
+      0.2,
+      0.05,
+      0.0,
+      760.1,
+      2.12
+    ],
+    [
+      0.0,
+      0.2,
+      0.05,
+      0.0,
+      754.0,
+      3.37
+    ],
+    [
+      0.0,
+      0.2,
+      0.05,
+      0.0,
+      756.1,
+      2.57
+    ],
+    [
+      0.0,
+      0.2,
+      0.05,
+      0.0,
+      756.9,
+      2.4
+    ],
+    [
+      0.0,
+      0.21,
+      0.0,
+      0.0,
+      760.2,
+      3.3
+    ],
+    [
+      0.0,
+      0.21,
+      0.0,
+      0.0,
+      761.6,
+      2.75
+    ],
+    [
+      1.0,
+      0.21,
+      0.0,
+      0.0,
+      756.5,
+      3.56
+    ],
+    [
+      1.0,
+      0.21,
+      0.0,
+      0.0,
+      757.3,
+      3.58
+    ],
+    [
+      1.0,
+      0.21,
+      0.0,
+      0.0,
+      760.2,
+      2.96
+    ],
+    [
+      1.0,
+      0.21,
+      0.0,
+      0.0,
+      762.7,
+      2.72
+    ],
+    [
+      1.0,
+      0.21,
+      0.0,
+      0.0,
+      762.9,
+      2.92
+    ],
+    [
+      1.0,
+      0.16,
+      0.0,
+      0.0,
+      759.8,
+      3.34
+    ],
+    [
+      1.0,
+      0.16,
+      0.0,
+      0.0,
+      759.9,
+      2.52
+    ],
+    [
+      1.0,
+      0.15,
+      0.0,
+      0.0,
+      764.0,
+      2.55
+    ],
+    [
+      1.0,
+      0.14,
+      0.0,
+      0.0,
+      759.8,
+      4.16
+    ],
+    [
+      1.0,
+      0.14,
+      0.0,
+      0.0,
+      759.9,
+      1.83
+    ],
+    [
+      0.0,
+      0.14,
+      0.0,
+      0.0,
+      757.6,
+      3.5
+    ],
+    [
+      0.0,
+      0.14,
+      0.0,
+      0.0,
+      758.3,
+      2.67
+    ],
+    [
+      0.0,
+      0.13,
+      0.0,
+      0.0,
+      759.4,
+      3.46
+    ],
+    [
+      0.0,
+      0.13,
+      0.0,
+      0.0,
+      760.6,
+      2.75
+    ],
+    [
+      0.0,
+      0.12,
+      0.0,
+      0.0,
+      761.6,
+      2.6
+    ],
+    [
+      0.0,
+      0.12,
+      0.0,
+      0.0,
+      761.9,
+      1.94
+    ],
+    [
+      0.0,
+      0.12,
+      0.0,
+      0.0,
+      763.7,
+      1.84
+    ],
+    [
+      0.0,
+      0.2,
+      0.0,
+      0.05,
+      759.2,
+      2.91
+    ],
+    [
+      1.0,
+      0.2,
+      0.0,
+      0.05,
+      755.3,
+      2.25
+    ],
+    [
+      0.0,
+      0.19,
+      0.0,
+      0.1,
+      753.4,
+      2.78
+    ],
+    [
+      0.0,
+      0.18,
+      0.0,
+      0.15,
+      759.2,
+      2.79
+    ],
+    [
+      0.0,
+      0.18,
+      0.0,
+      0.15,
+      760.3,
+      2.95
+    ],
+    [
+      1.0,
+      0.21,
+      0.0,
+      0.0,
+      767.4,
+      3.32
+    ],
+    [
+      1.0,
+      0.21,
+      0.0,
+      0.0,
+      768.1,
+      2.39
+    ],
+    [
+      1.0,
+      0.21,
+      0.0,
+      0.0,
+      769.2,
+      3.65
+    ],
+    [
+      1.0,
+      0.19,
+      0.0,
+      0.1,
+      758.8,
+      2.59
+    ],
+    [
+      1.0,
+      0.18,
+      0.0,
+      0.15,
+      763.7,
+      3.52
+    ],
+    [
+      1.0,
+      0.18,
+      0.0,
+      0.15,
+      765.9,
+      2.3
+    ],
+    [
+      1.0,
+      0.18,
+      0.0,
+      0.15,
+      766.5,
+      2.27
+    ],
+    [
+      1.0,
+      0.17,
+      0.0,
+      0.2,
+      759.3,
+      2.85
+    ],
+    [
+      1.0,
+      0.17,
+      0.0,
+      0.2,
+      759.3,
+      2.12
+    ],
+    [
+      1.0,
+      0.17,
+      0.0,
+      0.2,
+      759.8,
+      1.61
+    ],
+    [
+      0.0,
+      0.17,
+      0.0,
+      0.2,
+      754.2,
+      2.99
+    ],
+    [
+      0.0,
+      0.17,
+      0.0,
+      0.2,
+      757.0,
+      2.9
+    ],
+    [
+      0.0,
+      0.16,
+      0.0,
+      0.25,
+      759.9,
+      3.4
+    ],
+    [
+      1.0,
+      0.16,
+      0.0,
+      0.25,
+      757.9,
+      1.49
+    ],
+    [
+      0.0,
+      0.15,
+      0.0,
+      0.3,
+      755.6,
+      3.67
+    ],
+    [
+      0.0,
+      0.15,
+      0.0,
+      0.3,
+      756.7,
+      2.52
+    ],
+    [
+      0.0,
+      0.14,
+      0.0,
+      0.35,
+      759.2,
+      2.44
+    ],
+    [
+      0.0,
+      0.14,
+      0.0,
+      0.35,
+      759.8,
+      1.88
+    ],
+    [
+      0.0,
+      0.13,
+      0.0,
+      0.4,
+      763.5,
+      3.56
+    ],
+    [
+      1.0,
+      0.24,
+      0.0,
+      0.2,
+      534.0,
+      3.78
+    ],
+    [
+      1.0,
+      0.23,
+      0.0,
+      0.25,
+      532.2,
+      2.8
+    ],
+    [
+      0.0,
+      0.24,
+      0.0,
+      0.2,
+      534.3,
+      2.82
+    ],
+    [
+      0.0,
+      0.24,
+      0.0,
+      0.2,
+      534.6,
+      2.79
+    ],
+    [
+      0.0,
+      0.23,
+      0.0,
+      0.25,
+      531.7,
+      2.45
+    ],
+    [
+      0.0,
+      0.23,
+      0.0,
+      0.25,
+      531.8,
+      2.61
+    ],
+    [
+      0.0,
+      0.21,
+      0.0,
+      0.3,
+      531.9,
+      3.22
+    ],
+    [
+      0.0,
+      0.21,
+      0.0,
+      0.3,
+      531.2,
+      3.25
+    ],
+    [
+      0.0,
+      0.21,
+      0.0,
+      0.3,
+      531.2,
+      2.67
+    ],
+    [
+      1.0,
+      0.21,
+      0.0,
+      0.3,
+      529.6,
+      3.23
+    ],
+    [
+      1.0,
+      0.21,
+      0.0,
+      0.3,
+      529.0,
+      2.86
+    ],
+    [
+      1.0,
+      0.2,
+      0.0,
+      0.35,
+      532.5,
+      3.69
+    ],
+    [
+      1.0,
+      0.2,
+      0.0,
+      0.35,
+      532.0,
+      3.08
+    ],
+    [
+      0.0,
+      0.2,
+      0.0,
+      0.35,
+      527.6,
+      3.87
+    ],
+    [
+      0.0,
+      0.2,
+      0.0,
+      0.35,
+      527.9,
+      2.95
+    ],
+    [
+      0.0,
+      0.18,
+      0.0,
+      0.4,
+      532.4,
+      3.5
+    ],
+    [
+      0.0,
+      0.18,
+      0.0,
+      0.4,
+      532.9,
+      2.7
+    ],
+    [
+      0.0,
+      0.18,
+      0.0,
+      0.4,
+      533.2,
+      1.84
+    ],
+    [
+      1.0,
+      0.18,
+      0.0,
+      0.4,
+      528.0,
+      2.27
+    ],
+    [
+      1.0,
+      0.18,
+      0.0,
+      0.4,
+      530.3,
+      1.86
+    ],
+    [
+      1.0,
+      0.17,
+      0.0,
+      0.45,
+      532.2,
+      2.22
+    ],
+    [
+      1.0,
+      0.17,
+      0.0,
+      0.45,
+      532.5,
+      1.61
+    ],
+    [
+      0.0,
+      0.17,
+      0.0,
+      0.45,
+      530.4,
+      2.79
+    ],
+    [
+      0.0,
+      0.17,
+      0.0,
+      0.45,
+      531.5,
+      2.68
+    ],
+    [
+      1.0,
+      0.21,
+      0.0,
+      0.15,
+      764.7,
+      3.54
+    ],
+    [
+      1.0,
+      0.21,
+      0.0,
+      0.15,
+      766.2,
+      2.82
+    ]
+  ],
+  "background_clf_raw6": [
+    [
+      0.0,
+      0.21,
+      0.0,
+      0.0,
+      757.7,
+      1.69
+    ],
+    [
+      0.0,
+      0.21,
+      0.0,
+      0.0,
+      762.0,
+      1.86
+    ],
+    [
+      0.0,
+      0.21,
+      0.0,
+      0.0,
+      764.2,
+      1.61
+    ],
+    [
+      0.0,
+      0.21,
+      0.0,
+      0.0,
+      760.0,
+      2.06
+    ],
+    [
+      0.0,
+      0.21,
+      0.0,
+      0.0,
+      760.0,
+      1.92
+    ],
+    [
+      0.0,
+      0.21,
+      0.0,
+      0.0,
+      760.0,
+      2.54
+    ],
+    [
+      1.0,
+      0.21,
+      0.0,
+      0.0,
+      761.3,
+      1.87
+    ],
+    [
+      1.0,
+      0.21,
+      0.0,
+      0.0,
+      762.4,
+      2.95
+    ],
+    [
+      0.0,
+      0.21,
+      0.7,
+      0.0,
+      2319.7,
+      3.86
+    ],
+    [
+      0.0,
+      0.21,
+      0.7,
+      0.0,
+      2318.8,
+      3.03
+    ],
+    [
+      1.0,
+      0.21,
+      0.7,
+      0.0,
+      2319.9,
+      2.74
+    ],
+    [
+      0.0,
+      0.21,
+      0.7,
+      0.0,
+      2074.2,
+      2.59
+    ],
+    [
+      0.0,
+      0.21,
+      0.7,
+      0.0,
+      2055.6,
+      3.7
+    ],
+    [
+      0.0,
+      0.21,
+      0.7,
+      0.0,
+      2066.6,
+      4.42
+    ],
+    [
+      0.0,
+      0.21,
+      0.7,
+      0.0,
+      2072.1,
+      1.66
+    ],
+    [
+      0.0,
+      0.21,
+      0.7,
+      0.0,
+      1545.7,
+      2.67
+    ],
+    [
+      1.0,
+      0.21,
+      0.7,
+      0.0,
+      1553.8,
+      2.74
+    ],
+    [
+      1.0,
+      0.34,
+      0.0,
+      0.0,
+      539.1,
+      3.39
+    ],
+    [
+      0.0,
+      0.34,
+      0.0,
+      0.0,
+      539.5,
+      3.4
+    ],
+    [
+      0.0,
+      0.34,
+      0.0,
+      0.0,
+      540.6,
+      3.49
+    ],
+    [
+      0.0,
+      0.34,
+      0.0,
+      0.0,
+      540.5,
+      3.5
+    ],
+    [
+      1.0,
+      0.34,
+      0.0,
+      0.0,
+      541.8,
+      3.01
+    ],
+    [
+      0.0,
+      0.3,
+      0.0,
+      0.0,
+      537.3,
+      2.6
+    ],
+    [
+      0.0,
+      0.3,
+      0.0,
+      0.0,
+      538.4,
+      3.63
+    ],
+    [
+      1.0,
+      0.3,
+      0.0,
+      0.0,
+      540.7,
+      3.87
+    ],
+    [
+      1.0,
+      0.3,
+      0.0,
+      0.0,
+      539.7,
+      3.36
+    ],
+    [
+      0.0,
+      0.3,
+      0.0,
+      0.0,
+      766.9,
+      2.57
+    ],
+    [
+      0.0,
+      0.3,
+      0.0,
+      0.0,
+      769.2,
+      3.26
+    ],
+    [
+      1.0,
+      0.3,
+      0.0,
+      0.0,
+      770.5,
+      3.39
+    ],
+    [
+      1.0,
+      0.3,
+      0.0,
+      0.0,
+      771.0,
+      3.07
+    ],
+    [
+      0.0,
+      0.21,
+      0.0,
+      0.0,
+      764.5,
+      2.62
+    ],
+    [
+      0.0,
+      0.21,
+      0.0,
+      0.0,
+      767.7,
+      3.89
+    ],
+    [
+      1.0,
+      0.21,
+      0.0,
+      0.0,
+      768.1,
+      3.85
+    ],
+    [
+      0.0,
+      0.2,
+      0.0,
+      0.0,
+      539.0,
+      2.4
+    ],
+    [
+      0.0,
+      0.34,
+      0.0,
+      0.0,
+      534.3,
+      3.31
+    ],
+    [
+      0.0,
+      0.34,
+      0.0,
+      0.0,
+      534.4,
+      3.59
+    ],
+    [
+      1.0,
+      0.34,
+      0.0,
+      0.0,
+      534.9,
+      2.91
+    ],
+    [
+      0.0,
+      0.3,
+      0.0,
+      0.0,
+      535.1,
+      3.77
+    ],
+    [
+      0.0,
+      0.3,
+      0.0,
+      0.0,
+      534.3,
+      3.35
+    ],
+    [
+      1.0,
+      0.3,
+      0.0,
+      0.0,
+      535.0,
+      2.92
+    ],
+    [
+      1.0,
+      0.3,
+      0.0,
+      0.0,
+      534.9,
+      2.97
+    ],
+    [
+      0.0,
+      0.3,
+      0.0,
+      0.0,
+      766.8,
+      3.49
+    ],
+    [
+      0.0,
+      0.3,
+      0.0,
+      0.0,
+      768.3,
+      2.42
+    ],
+    [
+      0.0,
+      0.21,
+      0.0,
+      0.0,
+      769.5,
+      2.78
+    ],
+    [
+      1.0,
+      0.21,
+      0.0,
+      0.0,
+      770.1,
+      3.36
+    ],
+    [
+      0.0,
+      0.21,
+      0.0,
+      0.0,
+      768.7,
+      3.66
+    ],
+    [
+      1.0,
+      0.21,
+      0.0,
+      0.0,
+      764.9,
+      3.46
+    ],
+    [
+      1.0,
+      0.21,
+      0.0,
+      0.0,
+      770.1,
+      3.57
+    ],
+    [
+      1.0,
+      0.21,
+      0.0,
+      0.0,
+      771.4,
+      2.41
+    ],
+    [
+      1.0,
+      0.3,
+      0.0,
+      0.0,
+      771.1,
+      3.53
+    ],
+    [
+      0.0,
+      0.2,
+      0.0,
+      0.0,
+      541.4,
+      3.56
+    ],
+    [
+      0.0,
+      0.2,
+      0.0,
+      0.0,
+      542.6,
+      3.37
+    ],
+    [
+      1.0,
+      0.2,
+      0.0,
+      0.0,
+      544.1,
+      3.56
+    ],
+    [
+      1.0,
+      0.2,
+      0.0,
+      0.0,
+      544.4,
+      3.1
+    ],
+    [
+      0.0,
+      0.18,
+      0.0,
+      0.0,
+      773.3,
+      3.69
+    ],
+    [
+      0.0,
+      0.18,
+      0.0,
+      0.0,
+      769.2,
+      2.93
+    ],
+    [
+      0.0,
+      0.18,
+      0.0,
+      0.0,
+      773.7,
+      3.43
+    ],
+    [
+      0.0,
+      0.18,
+      0.0,
+      0.0,
+      774.1,
+      3.68
+    ],
+    [
+      1.0,
+      0.18,
+      0.0,
+      0.0,
+      761.8,
+      3.43
+    ],
+    [
+      1.0,
+      0.18,
+      0.0,
+      0.0,
+      767.6,
+      2.15
+    ],
+    [
+      1.0,
+      0.18,
+      0.0,
+      0.0,
+      764.6,
+      2.69
+    ],
+    [
+      0.0,
+      0.15,
+      0.0,
+      0.0,
+      765.9,
+      3.37
+    ],
+    [
+      0.0,
+      0.15,
+      0.0,
+      0.0,
+      766.8,
+      2.52
+    ],
+    [
+      0.0,
+      0.15,
+      0.0,
+      0.0,
+      767.7,
+      3.97
+    ],
+    [
+      0.0,
+      0.15,
+      0.0,
+      0.0,
+      768.8,
+      2.38
+    ],
+    [
+      1.0,
+      0.14,
+      0.0,
+      0.0,
+      767.1,
+      1.1
+    ],
+    [
+      1.0,
+      0.15,
+      0.0,
+      0.0,
+      761.0,
+      4.67
+    ],
+    [
+      0.0,
+      0.15,
+      0.0,
+      0.0,
+      768.3,
+      2.25
+    ],
+    [
+      1.0,
+      0.15,
+      0.0,
+      0.0,
+      765.2,
+      1.13
+    ],
+    [
+      1.0,
+      0.15,
+      0.0,
+      0.0,
+      761.0,
+      4.64
+    ],
+    [
+      1.0,
+      0.15,
+      0.0,
+      0.0,
+      765.9,
+      1.33
+    ],
+    [
+      0.0,
+      0.13,
+      0.0,
+      0.0,
+      770.8,
+      2.54
+    ],
+    [
+      0.0,
+      0.13,
+      0.0,
+      0.0,
+      769.5,
+      3.21
+    ],
+    [
+      0.0,
+      0.14,
+      0.0,
+      0.0,
+      768.4,
+      3.33
+    ],
+    [
+      0.0,
+      0.14,
+      0.0,
+      0.0,
+      766.0,
+      2.66
+    ],
+    [
+      1.0,
+      0.13,
+      0.0,
+      0.0,
+      768.1,
+      2.92
+    ],
+    [
+      0.0,
+      0.13,
+      0.0,
+      0.0,
+      764.6,
+      2.84
+    ],
+    [
+      0.0,
+      0.12,
+      0.0,
+      0.0,
+      767.2,
+      2.35
+    ],
+    [
+      0.0,
+      0.12,
+      0.0,
+      0.0,
+      771.2,
+      2.4
+    ],
+    [
+      0.0,
+      0.12,
+      0.0,
+      0.0,
+      770.0,
+      3.07
+    ],
+    [
+      0.0,
+      0.12,
+      0.0,
+      0.0,
+      771.2,
+      2.64
+    ],
+    [
+      0.0,
+      0.25,
+      0.15,
+      0.0,
+      537.5,
+      3.01
+    ],
+    [
+      0.0,
+      0.25,
+      0.15,
+      0.0,
+      537.4,
+      3.7
+    ],
+    [
+      0.0,
+      0.25,
+      0.15,
+      0.0,
+      539.2,
+      3.62
+    ],
+    [
+      0.0,
+      0.25,
+      0.15,
+      0.0,
+      538.3,
+      3.51
+    ],
+    [
+      1.0,
+      0.25,
+      0.15,
+      0.0,
+      536.3,
+      3.41
+    ],
+    [
+      1.0,
+      0.25,
+      0.15,
+      0.0,
+      537.3,
+      2.48
+    ],
+    [
+      1.0,
+      0.24,
+      0.2,
+      0.0,
+      533.6,
+      3.53
+    ],
+    [
+      1.0,
+      0.24,
+      0.2,
+      0.0,
+      534.4,
+      3.6
+    ],
+    [
+      0.0,
+      0.23,
+      0.2,
+      0.0,
+      534.2,
+      4.25
+    ],
+    [
+      0.0,
+      0.23,
+      0.25,
+      0.0,
+      537.1,
+      3.64
+    ],
+    [
+      0.0,
+      0.23,
+      0.25,
+      0.0,
+      535.0,
+      4.28
+    ],
+    [
+      1.0,
+      0.23,
+      0.25,
+      0.0,
+      536.7,
+      4.14
+    ],
+    [
+      1.0,
+      0.23,
+      0.25,
+      0.0,
+      538.7,
+      3.88
+    ],
+    [
+      1.0,
+      0.21,
+      0.3,
+      0.0,
+      534.2,
+      3.57
+    ],
+    [
+      1.0,
+      0.21,
+      0.3,
+      0.0,
+      534.3,
+      4.0
+    ],
+    [
+      0.0,
+      0.23,
+      0.2,
+      0.0,
+      534.1,
+      3.6
+    ],
+    [
+      0.0,
+      0.23,
+      0.2,
+      0.0,
+      534.6,
+      4.17
+    ],
+    [
+      0.0,
+      0.23,
+      0.25,
+      0.0,
+      538.3,
+      3.08
+    ],
+    [
+      0.0,
+      0.23,
+      0.2,
+      0.0,
+      535.0,
+      3.18
+    ],
+    [
+      0.0,
+      0.23,
+      0.25,
+      0.0,
+      538.3,
+      3.75
+    ],
+    [
+      0.0,
+      0.21,
+      0.3,
+      0.0,
+      536.5,
+      3.56
+    ],
+    [
+      0.0,
+      0.21,
+      0.3,
+      0.0,
+      537.0,
+      2.83
+    ],
+    [
+      0.0,
+      0.21,
+      0.3,
+      0.0,
+      536.9,
+      3.37
+    ],
+    [
+      0.0,
+      0.21,
+      0.3,
+      0.0,
+      530.7,
+      3.99
+    ],
+    [
+      0.0,
+      0.2,
+      0.35,
+      0.0,
+      534.6,
+      4.2
+    ],
+    [
+      0.0,
+      0.2,
+      0.35,
+      0.0,
+      535.8,
+      3.97
+    ],
+    [
+      0.0,
+      0.2,
+      0.35,
+      0.0,
+      536.3,
+      3.16
+    ],
+    [
+      1.0,
+      0.2,
+      0.35,
+      0.0,
+      531.1,
+      3.84
+    ],
+    [
+      1.0,
+      0.2,
+      0.35,
+      0.0,
+      532.8,
+      3.03
+    ],
+    [
+      1.0,
+      0.18,
+      0.4,
+      0.0,
+      532.6,
+      2.6
+    ],
+    [
+      1.0,
+      0.18,
+      0.4,
+      0.0,
+      532.5,
+      2.45
+    ],
+    [
+      0.0,
+      0.18,
+      0.4,
+      0.0,
+      526.3,
+      4.25
+    ],
+    [
+      0.0,
+      0.18,
+      0.4,
+      0.0,
+      531.2,
+      3.46
+    ],
+    [
+      0.0,
+      0.18,
+      0.4,
+      0.0,
+      532.0,
+      4.13
+    ],
+    [
+      0.0,
+      0.18,
+      0.4,
+      0.0,
+      532.4,
+      2.87
+    ],
+    [
+      0.0,
+      0.17,
+      0.45,
+      0.0,
+      537.2,
+      3.63
+    ],
+    [
+      0.0,
+      0.17,
+      0.45,
+      0.0,
+      536.1,
+      2.8
+    ],
+    [
+      0.0,
+      0.17,
+      0.45,
+      0.0,
+      536.7,
+      3.22
+    ],
+    [
+      0.0,
+      0.17,
+      0.45,
+      0.0,
+      537.3,
+      2.91
+    ],
+    [
+      1.0,
+      0.17,
+      0.45,
+      0.0,
+      536.2,
+      3.33
+    ],
+    [
+      1.0,
+      0.17,
+      0.45,
+      0.0,
+      537.2,
+      2.91
+    ],
+    [
+      1.0,
+      0.24,
+      0.2,
+      0.0,
+      763.9,
+      1.72
+    ],
+    [
+      1.0,
+      0.24,
+      0.2,
+      0.0,
+      765.2,
+      2.63
+    ],
+    [
+      1.0,
+      0.24,
+      0.2,
+      0.0,
+      766.7,
+      3.25
+    ],
+    [
+      1.0,
+      0.24,
+      0.2,
+      0.0,
+      767.2,
+      3.66
+    ],
+    [
+      1.0,
+      0.24,
+      0.2,
+      0.0,
+      768.2,
+      2.78
+    ],
+    [
+      1.0,
+      0.24,
+      0.2,
+      0.0,
+      768.1,
+      3.08
+    ],
+    [
+      1.0,
+      0.24,
+      0.2,
+      0.0,
+      768.2,
+      3.13
+    ],
+    [
+      1.0,
+      0.24,
+      0.2,
+      0.0,
+      768.0,
+      1.75
+    ],
+    [
+      0.0,
+      0.15,
+      0.5,
+      0.0,
+      533.5,
+      3.98
+    ],
+    [
+      0.0,
+      0.15,
+      0.5,
+      0.0,
+      534.1,
+      2.86
+    ],
+    [
+      0.0,
+      0.15,
+      0.5,
+      0.0,
+      534.5,
+      1.86
+    ],
+    [
+      0.0,
+      0.15,
+      0.5,
+      0.0,
+      534.7,
+      2.25
+    ],
+    [
+      0.0,
+      0.2,
+      0.05,
+      0.0,
+      761.9,
+      3.53
+    ],
+    [
+      0.0,
+      0.2,
+      0.05,
+      0.0,
+      763.5,
+      3.33
+    ],
+    [
+      0.0,
+      0.2,
+      0.05,
+      0.0,
+      765.5,
+      4.35
+    ],
+    [
+      0.0,
+      0.17,
+      0.45,
+      0.0,
+      535.7,
+      3.02
+    ],
+    [
+      1.0,
+      0.2,
+      0.05,
+      0.0,
+      764.4,
+      2.58
+    ],
+    [
+      1.0,
+      0.2,
+      0.05,
+      0.0,
+      766.2,
+      2.21
+    ],
+    [
+      1.0,
+      0.2,
+      0.05,
+      0.0,
+      767.6,
+      3.18
+    ],
+    [
+      0.0,
+      0.18,
+      0.15,
+      0.0,
+      762.5,
+      3.86
+    ],
+    [
+      0.0,
+      0.18,
+      0.15,
+      0.0,
+      765.0,
+      3.33
+    ],
+    [
+      0.0,
+      0.18,
+      0.15,
+      0.0,
+      765.6,
+      2.78
+    ],
+    [
+      1.0,
+      0.18,
+      0.15,
+      0.0,
+      762.3,
+      3.7
+    ],
+    [
+      1.0,
+      0.18,
+      0.15,
+      0.0,
+      764.9,
+      2.73
+    ],
+    [
+      1.0,
+      0.18,
+      0.15,
+      0.0,
+      765.7,
+      1.34
+    ],
+    [
+      0.0,
+      0.16,
+      0.25,
+      0.0,
+      762.1,
+      4.24
+    ],
+    [
+      0.0,
+      0.16,
+      0.25,
+      0.0,
+      764.4,
+      3.7
+    ],
+    [
+      0.0,
+      0.16,
+      0.25,
+      0.0,
+      765.5,
+      2.71
+    ],
+    [
+      0.0,
+      0.16,
+      0.25,
+      0.0,
+      767.6,
+      2.77
+    ],
+    [
+      0.0,
+      0.15,
+      0.32,
+      0.0,
+      763.3,
+      3.72
+    ],
+    [
+      0.0,
+      0.15,
+      0.32,
+      0.0,
+      764.4,
+      3.05
+    ],
+    [
+      0.0,
+      0.15,
+      0.32,
+      0.0,
+      765.9,
+      2.59
+    ],
+    [
+      0.0,
+      0.15,
+      0.32,
+      0.0,
+      766.1,
+      2.59
+    ],
+    [
+      1.0,
+      0.18,
+      0.15,
+      0.0,
+      765.4,
+      1.96
+    ],
+    [
+      0.0,
+      0.14,
+      0.36,
+      0.0,
+      760.8,
+      3.22
+    ],
+    [
+      0.0,
+      0.14,
+      0.36,
+      0.0,
+      761.6,
+      2.32
+    ],
+    [
+      0.0,
+      0.21,
+      0.15,
+      0.0,
+      763.4,
+      3.03
+    ],
+    [
+      0.0,
+      0.21,
+      0.15,
+      0.0,
+      766.1,
+      3.05
+    ],
+    [
+      0.0,
+      0.21,
+      0.15,
+      0.0,
+      766.7,
+      3.53
+    ],
+    [
+      1.0,
+      0.18,
+      0.15,
+      0.0,
+      759.9,
+      3.74
+    ],
+    [
+      1.0,
+      0.18,
+      0.15,
+      0.0,
+      762.0,
+      2.4
+    ],
+    [
+      1.0,
+      0.18,
+      0.15,
+      0.0,
+      762.1,
+      1.35
+    ],
+    [
+      1.0,
+      0.24,
+      0.2,
+      0.0,
+      531.7,
+      2.5
+    ],
+    [
+      1.0,
+      0.24,
+      0.2,
+      0.0,
+      532.1,
+      2.88
+    ],
+    [
+      0.0,
+      0.24,
+      0.2,
+      0.0,
+      536.9,
+      4.53
+    ],
+    [
+      0.0,
+      0.24,
+      0.2,
+      0.0,
+      537.0,
+      3.02
+    ],
+    [
+      1.0,
+      0.23,
+      0.25,
+      0.0,
+      533.6,
+      3.32
+    ],
+    [
+      1.0,
+      0.23,
+      0.25,
+      0.0,
+      534.4,
+      2.07
+    ],
+    [
+      1.0,
+      0.19,
+      0.1,
+      0.0,
+      758.4,
+      3.4
+    ],
+    [
+      1.0,
+      0.19,
+      0.1,
+      0.0,
+      759.1,
+      2.48
+    ],
+    [
+      1.0,
+      0.19,
+      0.1,
+      0.0,
+      759.0,
+      1.64
+    ],
+    [
+      0.0,
+      0.23,
+      0.25,
+      0.0,
+      534.4,
+      3.72
+    ],
+    [
+      0.0,
+      0.23,
+      0.25,
+      0.0,
+      535.1,
+      3.42
+    ],
+    [
+      0.0,
+      0.23,
+      0.25,
+      0.0,
+      535.2,
+      2.8
+    ],
+    [
+      0.0,
+      0.23,
+      0.25,
+      0.0,
+      536.2,
+      2.47
+    ],
+    [
+      0.0,
+      0.19,
+      0.1,
+      0.0,
+      758.0,
+      3.38
+    ],
+    [
+      0.0,
+      0.19,
+      0.1,
+      0.0,
+      758.1,
+      2.47
+    ],
+    [
+      0.0,
+      0.18,
+      0.15,
+      0.0,
+      761.2,
+      3.77
+    ],
+    [
+      0.0,
+      0.18,
+      0.15,
+      0.0,
+      764.6,
+      2.74
+    ],
+    [
+      0.0,
+      0.18,
+      0.15,
+      0.0,
+      765.3,
+      1.76
+    ],
+    [
+      0.0,
+      0.17,
+      0.2,
+      0.0,
+      759.5,
+      3.46
+    ],
+    [
+      0.0,
+      0.17,
+      0.2,
+      0.0,
+      759.1,
+      2.77
+    ],
+    [
+      1.0,
+      0.17,
+      0.2,
+      0.0,
+      752.0,
+      3.76
+    ],
+    [
+      1.0,
+      0.17,
+      0.2,
+      0.0,
+      752.5,
+      2.9
+    ],
+    [
+      1.0,
+      0.2,
+      0.05,
+      0.0,
+      758.4,
+      3.06
+    ],
+    [
+      1.0,
+      0.2,
+      0.05,
+      0.0,
+      759.8,
+      3.04
+    ],
+    [
+      1.0,
+      0.2,
+      0.05,
+      0.0,
+      760.1,
+      2.12
+    ],
+    [
+      0.0,
+      0.2,
+      0.05,
+      0.0,
+      754.0,
+      3.37
+    ],
+    [
+      0.0,
+      0.2,
+      0.05,
+      0.0,
+      756.1,
+      2.57
+    ],
+    [
+      0.0,
+      0.2,
+      0.05,
+      0.0,
+      756.9,
+      2.4
+    ],
+    [
+      0.0,
+      0.21,
+      0.0,
+      0.0,
+      760.2,
+      3.3
+    ],
+    [
+      0.0,
+      0.21,
+      0.0,
+      0.0,
+      761.6,
+      2.75
+    ],
+    [
+      1.0,
+      0.21,
+      0.0,
+      0.0,
+      756.5,
+      3.56
+    ],
+    [
+      1.0,
+      0.21,
+      0.0,
+      0.0,
+      757.3,
+      3.58
+    ],
+    [
+      1.0,
+      0.21,
+      0.0,
+      0.0,
+      760.2,
+      2.96
+    ],
+    [
+      1.0,
+      0.21,
+      0.0,
+      0.0,
+      762.7,
+      2.72
+    ],
+    [
+      1.0,
+      0.21,
+      0.0,
+      0.0,
+      762.9,
+      2.92
+    ],
+    [
+      1.0,
+      0.16,
+      0.0,
+      0.0,
+      759.8,
+      3.34
+    ],
+    [
+      1.0,
+      0.16,
+      0.0,
+      0.0,
+      759.9,
+      2.52
+    ],
+    [
+      1.0,
+      0.15,
+      0.0,
+      0.0,
+      764.0,
+      2.55
+    ],
+    [
+      1.0,
+      0.14,
+      0.0,
+      0.0,
+      759.8,
+      4.16
+    ],
+    [
+      1.0,
+      0.14,
+      0.0,
+      0.0,
+      759.9,
+      1.83
+    ],
+    [
+      0.0,
+      0.14,
+      0.0,
+      0.0,
+      757.6,
+      3.5
+    ],
+    [
+      0.0,
+      0.14,
+      0.0,
+      0.0,
+      758.3,
+      2.67
+    ],
+    [
+      0.0,
+      0.13,
+      0.0,
+      0.0,
+      759.4,
+      3.46
+    ],
+    [
+      0.0,
+      0.13,
+      0.0,
+      0.0,
+      760.6,
+      2.75
+    ],
+    [
+      0.0,
+      0.12,
+      0.0,
+      0.0,
+      761.6,
+      2.6
+    ],
+    [
+      0.0,
+      0.12,
+      0.0,
+      0.0,
+      761.9,
+      1.94
+    ],
+    [
+      0.0,
+      0.12,
+      0.0,
+      0.0,
+      763.7,
+      1.84
+    ],
+    [
+      0.0,
+      0.2,
+      0.0,
+      0.05,
+      759.2,
+      2.91
+    ],
+    [
+      1.0,
+      0.2,
+      0.0,
+      0.05,
+      755.3,
+      2.25
+    ],
+    [
+      0.0,
+      0.19,
+      0.0,
+      0.1,
+      753.4,
+      2.78
+    ],
+    [
+      0.0,
+      0.18,
+      0.0,
+      0.15,
+      759.2,
+      2.79
+    ],
+    [
+      0.0,
+      0.18,
+      0.0,
+      0.15,
+      760.3,
+      2.95
+    ],
+    [
+      1.0,
+      0.21,
+      0.0,
+      0.0,
+      767.4,
+      3.32
+    ],
+    [
+      1.0,
+      0.21,
+      0.0,
+      0.0,
+      768.1,
+      2.39
+    ],
+    [
+      1.0,
+      0.21,
+      0.0,
+      0.0,
+      769.2,
+      3.65
+    ],
+    [
+      1.0,
+      0.19,
+      0.0,
+      0.1,
+      758.8,
+      2.59
+    ],
+    [
+      1.0,
+      0.18,
+      0.0,
+      0.15,
+      763.7,
+      3.52
+    ],
+    [
+      1.0,
+      0.18,
+      0.0,
+      0.15,
+      765.9,
+      2.3
+    ],
+    [
+      1.0,
+      0.18,
+      0.0,
+      0.15,
+      766.5,
+      2.27
+    ],
+    [
+      1.0,
+      0.17,
+      0.0,
+      0.2,
+      759.3,
+      2.85
+    ],
+    [
+      1.0,
+      0.17,
+      0.0,
+      0.2,
+      759.3,
+      2.12
+    ],
+    [
+      1.0,
+      0.17,
+      0.0,
+      0.2,
+      759.8,
+      1.61
+    ],
+    [
+      0.0,
+      0.17,
+      0.0,
+      0.2,
+      754.2,
+      2.99
+    ],
+    [
+      0.0,
+      0.17,
+      0.0,
+      0.2,
+      757.0,
+      2.9
+    ],
+    [
+      0.0,
+      0.16,
+      0.0,
+      0.25,
+      759.9,
+      3.4
+    ],
+    [
+      1.0,
+      0.16,
+      0.0,
+      0.25,
+      757.9,
+      1.49
+    ],
+    [
+      0.0,
+      0.15,
+      0.0,
+      0.3,
+      755.6,
+      3.67
+    ],
+    [
+      0.0,
+      0.15,
+      0.0,
+      0.3,
+      756.7,
+      2.52
+    ],
+    [
+      0.0,
+      0.14,
+      0.0,
+      0.35,
+      759.2,
+      2.44
+    ],
+    [
+      0.0,
+      0.14,
+      0.0,
+      0.35,
+      759.8,
+      1.88
+    ],
+    [
+      0.0,
+      0.13,
+      0.0,
+      0.4,
+      763.5,
+      3.56
+    ],
+    [
+      1.0,
+      0.24,
+      0.0,
+      0.2,
+      534.0,
+      3.78
+    ],
+    [
+      1.0,
+      0.23,
+      0.0,
+      0.25,
+      532.2,
+      2.8
+    ],
+    [
+      0.0,
+      0.24,
+      0.0,
+      0.2,
+      534.3,
+      2.82
+    ],
+    [
+      0.0,
+      0.24,
+      0.0,
+      0.2,
+      534.6,
+      2.79
+    ],
+    [
+      0.0,
+      0.23,
+      0.0,
+      0.25,
+      531.7,
+      2.45
+    ],
+    [
+      0.0,
+      0.23,
+      0.0,
+      0.25,
+      531.8,
+      2.61
+    ],
+    [
+      0.0,
+      0.21,
+      0.0,
+      0.3,
+      531.9,
+      3.22
+    ],
+    [
+      0.0,
+      0.21,
+      0.0,
+      0.3,
+      531.2,
+      3.25
+    ],
+    [
+      0.0,
+      0.21,
+      0.0,
+      0.3,
+      531.2,
+      2.67
+    ],
+    [
+      1.0,
+      0.21,
+      0.0,
+      0.3,
+      529.6,
+      3.23
+    ],
+    [
+      1.0,
+      0.21,
+      0.0,
+      0.3,
+      529.0,
+      2.86
+    ],
+    [
+      1.0,
+      0.2,
+      0.0,
+      0.35,
+      532.5,
+      3.69
+    ],
+    [
+      1.0,
+      0.2,
+      0.0,
+      0.35,
+      532.0,
+      3.08
+    ],
+    [
+      0.0,
+      0.2,
+      0.0,
+      0.35,
+      527.6,
+      3.87
+    ],
+    [
+      0.0,
+      0.2,
+      0.0,
+      0.35,
+      527.9,
+      2.95
+    ],
+    [
+      0.0,
+      0.18,
+      0.0,
+      0.4,
+      532.4,
+      3.5
+    ],
+    [
+      0.0,
+      0.18,
+      0.0,
+      0.4,
+      532.9,
+      2.7
+    ],
+    [
+      0.0,
+      0.18,
+      0.0,
+      0.4,
+      533.2,
+      1.84
+    ],
+    [
+      1.0,
+      0.18,
+      0.0,
+      0.4,
+      528.0,
+      2.27
+    ],
+    [
+      1.0,
+      0.18,
+      0.0,
+      0.4,
+      530.3,
+      1.86
+    ],
+    [
+      1.0,
+      0.17,
+      0.0,
+      0.45,
+      532.2,
+      2.22
+    ],
+    [
+      1.0,
+      0.17,
+      0.0,
+      0.45,
+      532.5,
+      1.61
+    ],
+    [
+      0.0,
+      0.17,
+      0.0,
+      0.45,
+      530.4,
+      2.79
+    ],
+    [
+      0.0,
+      0.17,
+      0.0,
+      0.45,
+      531.5,
+      2.68
+    ],
+    [
+      1.0,
+      0.21,
+      0.0,
+      0.15,
+      764.7,
+      3.54
+    ],
+    [
+      1.0,
+      0.21,
+      0.0,
+      0.15,
+      766.2,
+      2.82
+    ]
+  ],
+  "artifact_digest_sha256": "354908e5187de4469ffda471a5a937cdafb69cf3605e9e4836a6bc736cd36836"
+}

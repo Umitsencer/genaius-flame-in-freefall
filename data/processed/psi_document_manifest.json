@@ -1,0 +1,91 @@
+{
+  "package": "Paket C — Kaynak İzli Belge Çıkarımı",
+  "notes": [
+    "Araştırma notları veya README özetleri birincil PDF raporlarının yerine geçmez.",
+    "Basılı sayfa numaraları yalnızca sayfa başlığında doğrulandığı ölçüde kaydedilir; tüm belgeye kör sabit offset uygulanmaz.",
+    "PDF'den çıkarılan tablo metni sayısal hesap için kullanılmaz; hesaplar Paket A/B CSV çekirdeğinden yapılır."
+  ],
+  "summary": {
+    "total_documents_configured": 3,
+    "verified_readable_documents": 3,
+    "missing_or_failed_documents": 0,
+    "total_chunks": 503,
+    "chunks_by_investigation": {
+      "PSI-25": 304,
+      "PSI-69": 199
+    }
+  },
+  "documents": [
+    {
+      "document_id": "FLEX_TP_2015",
+      "investigation_id": "PSI-69",
+      "title": "Detailed Results From the Flame Extinguishment Experiment (FLEX) March 2009 to December 2011",
+      "report_number": "NASA/TP-2015-216046",
+      "official_citation_url": "https://ntrs.nasa.gov/citations/20150023456",
+      "official_download_url": "https://ntrs.nasa.gov/api/citations/20150023456/downloads/20150023456.pdf",
+      "relative_path": "data/raw/nasa_docs/20150023456_flex.pdf",
+      "source_format": "pdf",
+      "access_status": "verified_readable",
+      "extraction_method": "pypdf PDF metin katmanı + bookmark/bölüm sınırı + sayfa başlığı basılı sayfa doğrulama",
+      "sha256": "b4f6ca983e2792c33a0b92220a791a818f426bb635b94f7fd33dc8c9c471e79d",
+      "file_bytes": 42900650,
+      "total_pdf_pages": 314,
+      "verified_printed_page_count": 305,
+      "empty_pdf_pages": [
+        6,
+        24,
+        312,
+        313,
+        314
+      ],
+      "chunk_count": 199,
+      "error_message": null
+    },
+    {
+      "document_id": "BASS_II_TM_2021",
+      "investigation_id": "PSI-25",
+      "title": "Burning and Suppression of Solids–II (BASS-II) Summary Report",
+      "report_number": "NASA/TM-20210011385",
+      "official_citation_url": "https://ntrs.nasa.gov/citations/20210011385",
+      "official_download_url": "https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf",
+      "relative_path": "data/raw/nasa_docs/20210011385_bass_ii.pdf",
+      "source_format": "pdf",
+      "access_status": "verified_readable",
+      "extraction_method": "pypdf PDF metin katmanı + bookmark/bölüm sınırı + sayfa başlığı basılı sayfa doğrulama",
+      "sha256": "5ffa911fd9b6356f204646003fb9342e341810dcdfdf5cb15756e7f01ec5f770",
+      "file_bytes": 48972416,
+      "total_pdf_pages": 144,
+      "verified_printed_page_count": 133,
+      "empty_pdf_pages": [
+        8,
+        110,
+        122,
+        126,
+        142,
+        143,
+        144
+      ],
+      "chunk_count": 291,
+      "error_message": null
+    },
+    {
+      "document_id": "BASS_II_README",
+      "investigation_id": "PSI-25",
+      "title": "PSI-25 BASS-II Science Documents ReadMe",
+      "report_number": "PSI-25_BASS-II_ReadMe",
+      "official_citation_url": "https://doi.org/10.60555/4qc4-de67",
+      "official_download_url": null,
+      "relative_path": "data/raw/psi/matrices_and_readmes/PSI-25/PSI-25_Science Documents_BASS-II_ReadMe.docx",
+      "source_format": "docx",
+      "access_status": "verified_readable",
+      "extraction_method": "Python stdlib zipfile + XML word/document.xml paragraf/bölüm ayrıştırma",
+      "sha256": "69f32647792f54ab2a561e3cdafc6c87d854564fe487aed2b09265286bd84e1d",
+      "file_bytes": 21538,
+      "total_pdf_pages": null,
+      "verified_printed_page_count": null,
+      "empty_pdf_pages": [],
+      "chunk_count": 13,
+      "error_message": null
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+# Kanonik bağımlılık tanımı (Görev 056).
+# requirements.txt ve requirements-train.txt bu dosyadan `uv pip compile` ile üretilen
+# kilit dosyalarıdır; elle düzenlenmez (bkz. README "Kurulum").
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "genaius"
+version = "0.2.0"
+description = "Evidence-grounded NASA PSI combustion research assistant (Space Apps 2026, Flame in Freefall)."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.160,<1",      # HTTP router (MIT)
+    "uvicorn>=0.30,<1",       # ASGI sunucu (BSD-3-Clause)
+    "pydantic>=2.10,<3",      # istek/LLM çıktı şemaları (MIT)
+    "pypdf>=6.0,<7.0",        # Paket C belge çıkarımı (BSD-3-Clause)
+    "openpyxl>=3.1,<3.2",     # opsiyonel PSI-39 CFI .xlsx (MIT)
+]
+
+[project.optional-dependencies]
+# Yalnız FLEX model eğitimi/karşılaştırması için; çalışan sunucu JSON katsayılarıyla tahmin yapar.
+train = [
+    "scikit-learn>=1.5,<2",   # BSD-3-Clause
+    "numpy>=1.26,<3",         # BSD-3-Clause
+]
+
+[project.scripts]
+genaius-server = "genaius.api.server:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

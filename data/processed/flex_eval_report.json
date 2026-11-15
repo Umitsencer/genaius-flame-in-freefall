@@ -1,0 +1,862 @@
+{
+  "schema_version": "1.0.0",
+  "model_version": "flex_phys_v1",
+  "training_data_sha256": "37c88ce8ae9391b7544ff630a45ce87543d04d317cdbfbed104fe7d5c27e1b96",
+  "eligibility": {
+    "psi69_total_rows": 274,
+    "classification_usable_rows": 261,
+    "classification_excluded": [
+      {
+        "test_id": "9",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "24",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "53",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "80",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "81",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "83",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "96",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "114",
+        "reason": "corrupted_nonpositive_ambient_pressure"
+      },
+      {
+        "test_id": "138",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "210",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "223",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "237",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "242",
+        "reason": "missing_droplet_initial_diameter_mm"
+      }
+    ],
+    "regression_usable_rows": 257,
+    "regression_excluded": [
+      {
+        "test_id": "9",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "12",
+        "reason": "missing_burning_rate_mm2_s"
+      },
+      {
+        "test_id": "14",
+        "reason": "missing_burning_rate_mm2_s"
+      },
+      {
+        "test_id": "15",
+        "reason": "missing_burning_rate_mm2_s"
+      },
+      {
+        "test_id": "17",
+        "reason": "missing_burning_rate_mm2_s"
+      },
+      {
+        "test_id": "24",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "53",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "80",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "81",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "83",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "96",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "114",
+        "reason": "corrupted_nonpositive_ambient_pressure"
+      },
+      {
+        "test_id": "138",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "210",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "223",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "237",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "242",
+        "reason": "missing_droplet_initial_diameter_mm"
+      }
+    ],
+    "post_test_leakage_excluded": [
+      "burn_time_s",
+      "visible_flame_extinction_diameter_mm",
+      "burning_rate_mm2_s",
+      "test_end"
+    ]
+  },
+  "acceptance_decisions": {
+    "burning_rate_regression": {
+      "accepted": true,
+      "selected_model": "ridge_phys8",
+      "reason": "Smooth physics-informed Ridge strictly outperforms dummy_mean and tree/forest baselines across both atm+P and fuel+atm+P grouped CV."
+    },
+    "extinction_classification": {
+      "accepted": true,
+      "selected_model": "logit_phys10",
+      "reason": "Smooth physics-informed L2 Logistic improves ROC-AUC (0.880-0.894) and Brier score (0.116 vs 0.216 null) over majority and forest baselines, subject to mandatory calibration and disruption-confounding warnings."
+    }
+  },
+  "benchmarks": {
+    "regression_group_atm_p": {
+      "n": 257,
+      "unique_groups": 47,
+      "models": {
+        "dummy_mean": {
+          "mae": 0.1071,
+          "rmse": 0.1385,
+          "r2": -0.0138,
+          "fold_r2": [
+            -0.0402,
+            -0.0075,
+            -0.1244,
+            -0.0223,
+            -0.034
+          ],
+          "fold_r2_std": 0.0409
+        },
+        "ridge_linear6": {
+          "mae": 0.0481,
+          "rmse": 0.0743,
+          "r2": 0.7077,
+          "fold_r2": [
+            0.8824,
+            0.6475,
+            0.6335,
+            0.6834,
+            0.7042
+          ],
+          "fold_r2_std": 0.0897
+        },
+        "ridge_phys8": {
+          "mae": 0.0475,
+          "rmse": 0.0738,
+          "r2": 0.7116,
+          "fold_r2": [
+            0.8861,
+            0.641,
+            0.6544,
+            0.6831,
+            0.7103
+          ],
+          "fold_r2_std": 0.0888
+        },
+        "ridge_poly12": {
+          "mae": 0.0469,
+          "rmse": 0.0737,
+          "r2": 0.7127,
+          "fold_r2": [
+            0.7944,
+            0.6961,
+            0.6372,
+            0.7012,
+            0.7108
+          ],
+          "fold_r2_std": 0.0503
+        },
+        "tree_d4_leaf5": {
+          "mae": 0.0796,
+          "rmse": 0.1076,
+          "r2": 0.3881,
+          "fold_r2": [
+            0.6843,
+            0.2107,
+            0.5463,
+            0.3156,
+            0.3147
+          ],
+          "fold_r2_std": 0.174
+        },
+        "forest_80_d5": {
+          "mae": 0.0634,
+          "rmse": 0.0903,
+          "r2": 0.5687,
+          "fold_r2": [
+            0.7958,
+            0.5816,
+            0.5717,
+            0.4983,
+            0.5007
+          ],
+          "fold_r2_std": 0.1088
+        }
+      }
+    },
+    "regression_group_fuel_atm_p": {
+      "n": 257,
+      "unique_groups": 78,
+      "models": {
+        "dummy_mean": {
+          "mae": 0.107,
+          "rmse": 0.138,
+          "r2": -0.0065,
+          "fold_r2": [
+            -0.0071,
+            -0.0247,
+            -0.009,
+            -0.0432,
+            -0.0161
+          ],
+          "fold_r2_std": 0.0131
+        },
+        "ridge_linear6": {
+          "mae": 0.0492,
+          "rmse": 0.0753,
+          "r2": 0.6998,
+          "fold_r2": [
+            0.6884,
+            0.7614,
+            0.7011,
+            0.6275,
+            0.7272
+          ],
+          "fold_r2_std": 0.0445
+        },
+        "ridge_phys8": {
+          "mae": 0.0485,
+          "rmse": 0.075,
+          "r2": 0.7022,
+          "fold_r2": [
+            0.6935,
+            0.782,
+            0.6832,
+            0.6266,
+            0.7434
+          ],
+          "fold_r2_std": 0.0532
+        },
+        "ridge_poly12": {
+          "mae": 0.0474,
+          "rmse": 0.0747,
+          "r2": 0.7048,
+          "fold_r2": [
+            0.7244,
+            0.8071,
+            0.5959,
+            0.6568,
+            0.784
+          ],
+          "fold_r2_std": 0.0786
+        },
+        "tree_d4_leaf5": {
+          "mae": 0.0658,
+          "rmse": 0.0911,
+          "r2": 0.5611,
+          "fold_r2": [
+            0.4351,
+            0.5807,
+            0.631,
+            0.4912,
+            0.6512
+          ],
+          "fold_r2_std": 0.0826
+        },
+        "forest_80_d5": {
+          "mae": 0.0586,
+          "rmse": 0.0854,
+          "r2": 0.6147,
+          "fold_r2": [
+            0.5754,
+            0.6325,
+            0.64,
+            0.5272,
+            0.6894
+          ],
+          "fold_r2_std": 0.0561
+        }
+      }
+    },
+    "classification_group_atm_p": {
+      "n": 261,
+      "unique_groups": 47,
+      "models": {
+        "majority": {
+          "n": 261,
+          "positive_extinction": 179,
+          "negative_non_extinction": 82,
+          "confusion_matrix": {
+            "tp": 179,
+            "fp": 82,
+            "tn": 0,
+            "fn": 0
+          },
+          "accuracy": 0.6858,
+          "precision": 0.6858,
+          "recall": 1.0,
+          "false_positive_rate_on_non_extinction": 1.0,
+          "roc_auc": 0.457,
+          "brier_score": 0.2163,
+          "false_positives_by_true_end": {
+            "Disruption": "55/55",
+            "Completion": "27/27"
+          },
+          "fold_auc": [
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            0.5
+          ],
+          "fold_auc_std": 0.0
+        },
+        "logit_linear6": {
+          "n": 261,
+          "positive_extinction": 179,
+          "negative_non_extinction": 82,
+          "confusion_matrix": {
+            "tp": 165,
+            "fp": 31,
+            "tn": 51,
+            "fn": 14
+          },
+          "accuracy": 0.8276,
+          "precision": 0.8418,
+          "recall": 0.9218,
+          "false_positive_rate_on_non_extinction": 0.378,
+          "roc_auc": 0.879,
+          "brier_score": 0.126,
+          "false_positives_by_true_end": {
+            "Disruption": "17/55",
+            "Completion": "14/27"
+          },
+          "fold_auc": [
+            0.8299,
+            0.9354,
+            0.9401,
+            0.8667,
+            0.8337
+          ],
+          "fold_auc_std": 0.048
+        },
+        "logit_phys10": {
+          "n": 261,
+          "positive_extinction": 179,
+          "negative_non_extinction": 82,
+          "confusion_matrix": {
+            "tp": 168,
+            "fp": 33,
+            "tn": 49,
+            "fn": 11
+          },
+          "accuracy": 0.8314,
+          "precision": 0.8358,
+          "recall": 0.9385,
+          "false_positive_rate_on_non_extinction": 0.4024,
+          "roc_auc": 0.8939,
+          "brier_score": 0.1161,
+          "false_positives_by_true_end": {
+            "Disruption": "21/55",
+            "Completion": "12/27"
+          },
+          "fold_auc": [
+            0.8444,
+            0.9412,
+            0.9609,
+            0.8571,
+            0.8536
+          ],
+          "fold_auc_std": 0.0492
+        },
+        "logit_poly12": {
+          "n": 261,
+          "positive_extinction": 179,
+          "negative_non_extinction": 82,
+          "confusion_matrix": {
+            "tp": 171,
+            "fp": 34,
+            "tn": 48,
+            "fn": 8
+          },
+          "accuracy": 0.8391,
+          "precision": 0.8341,
+          "recall": 0.9553,
+          "false_positive_rate_on_non_extinction": 0.4146,
+          "roc_auc": 0.8892,
+          "brier_score": 0.1213,
+          "false_positives_by_true_end": {
+            "Disruption": "20/55",
+            "Completion": "14/27"
+          },
+          "fold_auc": [
+            0.8444,
+            0.9397,
+            0.9479,
+            0.8619,
+            0.8437
+          ],
+          "fold_auc_std": 0.0465
+        },
+        "tree_d4_leaf5": {
+          "n": 261,
+          "positive_extinction": 179,
+          "negative_non_extinction": 82,
+          "confusion_matrix": {
+            "tp": 164,
+            "fp": 50,
+            "tn": 32,
+            "fn": 15
+          },
+          "accuracy": 0.751,
+          "precision": 0.7664,
+          "recall": 0.9162,
+          "false_positive_rate_on_non_extinction": 0.6098,
+          "roc_auc": 0.8025,
+          "brier_score": 0.1714,
+          "false_positives_by_true_end": {
+            "Disruption": "31/55",
+            "Completion": "19/27"
+          },
+          "fold_auc": [
+            0.6829,
+            0.8242,
+            0.8646,
+            0.8012,
+            0.7891
+          ],
+          "fold_auc_std": 0.0605
+        },
+        "forest_80_d5": {
+          "n": 261,
+          "positive_extinction": 179,
+          "negative_non_extinction": 82,
+          "confusion_matrix": {
+            "tp": 162,
+            "fp": 33,
+            "tn": 49,
+            "fn": 17
+          },
+          "accuracy": 0.8084,
+          "precision": 0.8308,
+          "recall": 0.905,
+          "false_positive_rate_on_non_extinction": 0.4024,
+          "roc_auc": 0.8558,
+          "brier_score": 0.1391,
+          "false_positives_by_true_end": {
+            "Disruption": "20/55",
+            "Completion": "13/27"
+          },
+          "fold_auc": [
+            0.7624,
+            0.9376,
+            0.8958,
+            0.8762,
+            0.8337
+          ],
+          "fold_auc_std": 0.0596
+        }
+      }
+    },
+    "classification_group_fuel_atm_p": {
+      "n": 261,
+      "unique_groups": 80,
+      "models": {
+        "majority": {
+          "n": 261,
+          "positive_extinction": 179,
+          "negative_non_extinction": 82,
+          "confusion_matrix": {
+            "tp": 179,
+            "fp": 82,
+            "tn": 0,
+            "fn": 0
+          },
+          "accuracy": 0.6858,
+          "precision": 0.6858,
+          "recall": 1.0,
+          "false_positive_rate_on_non_extinction": 1.0,
+          "roc_auc": 0.4448,
+          "brier_score": 0.2166,
+          "false_positives_by_true_end": {
+            "Disruption": "55/55",
+            "Completion": "27/27"
+          },
+          "fold_auc": [
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            0.5
+          ],
+          "fold_auc_std": 0.0
+        },
+        "logit_linear6": {
+          "n": 261,
+          "positive_extinction": 179,
+          "negative_non_extinction": 82,
+          "confusion_matrix": {
+            "tp": 163,
+            "fp": 34,
+            "tn": 48,
+            "fn": 16
+          },
+          "accuracy": 0.8084,
+          "precision": 0.8274,
+          "recall": 0.9106,
+          "false_positive_rate_on_non_extinction": 0.4146,
+          "roc_auc": 0.8669,
+          "brier_score": 0.1313,
+          "false_positives_by_true_end": {
+            "Disruption": "19/55",
+            "Completion": "15/27"
+          },
+          "fold_auc": [
+            0.8932,
+            0.8434,
+            0.8529,
+            0.8898,
+            0.8531
+          ],
+          "fold_auc_std": 0.0208
+        },
+        "logit_phys10": {
+          "n": 261,
+          "positive_extinction": 179,
+          "negative_non_extinction": 82,
+          "confusion_matrix": {
+            "tp": 171,
+            "fp": 33,
+            "tn": 49,
+            "fn": 8
+          },
+          "accuracy": 0.8429,
+          "precision": 0.8382,
+          "recall": 0.9553,
+          "false_positive_rate_on_non_extinction": 0.4024,
+          "roc_auc": 0.8801,
+          "brier_score": 0.1215,
+          "false_positives_by_true_end": {
+            "Disruption": "19/55",
+            "Completion": "14/27"
+          },
+          "fold_auc": [
+            0.8333,
+            0.8687,
+            0.8839,
+            0.9046,
+            0.8919
+          ],
+          "fold_auc_std": 0.0245
+        },
+        "logit_poly12": {
+          "n": 261,
+          "positive_extinction": 179,
+          "negative_non_extinction": 82,
+          "confusion_matrix": {
+            "tp": 174,
+            "fp": 35,
+            "tn": 47,
+            "fn": 5
+          },
+          "accuracy": 0.8467,
+          "precision": 0.8325,
+          "recall": 0.9721,
+          "false_positive_rate_on_non_extinction": 0.4268,
+          "roc_auc": 0.8697,
+          "brier_score": 0.1274,
+          "false_positives_by_true_end": {
+            "Disruption": "19/55",
+            "Completion": "16/27"
+          },
+          "fold_auc": [
+            0.8307,
+            0.8611,
+            0.8718,
+            0.8947,
+            0.8649
+          ],
+          "fold_auc_std": 0.0206
+        },
+        "tree_d4_leaf5": {
+          "n": 261,
+          "positive_extinction": 179,
+          "negative_non_extinction": 82,
+          "confusion_matrix": {
+            "tp": 156,
+            "fp": 42,
+            "tn": 40,
+            "fn": 23
+          },
+          "accuracy": 0.751,
+          "precision": 0.7879,
+          "recall": 0.8715,
+          "false_positive_rate_on_non_extinction": 0.5122,
+          "roc_auc": 0.7764,
+          "brier_score": 0.1847,
+          "false_positives_by_true_end": {
+            "Disruption": "24/55",
+            "Completion": "18/27"
+          },
+          "fold_auc": [
+            0.7995,
+            0.7816,
+            0.7348,
+            0.8289,
+            0.8331
+          ],
+          "fold_auc_std": 0.0358
+        },
+        "forest_80_d5": {
+          "n": 261,
+          "positive_extinction": 179,
+          "negative_non_extinction": 82,
+          "confusion_matrix": {
+            "tp": 163,
+            "fp": 35,
+            "tn": 47,
+            "fn": 16
+          },
+          "accuracy": 0.8046,
+          "precision": 0.8232,
+          "recall": 0.9106,
+          "false_positive_rate_on_non_extinction": 0.4268,
+          "roc_auc": 0.851,
+          "brier_score": 0.1398,
+          "false_positives_by_true_end": {
+            "Disruption": "21/55",
+            "Completion": "14/27"
+          },
+          "fold_auc": [
+            0.8906,
+            0.846,
+            0.8192,
+            0.9095,
+            0.8378
+          ],
+          "fold_auc_std": 0.0339
+        }
+      }
+    },
+    "classification_sensitivity_excluding_disruption": {
+      "n": 206,
+      "unique_groups": 46,
+      "models": {
+        "majority": {
+          "n": 206,
+          "positive_extinction": 179,
+          "negative_non_extinction": 27,
+          "confusion_matrix": {
+            "tp": 179,
+            "fp": 27,
+            "tn": 0,
+            "fn": 0
+          },
+          "accuracy": 0.8689,
+          "precision": 0.8689,
+          "recall": 1.0,
+          "false_positive_rate_on_non_extinction": 1.0,
+          "roc_auc": 0.4503,
+          "brier_score": 0.1141,
+          "false_positives_by_true_end": {
+            "Disruption": "0/0",
+            "Completion": "27/27"
+          },
+          "fold_auc": [
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            0.5
+          ],
+          "fold_auc_std": 0.0
+        },
+        "logit_linear6": {
+          "n": 206,
+          "positive_extinction": 179,
+          "negative_non_extinction": 27,
+          "confusion_matrix": {
+            "tp": 177,
+            "fp": 21,
+            "tn": 6,
+            "fn": 2
+          },
+          "accuracy": 0.8883,
+          "precision": 0.8939,
+          "recall": 0.9888,
+          "false_positive_rate_on_non_extinction": 0.7778,
+          "roc_auc": 0.8295,
+          "brier_score": 0.0815,
+          "false_positives_by_true_end": {
+            "Disruption": "0/0",
+            "Completion": "21/27"
+          },
+          "fold_auc": [
+            0.9271,
+            0.7492,
+            0.8755,
+            0.869,
+            0.8235
+          ],
+          "fold_auc_std": 0.0597
+        },
+        "logit_phys10": {
+          "n": 206,
+          "positive_extinction": 179,
+          "negative_non_extinction": 27,
+          "confusion_matrix": {
+            "tp": 178,
+            "fp": 17,
+            "tn": 10,
+            "fn": 1
+          },
+          "accuracy": 0.9126,
+          "precision": 0.9128,
+          "recall": 0.9944,
+          "false_positive_rate_on_non_extinction": 0.6296,
+          "roc_auc": 0.8665,
+          "brier_score": 0.0756,
+          "false_positives_by_true_end": {
+            "Disruption": "0/0",
+            "Completion": "17/27"
+          },
+          "fold_auc": [
+            0.9375,
+            0.8127,
+            0.9231,
+            0.8966,
+            0.8412
+          ],
+          "fold_auc_std": 0.0479
+        },
+        "logit_poly12": {
+          "n": 206,
+          "positive_extinction": 179,
+          "negative_non_extinction": 27,
+          "confusion_matrix": {
+            "tp": 178,
+            "fp": 22,
+            "tn": 5,
+            "fn": 1
+          },
+          "accuracy": 0.8883,
+          "precision": 0.89,
+          "recall": 0.9944,
+          "false_positive_rate_on_non_extinction": 0.8148,
+          "roc_auc": 0.8529,
+          "brier_score": 0.0808,
+          "false_positives_by_true_end": {
+            "Disruption": "0/0",
+            "Completion": "22/27"
+          },
+          "fold_auc": [
+            0.9375,
+            0.7905,
+            0.9194,
+            0.8759,
+            0.8294
+          ],
+          "fold_auc_std": 0.0548
+        },
+        "tree_d4_leaf5": {
+          "n": 206,
+          "positive_extinction": 179,
+          "negative_non_extinction": 27,
+          "confusion_matrix": {
+            "tp": 170,
+            "fp": 17,
+            "tn": 10,
+            "fn": 9
+          },
+          "accuracy": 0.8738,
+          "precision": 0.9091,
+          "recall": 0.9497,
+          "false_positive_rate_on_non_extinction": 0.6296,
+          "roc_auc": 0.7702,
+          "brier_score": 0.1096,
+          "false_positives_by_true_end": {
+            "Disruption": "0/0",
+            "Completion": "17/27"
+          },
+          "fold_auc": [
+            0.9427,
+            0.6222,
+            0.6355,
+            0.8069,
+            0.8382
+          ],
+          "fold_auc_std": 0.1231
+        },
+        "forest_80_d5": {
+          "n": 206,
+          "positive_extinction": 179,
+          "negative_non_extinction": 27,
+          "confusion_matrix": {
+            "tp": 176,
+            "fp": 21,
+            "tn": 6,
+            "fn": 3
+          },
+          "accuracy": 0.8835,
+          "precision": 0.8934,
+          "recall": 0.9832,
+          "false_positive_rate_on_non_extinction": 0.7778,
+          "roc_auc": 0.8075,
+          "brier_score": 0.0924,
+          "false_positives_by_true_end": {
+            "Disruption": "0/0",
+            "Completion": "21/27"
+          },
+          "fold_auc": [
+            0.875,
+            0.6937,
+            0.8974,
+            0.9241,
+            0.8294
+          ],
+          "fold_auc_std": 0.0813
+        }
+      }
+    }
+  }
+}

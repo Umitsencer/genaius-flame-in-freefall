@@ -1,0 +1,19 @@
+/* Chart classes for pages that do not load lab.css (the fire page). Mirrors the chart block in lab.css. */
+.chart-scope { --cream: #f1eee8; --cream-dim: #b0aca4; --muted: #8f8b84; --line: #202022; --line2: #3a3a3d; --amber: #e8b45c; --gap: rgba(232, 180, 92, .14); --panel: #0b0b0c; --night: #050505; }
+.chart-scope svg { display: block; width: 100%; height: auto; overflow: visible; }
+.chart-scope .tl { font-size: 12px; fill: var(--muted); }
+.chart-scope .al { font-size: 12.5px; fill: var(--cream-dim); }
+.chart-scope .rl { font-size: 14px; fill: var(--cream); font-weight: 600; }
+.chart-scope .rn { font-size: 12px; fill: var(--muted); }
+.chart-scope .bl { font-size: 12.5px; fill: #fff; font-weight: 500; }
+.chart-scope .grid { stroke: var(--line); }
+.chart-scope .axl, .chart-scope .tick { stroke: #5c5c5f; }
+.chart-scope .zero { stroke: #7a8394; stroke-dasharray: 4 4; }
+.chart-scope .gap { fill: var(--gap); }
+.chart-scope .me { stroke: var(--cream); stroke-width: 2; }
+.chart-scope .mel { font-size: 12px; fill: var(--cream); }
+.chart-scope .pt { stroke: var(--panel); stroke-width: 1; cursor: pointer; }
+.chart-scope .pt:hover { stroke: var(--cream); stroke-width: 1.6; }
+.chart-scope .pt.sel { stroke: var(--cream); stroke-width: 2.4; }
+.tip { position: fixed; z-index: 30; max-width: 340px; padding: 8px 12px; border-radius: 12px; background: #151517; border: 1px solid #3a3a3d; color: #f1eee8; font-size: 13px; pointer-events: none; }
+.tip[hidden] { display: none; }

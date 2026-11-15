@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Data &amp; Catalog | Flame in Freefall</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <meta name="description"
+    content="Search the 24 NASA PSI studies, explore core PSI-25 &amp; PSI-69 runs, compare records, export verified subsets, inspect CFI &amp; SAFFIRE-II reference modules, and search NASA report passages.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/lab.css">
+  <link rel="stylesheet" href="css/data.css">
+  <link rel="stylesheet" href="css/range.css">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/nav.css">
+</head>
+
+<body>
+  <a class="skip" href="#main">Skip to the data</a>
+  <div class="layout">
+    <aside class="rail" aria-label="Core filters">
+      <h2>Core Explorer Filters</h2>
+      <label class="fld" for="f-exp">Core Investigation</label>
+      <select id="f-exp">
+        <option value="all">All core studies (PSI-25 + PSI-69)</option>
+        <option value="PSI-69">PSI-69 · FLEX (274 runs)</option>
+        <option value="PSI-25">PSI-25 · BASS-II (129 runs)</option>
+      </select>
+      <label class="fld" for="f-fuel">Fuel / Material</label>
+      <select id="f-fuel">
+        <option value="">All fuels &amp; materials</option>
+      </select>
+      <label class="fld" for="f-q">Filter visible rows</label>
+      <input type="search" id="f-q" placeholder="Fuel, test ID, Sample #, FLEX ID">
+      <div id="rs-o2"></div>
+      <div id="rs-p"></div>
+      <p class="hint">Numeric filters query backend /api/search directly. Moving sliders limits to runs with
+        measured/reported values in that range.</p>
+      <label class="fld" for="f-field">Analytics &amp; Export Field</label>
+      <select id="f-field"></select>
+      <label class="chk" style="margin-top:8px"><input type="checkbox" id="f-approx"> Include approximate values in
+        summary</label>
+      <button type="button" class="ghost" id="reset">Reset core filters</button>
+      <button type="button" class="ghost" id="copylink">Copy link to this view</button>
+    </aside>
+
+    <main id="main" class="main">
+      <header class="head">
+        <h1>Data, Catalog &amp; Modules</h1>
+        <p>Live evidence hub connected directly to the verified GenAIus Python backend: search all 24 NASA PSI studies,
+          inspect 403 core runs (PSI-25 + PSI-69), compare 2–4 records, export same-scope subsets, query 503 NASA report
+          passages, and inspect isolated PSI-39 CFI &amp; PSI-99 SAFFIRE-II modules.</p>
+        <nav class="sub" aria-label="Sections">
+          <a href="#s-catalog">24-Study Catalog</a>
+          <a href="#s-explorer">Core Runs</a>
+          <a href="#s-compare">Compare (2–4)</a>
+          <a href="#s-analytics">Analytics &amp; Export</a>
+          <a href="#s-cfi">PSI-39 CFI</a>
+          <a href="#s-saffire">PSI-99 SAFFIRE-II</a>
+          <a href="#s-prevention">Prevention Evidence</a>
+          <a href="#s-docs">Document Passages</a>
+          <a href="#s-sources">Sources</a>
+        </nav>
+        <div class="facts" id="ov"></div>
+      </header>
+
+      <section id="s-catalog">
+        <h2>24-Study Research Catalog</h2>
+        <div class="ctl">
+          <input type="search" id="cat-q"
+            placeholder="Search 24 studies (e.g. cool flame, candle, soot, Nomex, SAFFIRE)..." style="max-width:340px">
+          <select id="cat-type">
+            <option value="">All project types</option>
+          </select>
+          <select id="cat-area">
+            <option value="">All sub-research areas</option>
+          </select>
+          <select id="cat-core">
+            <option value="">All support levels</option>
+            <option value="true">Core queryable only (PSI-25, PSI-69)</option>
+            <option value="false">Non-core / reference only</option>
+          </select>
+          <button type="button" class="ghost sm" id="cat-go">Search Catalog</button>
+        </div>
+        <div id="cat-status" aria-live="polite"></div>
+        <div id="catalog-list"></div>
+        <p class="small">Studies and integration levels.</p>
+      </section>
+
+      <section id="s-explorer">
+        <h2>Core Test Rows (PSI-25 &amp; PSI-69)</h2>
+        <div id="picked" class="picked pk" hidden></div>
+        <div id="rows" class="scroll"></div>
+        <p class="small">Test records and sources.</p>
+      </section>
+
+      <section id="s-compare">
+        <h2>Compare Tests (2–4 Selected Runs)</h2>
+        <div id="compare"></div>
+        <p class="small">Condition comparison, not safety ranking.</p>
+      </section>
+
+      <section id="s-analytics">
+        <h2>Core Descriptive Analytics &amp; Same-Scope Export</h2>
+        <div class="ctl">
+          <button type="button" class="ghost sm" id="csv-f">Export active subset (CSV)</button>
+          <button type="button" class="ghost sm" id="json-f">Export active subset (JSON)</button>
+        </div>
+        <p class="stat" id="export-msg"></p>
+        <div id="quality"></div>
+        <p class="small">Valid measurements and exclusions.</p>
+      </section>
+
+      <section id="s-cfi">
+        <h2>PSI-39 · Cool Flames Investigation (CFI) — Separate Module</h2>
+        <div class="ctl">
+          <label>Pressure (atm) <select id="cfi-p">
+              <option value="0.5">0.5 atm</option>
+              <option value="0.75">0.75 atm</option>
+              <option value="1" selected>1.0 atm</option>
+              <option value="1.25">1.25 atm</option>
+            </select></label>
+          <label>Fiber <select id="cfi-fiber">
+              <option value="Yes" selected>Yes</option>
+              <option value="No">No</option>
+            </select></label>
+          <label>Fuel <select id="cfi-fuel">
+              <option value="">All fuels in cell</option>
+            </select></label>
+          <label>Sensitivity <select id="cfi-sens"></select></label>
+        </div>
+        <div id="cfi-out"></div>
+        <p class="small">Cool flames by pressure and fiber.</p>
+      </section>
+
+      <section id="s-saffire">
+        <h2>PSI-99 · SAFFIRE-II — Separate Reference Cards</h2>
+        <div class="ctl">
+          <label>Sample card <select id="saf-id">
+              <option value="">All 9 samples (2-1..2-9)</option>
+            </select></label>
+        </div>
+        <div id="saffire-out"></div>
+        <p class="small">Nine samples and source caveats.</p>
+      </section>
+
+      <section id="s-docs">
+        <h2>NASA Technical Document Passages (BM25 Search)</h2>
+        <form class="ctl" id="doc-form">
+          <input type="search" id="doc-q"
+            placeholder="Search NASA reports (e.g. cool flame, V10-V12, burning rate, Nomex)..."
+            style="max-width:360px">
+          <select id="doc-exp">
+            <option value="">All indexed documents</option>
+            <option value="PSI-69">PSI-69 (FLEX)</option>
+            <option value="PSI-25">PSI-25 (BASS-II)</option>
+          </select>
+          <button type="submit" class="ghost sm">Search Passages</button>
+        </form>
+        <div id="doc-out"></div>
+        <p class="small">BM25 word relevance, not scientific validation.</p>
+      </section>
+
+      <section id="s-prevention">
+        <h2>Prevention Evidence Summary</h2>
+        <div id="prevention-out" class="scroll"></div>
+        <p class="small">Evidence, gaps and engineering interpretation.</p>
+      </section>
+
+      <section id="s-sources">
+        <h2>Sources &amp; SHA-256 Provenance</h2>
+        <div id="sources" class="scroll"></div>
+        <p class="small">Source locations and file hashes.</p>
+      </section>
+
+      <footer class="foot">
+        <p>Evidence Search + Grounded Answering · Data: NASA Physical Sciences
+          Informatics (CC0 1.0). · <a href="./docs/AI_USE.md" target="_blank" rel="noopener">How AI &amp; Numerical Verification Work</a></p>
+        <p>Team GeNAIus, NASA Space Apps Challenge 2026.</p>
+      </footer>
+    </main>
+  </div>
+
+  <div id="tip" class="tip" role="tooltip" hidden></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/share.js"></script>
+  <script src="js/range.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/prevention.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/i18n-tr.js"></script>
+  <script src="js/nav.js" data-active="data"></script>
+  <script src="js/chat.js"></script>
+</body>
+
+</html>

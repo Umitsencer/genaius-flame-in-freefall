@@ -1,0 +1,117 @@
+{
+  "accepted": true,
+  "active_model_version": "flex_phys_v2_sklearn",
+  "active_artifact_digest_sha256": "2e9e0cb471cb87a9ff7aac254b50e1175fd0ab3c1728054f36fc0fef498d4df7",
+  "acceptance_checks": [
+    {
+      "view": "regression_group_atm_p",
+      "metric": "r2",
+      "primary": 0.7078,
+      "best_baseline": 0.5925,
+      "pass": true
+    },
+    {
+      "view": "regression_group_fuel_atm_p",
+      "metric": "r2",
+      "primary": 0.7043,
+      "best_baseline": 0.6033,
+      "pass": true
+    },
+    {
+      "view": "classification_group_atm_p",
+      "metric": "roc_auc",
+      "primary": 0.8731,
+      "best_baseline": 0.8273,
+      "pass": true
+    },
+    {
+      "view": "classification_group_atm_p",
+      "metric": "brier_score",
+      "primary": 0.1224,
+      "best_baseline": 0.2176,
+      "pass": true
+    },
+    {
+      "view": "classification_group_fuel_atm_p",
+      "metric": "roc_auc",
+      "primary": 0.881,
+      "best_baseline": 0.8342,
+      "pass": true
+    },
+    {
+      "view": "classification_group_fuel_atm_p",
+      "metric": "brier_score",
+      "primary": 0.1215,
+      "best_baseline": 0.216,
+      "pass": true
+    }
+  ],
+  "critical_false_extinction": {
+    "classification_group_atm_p": {
+      "false_extinction_fp": 32,
+      "non_extinction_runs": 82,
+      "rate": 0.3902,
+      "by_true_end": {
+        "Disruption": "19/55",
+        "Completion": "13/27"
+      }
+    },
+    "classification_group_fuel_atm_p": {
+      "false_extinction_fp": 31,
+      "non_extinction_runs": 82,
+      "rate": 0.378,
+      "by_true_end": {
+        "Disruption": "19/55",
+        "Completion": "12/27"
+      }
+    },
+    "classification_sensitivity_excluding_disruption": {
+      "false_extinction_fp": 19,
+      "non_extinction_runs": 27,
+      "rate": 0.7037,
+      "by_true_end": {
+        "Disruption": "0/0",
+        "Completion": "19/27"
+      }
+    }
+  },
+  "nested_choices": {
+    "regression_group_atm_p": [
+      5.0,
+      2.0,
+      2.0,
+      5.0,
+      5.0
+    ],
+    "regression_group_fuel_atm_p": [
+      5.0,
+      10.0,
+      5.0,
+      5.0,
+      10.0
+    ],
+    "classification_group_atm_p": [
+      0.5,
+      0.5,
+      2.0,
+      0.5,
+      0.2
+    ],
+    "classification_group_fuel_atm_p": [
+      1.0,
+      0.5,
+      0.5,
+      0.2,
+      2.0
+    ],
+    "classification_sensitivity_excluding_disruption": [
+      0.5,
+      2.0,
+      2.0,
+      2.0,
+      2.0
+    ]
+  },
+  "legacy_v1_unchanged": true,
+  "legacy_v1_report": "data/processed/flex_eval_report.json"
+}

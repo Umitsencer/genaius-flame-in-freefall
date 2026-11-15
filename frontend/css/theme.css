@@ -1,0 +1,88 @@
+/* GeNAIus theme: the type and colour choices of the home page (Fraunces headings, Inter text, JetBrains Mono labels,
+ * near-black ground, one red-orange accent), applied to Material lab, Data and Fire animation.
+ * Load this last on those pages. The navigation pill, the logo and the assistant button keep their own look. */
+:root {
+  --font: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+  --accent: #e8492c;
+  --radius: 4px;
+  color-scheme: dark;
+}
+::selection { background: rgba(232, 73, 44, .4); }
+body { font-family: var(--font); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* headings: serif, tight */
+.head h1, section h2, .view-head h2, .fx-h, .ntitle, .sh, .pk h3, .flexlab .view-head h2 { font-family: var(--serif); font-weight: 600; line-height: 1.08; letter-spacing: -.015em; }
+.head h1 { font-size: 42px; }
+section h2, .view-head h2 { font-size: 28px; }
+.fx-h, .ntitle, .sh { font-size: 20px; }
+.head > p, .how { color: #b0aca4; }
+
+/* small labels: mono, tracked, accent (the home page's "kicker") */
+.rail h2 { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); }
+.fld, .rs-label, legend { font-weight: 500; }
+.tl, .rn, .mel, .cell, .bl { font-family: var(--mono); letter-spacing: .02em; font-size: 11px; }
+.al { font-family: var(--mono); font-size: 11.5px; letter-spacing: .02em; }
+
+/* numbers that carry a message get the serif */
+.facts b, .mval .big, .sl-h output { font-family: var(--serif); font-weight: 600; letter-spacing: -.01em; }
+
+/* controls: 4px corners, thin strong borders */
+select, input[type="number"], .ghost, .seg button, .btn, .lg, .picked, .pk, .code, .tip, .st, .dtag, .chk2 { border-radius: var(--radius); }
+.lg, .st, .dtag { border-radius: 3px; }
+select, input[type="number"] { border-color: rgba(255, 255, 255, .22); background: var(--panel); }
+.ghost, .btn.quiet { border-color: rgba(255, 255, 255, .22); font-family: var(--font); }
+.ghost:hover, .btn.quiet:hover { background: rgba(255, 255, 255, .06); border-color: rgba(255, 255, 255, .4); }
+.btn { background: var(--cream, #f1eee8); color: #050505; font-weight: 600; }
+.btn:hover { background: #fff; }
+.seg button[aria-pressed="true"] { background: var(--cream, #f1eee8); border-color: var(--cream, #f1eee8); color: #050505; }
+input[type="search"] { background: transparent; border: 0; border-bottom: 1px solid rgba(255, 255, 255, .22); border-radius: 0; padding: 10px 2px; }
+input[type="search"]:focus-visible { outline: none; border-bottom-color: var(--accent); }
+input::placeholder { font-style: italic; }
+input[type="range"], .chk input, .chk2 input, .chkc input { accent-color: var(--accent); }
+.rs-fill { background: #5c5c5f; }
+.rs:has(.rs-out.on) .rs-fill { background: var(--accent); }
+
+/* emphasis marks in the accent */
+.callout { border-left-color: var(--accent); }
+.callout.gap { border-left-color: var(--amber, #e8b45c); }
+.me { stroke: var(--accent); }
+.mel { fill: var(--accent); }
+.mebox { stroke: var(--accent); }
+.lnk, .meta a, .tcap a { text-underline-offset: 3px; }
+.sub a:hover, .lnk:hover { color: var(--accent); }
+.tt tr.sel, .tg tr.sel { background: rgba(232, 73, 44, .12); }
+.picked, .pk { border-color: rgba(255, 255, 255, .22); background: var(--panel); }
+.tip { background: #101012; border-color: rgba(255, 255, 255, .22); }
+.canvas-wrap { border-radius: var(--radius); border: 1px solid rgba(255, 255, 255, .1); }
+
+@media (max-width: 980px) { .head h1 { font-size: 34px; } }
+
+/* Görev 051: Evidence Coverage & Cross-Regime Consistency */
+.cov-card { border: 1px solid var(--line, #2a2b33); background: rgba(255, 255, 255, .025); border-radius: 12px; padding: 12px 14px; margin: 12px 0; font-size: 13px; color: var(--ink, #ece9e2); }
+.cov-card-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 6px; }
+.cov-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; border-radius: 999px; padding: 3px 10px; border: 1px solid transparent; }
+.cov-matching { background: rgba(52, 181, 127, .16); border-color: rgba(52, 181, 127, .45); color: #8be6bc; }
+.cov-related { background: rgba(232, 180, 92, .15); border-color: rgba(232, 180, 92, .45); color: #f6d58f; }
+.cov-no_match { background: rgba(154, 160, 175, .14); border-color: rgba(154, 160, 175, .38); color: #d5d9e2; }
+.cov-unavailable { background: rgba(232, 73, 44, .16); border-color: rgba(232, 73, 44, .5); color: #ffaaa0; }
+.cov-counts { font-size: 12px; color: var(--muted, #a7a39b); }
+.cov-note { margin: 4px 0 0; font-size: 12.5px; color: var(--muted, #a7a39b); line-height: 1.45; }
+.cov-meta { display: flex; flex-wrap: wrap; gap: 6px 14px; margin-top: 6px; font-size: 12px; color: var(--muted, #a7a39b); }
+.cov-limit-list { margin: 6px 0 0 18px; padding: 0; font-size: 12px; color: var(--muted, #a7a39b); }
+.cov-matrix-wrap { margin: 14px 0; border: 1px solid var(--line, #2a2b33); border-radius: 12px; padding: 14px; background: rgba(255, 255, 255, .02); }
+.cov-matrix-title { margin: 0 0 4px; font-size: 14px; font-weight: 600; }
+.cov-matrix-sub { margin: 0 0 10px; font-size: 12.5px; color: var(--muted, #a7a39b); }
+.cov-matrix { width: 100%; border-collapse: collapse; font-size: 12px; table-layout: fixed; }
+.cov-matrix th, .cov-matrix td { border: 1px solid var(--line, #2a2b33); padding: 6px 8px; text-align: center; }
+.cov-matrix th { color: var(--muted, #a7a39b); font-weight: 600; background: rgba(255, 255, 255, .02); }
+.cov-cell-empty { color: #7a7d87; background: rgba(255, 255, 255, .01); }
+.cov-cell-active { font-weight: 600; color: #f6f3ec; }
+.cov-cell-hl { outline: 2px solid #e8b45c; outline-offset: -2px; }
+.cov-regime-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 10px; margin-top: 12px; }
+.cov-regime-card { border: 1px solid var(--line, #2a2b33); border-radius: 10px; padding: 10px 12px; background: rgba(255, 255, 255, .018); font-size: 12px; }
+.cov-regime-card strong { display: block; margin-bottom: 4px; font-size: 12.5px; }
+.cov-ai-foot { margin-top: 8px; font-size: 12.5px; color: var(--muted, #a7a39b); }
+.cov-ai-foot a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }

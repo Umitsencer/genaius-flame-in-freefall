@@ -1,0 +1,1814 @@
+{
+  "schema_version": "1.0.0",
+  "model_version": "flex_phys_v2_sklearn",
+  "training_data_sha256": "37c88ce8ae9391b7544ff630a45ce87543d04d317cdbfbed104fe7d5c27e1b96",
+  "training_library": {
+    "scikit-learn": "1.9.1",
+    "numpy": "2.4.6"
+  },
+  "evaluation_protocol": "target_agnostic_groupkfold_v1",
+  "eligibility": {
+    "psi69_total_rows": 274,
+    "classification_usable_rows": 261,
+    "classification_excluded": [
+      {
+        "test_id": "9",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "24",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "53",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "80",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "81",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "83",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "96",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "114",
+        "reason": "corrupted_nonpositive_ambient_pressure"
+      },
+      {
+        "test_id": "138",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "210",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "223",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "237",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "242",
+        "reason": "missing_droplet_initial_diameter_mm"
+      }
+    ],
+    "regression_usable_rows": 257,
+    "regression_excluded": [
+      {
+        "test_id": "9",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "12",
+        "reason": "missing_burning_rate_mm2_s"
+      },
+      {
+        "test_id": "14",
+        "reason": "missing_burning_rate_mm2_s"
+      },
+      {
+        "test_id": "15",
+        "reason": "missing_burning_rate_mm2_s"
+      },
+      {
+        "test_id": "17",
+        "reason": "missing_burning_rate_mm2_s"
+      },
+      {
+        "test_id": "24",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "53",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "80",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "81",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "83",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "96",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "114",
+        "reason": "corrupted_nonpositive_ambient_pressure"
+      },
+      {
+        "test_id": "138",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "210",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "223",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "237",
+        "reason": "missing_droplet_initial_diameter_mm"
+      },
+      {
+        "test_id": "242",
+        "reason": "missing_droplet_initial_diameter_mm"
+      }
+    ],
+    "post_test_leakage_excluded": [
+      "burn_time_s",
+      "visible_flame_extinction_diameter_mm",
+      "burning_rate_mm2_s",
+      "test_end"
+    ]
+  },
+  "acceptance_decisions": {
+    "rule": "Primary model must beat dummy/tree/forest on pooled outer R\u00b2 (regression) and ROC-AUC (classification) and beat the majority Brier score, under both grouping schemes.",
+    "checks": [
+      {
+        "view": "regression_group_atm_p",
+        "metric": "r2",
+        "primary": 0.7078,
+        "best_baseline": 0.5925,
+        "pass": true
+      },
+      {
+        "view": "regression_group_fuel_atm_p",
+        "metric": "r2",
+        "primary": 0.7043,
+        "best_baseline": 0.6033,
+        "pass": true
+      },
+      {
+        "view": "classification_group_atm_p",
+        "metric": "roc_auc",
+        "primary": 0.8731,
+        "best_baseline": 0.8273,
+        "pass": true
+      },
+      {
+        "view": "classification_group_atm_p",
+        "metric": "brier_score",
+        "primary": 0.1224,
+        "best_baseline": 0.2176,
+        "pass": true
+      },
+      {
+        "view": "classification_group_fuel_atm_p",
+        "metric": "roc_auc",
+        "primary": 0.881,
+        "best_baseline": 0.8342,
+        "pass": true
+      },
+      {
+        "view": "classification_group_fuel_atm_p",
+        "metric": "brier_score",
+        "primary": 0.1215,
+        "best_baseline": 0.216,
+        "pass": true
+      }
+    ],
+    "accepted": true,
+    "burning_rate_regression": {
+      "accepted": true,
+      "selected_model": "ridge_phys8",
+      "reason": "Passed target-agnostic grouped-CV acceptance checks."
+    },
+    "extinction_classification": {
+      "accepted": true,
+      "selected_model": "logit_phys10",
+      "reason": "Passed checks; false-extinction rate reported as a mandatory caveat."
+    }
+  },
+  "critical_false_extinction": {
+    "classification_group_atm_p": {
+      "false_extinction_fp": 32,
+      "non_extinction_runs": 82,
+      "rate": 0.3902,
+      "by_true_end": {
+        "Disruption": "19/55",
+        "Completion": "13/27"
+      }
+    },
+    "classification_group_fuel_atm_p": {
+      "false_extinction_fp": 31,
+      "non_extinction_runs": 82,
+      "rate": 0.378,
+      "by_true_end": {
+        "Disruption": "19/55",
+        "Completion": "12/27"
+      }
+    },
+    "classification_sensitivity_excluding_disruption": {
+      "false_extinction_fp": 19,
+      "non_extinction_runs": 27,
+      "rate": 0.7037,
+      "by_true_end": {
+        "Disruption": "0/0",
+        "Completion": "19/27"
+      }
+    }
+  },
+  "grouping_note": "Folds assign whole O2/diluent/pressure (atm+P) or fuel+atm+P condition groups with sklearn GroupKFold, which never looks at the target. Hyperparameters are fixed (alpha=2, C=0.5); a nested inner GroupKFold choice per outer fold is reported for comparison. This is internal grouped cross-validation on PSI-69, not external validation.",
+  "benchmarks": {
+    "regression_group_atm_p": {
+      "n": 257,
+      "unique_groups": 47,
+      "fold_assignment": "sklearn GroupKFold (group size only)",
+      "models": {
+        "dummy_mean": {
+          "mae": 0.1099,
+          "rmse": 0.141,
+          "r2": -0.0513,
+          "fold_r2": [
+            -0.0926,
+            -0.2418,
+            -0.0108,
+            -0.0949,
+            -0.2903
+          ],
+          "fold_r2_std": 0.1037
+        },
+        "ridge_linear6": {
+          "mae": 0.0479,
+          "rmse": 0.0746,
+          "r2": 0.7054,
+          "fold_r2": [
+            0.4588,
+            0.6984,
+            0.71,
+            0.8516,
+            0.6412
+          ],
+          "fold_r2_std": 0.1271
+        },
+        "ridge_phys8": {
+          "mae": 0.0471,
+          "rmse": 0.0743,
+          "r2": 0.7078,
+          "fold_r2": [
+            0.466,
+            0.7238,
+            0.6772,
+            0.8531,
+            0.655
+          ],
+          "fold_r2_std": 0.125
+        },
+        "ridge_poly12": {
+          "mae": 0.047,
+          "rmse": 0.0751,
+          "r2": 0.7014,
+          "fold_r2": [
+            0.5194,
+            0.7579,
+            0.7109,
+            0.6738,
+            0.6547
+          ],
+          "fold_r2_std": 0.0801
+        },
+        "tree_d4_leaf5": {
+          "mae": 0.0819,
+          "rmse": 0.1127,
+          "r2": 0.3278,
+          "fold_r2": [
+            -0.0669,
+            -0.0209,
+            0.3931,
+            0.4732,
+            0.4073
+          ],
+          "fold_r2_std": 0.2315
+        },
+        "forest_80_d5": {
+          "mae": 0.0594,
+          "rmse": 0.0878,
+          "r2": 0.5925,
+          "fold_r2": [
+            0.288,
+            0.6069,
+            0.5917,
+            0.7066,
+            0.5258
+          ],
+          "fold_r2_std": 0.1404
+        },
+        "ridge_phys8_nested_tuned": {
+          "mae": 0.0471,
+          "rmse": 0.0743,
+          "r2": 0.7082,
+          "fold_r2": [
+            0.4657,
+            0.7238,
+            0.6772,
+            0.8502,
+            0.6587
+          ],
+          "fold_r2_std": 0.1242
+        }
+      },
+      "nested_selected_hyperparameter_per_fold": [
+        5.0,
+        2.0,
+        2.0,
+        5.0,
+        5.0
+      ],
+      "hyperparameter_name": "alpha"
+    },
+    "regression_group_fuel_atm_p": {
+      "n": 257,
+      "unique_groups": 78,
+      "fold_assignment": "sklearn GroupKFold (group size only)",
+      "models": {
+        "dummy_mean": {
+          "mae": 0.1075,
+          "rmse": 0.1387,
+          "r2": -0.0172,
+          "fold_r2": [
+            -0.02,
+            -0.0044,
+            -0.063,
+            -0.0428,
+            -0.1678
+          ],
+          "fold_r2_std": 0.0576
+        },
+        "ridge_linear6": {
+          "mae": 0.0483,
+          "rmse": 0.0749,
+          "r2": 0.7035,
+          "fold_r2": [
+            0.7116,
+            0.6538,
+            0.6984,
+            0.6585,
+            0.768
+          ],
+          "fold_r2_std": 0.0415
+        },
+        "ridge_phys8": {
+          "mae": 0.0476,
+          "rmse": 0.0748,
+          "r2": 0.7043,
+          "fold_r2": [
+            0.7207,
+            0.6512,
+            0.6927,
+            0.6838,
+            0.7403
+          ],
+          "fold_r2_std": 0.0307
+        },
+        "ridge_poly12": {
+          "mae": 0.0462,
+          "rmse": 0.0734,
+          "r2": 0.7152,
+          "fold_r2": [
+            0.745,
+            0.6674,
+            0.6579,
+            0.732,
+            0.7643
+          ],
+          "fold_r2_std": 0.0427
+        },
+        "tree_d4_leaf5": {
+          "mae": 0.0789,
+          "rmse": 0.1052,
+          "r2": 0.4152,
+          "fold_r2": [
+            0.4064,
+            0.362,
+            0.6944,
+            0.3272,
+            -0.0842
+          ],
+          "fold_r2_std": 0.2492
+        },
+        "forest_80_d5": {
+          "mae": 0.0578,
+          "rmse": 0.0866,
+          "r2": 0.6033,
+          "fold_r2": [
+            0.5559,
+            0.5106,
+            0.6398,
+            0.6945,
+            0.5623
+          ],
+          "fold_r2_std": 0.0657
+        },
+        "ridge_phys8_nested_tuned": {
+          "mae": 0.0478,
+          "rmse": 0.0748,
+          "r2": 0.7045,
+          "fold_r2": [
+            0.7201,
+            0.6585,
+            0.6936,
+            0.6868,
+            0.7245
+          ],
+          "fold_r2_std": 0.024
+        }
+      },
+      "nested_selected_hyperparameter_per_fold": [
+        5.0,
+        10.0,
+        5.0,
+        5.0,
+        10.0
+      ],
+      "hyperparameter_name": "alpha"
+    },
+    "classification_group_atm_p": {
+      "n": 261,
+      "unique_groups": 47,
+      "fold_assignment": "sklearn GroupKFold (group size only)",
+      "models": {
+        "majority": {
+          "n": 261,
+          "positive_extinction": 179,
+          "negative_non_extinction": 82,
+          "confusion_matrix": {
+            "tp": 179,
+            "fp": 82,
+            "tn": 0,
+            "fn": 0
+          },
+          "accuracy": 0.6858,
+          "precision": 0.6858,
+          "recall": 1.0,
+          "false_positive_rate_on_non_extinction": 1.0,
+          "roc_auc": 0.4212,
+          "brier_score": 0.2176,
+          "false_positives_by_true_end": {
+            "Disruption": "55/55",
+            "Completion": "27/27"
+          },
+          "fold_auc": [
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            0.5
+          ],
+          "fold_auc_std": 0.0
+        },
+        "logit_linear6": {
+          "n": 261,
+          "positive_extinction": 179,
+          "negative_non_extinction": 82,
+          "confusion_matrix": {
+            "tp": 164,
+            "fp": 33,
+            "tn": 49,
+            "fn": 15
+          },
+          "accuracy": 0.8161,
+          "precision": 0.8325,
+          "recall": 0.9162,
+          "false_positive_rate_on_non_extinction": 0.4024,
+          "roc_auc": 0.8631,
+          "brier_score": 0.1282,
+          "false_positives_by_true_end": {
+            "Disruption": "17/55",
+            "Completion": "16/27"
+          },
+          "fold_auc": [
+            0.7905,
+            0.7214,
+            0.9323,
+            0.9795,
+            0.9469
+          ],
+          "fold_auc_std": 0.1001
+        },
+        "logit_phys10": {
+          "n": 261,
+          "positive_extinction": 179,
+          "negative_non_extinction": 82,
+          "confusion_matrix": {
+            "tp": 168,
+            "fp": 32,
+            "tn": 50,
+            "fn": 11
+          },
+          "accuracy": 0.8352,
+          "precision": 0.84,
+          "recall": 0.9385,
+          "false_positive_rate_on_non_extinction": 0.3902,
+          "roc_auc": 0.8731,
+          "brier_score": 0.1224,
+          "false_positives_by_true_end": {
+            "Disruption": "19/55",
+            "Completion": "13/27"
+          },
+          "fold_auc": [
+            0.8206,
+            0.7678,
+            0.9117,
+            0.9795,
+            0.9688
+          ],
+          "fold_auc_std": 0.083
+        },
+        "logit_poly12": {
+          "n": 261,
+          "positive_extinction": 179,
+          "negative_non_extinction": 82,
+          "confusion_matrix": {
+            "tp": 170,
+            "fp": 37,
+            "tn": 45,
+            "fn": 9
+          },
+          "accuracy": 0.8238,
+          "precision": 0.8213,
+          "recall": 0.9497,
+          "false_positive_rate_on_non_extinction": 0.4512,
+          "roc_auc": 0.8675,
+          "brier_score": 0.1278,
+          "false_positives_by_true_end": {
+            "Disruption": "21/55",
+            "Completion": "16/27"
+          },
+          "fold_auc": [
+            0.8095,
+            0.7523,
+            0.9154,
+            0.9773,
+            0.9563
+          ],
+          "fold_auc_std": 0.0869
+        },
+        "tree_d4_leaf5": {
+          "n": 261,
+          "positive_extinction": 179,
+          "negative_non_extinction": 82,
+          "confusion_matrix": {
+            "tp": 159,
+            "fp": 47,
+            "tn": 35,
+            "fn": 20
+          },
+          "accuracy": 0.7433,
+          "precision": 0.7718,
+          "recall": 0.8883,
+          "false_positive_rate_on_non_extinction": 0.5732,
+          "roc_auc": 0.734,
+          "brier_score": 0.1964,
+          "false_positives_by_true_end": {
+            "Disruption": "28/55",
+            "Completion": "19/27"
+          },
+          "fold_auc": [
+            0.631,
+            0.6432,
+            0.859,
+            0.8295,
+            0.7977
+          ],
+          "fold_auc_std": 0.0959
+        },
+        "forest_80_d5": {
+          "n": 261,
+          "positive_extinction": 179,
+          "negative_non_extinction": 82,
+          "confusion_matrix": {
+            "tp": 160,
+            "fp": 38,
+            "tn": 44,
+            "fn": 19
+          },
+          "accuracy": 0.7816,
+          "precision": 0.8081,
+          "recall": 0.8939,
+          "false_positive_rate_on_non_extinction": 0.4634,
+          "roc_auc": 0.8273,
+          "brier_score": 0.1507,
+          "false_positives_by_true_end": {
+            "Disruption": "22/55",
+            "Completion": "16/27"
+          },
+          "fold_auc": [
+            0.7048,
+            0.7546,
+            0.9718,
+            0.9864,
+            0.8953
+          ],
+          "fold_auc_std": 0.1139
+        },
+        "logit_phys10_nested_tuned": {
+          "n": 261,
+          "positive_extinction": 179,
+          "negative_non_extinction": 82,
+          "confusion_matrix": {
+            "tp": 166,
+            "fp": 32,
+            "tn": 50,
+            "fn": 13
+          },
+          "accuracy": 0.8276,
+          "precision": 0.8384,
+          "recall": 0.9274,
+          "false_positive_rate_on_non_extinction": 0.3902,
+          "roc_auc": 0.863,
+          "brier_score": 0.1261,
+          "false_positives_by_true_end": {
+            "Disruption": "18/55",
+            "Completion": "14/27"
+          },
+          "fold_auc": [
+            0.8206,
+            0.7678,
+            0.9098,
+            0.9795,
+            0.9484
+          ],
+          "fold_auc_std": 0.0793
+        }
+      },
+      "nested_selected_hyperparameter_per_fold": [
+        0.5,
+        0.5,
+        2.0,
+        0.5,
+        0.2
+      ],
+      "hyperparameter_name": "C"
+    },
+    "classification_group_fuel_atm_p": {
+      "n": 261,
+      "unique_groups": 80,
+      "fold_assignment": "sklearn GroupKFold (group size only)",
+      "models": {
+        "majority": {
+          "n": 261,
+          "positive_extinction": 179,
+          "negative_non_extinction": 82,
+          "confusion_matrix": {
+            "tp": 179,
+            "fp": 82,
+            "tn": 0,
+            "fn": 0
+          },
+          "accuracy": 0.6858,
+          "precision": 0.6858,
+          "recall": 1.0,
+          "false_positive_rate_on_non_extinction": 1.0,
+          "roc_auc": 0.4632,
+          "brier_score": 0.216,
+          "false_positives_by_true_end": {
+            "Disruption": "55/55",
+            "Completion": "27/27"
+          },
+          "fold_auc": [
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            0.5
+          ],
+          "fold_auc_std": 0.0
+        },
+        "logit_linear6": {
+          "n": 261,
+          "positive_extinction": 179,
+          "negative_non_extinction": 82,
+          "confusion_matrix": {
+            "tp": 162,
+            "fp": 31,
+            "tn": 51,
+            "fn": 17
+          },
+          "accuracy": 0.8161,
+          "precision": 0.8394,
+          "recall": 0.905,
+          "false_positive_rate_on_non_extinction": 0.378,
+          "roc_auc": 0.8592,
+          "brier_score": 0.1345,
+          "false_positives_by_true_end": {
+            "Disruption": "18/55",
+            "Completion": "13/27"
+          },
+          "fold_auc": [
+            0.822,
+            0.718,
+            0.8108,
+            0.9462,
+            0.9427
+          ],
+          "fold_auc_std": 0.0867
+        },
+        "logit_phys10": {
+          "n": 261,
+          "positive_extinction": 179,
+          "negative_non_extinction": 82,
+          "confusion_matrix": {
+            "tp": 168,
+            "fp": 31,
+            "tn": 51,
+            "fn": 11
+          },
+          "accuracy": 0.8391,
+          "precision": 0.8442,
+          "recall": 0.9385,
+          "false_positive_rate_on_non_extinction": 0.378,
+          "roc_auc": 0.881,
+          "brier_score": 0.1215,
+          "false_positives_by_true_end": {
+            "Disruption": "19/55",
+            "Completion": "12/27"
+          },
+          "fold_auc": [
+            0.839,
+            0.7895,
+            0.8177,
+            0.9479,
+            0.9566
+          ],
+          "fold_auc_std": 0.0689
+        },
+        "logit_poly12": {
+          "n": 261,
+          "positive_extinction": 179,
+          "negative_non_extinction": 82,
+          "confusion_matrix": {
+            "tp": 167,
+            "fp": 32,
+            "tn": 50,
+            "fn": 12
+          },
+          "accuracy": 0.8314,
+          "precision": 0.8392,
+          "recall": 0.933,
+          "false_positive_rate_on_non_extinction": 0.3902,
+          "roc_auc": 0.8679,
+          "brier_score": 0.1312,
+          "false_positives_by_true_end": {
+            "Disruption": "19/55",
+            "Completion": "13/27"
+          },
+          "fold_auc": [
+            0.8297,
+            0.7425,
+            0.8177,
+            0.9479,
+            0.9566
+          ],
+          "fold_auc_std": 0.0819
+        },
+        "tree_d4_leaf5": {
+          "n": 261,
+          "positive_extinction": 179,
+          "negative_non_extinction": 82,
+          "confusion_matrix": {
+            "tp": 152,
+            "fp": 51,
+            "tn": 31,
+            "fn": 27
+          },
+          "accuracy": 0.7011,
+          "precision": 0.7488,
+          "recall": 0.8492,
+          "false_positive_rate_on_non_extinction": 0.622,
+          "roc_auc": 0.7336,
+          "brier_score": 0.2172,
+          "false_positives_by_true_end": {
+            "Disruption": "32/55",
+            "Completion": "19/27"
+          },
+          "fold_auc": [
+            0.726,
+            0.5423,
+            0.7274,
+            0.8218,
+            0.901
+          ],
+          "fold_auc_std": 0.12
+        },
+        "forest_80_d5": {
+          "n": 261,
+          "positive_extinction": 179,
+          "negative_non_extinction": 82,
+          "confusion_matrix": {
+            "tp": 152,
+            "fp": 35,
+            "tn": 47,
+            "fn": 27
+          },
+          "accuracy": 0.7625,
+          "precision": 0.8128,
+          "recall": 0.8492,
+          "false_positive_rate_on_non_extinction": 0.4268,
+          "roc_auc": 0.8342,
+          "brier_score": 0.1512,
+          "false_positives_by_true_end": {
+            "Disruption": "20/55",
+            "Completion": "15/27"
+          },
+          "fold_auc": [
+            0.7477,
+            0.7124,
+            0.8446,
+            0.9403,
+            0.9549
+          ],
+          "fold_auc_std": 0.0981
+        },
+        "logit_phys10_nested_tuned": {
+          "n": 261,
+          "positive_extinction": 179,
+          "negative_non_extinction": 82,
+          "confusion_matrix": {
+            "tp": 166,
+            "fp": 31,
+            "tn": 51,
+            "fn": 13
+          },
+          "accuracy": 0.8314,
+          "precision": 0.8426,
+          "recall": 0.9274,
+          "false_positive_rate_on_non_extinction": 0.378,
+          "roc_auc": 0.88,
+          "brier_score": 0.1224,
+          "false_positives_by_true_end": {
+            "Disruption": "19/55",
+            "Completion": "12/27"
+          },
+          "fold_auc": [
+            0.8421,
+            0.7895,
+            0.8177,
+            0.9479,
+            0.9444
+          ],
+          "fold_auc_std": 0.0657
+        }
+      },
+      "nested_selected_hyperparameter_per_fold": [
+        1.0,
+        0.5,
+        0.5,
+        0.2,
+        2.0
+      ],
+      "hyperparameter_name": "C"
+    },
+    "classification_sensitivity_excluding_disruption": {
+      "n": 206,
+      "unique_groups": 46,
+      "fold_assignment": "sklearn GroupKFold (group size only)",
+      "models": {
+        "majority": {
+          "n": 206,
+          "positive_extinction": 179,
+          "negative_non_extinction": 27,
+          "confusion_matrix": {
+            "tp": 179,
+            "fp": 27,
+            "tn": 0,
+            "fn": 0
+          },
+          "accuracy": 0.8689,
+          "precision": 0.8689,
+          "recall": 1.0,
+          "false_positive_rate_on_non_extinction": 1.0,
+          "roc_auc": 0.3646,
+          "brier_score": 0.1156,
+          "false_positives_by_true_end": {
+            "Disruption": "0/0",
+            "Completion": "27/27"
+          },
+          "fold_auc": [
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            0.5
+          ],
+          "fold_auc_std": 0.0
+        },
+        "logit_linear6": {
+          "n": 206,
+          "positive_extinction": 179,
+          "negative_non_extinction": 27,
+          "confusion_matrix": {
+            "tp": 177,
+            "fp": 21,
+            "tn": 6,
+            "fn": 2
+          },
+          "accuracy": 0.8883,
+          "precision": 0.8939,
+          "recall": 0.9888,
+          "false_positive_rate_on_non_extinction": 0.7778,
+          "roc_auc": 0.8067,
+          "brier_score": 0.0885,
+          "false_positives_by_true_end": {
+            "Disruption": "0/0",
+            "Completion": "21/27"
+          },
+          "fold_auc": [
+            0.864,
+            0.5385,
+            0.8581,
+            0.9205,
+            0.6833
+          ],
+          "fold_auc_std": 0.1416
+        },
+        "logit_phys10": {
+          "n": 206,
+          "positive_extinction": 179,
+          "negative_non_extinction": 27,
+          "confusion_matrix": {
+            "tp": 177,
+            "fp": 19,
+            "tn": 8,
+            "fn": 2
+          },
+          "accuracy": 0.8981,
+          "precision": 0.9031,
+          "recall": 0.9888,
+          "false_positive_rate_on_non_extinction": 0.7037,
+          "roc_auc": 0.8558,
+          "brier_score": 0.0805,
+          "false_positives_by_true_end": {
+            "Disruption": "0/0",
+            "Completion": "19/27"
+          },
+          "fold_auc": [
+            0.9375,
+            0.6154,
+            0.8784,
+            0.9242,
+            0.7778
+          ],
+          "fold_auc_std": 0.1196
+        },
+        "logit_poly12": {
+          "n": 206,
+          "positive_extinction": 179,
+          "negative_non_extinction": 27,
+          "confusion_matrix": {
+            "tp": 177,
+            "fp": 22,
+            "tn": 5,
+            "fn": 2
+          },
+          "accuracy": 0.8835,
+          "precision": 0.8894,
+          "recall": 0.9888,
+          "false_positive_rate_on_non_extinction": 0.8148,
+          "roc_auc": 0.8378,
+          "brier_score": 0.0854,
+          "false_positives_by_true_end": {
+            "Disruption": "0/0",
+            "Completion": "22/27"
+          },
+          "fold_auc": [
+            0.9228,
+            0.5897,
+            0.8716,
+            0.9167,
+            0.7222
+          ],
+          "fold_auc_std": 0.1296
+        },
+        "tree_d4_leaf5": {
+          "n": 206,
+          "positive_extinction": 179,
+          "negative_non_extinction": 27,
+          "confusion_matrix": {
+            "tp": 176,
+            "fp": 22,
+            "tn": 5,
+            "fn": 3
+          },
+          "accuracy": 0.8786,
+          "precision": 0.8889,
+          "recall": 0.9832,
+          "false_positive_rate_on_non_extinction": 0.8148,
+          "roc_auc": 0.6947,
+          "brier_score": 0.1101,
+          "false_positives_by_true_end": {
+            "Disruption": "0/0",
+            "Completion": "22/27"
+          },
+          "fold_auc": [
+            0.4301,
+            0.7436,
+            0.6959,
+            0.8561,
+            0.7583
+          ],
+          "fold_auc_std": 0.1432
+        },
+        "forest_80_d5": {
+          "n": 206,
+          "positive_extinction": 179,
+          "negative_non_extinction": 27,
+          "confusion_matrix": {
+            "tp": 176,
+            "fp": 24,
+            "tn": 3,
+            "fn": 3
+          },
+          "accuracy": 0.8689,
+          "precision": 0.88,
+          "recall": 0.9832,
+          "false_positive_rate_on_non_extinction": 0.8889,
+          "roc_auc": 0.7821,
+          "brier_score": 0.0967,
+          "false_positives_by_true_end": {
+            "Disruption": "0/0",
+            "Completion": "24/27"
+          },
+          "fold_auc": [
+            0.7463,
+            0.6667,
+            0.9189,
+            0.928,
+            0.6722
+          ],
+          "fold_auc_std": 0.1154
+        },
+        "logit_phys10_nested_tuned": {
+          "n": 206,
+          "positive_extinction": 179,
+          "negative_non_extinction": 27,
+          "confusion_matrix": {
+            "tp": 176,
+            "fp": 15,
+            "tn": 12,
+            "fn": 3
+          },
+          "accuracy": 0.9126,
+          "precision": 0.9215,
+          "recall": 0.9832,
+          "false_positive_rate_on_non_extinction": 0.5556,
+          "roc_auc": 0.8721,
+          "brier_score": 0.0761,
+          "false_positives_by_true_end": {
+            "Disruption": "0/0",
+            "Completion": "15/27"
+          },
+          "fold_auc": [
+            0.9375,
+            0.6923,
+            0.8176,
+            0.9318,
+            0.85
+          ],
+          "fold_auc_std": 0.0896
+        }
+      },
+      "nested_selected_hyperparameter_per_fold": [
+        0.5,
+        2.0,
+        2.0,
+        2.0,
+        2.0
+      ],
+      "hyperparameter_name": "C"
+    }
+  },
+  "legacy_target_balanced_folds": {
+    "note": "Folds assigned by per-group target mean (G\u00f6rev 049 protocol). Kept for traceability only; not an independent test.",
+    "benchmarks": {
+      "regression_group_atm_p": {
+        "n": 257,
+        "unique_groups": 47,
+        "models": {
+          "dummy_mean": {
+            "mae": 0.1071,
+            "rmse": 0.1385,
+            "r2": -0.0138,
+            "fold_r2": [
+              -0.0402,
+              -0.0075,
+              -0.1244,
+              -0.0223,
+              -0.034
+            ],
+            "fold_r2_std": 0.0409
+          },
+          "ridge_linear6": {
+            "mae": 0.0481,
+            "rmse": 0.0743,
+            "r2": 0.7077,
+            "fold_r2": [
+              0.8824,
+              0.6475,
+              0.6335,
+              0.6834,
+              0.7042
+            ],
+            "fold_r2_std": 0.0897
+          },
+          "ridge_phys8": {
+            "mae": 0.0475,
+            "rmse": 0.0738,
+            "r2": 0.7116,
+            "fold_r2": [
+              0.8861,
+              0.641,
+              0.6544,
+              0.6831,
+              0.7103
+            ],
+            "fold_r2_std": 0.0888
+          },
+          "ridge_poly12": {
+            "mae": 0.0469,
+            "rmse": 0.0737,
+            "r2": 0.7127,
+            "fold_r2": [
+              0.7944,
+              0.6961,
+              0.6372,
+              0.7012,
+              0.7108
+            ],
+            "fold_r2_std": 0.0503
+          },
+          "tree_d4_leaf5": {
+            "mae": 0.08,
+            "rmse": 0.1074,
+            "r2": 0.3904,
+            "fold_r2": [
+              0.6843,
+              0.2107,
+              0.5463,
+              0.3135,
+              0.3242
+            ],
+            "fold_r2_std": 0.1732
+          },
+          "forest_80_d5": {
+            "mae": 0.0644,
+            "rmse": 0.0909,
+            "r2": 0.5628,
+            "fold_r2": [
+              0.8133,
+              0.6073,
+              0.5862,
+              0.4479,
+              0.498
+            ],
+            "fold_r2_std": 0.1256
+          }
+        }
+      },
+      "regression_group_fuel_atm_p": {
+        "n": 257,
+        "unique_groups": 78,
+        "models": {
+          "dummy_mean": {
+            "mae": 0.107,
+            "rmse": 0.138,
+            "r2": -0.0065,
+            "fold_r2": [
+              -0.0071,
+              -0.0247,
+              -0.009,
+              -0.0432,
+              -0.0161
+            ],
+            "fold_r2_std": 0.0131
+          },
+          "ridge_linear6": {
+            "mae": 0.0492,
+            "rmse": 0.0753,
+            "r2": 0.6998,
+            "fold_r2": [
+              0.6884,
+              0.7614,
+              0.7011,
+              0.6275,
+              0.7272
+            ],
+            "fold_r2_std": 0.0445
+          },
+          "ridge_phys8": {
+            "mae": 0.0485,
+            "rmse": 0.075,
+            "r2": 0.7022,
+            "fold_r2": [
+              0.6935,
+              0.782,
+              0.6832,
+              0.6266,
+              0.7434
+            ],
+            "fold_r2_std": 0.0532
+          },
+          "ridge_poly12": {
+            "mae": 0.0474,
+            "rmse": 0.0747,
+            "r2": 0.7048,
+            "fold_r2": [
+              0.7244,
+              0.8071,
+              0.5959,
+              0.6568,
+              0.784
+            ],
+            "fold_r2_std": 0.0786
+          },
+          "tree_d4_leaf5": {
+            "mae": 0.0658,
+            "rmse": 0.0911,
+            "r2": 0.5611,
+            "fold_r2": [
+              0.4351,
+              0.5807,
+              0.631,
+              0.4912,
+              0.6512
+            ],
+            "fold_r2_std": 0.0826
+          },
+          "forest_80_d5": {
+            "mae": 0.0561,
+            "rmse": 0.0849,
+            "r2": 0.6191,
+            "fold_r2": [
+              0.5935,
+              0.7045,
+              0.6287,
+              0.5,
+              0.6831
+            ],
+            "fold_r2_std": 0.0725
+          }
+        }
+      },
+      "classification_group_atm_p": {
+        "n": 261,
+        "unique_groups": 47,
+        "models": {
+          "majority": {
+            "n": 261,
+            "positive_extinction": 179,
+            "negative_non_extinction": 82,
+            "confusion_matrix": {
+              "tp": 179,
+              "fp": 82,
+              "tn": 0,
+              "fn": 0
+            },
+            "accuracy": 0.6858,
+            "precision": 0.6858,
+            "recall": 1.0,
+            "false_positive_rate_on_non_extinction": 1.0,
+            "roc_auc": 0.457,
+            "brier_score": 0.2163,
+            "false_positives_by_true_end": {
+              "Disruption": "55/55",
+              "Completion": "27/27"
+            },
+            "fold_auc": [
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5
+            ],
+            "fold_auc_std": 0.0
+          },
+          "logit_linear6": {
+            "n": 261,
+            "positive_extinction": 179,
+            "negative_non_extinction": 82,
+            "confusion_matrix": {
+              "tp": 165,
+              "fp": 31,
+              "tn": 51,
+              "fn": 14
+            },
+            "accuracy": 0.8276,
+            "precision": 0.8418,
+            "recall": 0.9218,
+            "false_positive_rate_on_non_extinction": 0.378,
+            "roc_auc": 0.879,
+            "brier_score": 0.126,
+            "false_positives_by_true_end": {
+              "Disruption": "17/55",
+              "Completion": "14/27"
+            },
+            "fold_auc": [
+              0.8299,
+              0.9354,
+              0.9401,
+              0.8667,
+              0.8337
+            ],
+            "fold_auc_std": 0.048
+          },
+          "logit_phys10": {
+            "n": 261,
+            "positive_extinction": 179,
+            "negative_non_extinction": 82,
+            "confusion_matrix": {
+              "tp": 168,
+              "fp": 33,
+              "tn": 49,
+              "fn": 11
+            },
+            "accuracy": 0.8314,
+            "precision": 0.8358,
+            "recall": 0.9385,
+            "false_positive_rate_on_non_extinction": 0.4024,
+            "roc_auc": 0.8939,
+            "brier_score": 0.1161,
+            "false_positives_by_true_end": {
+              "Disruption": "21/55",
+              "Completion": "12/27"
+            },
+            "fold_auc": [
+              0.8444,
+              0.9412,
+              0.9609,
+              0.8571,
+              0.8536
+            ],
+            "fold_auc_std": 0.0492
+          },
+          "logit_poly12": {
+            "n": 261,
+            "positive_extinction": 179,
+            "negative_non_extinction": 82,
+            "confusion_matrix": {
+              "tp": 171,
+              "fp": 34,
+              "tn": 48,
+              "fn": 8
+            },
+            "accuracy": 0.8391,
+            "precision": 0.8341,
+            "recall": 0.9553,
+            "false_positive_rate_on_non_extinction": 0.4146,
+            "roc_auc": 0.8892,
+            "brier_score": 0.1213,
+            "false_positives_by_true_end": {
+              "Disruption": "20/55",
+              "Completion": "14/27"
+            },
+            "fold_auc": [
+              0.8444,
+              0.9397,
+              0.9479,
+              0.8619,
+              0.8437
+            ],
+            "fold_auc_std": 0.0465
+          },
+          "tree_d4_leaf5": {
+            "n": 261,
+            "positive_extinction": 179,
+            "negative_non_extinction": 82,
+            "confusion_matrix": {
+              "tp": 164,
+              "fp": 50,
+              "tn": 32,
+              "fn": 15
+            },
+            "accuracy": 0.751,
+            "precision": 0.7664,
+            "recall": 0.9162,
+            "false_positive_rate_on_non_extinction": 0.6098,
+            "roc_auc": 0.802,
+            "brier_score": 0.1724,
+            "false_positives_by_true_end": {
+              "Disruption": "31/55",
+              "Completion": "19/27"
+            },
+            "fold_auc": [
+              0.6842,
+              0.8242,
+              0.8646,
+              0.8012,
+              0.7891
+            ],
+            "fold_auc_std": 0.06
+          },
+          "forest_80_d5": {
+            "n": 261,
+            "positive_extinction": 179,
+            "negative_non_extinction": 82,
+            "confusion_matrix": {
+              "tp": 161,
+              "fp": 33,
+              "tn": 49,
+              "fn": 18
+            },
+            "accuracy": 0.8046,
+            "precision": 0.8299,
+            "recall": 0.8994,
+            "false_positive_rate_on_non_extinction": 0.4024,
+            "roc_auc": 0.8594,
+            "brier_score": 0.1388,
+            "false_positives_by_true_end": {
+              "Disruption": "19/55",
+              "Completion": "14/27"
+            },
+            "fold_auc": [
+              0.7538,
+              0.9283,
+              0.9297,
+              0.9071,
+              0.8424
+            ],
+            "fold_auc_std": 0.0672
+          }
+        }
+      },
+      "classification_group_fuel_atm_p": {
+        "n": 261,
+        "unique_groups": 80,
+        "models": {
+          "majority": {
+            "n": 261,
+            "positive_extinction": 179,
+            "negative_non_extinction": 82,
+            "confusion_matrix": {
+              "tp": 179,
+              "fp": 82,
+              "tn": 0,
+              "fn": 0
+            },
+            "accuracy": 0.6858,
+            "precision": 0.6858,
+            "recall": 1.0,
+            "false_positive_rate_on_non_extinction": 1.0,
+            "roc_auc": 0.4448,
+            "brier_score": 0.2166,
+            "false_positives_by_true_end": {
+              "Disruption": "55/55",
+              "Completion": "27/27"
+            },
+            "fold_auc": [
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5
+            ],
+            "fold_auc_std": 0.0
+          },
+          "logit_linear6": {
+            "n": 261,
+            "positive_extinction": 179,
+            "negative_non_extinction": 82,
+            "confusion_matrix": {
+              "tp": 163,
+              "fp": 34,
+              "tn": 48,
+              "fn": 16
+            },
+            "accuracy": 0.8084,
+            "precision": 0.8274,
+            "recall": 0.9106,
+            "false_positive_rate_on_non_extinction": 0.4146,
+            "roc_auc": 0.8669,
+            "brier_score": 0.1313,
+            "false_positives_by_true_end": {
+              "Disruption": "19/55",
+              "Completion": "15/27"
+            },
+            "fold_auc": [
+              0.8932,
+              0.8434,
+              0.8529,
+              0.8898,
+              0.8531
+            ],
+            "fold_auc_std": 0.0208
+          },
+          "logit_phys10": {
+            "n": 261,
+            "positive_extinction": 179,
+            "negative_non_extinction": 82,
+            "confusion_matrix": {
+              "tp": 171,
+              "fp": 33,
+              "tn": 49,
+              "fn": 8
+            },
+            "accuracy": 0.8429,
+            "precision": 0.8382,
+            "recall": 0.9553,
+            "false_positive_rate_on_non_extinction": 0.4024,
+            "roc_auc": 0.8801,
+            "brier_score": 0.1215,
+            "false_positives_by_true_end": {
+              "Disruption": "19/55",
+              "Completion": "14/27"
+            },
+            "fold_auc": [
+              0.8333,
+              0.8687,
+              0.8839,
+              0.9046,
+              0.8919
+            ],
+            "fold_auc_std": 0.0245
+          },
+          "logit_poly12": {
+            "n": 261,
+            "positive_extinction": 179,
+            "negative_non_extinction": 82,
+            "confusion_matrix": {
+              "tp": 174,
+              "fp": 35,
+              "tn": 47,
+              "fn": 5
+            },
+            "accuracy": 0.8467,
+            "precision": 0.8325,
+            "recall": 0.9721,
+            "false_positive_rate_on_non_extinction": 0.4268,
+            "roc_auc": 0.8697,
+            "brier_score": 0.1274,
+            "false_positives_by_true_end": {
+              "Disruption": "19/55",
+              "Completion": "16/27"
+            },
+            "fold_auc": [
+              0.8307,
+              0.8611,
+              0.8718,
+              0.8947,
+              0.8649
+            ],
+            "fold_auc_std": 0.0206
+          },
+          "tree_d4_leaf5": {
+            "n": 261,
+            "positive_extinction": 179,
+            "negative_non_extinction": 82,
+            "confusion_matrix": {
+              "tp": 156,
+              "fp": 42,
+              "tn": 40,
+              "fn": 23
+            },
+            "accuracy": 0.751,
+            "precision": 0.7879,
+            "recall": 0.8715,
+            "false_positive_rate_on_non_extinction": 0.5122,
+            "roc_auc": 0.7764,
+            "brier_score": 0.1847,
+            "false_positives_by_true_end": {
+              "Disruption": "24/55",
+              "Completion": "18/27"
+            },
+            "fold_auc": [
+              0.7995,
+              0.7816,
+              0.7348,
+              0.8289,
+              0.8331
+            ],
+            "fold_auc_std": 0.0358
+          },
+          "forest_80_d5": {
+            "n": 261,
+            "positive_extinction": 179,
+            "negative_non_extinction": 82,
+            "confusion_matrix": {
+              "tp": 160,
+              "fp": 38,
+              "tn": 44,
+              "fn": 19
+            },
+            "accuracy": 0.7816,
+            "precision": 0.8081,
+            "recall": 0.8939,
+            "false_positive_rate_on_non_extinction": 0.4634,
+            "roc_auc": 0.8514,
+            "brier_score": 0.1408,
+            "false_positives_by_true_end": {
+              "Disruption": "22/55",
+              "Completion": "16/27"
+            },
+            "fold_auc": [
+              0.8958,
+              0.8081,
+              0.8171,
+              0.9227,
+              0.8449
+            ],
+            "fold_auc_std": 0.0446
+          }
+        }
+      },
+      "classification_sensitivity_excluding_disruption": {
+        "n": 206,
+        "unique_groups": 46,
+        "models": {
+          "majority": {
+            "n": 206,
+            "positive_extinction": 179,
+            "negative_non_extinction": 27,
+            "confusion_matrix": {
+              "tp": 179,
+              "fp": 27,
+              "tn": 0,
+              "fn": 0
+            },
+            "accuracy": 0.8689,
+            "precision": 0.8689,
+            "recall": 1.0,
+            "false_positive_rate_on_non_extinction": 1.0,
+            "roc_auc": 0.4503,
+            "brier_score": 0.1141,
+            "false_positives_by_true_end": {
+              "Disruption": "0/0",
+              "Completion": "27/27"
+            },
+            "fold_auc": [
+              0.5,
+              0.5,
+              0.5,
+              0.5,
+              0.5
+            ],
+            "fold_auc_std": 0.0
+          },
+          "logit_linear6": {
+            "n": 206,
+            "positive_extinction": 179,
+            "negative_non_extinction": 27,
+            "confusion_matrix": {
+              "tp": 177,
+              "fp": 21,
+              "tn": 6,
+              "fn": 2
+            },
+            "accuracy": 0.8883,
+            "precision": 0.8939,
+            "recall": 0.9888,
+            "false_positive_rate_on_non_extinction": 0.7778,
+            "roc_auc": 0.8293,
+            "brier_score": 0.0815,
+            "false_positives_by_true_end": {
+              "Disruption": "0/0",
+              "Completion": "21/27"
+            },
+            "fold_auc": [
+              0.9271,
+              0.7492,
+              0.8755,
+              0.869,
+              0.8235
+            ],
+            "fold_auc_std": 0.0597
+          },
+          "logit_phys10": {
+            "n": 206,
+            "positive_extinction": 179,
+            "negative_non_extinction": 27,
+            "confusion_matrix": {
+              "tp": 178,
+              "fp": 17,
+              "tn": 10,
+              "fn": 1
+            },
+            "accuracy": 0.9126,
+            "precision": 0.9128,
+            "recall": 0.9944,
+            "false_positive_rate_on_non_extinction": 0.6296,
+            "roc_auc": 0.8665,
+            "brier_score": 0.0756,
+            "false_positives_by_true_end": {
+              "Disruption": "0/0",
+              "Completion": "17/27"
+            },
+            "fold_auc": [
+              0.9375,
+              0.8127,
+              0.9231,
+              0.8966,
+              0.8412
+            ],
+            "fold_auc_std": 0.0479
+          },
+          "logit_poly12": {
+            "n": 206,
+            "positive_extinction": 179,
+            "negative_non_extinction": 27,
+            "confusion_matrix": {
+              "tp": 178,
+              "fp": 22,
+              "tn": 5,
+              "fn": 1
+            },
+            "accuracy": 0.8883,
+            "precision": 0.89,
+            "recall": 0.9944,
+            "false_positive_rate_on_non_extinction": 0.8148,
+            "roc_auc": 0.8529,
+            "brier_score": 0.0808,
+            "false_positives_by_true_end": {
+              "Disruption": "0/0",
+              "Completion": "22/27"
+            },
+            "fold_auc": [
+              0.9375,
+              0.7905,
+              0.9194,
+              0.8759,
+              0.8294
+            ],
+            "fold_auc_std": 0.0548
+          },
+          "tree_d4_leaf5": {
+            "n": 206,
+            "positive_extinction": 179,
+            "negative_non_extinction": 27,
+            "confusion_matrix": {
+              "tp": 170,
+              "fp": 17,
+              "tn": 10,
+              "fn": 9
+            },
+            "accuracy": 0.8738,
+            "precision": 0.9091,
+            "recall": 0.9497,
+            "false_positive_rate_on_non_extinction": 0.6296,
+            "roc_auc": 0.7528,
+            "brier_score": 0.111,
+            "false_positives_by_true_end": {
+              "Disruption": "0/0",
+              "Completion": "17/27"
+            },
+            "fold_auc": [
+              0.9427,
+              0.6222,
+              0.6355,
+              0.7586,
+              0.8382
+            ],
+            "fold_auc_std": 0.1216
+          },
+          "forest_80_d5": {
+            "n": 206,
+            "positive_extinction": 179,
+            "negative_non_extinction": 27,
+            "confusion_matrix": {
+              "tp": 178,
+              "fp": 24,
+              "tn": 3,
+              "fn": 1
+            },
+            "accuracy": 0.8786,
+            "precision": 0.8812,
+            "recall": 0.9944,
+            "false_positive_rate_on_non_extinction": 0.8889,
+            "roc_auc": 0.8031,
+            "brier_score": 0.0924,
+            "false_positives_by_true_end": {
+              "Disruption": "0/0",
+              "Completion": "24/27"
+            },
+            "fold_auc": [
+              0.8542,
+              0.6508,
+              0.8535,
+              0.8966,
+              0.8324
+            ],
+            "fold_auc_std": 0.0859
+          }
+        }
+      }
+    }
+  }
+}

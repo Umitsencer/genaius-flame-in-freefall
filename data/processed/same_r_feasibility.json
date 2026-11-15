@@ -1,0 +1,1819 @@
+{
+  "generated_at_utc": "2026-11-14T09:02:30+00:00",
+  "probe_scope": "Read-only technical feasibility probe for PSI-101 (SAME-R); kept strictly separate from PSI-102 (SAME) and BASS-II/FLEX core.",
+  "investigation": {
+    "psi_id": "PSI-101",
+    "acronym": "SAME-R",
+    "title": "Smoke Aerosol Measurement Experiment-Reflight",
+    "version": 4,
+    "doi": "10.60555/2np7-jv14",
+    "license_identifier": "CC0-1.0",
+    "flight_program": "International Space Station (ISS)",
+    "strict_separation_check": {
+      "psi_102_acronym": "SAME",
+      "psi_102_title": "Smoke and Aerosol Measurement Experiment",
+      "psi_102_version": 4,
+      "note": "PSI-101 (SAME-R, 2010, 5 materials incl. Pyrell + MPASS) and PSI-102 (SAME, 2007, 8 CSV summary rows incl. DBP) are distinct PSI studies."
+    }
+  },
+  "probe_downloads": [
+    {
+      "filename": "PSI-101_Analyzed Data_2010_210_10_lampwick_run57_a.xlsx",
+      "path": "data/raw/psi/same_r_probe/PSI-101_Analyzed Data_2010_210_10_lampwick_run57_a.xlsx",
+      "source": "PSI-101",
+      "study_version": 4,
+      "file_id": "683dc532b8656d2315bf50a8",
+      "file_version": 1,
+      "key": "psi-data/PSI-101/Analyzed Data/PSI-101_Analyzed Data_2010_210_10_lampwick_run57_a.xlsx",
+      "api_endpoint": "https://psi.nasa.gov/geode-py/ws/studies/PSI-101/download?file=683dc532b8656d2315bf50a8&version=1&studyVersion=4&redirect=false",
+      "reported_bytes": "526.8 KB",
+      "actual_bytes": 539444,
+      "sha256": "48cb0a40951855c7d369cba2874a567b0dfe3f5e835a5fdf41a11aeb51bb04d9",
+      "license": "CC0-1.0 (Creative Commons Zero v1.0 Universal)",
+      "doi": "10.60555/2np7-jv14"
+    },
+    {
+      "filename": "PSI-101_Raw Data_HKPData_gmt242_6_run89.csv",
+      "path": "data/raw/psi/same_r_probe/PSI-101_Raw Data_HKPData_gmt242_6_run89.csv",
+      "source": "PSI-101",
+      "study_version": 4,
+      "file_id": "683dc543b8656d2315bf5162",
+      "file_version": 1,
+      "key": "psi-data/PSI-101/Raw Data/PSI-101_Raw Data_HKPData_gmt242_6_run89.csv",
+      "api_endpoint": "https://psi.nasa.gov/geode-py/ws/studies/PSI-101/download?file=683dc543b8656d2315bf5162&version=1&studyVersion=4&redirect=false",
+      "reported_bytes": "321.19 KB",
+      "actual_bytes": 328895,
+      "sha256": "1a019a2e97910bf24291f1bae7d0ca5811f71639c04ada4e9f75ae55d6bb6ec0",
+      "license": "CC0-1.0 (Creative Commons Zero v1.0 Universal)",
+      "doi": "10.60555/2np7-jv14"
+    },
+    {
+      "filename": "PSI-101_Raw Data_HKPData_gmt250_1.csv",
+      "path": "data/raw/psi/same_r_probe/PSI-101_Raw Data_HKPData_gmt250_1.csv",
+      "source": "PSI-101",
+      "study_version": 4,
+      "file_id": "683dc543b8656d2315bf5164",
+      "file_version": 1,
+      "key": "psi-data/PSI-101/Raw Data/PSI-101_Raw Data_HKPData_gmt250_1.csv",
+      "api_endpoint": "https://psi.nasa.gov/geode-py/ws/studies/PSI-101/download?file=683dc543b8656d2315bf5164&version=1&studyVersion=4&redirect=false",
+      "reported_bytes": "217.35 KB",
+      "actual_bytes": 222568,
+      "sha256": "69c25a566b6af6b43fb263ceadad82499b6e18e69e5fdad928e8088124ee43a3",
+      "license": "CC0-1.0 (Creative Commons Zero v1.0 Universal)",
+      "doi": "10.60555/2np7-jv14"
+    },
+    {
+      "filename": "PSI-101_Reports_SAME-R_Final Report.pdf",
+      "path": "data/raw/psi/same_r_probe/PSI-101_Reports_SAME-R_Final Report.pdf",
+      "source": "PSI-101",
+      "study_version": 4,
+      "file_id": "683dc530b8656d2315bf508c",
+      "file_version": 1,
+      "key": "psi-data/PSI-101/Reports/PSI-101_Reports_SAME-R_Final Report.pdf",
+      "api_endpoint": "https://psi.nasa.gov/geode-py/ws/studies/PSI-101/download?file=683dc530b8656d2315bf508c&version=1&studyVersion=4&redirect=false",
+      "reported_bytes": "4.37 MB",
+      "actual_bytes": 4578437,
+      "sha256": "65381e2715eb7379113dd1b9c550baaa5fa5a247dba00419123143aa98ef80d6",
+      "license": "CC0-1.0 (Creative Commons Zero v1.0 Universal)",
+      "doi": "10.60555/2np7-jv14"
+    },
+    {
+      "filename": "PSI-101_Science Documents_SAME_Operations Manual_007.pdf",
+      "path": "data/raw/psi/same_r_probe/PSI-101_Science Documents_SAME_Operations Manual_007.pdf",
+      "source": "PSI-101",
+      "study_version": 4,
+      "file_id": "683dc54db8656d2315bf51de",
+      "file_version": 1,
+      "key": "psi-data/PSI-101/Science Documents/PSI-101_Science Documents_SAME_Operations Manual_007.pdf",
+      "api_endpoint": "https://psi.nasa.gov/geode-py/ws/studies/PSI-101/download?file=683dc54db8656d2315bf51de&version=1&studyVersion=4&redirect=false",
+      "reported_bytes": "683.41 KB",
+      "actual_bytes": 699811,
+      "sha256": "ac00e24b0f9a0388c3ac5097cca67591112c9992c0c9d40a6810ca5ba7289f36",
+      "license": "CC0-1.0 (Creative Commons Zero v1.0 Universal)",
+      "doi": "10.60555/2np7-jv14"
+    },
+    {
+      "filename": "20130000422_same2.pdf",
+      "path": "data/raw/psi/same_r_probe/20130000422_same2.pdf",
+      "source": "NTRS 20130000422",
+      "api_endpoint": "https://ntrs.nasa.gov/api/citations/20130000422/downloads/20130000422.pdf",
+      "reported_bytes": 757824,
+      "actual_bytes": 757824,
+      "sha256": "bdc5e7e0d65f569c2c4a0b8899870d2d47e8f0d644cfe033a450d9fd892375aa",
+      "license": "PUBLIC_USE_PERMITTED"
+    }
+  ],
+  "experimental_table_audit": {
+    "file": "data/raw/psi/experimental_tables/PSI-101/PSI-101_Experimental table_SAME-R.csv",
+    "bytes": 5674,
+    "sha256": "87164b7dc9168a4273c159f7a9f23699afbd06ad97b77974377e79b9bf8a3bef",
+    "columns": [
+      "Sample Type",
+      "SAME Test #",
+      "Description",
+      "Date",
+      "Inlet velocity (cm/s)",
+      "Rt/R0",
+      "Duration (sec)",
+      "Primary aging time (sec)",
+      "Primary mixing time (sec)",
+      "Net aging time (sec)"
+    ],
+    "data_row_count": 109,
+    "unique_test_ids": 108,
+    "aged_suffix_rows": 42,
+    "primary_or_non_a_rows": 67,
+    "materials": {
+      "Kapton": 29,
+      "Silicone": 22,
+      "Lampwick": 20,
+      "Teflon": 18,
+      "Pyrell": 20
+    },
+    "empty_cell_counts": {
+      "Duration (sec)": 41,
+      "Primary aging time (sec)": 42,
+      "Primary mixing time (sec)": 42
+    },
+    "net_aging_na_count": 5,
+    "duplicate_test_ids": {
+      "57": [
+        {
+          "physical_csv_line": 57,
+          "sample_type": "Lampwick",
+          "description": "High RT/R0 reburn sample",
+          "date": "29-Jul",
+          "rt_r0": "1.253"
+        },
+        {
+          "physical_csv_line": 75,
+          "sample_type": "Teflon",
+          "description": "High RT/R0 reburn sample",
+          "date": "29-Jul",
+          "rt_r0": "1.253"
+        }
+      ]
+    },
+    "rt_r0_definition": "Electrical resistance ratio setpoint Rt/R0 of the pyrolysis heater wire (Operations Manual Sec. 5.2, p.11; Final Report p.2, p.27) -- NOT a direct smoke metric."
+  },
+  "telemetry_probes": [
+    {
+      "test_number": "89",
+      "experimental_table_matches": [
+        {
+          "record_index": 84,
+          "physical_csv_line": 85,
+          "Sample Type": "Teflon",
+          "SAME Test #": "89",
+          "Description": "Baseline STS det",
+          "Date": "30-Aug",
+          "Inlet velocity (cm/s)": "8.1",
+          "Rt/R0": "1.445",
+          "Duration (sec)": "60",
+          "Primary aging time (sec)": "11",
+          "Primary mixing time (sec)": "8",
+          "Net aging time (sec)": "31"
+        }
+      ],
+      "hkp_file": {
+        "filename": "PSI-101_Raw Data_HKPData_gmt242_6_run89.csv",
+        "path": "data/raw/psi/same_r_probe/PSI-101_Raw Data_HKPData_gmt242_6_run89.csv",
+        "bytes": 328895,
+        "sha256": "1a019a2e97910bf24291f1bae7d0ca5811f71639c04ada4e9f75ae55d6bb6ec0",
+        "source_api_endpoint": "https://psi.nasa.gov/geode-py/ws/studies/PSI-101/download?file=683dc543b8656d2315bf5162&version=1&studyVersion=4&redirect=false",
+        "file_id": "683dc543b8656d2315bf5162",
+        "study_version": 4,
+        "column_count": 98,
+        "data_row_count": 863,
+        "physical_line_count": 864
+      },
+      "time_summary": {
+        "first_time_string": "2010/242/14:59:15",
+        "last_time_string": "2010/242/15:13:25",
+        "unix_start": 1283180355,
+        "unix_end": 1283181205,
+        "wall_span_s": 850,
+        "step_delta_histogram_s": {
+          "0": 20,
+          "1": 838,
+          "2": 3,
+          "6": 1
+        },
+        "non_1s_step_anomalies_sample": [
+          {
+            "physical_csv_line": 26,
+            "time_string": "2010/242/14:59:38",
+            "prev_unix": 1283180378,
+            "curr_unix": 1283180378,
+            "delta_s": 0
+          },
+          {
+            "physical_csv_line": 32,
+            "time_string": "2010/242/14:59:45",
+            "prev_unix": 1283180383,
+            "curr_unix": 1283180385,
+            "delta_s": 2
+          },
+          {
+            "physical_csv_line": 33,
+            "time_string": "2010/242/14:59:45",
+            "prev_unix": 1283180385,
+            "curr_unix": 1283180385,
+            "delta_s": 0
+          },
+          {
+            "physical_csv_line": 54,
+            "time_string": "2010/242/15:00:07",
+            "prev_unix": 1283180405,
+            "curr_unix": 1283180407,
+            "delta_s": 2
+          },
+          {
+            "physical_csv_line": 252,
+            "time_string": "2010/242/15:03:24",
+            "prev_unix": 1283180604,
+            "curr_unix": 1283180604,
+            "delta_s": 0
+          },
+          {
+            "physical_csv_line": 470,
+            "time_string": "2010/242/15:07:03",
+            "prev_unix": 1283180821,
+            "curr_unix": 1283180823,
+            "delta_s": 2
+          },
+          {
+            "physical_csv_line": 732,
+            "time_string": "2010/242/15:11:24",
+            "prev_unix": 1283181084,
+            "curr_unix": 1283181084,
+            "delta_s": 0
+          },
+          {
+            "physical_csv_line": 733,
+            "time_string": "2010/242/15:11:24",
+            "prev_unix": 1283181084,
+            "curr_unix": 1283181084,
+            "delta_s": 0
+          },
+          {
+            "physical_csv_line": 734,
+            "time_string": "2010/242/15:11:24",
+            "prev_unix": 1283181084,
+            "curr_unix": 1283181084,
+            "delta_s": 0
+          },
+          {
+            "physical_csv_line": 735,
+            "time_string": "2010/242/15:11:24",
+            "prev_unix": 1283181084,
+            "curr_unix": 1283181084,
+            "delta_s": 0
+          },
+          {
+            "physical_csv_line": 736,
+            "time_string": "2010/242/15:11:30",
+            "prev_unix": 1283181084,
+            "curr_unix": 1283181090,
+            "delta_s": 6
+          },
+          {
+            "physical_csv_line": 737,
+            "time_string": "2010/242/15:11:30",
+            "prev_unix": 1283181090,
+            "curr_unix": 1283181090,
+            "delta_s": 0
+          }
+        ]
+      },
+      "phases": [
+        {
+          "run_mode": "2",
+          "test_number": "0",
+          "test_running": "0",
+          "start_record_index": 1,
+          "start_csv_line": 2,
+          "start_time_string": "2010/242/14:59:15",
+          "start_elapsed_s": "713",
+          "end_record_index": 14,
+          "end_csv_line": 15,
+          "end_time_string": "2010/242/14:59:28",
+          "end_elapsed_s": "713",
+          "row_count": 14
+        },
+        {
+          "run_mode": "3",
+          "test_number": "89",
+          "test_running": "0",
+          "start_record_index": 15,
+          "start_csv_line": 16,
+          "start_time_string": "2010/242/14:59:29",
+          "start_elapsed_s": "0",
+          "end_record_index": 15,
+          "end_csv_line": 16,
+          "end_time_string": "2010/242/14:59:29",
+          "end_elapsed_s": "0",
+          "row_count": 1
+        },
+        {
+          "run_mode": "3",
+          "test_number": "89",
+          "test_running": "1",
+          "start_record_index": 16,
+          "start_csv_line": 17,
+          "start_time_string": "2010/242/14:59:30",
+          "start_elapsed_s": "1",
+          "end_record_index": 81,
+          "end_csv_line": 82,
+          "end_time_string": "2010/242/15:00:35",
+          "end_elapsed_s": "65",
+          "row_count": 66
+        },
+        {
+          "run_mode": "4",
+          "test_number": "89",
+          "test_running": "1",
+          "start_record_index": 82,
+          "start_csv_line": 83,
+          "start_time_string": "2010/242/15:00:36",
+          "start_elapsed_s": "65",
+          "end_record_index": 95,
+          "end_csv_line": 96,
+          "end_time_string": "2010/242/15:00:49",
+          "end_elapsed_s": "65",
+          "row_count": 14
+        },
+        {
+          "run_mode": "3",
+          "test_number": "89",
+          "test_running": "1",
+          "start_record_index": 96,
+          "start_csv_line": 97,
+          "start_time_string": "2010/242/15:00:50",
+          "start_elapsed_s": "65",
+          "end_record_index": 734,
+          "end_csv_line": 735,
+          "end_time_string": "2010/242/15:11:24",
+          "end_elapsed_s": "698",
+          "row_count": 639
+        },
+        {
+          "run_mode": "0",
+          "test_number": "0",
+          "test_running": "0",
+          "start_record_index": 735,
+          "start_csv_line": 736,
+          "start_time_string": "2010/242/15:11:30",
+          "start_elapsed_s": "0",
+          "end_record_index": 739,
+          "end_csv_line": 740,
+          "end_time_string": "2010/242/15:11:33",
+          "end_elapsed_s": "0",
+          "row_count": 5
+        },
+        {
+          "run_mode": "1",
+          "test_number": "0",
+          "test_running": "0",
+          "start_record_index": 740,
+          "start_csv_line": 741,
+          "start_time_string": "2010/242/15:11:34",
+          "start_elapsed_s": "0",
+          "end_record_index": 863,
+          "end_csv_line": 864,
+          "end_time_string": "2010/242/15:13:25",
+          "end_elapsed_s": "0",
+          "row_count": 124
+        }
+      ],
+      "heating_window": {
+        "row_count": 53,
+        "start_csv_line": 157,
+        "end_csv_line": 209,
+        "start_elapsed_s": "125",
+        "end_elapsed_s": "177"
+      },
+      "data_quality": {
+        "active_running_rows": 719,
+        "post_test_ind_temp_rows": 129,
+        "post_test_ind_line_range": [
+          736,
+          864
+        ],
+        "ptrak_minus999_count": 5,
+        "ptrak_minus999_locations": [
+          {
+            "physical_csv_line": 416,
+            "elapsed_s": "383"
+          },
+          {
+            "physical_csv_line": 417,
+            "elapsed_s": "384"
+          },
+          {
+            "physical_csv_line": 418,
+            "elapsed_s": "385"
+          },
+          {
+            "physical_csv_line": 419,
+            "elapsed_s": "386"
+          },
+          {
+            "physical_csv_line": 420,
+            "elapsed_s": "387"
+          }
+        ],
+        "sts_alarm_active_lines": []
+      },
+      "channels": [
+        {
+          "column": "GasPlumeTemperature(DegC)",
+          "source_unit": "DegC",
+          "active_valid_count": 719,
+          "active_sentinels": {},
+          "full_file_sentinels": {
+            "-1.#IND": 129
+          },
+          "active_start": {
+            "value": 24.1514,
+            "physical_csv_line": 17,
+            "elapsed_s": "1"
+          },
+          "active_min": {
+            "value": 23.6309,
+            "physical_csv_line": 127,
+            "elapsed_s": "95"
+          },
+          "active_max": {
+            "value": 120.928,
+            "physical_csv_line": 171,
+            "elapsed_s": "139"
+          },
+          "active_end": {
+            "value": 24.9949,
+            "physical_csv_line": 735,
+            "elapsed_s": "698"
+          }
+        },
+        {
+          "column": "SampleResistance(Ohms)",
+          "source_unit": "Ohms",
+          "active_valid_count": 719,
+          "active_sentinels": {},
+          "full_file_sentinels": {},
+          "active_start": {
+            "value": 0.934901,
+            "physical_csv_line": 17,
+            "elapsed_s": "1"
+          },
+          "active_min": {
+            "value": 0.00257496,
+            "physical_csv_line": 268,
+            "elapsed_s": "235"
+          },
+          "active_max": {
+            "value": 1.34508,
+            "physical_csv_line": 164,
+            "elapsed_s": "132"
+          },
+          "active_end": {
+            "value": 0.689708,
+            "physical_csv_line": 735,
+            "elapsed_s": "698"
+          }
+        },
+        {
+          "column": "ISSDetectorObscurationMeasurement(Volts)",
+          "source_unit": "Volts",
+          "active_valid_count": 719,
+          "active_sentinels": {},
+          "full_file_sentinels": {
+            "-10": 129
+          },
+          "active_start": {
+            "value": 3.43079,
+            "physical_csv_line": 17,
+            "elapsed_s": "1"
+          },
+          "active_min": {
+            "value": 3.42194,
+            "physical_csv_line": 305,
+            "elapsed_s": "272"
+          },
+          "active_max": {
+            "value": 3.43231,
+            "physical_csv_line": 257,
+            "elapsed_s": "224"
+          },
+          "active_end": {
+            "value": 3.43079,
+            "physical_csv_line": 735,
+            "elapsed_s": "698"
+          }
+        },
+        {
+          "column": "ISSDetectorScatterMeasurement(Volts)",
+          "source_unit": "Volts",
+          "active_valid_count": 719,
+          "active_sentinels": {},
+          "full_file_sentinels": {
+            "-10": 129
+          },
+          "active_start": {
+            "value": -0.189209,
+            "physical_csv_line": 17,
+            "elapsed_s": "1"
+          },
+          "active_min": {
+            "value": -1.19385,
+            "physical_csv_line": 326,
+            "elapsed_s": "293"
+          },
+          "active_max": {
+            "value": -0.179443,
+            "physical_csv_line": 475,
+            "elapsed_s": "442"
+          },
+          "active_end": {
+            "value": -0.184937,
+            "physical_csv_line": 735,
+            "elapsed_s": "698"
+          }
+        },
+        {
+          "column": "STSDetectorMeasurement(Volts)",
+          "source_unit": "Volts",
+          "active_valid_count": 719,
+          "active_sentinels": {},
+          "full_file_sentinels": {
+            "-10": 129
+          },
+          "active_start": {
+            "value": -0.000915527,
+            "physical_csv_line": 17,
+            "elapsed_s": "1"
+          },
+          "active_min": {
+            "value": -0.0012207,
+            "physical_csv_line": 715,
+            "elapsed_s": "682"
+          },
+          "active_max": {
+            "value": 5.29785,
+            "physical_csv_line": 27,
+            "elapsed_s": "10"
+          },
+          "active_end": {
+            "value": -0.000610352,
+            "physical_csv_line": 735,
+            "elapsed_s": "698"
+          }
+        },
+        {
+          "column": "IonDetectorAMeasurement(Volts)",
+          "source_unit": "Volts",
+          "active_valid_count": 719,
+          "active_sentinels": {},
+          "full_file_sentinels": {
+            "-10": 129
+          },
+          "active_start": {
+            "value": -0.00183105,
+            "physical_csv_line": 17,
+            "elapsed_s": "1"
+          },
+          "active_min": {
+            "value": -0.020752,
+            "physical_csv_line": 196,
+            "elapsed_s": "164"
+          },
+          "active_max": {
+            "value": 0.0253296,
+            "physical_csv_line": 487,
+            "elapsed_s": "454"
+          },
+          "active_end": {
+            "value": -0.00701904,
+            "physical_csv_line": 735,
+            "elapsed_s": "698"
+          }
+        },
+        {
+          "column": "IonDetectorBMeasurement(Volts)",
+          "source_unit": "Volts",
+          "active_valid_count": 719,
+          "active_sentinels": {},
+          "full_file_sentinels": {
+            "-10": 129
+          },
+          "active_start": {
+            "value": 4.63287,
+            "physical_csv_line": 17,
+            "elapsed_s": "1"
+          },
+          "active_min": {
+            "value": 4.57672,
+            "physical_csv_line": 186,
+            "elapsed_s": "154"
+          },
+          "active_max": {
+            "value": 5.56427,
+            "physical_csv_line": 314,
+            "elapsed_s": "281"
+          },
+          "active_end": {
+            "value": 4.65454,
+            "physical_csv_line": 735,
+            "elapsed_s": "698"
+          }
+        },
+        {
+          "column": "PTrakMeasurement(PtPerCC)",
+          "source_unit": "PtPerCC",
+          "active_valid_count": 714,
+          "active_sentinels": {
+            "-999": 5
+          },
+          "full_file_sentinels": {
+            "-999": 5
+          },
+          "active_start": {
+            "value": 0.0,
+            "physical_csv_line": 17,
+            "elapsed_s": "1"
+          },
+          "active_min": {
+            "value": 0.0,
+            "physical_csv_line": 17,
+            "elapsed_s": "1"
+          },
+          "active_max": {
+            "value": 73400.0,
+            "physical_csv_line": 310,
+            "elapsed_s": "277"
+          },
+          "active_end": {
+            "value": 0.0,
+            "physical_csv_line": 735,
+            "elapsed_s": "698"
+          }
+        },
+        {
+          "column": "DustTrakAMeasurement(MgPerM3)",
+          "source_unit": "MgPerM3",
+          "active_valid_count": 719,
+          "active_sentinels": {},
+          "full_file_sentinels": {},
+          "active_start": {
+            "value": 0.0,
+            "physical_csv_line": 17,
+            "elapsed_s": "1"
+          },
+          "active_min": {
+            "value": 0.0,
+            "physical_csv_line": 17,
+            "elapsed_s": "1"
+          },
+          "active_max": {
+            "value": 0.0,
+            "physical_csv_line": 17,
+            "elapsed_s": "1"
+          },
+          "active_end": {
+            "value": 0.0,
+            "physical_csv_line": 735,
+            "elapsed_s": "698"
+          }
+        },
+        {
+          "column": "DustTrakBMeasurement(MgPerM3)",
+          "source_unit": "MgPerM3",
+          "active_valid_count": 719,
+          "active_sentinels": {},
+          "full_file_sentinels": {},
+          "active_start": {
+            "value": 0.0,
+            "physical_csv_line": 17,
+            "elapsed_s": "1"
+          },
+          "active_min": {
+            "value": 0.0,
+            "physical_csv_line": 17,
+            "elapsed_s": "1"
+          },
+          "active_max": {
+            "value": 5.528,
+            "physical_csv_line": 325,
+            "elapsed_s": "292"
+          },
+          "active_end": {
+            "value": 0.0,
+            "physical_csv_line": 735,
+            "elapsed_s": "698"
+          }
+        },
+        {
+          "column": "DustTrakAAnalogMeasurement(Volts)",
+          "source_unit": "Volts",
+          "active_valid_count": 719,
+          "active_sentinels": {},
+          "full_file_sentinels": {
+            "-10": 129
+          },
+          "active_start": {
+            "value": 0.0119019,
+            "physical_csv_line": 17,
+            "elapsed_s": "1"
+          },
+          "active_min": {
+            "value": -0.022583,
+            "physical_csv_line": 171,
+            "elapsed_s": "139"
+          },
+          "active_max": {
+            "value": 0.0341797,
+            "physical_csv_line": 180,
+            "elapsed_s": "148"
+          },
+          "active_end": {
+            "value": -0.0100708,
+            "physical_csv_line": 735,
+            "elapsed_s": "698"
+          }
+        },
+        {
+          "column": "DustTrakBAnalogMeasurement(Volts)",
+          "source_unit": "Volts",
+          "active_valid_count": 719,
+          "active_sentinels": {},
+          "full_file_sentinels": {
+            "-10": 129
+          },
+          "active_start": {
+            "value": 0.0,
+            "physical_csv_line": 17,
+            "elapsed_s": "1"
+          },
+          "active_min": {
+            "value": 0.0,
+            "physical_csv_line": 17,
+            "elapsed_s": "1"
+          },
+          "active_max": {
+            "value": 0.275879,
+            "physical_csv_line": 325,
+            "elapsed_s": "292"
+          },
+          "active_end": {
+            "value": 0.00335693,
+            "physical_csv_line": 735,
+            "elapsed_s": "698"
+          }
+        }
+      ],
+      "row_traceability_samples": [
+        {
+          "milestone": "active_start",
+          "record_index": 16,
+          "physical_csv_line": 17,
+          "time_string": "2010/242/14:59:30",
+          "unix_time": 1283180370,
+          "run_mode": "3",
+          "test_number": "89",
+          "elapsed_test_time_s": "1",
+          "heating_in_progress": "0",
+          "gas_plume_temp_c": "24.1514",
+          "sts_detector_v": "-0.000915527",
+          "iss_obscuration_v": "3.43079",
+          "iss_scatter_v": "-0.189209",
+          "ion_detector_b_v": "4.63287",
+          "ptrak_pt_per_cc": "0",
+          "dusttrak_b_mg_per_m3": "0"
+        },
+        {
+          "milestone": "heating_start",
+          "record_index": 156,
+          "physical_csv_line": 157,
+          "time_string": "2010/242/15:01:50",
+          "unix_time": 1283180510,
+          "run_mode": "3",
+          "test_number": "89",
+          "elapsed_test_time_s": "125",
+          "heating_in_progress": "1",
+          "gas_plume_temp_c": "24.6172",
+          "sts_detector_v": "5.1239",
+          "iss_obscuration_v": "3.43048",
+          "iss_scatter_v": "-0.190125",
+          "ion_detector_b_v": "4.5874",
+          "ptrak_pt_per_cc": "8",
+          "dusttrak_b_mg_per_m3": "0.012"
+        },
+        {
+          "milestone": "heating_end",
+          "record_index": 208,
+          "physical_csv_line": 209,
+          "time_string": "2010/242/15:02:42",
+          "unix_time": 1283180562,
+          "run_mode": "3",
+          "test_number": "89",
+          "elapsed_test_time_s": "177",
+          "heating_in_progress": "1",
+          "gas_plume_temp_c": "114.531",
+          "sts_detector_v": "5.09796",
+          "iss_obscuration_v": "3.43018",
+          "iss_scatter_v": "-0.187378",
+          "ion_detector_b_v": "4.6524",
+          "ptrak_pt_per_cc": "7500",
+          "dusttrak_b_mg_per_m3": "0.014"
+        },
+        {
+          "milestone": "peak_sts_detector",
+          "record_index": 26,
+          "physical_csv_line": 27,
+          "time_string": "2010/242/14:59:39",
+          "unix_time": 1283180379,
+          "run_mode": "3",
+          "test_number": "89",
+          "elapsed_test_time_s": "10",
+          "heating_in_progress": "0",
+          "gas_plume_temp_c": "24.2551",
+          "sts_detector_v": "5.29785",
+          "iss_obscuration_v": "3.42957",
+          "iss_scatter_v": "-0.190735",
+          "ion_detector_b_v": "4.6347",
+          "ptrak_pt_per_cc": "0",
+          "dusttrak_b_mg_per_m3": "0"
+        },
+        {
+          "milestone": "peak_dusttrak_b",
+          "record_index": 324,
+          "physical_csv_line": 325,
+          "time_string": "2010/242/15:04:37",
+          "unix_time": 1283180677,
+          "run_mode": "3",
+          "test_number": "89",
+          "elapsed_test_time_s": "292",
+          "heating_in_progress": "0",
+          "gas_plume_temp_c": "30.6179",
+          "sts_detector_v": "4.86816",
+          "iss_obscuration_v": "3.42316",
+          "iss_scatter_v": "-0.904846",
+          "ion_detector_b_v": "5.49835",
+          "ptrak_pt_per_cc": "69600",
+          "dusttrak_b_mg_per_m3": "5.528"
+        },
+        {
+          "milestone": "active_end",
+          "record_index": 734,
+          "physical_csv_line": 735,
+          "time_string": "2010/242/15:11:24",
+          "unix_time": 1283181084,
+          "run_mode": "3",
+          "test_number": "89",
+          "elapsed_test_time_s": "698",
+          "heating_in_progress": "0",
+          "gas_plume_temp_c": "24.9949",
+          "sts_detector_v": "-0.000610352",
+          "iss_obscuration_v": "3.43079",
+          "iss_scatter_v": "-0.184937",
+          "ion_detector_b_v": "4.65454",
+          "ptrak_pt_per_cc": "0",
+          "dusttrak_b_mg_per_m3": "0"
+        }
+      ]
+    },
+    {
+      "test_number": "91",
+      "experimental_table_matches": [
+        {
+          "record_index": 44,
+          "physical_csv_line": 45,
+          "Sample Type": "Silicone",
+          "SAME Test #": "91",
+          "Description": "Baseline STS det",
+          "Date": "7-Sep",
+          "Inlet velocity (cm/s)": "8.1",
+          "Rt/R0": "1.327",
+          "Duration (sec)": "60",
+          "Primary aging time (sec)": "11",
+          "Primary mixing time (sec)": "8",
+          "Net aging time (sec)": "46"
+        }
+      ],
+      "hkp_file": {
+        "filename": "PSI-101_Raw Data_HKPData_gmt250_1.csv",
+        "path": "data/raw/psi/same_r_probe/PSI-101_Raw Data_HKPData_gmt250_1.csv",
+        "bytes": 222568,
+        "sha256": "69c25a566b6af6b43fb263ceadad82499b6e18e69e5fdad928e8088124ee43a3",
+        "source_api_endpoint": "https://psi.nasa.gov/geode-py/ws/studies/PSI-101/download?file=683dc543b8656d2315bf5164&version=1&studyVersion=4&redirect=false",
+        "file_id": "683dc543b8656d2315bf5164",
+        "study_version": 4,
+        "column_count": 98,
+        "data_row_count": 558,
+        "physical_line_count": 559
+      },
+      "time_summary": {
+        "first_time_string": "2010/250/12:33:24",
+        "last_time_string": "2010/250/12:42:42",
+        "unix_start": 1283862804,
+        "unix_end": 1283863362,
+        "wall_span_s": 558,
+        "step_delta_histogram_s": {
+          "1": 556,
+          "2": 1
+        },
+        "non_1s_step_anomalies_sample": [
+          {
+            "physical_csv_line": 33,
+            "time_string": "2010/250/12:33:56",
+            "prev_unix": 1283862834,
+            "curr_unix": 1283862836,
+            "delta_s": 2
+          }
+        ]
+      },
+      "phases": [
+        {
+          "run_mode": "4",
+          "test_number": "91",
+          "test_running": "1",
+          "start_record_index": 1,
+          "start_csv_line": 2,
+          "start_time_string": "2010/250/12:33:24",
+          "start_elapsed_s": "66",
+          "end_record_index": 14,
+          "end_csv_line": 15,
+          "end_time_string": "2010/250/12:33:37",
+          "end_elapsed_s": "66",
+          "row_count": 14
+        },
+        {
+          "run_mode": "3",
+          "test_number": "91",
+          "test_running": "1",
+          "start_record_index": 15,
+          "start_csv_line": 16,
+          "start_time_string": "2010/250/12:33:38",
+          "start_elapsed_s": "66",
+          "end_record_index": 558,
+          "end_csv_line": 559,
+          "end_time_string": "2010/250/12:42:42",
+          "end_elapsed_s": "609",
+          "row_count": 544
+        }
+      ],
+      "heating_window": {
+        "row_count": 53,
+        "start_csv_line": 75,
+        "end_csv_line": 127,
+        "start_elapsed_s": "125",
+        "end_elapsed_s": "177"
+      },
+      "data_quality": {
+        "active_running_rows": 558,
+        "post_test_ind_temp_rows": 0,
+        "post_test_ind_line_range": null,
+        "ptrak_minus999_count": 9,
+        "ptrak_minus999_locations": [
+          {
+            "physical_csv_line": 437,
+            "elapsed_s": "487"
+          },
+          {
+            "physical_csv_line": 438,
+            "elapsed_s": "488"
+          },
+          {
+            "physical_csv_line": 439,
+            "elapsed_s": "489"
+          },
+          {
+            "physical_csv_line": 440,
+            "elapsed_s": "490"
+          },
+          {
+            "physical_csv_line": 441,
+            "elapsed_s": "491"
+          },
+          {
+            "physical_csv_line": 470,
+            "elapsed_s": "520"
+          },
+          {
+            "physical_csv_line": 471,
+            "elapsed_s": "521"
+          },
+          {
+            "physical_csv_line": 472,
+            "elapsed_s": "522"
+          },
+          {
+            "physical_csv_line": 473,
+            "elapsed_s": "523"
+          }
+        ],
+        "sts_alarm_active_lines": [
+          212,
+          213,
+          214,
+          215,
+          216,
+          217,
+          218,
+          219,
+          220,
+          221,
+          222,
+          223,
+          224,
+          225,
+          226,
+          227,
+          228,
+          229,
+          230,
+          231,
+          232,
+          233,
+          234,
+          235,
+          236,
+          237,
+          238,
+          239,
+          240,
+          241,
+          242,
+          243,
+          244,
+          245,
+          246,
+          247,
+          248,
+          249,
+          250,
+          251,
+          252,
+          253,
+          254,
+          255,
+          256,
+          257,
+          258,
+          259,
+          260,
+          261,
+          262,
+          263,
+          264,
+          265,
+          266,
+          267,
+          268,
+          269,
+          270,
+          271,
+          272,
+          273,
+          274,
+          275,
+          276,
+          277,
+          278,
+          279,
+          280,
+          281,
+          282,
+          283,
+          284,
+          285,
+          286,
+          287,
+          288,
+          289,
+          290,
+          291,
+          292,
+          293,
+          294,
+          295,
+          296,
+          297,
+          298,
+          299,
+          300,
+          301,
+          302,
+          303,
+          304,
+          305,
+          306,
+          307,
+          308,
+          309,
+          310,
+          311,
+          312,
+          313,
+          314,
+          315,
+          316,
+          317,
+          318,
+          319,
+          320,
+          321,
+          322,
+          323,
+          324,
+          325,
+          326,
+          327,
+          328,
+          329,
+          330,
+          331,
+          332,
+          333,
+          334,
+          335,
+          336,
+          337,
+          338,
+          339,
+          340,
+          341,
+          342,
+          343,
+          344,
+          345,
+          346,
+          347,
+          348,
+          349,
+          350,
+          351,
+          352,
+          353,
+          354,
+          355,
+          356,
+          357,
+          358,
+          359,
+          360,
+          361,
+          362,
+          363,
+          364,
+          365,
+          366,
+          367,
+          368,
+          369,
+          370,
+          371,
+          372,
+          373,
+          374,
+          375,
+          376,
+          377,
+          378,
+          379,
+          380,
+          381,
+          382,
+          383,
+          384,
+          385,
+          386,
+          387,
+          388,
+          389,
+          390,
+          391,
+          392,
+          393,
+          394,
+          395,
+          396,
+          397,
+          398,
+          399,
+          400,
+          401,
+          402,
+          403,
+          404,
+          405,
+          406,
+          407,
+          408,
+          409,
+          410,
+          411,
+          412,
+          413,
+          414,
+          415,
+          416,
+          417,
+          418,
+          419,
+          420,
+          421,
+          422,
+          423,
+          424,
+          425,
+          426,
+          427,
+          428,
+          429,
+          430,
+          431,
+          432,
+          433,
+          434,
+          435,
+          436,
+          437,
+          438,
+          439,
+          440,
+          441,
+          442,
+          443,
+          444,
+          445,
+          446,
+          447,
+          448,
+          449,
+          450,
+          451,
+          452,
+          453,
+          454,
+          455,
+          456,
+          457,
+          458,
+          459,
+          460,
+          461,
+          462,
+          463,
+          464,
+          465,
+          466,
+          467,
+          468,
+          469,
+          470,
+          471,
+          472,
+          473,
+          474,
+          475,
+          476,
+          477,
+          478,
+          479,
+          480,
+          481,
+          482,
+          483,
+          484,
+          485,
+          486,
+          487,
+          488,
+          489,
+          490,
+          491,
+          492,
+          493,
+          494,
+          495,
+          496,
+          497,
+          498,
+          499,
+          500,
+          501,
+          502,
+          503,
+          504,
+          505,
+          506,
+          507,
+          508,
+          509,
+          510,
+          511,
+          512,
+          513,
+          514,
+          515,
+          516,
+          517,
+          518,
+          519,
+          520,
+          521,
+          522,
+          523,
+          524,
+          525,
+          526,
+          527,
+          528,
+          529,
+          530,
+          531,
+          532,
+          533,
+          534,
+          535,
+          536,
+          537,
+          538,
+          539,
+          540,
+          541,
+          542,
+          543,
+          544,
+          545,
+          546,
+          547,
+          548,
+          549,
+          550,
+          551,
+          552,
+          553,
+          554,
+          555,
+          556,
+          557,
+          558,
+          559
+        ]
+      },
+      "channels": [
+        {
+          "column": "GasPlumeTemperature(DegC)",
+          "source_unit": "DegC",
+          "active_valid_count": 558,
+          "active_sentinels": {},
+          "full_file_sentinels": {},
+          "active_start": {
+            "value": 24.9949,
+            "physical_csv_line": 2,
+            "elapsed_s": "66"
+          },
+          "active_min": {
+            "value": 23.509,
+            "physical_csv_line": 75,
+            "elapsed_s": "125"
+          },
+          "active_max": {
+            "value": 110.023,
+            "physical_csv_line": 124,
+            "elapsed_s": "174"
+          },
+          "active_end": {
+            "value": 25.3027,
+            "physical_csv_line": 559,
+            "elapsed_s": "609"
+          }
+        },
+        {
+          "column": "SampleResistance(Ohms)",
+          "source_unit": "Ohms",
+          "active_valid_count": 558,
+          "active_sentinels": {},
+          "full_file_sentinels": {},
+          "active_start": {
+            "value": 0.686084,
+            "physical_csv_line": 2,
+            "elapsed_s": "66"
+          },
+          "active_min": {
+            "value": 0.000762951,
+            "physical_csv_line": 162,
+            "elapsed_s": "212"
+          },
+          "active_max": {
+            "value": 0.913539,
+            "physical_csv_line": 88,
+            "elapsed_s": "138"
+          },
+          "active_end": {
+            "value": 0.508507,
+            "physical_csv_line": 559,
+            "elapsed_s": "609"
+          }
+        },
+        {
+          "column": "ISSDetectorObscurationMeasurement(Volts)",
+          "source_unit": "Volts",
+          "active_valid_count": 558,
+          "active_sentinels": {},
+          "full_file_sentinels": {},
+          "active_start": {
+            "value": 3.42346,
+            "physical_csv_line": 2,
+            "elapsed_s": "66"
+          },
+          "active_min": {
+            "value": 2.2287,
+            "physical_csv_line": 253,
+            "elapsed_s": "303"
+          },
+          "active_max": {
+            "value": 3.4259,
+            "physical_csv_line": 25,
+            "elapsed_s": "75"
+          },
+          "active_end": {
+            "value": 3.42377,
+            "physical_csv_line": 559,
+            "elapsed_s": "609"
+          }
+        },
+        {
+          "column": "ISSDetectorScatterMeasurement(Volts)",
+          "source_unit": "Volts",
+          "active_valid_count": 558,
+          "active_sentinels": {},
+          "full_file_sentinels": {},
+          "active_start": {
+            "value": -0.184937,
+            "physical_csv_line": 2,
+            "elapsed_s": "66"
+          },
+          "active_min": {
+            "value": -6.24634,
+            "physical_csv_line": 285,
+            "elapsed_s": "335"
+          },
+          "active_max": {
+            "value": -0.179138,
+            "physical_csv_line": 106,
+            "elapsed_s": "156"
+          },
+          "active_end": {
+            "value": -0.210571,
+            "physical_csv_line": 559,
+            "elapsed_s": "609"
+          }
+        },
+        {
+          "column": "STSDetectorMeasurement(Volts)",
+          "source_unit": "Volts",
+          "active_valid_count": 558,
+          "active_sentinels": {},
+          "full_file_sentinels": {},
+          "active_start": {
+            "value": 5.15472,
+            "physical_csv_line": 2,
+            "elapsed_s": "66"
+          },
+          "active_min": {
+            "value": 4.09027,
+            "physical_csv_line": 221,
+            "elapsed_s": "271"
+          },
+          "active_max": {
+            "value": 5.30548,
+            "physical_csv_line": 343,
+            "elapsed_s": "393"
+          },
+          "active_end": {
+            "value": 5.20355,
+            "physical_csv_line": 559,
+            "elapsed_s": "609"
+          }
+        },
+        {
+          "column": "IonDetectorAMeasurement(Volts)",
+          "source_unit": "Volts",
+          "active_valid_count": 558,
+          "active_sentinels": {},
+          "full_file_sentinels": {},
+          "active_start": {
+            "value": 0.000305176,
+            "physical_csv_line": 2,
+            "elapsed_s": "66"
+          },
+          "active_min": {
+            "value": -0.0180054,
+            "physical_csv_line": 97,
+            "elapsed_s": "147"
+          },
+          "active_max": {
+            "value": 0.0289917,
+            "physical_csv_line": 393,
+            "elapsed_s": "443"
+          },
+          "active_end": {
+            "value": 0.00183105,
+            "physical_csv_line": 559,
+            "elapsed_s": "609"
+          }
+        },
+        {
+          "column": "IonDetectorBMeasurement(Volts)",
+          "source_unit": "Volts",
+          "active_valid_count": 558,
+          "active_sentinels": {},
+          "full_file_sentinels": {},
+          "active_start": {
+            "value": 4.81506,
+            "physical_csv_line": 2,
+            "elapsed_s": "66"
+          },
+          "active_min": {
+            "value": 4.47266,
+            "physical_csv_line": 370,
+            "elapsed_s": "420"
+          },
+          "active_max": {
+            "value": 7.8656,
+            "physical_csv_line": 237,
+            "elapsed_s": "287"
+          },
+          "active_end": {
+            "value": 4.57672,
+            "physical_csv_line": 559,
+            "elapsed_s": "609"
+          }
+        },
+        {
+          "column": "PTrakMeasurement(PtPerCC)",
+          "source_unit": "PtPerCC",
+          "active_valid_count": 549,
+          "active_sentinels": {
+            "-999": 9
+          },
+          "full_file_sentinels": {
+            "-999": 9
+          },
+          "active_start": {
+            "value": 0.0,
+            "physical_csv_line": 2,
+            "elapsed_s": "66"
+          },
+          "active_min": {
+            "value": 0.0,
+            "physical_csv_line": 2,
+            "elapsed_s": "66"
+          },
+          "active_max": {
+            "value": 112000.0,
+            "physical_csv_line": 234,
+            "elapsed_s": "284"
+          },
+          "active_end": {
+            "value": 76.0,
+            "physical_csv_line": 559,
+            "elapsed_s": "609"
+          }
+        },
+        {
+          "column": "DustTrakAMeasurement(MgPerM3)",
+          "source_unit": "MgPerM3",
+          "active_valid_count": 558,
+          "active_sentinels": {},
+          "full_file_sentinels": {},
+          "active_start": {
+            "value": 0.0,
+            "physical_csv_line": 2,
+            "elapsed_s": "66"
+          },
+          "active_min": {
+            "value": 0.0,
+            "physical_csv_line": 2,
+            "elapsed_s": "66"
+          },
+          "active_max": {
+            "value": 0.0,
+            "physical_csv_line": 2,
+            "elapsed_s": "66"
+          },
+          "active_end": {
+            "value": 0.0,
+            "physical_csv_line": 559,
+            "elapsed_s": "609"
+          }
+        },
+        {
+          "column": "DustTrakBMeasurement(MgPerM3)",
+          "source_unit": "MgPerM3",
+          "active_valid_count": 558,
+          "active_sentinels": {},
+          "full_file_sentinels": {},
+          "active_start": {
+            "value": 0.0,
+            "physical_csv_line": 2,
+            "elapsed_s": "66"
+          },
+          "active_min": {
+            "value": 0.0,
+            "physical_csv_line": 2,
+            "elapsed_s": "66"
+          },
+          "active_max": {
+            "value": 225.455,
+            "physical_csv_line": 240,
+            "elapsed_s": "290"
+          },
+          "active_end": {
+            "value": 0.036,
+            "physical_csv_line": 559,
+            "elapsed_s": "609"
+          }
+        },
+        {
+          "column": "DustTrakAAnalogMeasurement(Volts)",
+          "source_unit": "Volts",
+          "active_valid_count": 558,
+          "active_sentinels": {},
+          "full_file_sentinels": {},
+          "active_start": {
+            "value": 0.00640869,
+            "physical_csv_line": 2,
+            "elapsed_s": "66"
+          },
+          "active_min": {
+            "value": -0.027771,
+            "physical_csv_line": 97,
+            "elapsed_s": "147"
+          },
+          "active_max": {
+            "value": 0.0283813,
+            "physical_csv_line": 81,
+            "elapsed_s": "131"
+          },
+          "active_end": {
+            "value": -0.00640869,
+            "physical_csv_line": 559,
+            "elapsed_s": "609"
+          }
+        },
+        {
+          "column": "DustTrakBAnalogMeasurement(Volts)",
+          "source_unit": "Volts",
+          "active_valid_count": 558,
+          "active_sentinels": {},
+          "full_file_sentinels": {},
+          "active_start": {
+            "value": 0.00488281,
+            "physical_csv_line": 2,
+            "elapsed_s": "66"
+          },
+          "active_min": {
+            "value": 0.00152588,
+            "physical_csv_line": 332,
+            "elapsed_s": "382"
+          },
+          "active_max": {
+            "value": 5.00153,
+            "physical_csv_line": 226,
+            "elapsed_s": "276"
+          },
+          "active_end": {
+            "value": 0.00396729,
+            "physical_csv_line": 559,
+            "elapsed_s": "609"
+          }
+        }
+      ],
+      "row_traceability_samples": [
+        {
+          "milestone": "active_start",
+          "record_index": 1,
+          "physical_csv_line": 2,
+          "time_string": "2010/250/12:33:24",
+          "unix_time": 1283862804,
+          "run_mode": "4",
+          "test_number": "91",
+          "elapsed_test_time_s": "66",
+          "heating_in_progress": "0",
+          "gas_plume_temp_c": "24.9949",
+          "sts_detector_v": "5.15472",
+          "iss_obscuration_v": "3.42346",
+          "iss_scatter_v": "-0.184937",
+          "ion_detector_b_v": "4.81506",
+          "ptrak_pt_per_cc": "0",
+          "dusttrak_b_mg_per_m3": "0"
+        },
+        {
+          "milestone": "heating_start",
+          "record_index": 74,
+          "physical_csv_line": 75,
+          "time_string": "2010/250/12:34:38",
+          "unix_time": 1283862878,
+          "run_mode": "3",
+          "test_number": "91",
+          "elapsed_test_time_s": "125",
+          "heating_in_progress": "1",
+          "gas_plume_temp_c": "23.509",
+          "sts_detector_v": "5.14496",
+          "iss_obscuration_v": "3.42407",
+          "iss_scatter_v": "-0.182495",
+          "ion_detector_b_v": "4.7287",
+          "ptrak_pt_per_cc": "0",
+          "dusttrak_b_mg_per_m3": "0"
+        },
+        {
+          "milestone": "heating_end",
+          "record_index": 126,
+          "physical_csv_line": 127,
+          "time_string": "2010/250/12:35:30",
+          "unix_time": 1283862930,
+          "run_mode": "3",
+          "test_number": "91",
+          "elapsed_test_time_s": "177",
+          "heating_in_progress": "1",
+          "gas_plume_temp_c": "108.297",
+          "sts_detector_v": "5.04211",
+          "iss_obscuration_v": "3.42438",
+          "iss_scatter_v": "-0.189819",
+          "ion_detector_b_v": "4.8291",
+          "ptrak_pt_per_cc": "814",
+          "dusttrak_b_mg_per_m3": "0.138"
+        },
+        {
+          "milestone": "peak_sts_detector",
+          "record_index": 342,
+          "physical_csv_line": 343,
+          "time_string": "2010/250/12:39:06",
+          "unix_time": 1283863146,
+          "run_mode": "3",
+          "test_number": "91",
+          "elapsed_test_time_s": "393",
+          "heating_in_progress": "0",
+          "gas_plume_temp_c": "31.7947",
+          "sts_detector_v": "5.30548",
+          "iss_obscuration_v": "3.41736",
+          "iss_scatter_v": "-0.28595",
+          "ion_detector_b_v": "4.54651",
+          "ptrak_pt_per_cc": "0",
+          "dusttrak_b_mg_per_m3": "0.055"
+        },
+        {
+          "milestone": "peak_dusttrak_b",
+          "record_index": 239,
+          "physical_csv_line": 240,
+          "time_string": "2010/250/12:37:23",
+          "unix_time": 1283863043,
+          "run_mode": "3",
+          "test_number": "91",
+          "elapsed_test_time_s": "290",
+          "heating_in_progress": "0",
+          "gas_plume_temp_c": "28.5909",
+          "sts_detector_v": "4.1568",
+          "iss_obscuration_v": "2.34619",
+          "iss_scatter_v": "-6.23383",
+          "ion_detector_b_v": "7.85126",
+          "ptrak_pt_per_cc": "111000",
+          "dusttrak_b_mg_per_m3": "225.455"
+        },
+        {
+          "milestone": "active_end",
+          "record_index": 558,
+          "physical_csv_line": 559,
+          "time_string": "2010/250/12:42:42",
+          "unix_time": 1283863362,
+          "run_mode": "3",
+          "test_number": "91",
+          "elapsed_test_time_s": "609",
+          "heating_in_progress": "0",
+          "gas_plume_temp_c": "25.3027",
+          "sts_detector_v": "5.20355",
+          "iss_obscuration_v": "3.42377",
+          "iss_scatter_v": "-0.210571",
+          "ion_detector_b_v": "4.57672",
+          "ptrak_pt_per_cc": "76",
+          "dusttrak_b_mg_per_m3": "0.036"
+        }
+      ]
+    }
+  ],
+  "limits_and_recommendation": {
+    "observed_limits": [
+      "No ambient O2 or chamber pressure variables in PSI-101 Experimental Table; only Inlet velocity (cm/s) and heater wire setpoint ratio Rt/R0.",
+      "Rt/R0 measures resistive heater wire ratio, not smoke optical properties, and shows scatter due to air-exposed wire lead length (Final Report p.2, p.27) and heater offset issues (Ops Manual p.19).",
+      "Experimental Table duplicates SAME Test # 57 across Lampwick (CSV line 57) and Teflon (CSV line 75) even though Final Report Appendix A p.32 assigns 57 to 10L Lampwick.",
+      "HKPData files contain non-test rows, post-test Windows -1.#IND temperature NaNs, -10/-400/-500 sentinels, P-Trak -999 dropouts, IonDetectorA inactive (~0 V baseline when swapped for MPASS), and non-1s timestamp steps.",
+      "Raw detector channels are in Volts without in-file smoke-density calibration constants; Final Report p.24 documents ionization detector calibration-range exceedances."
+    ],
+    "recommendation": "limited_single_test_signal_display_optional",
+    "recommendation_rationale": "Do not add PSI-101 to the PSI-25/PSI-69 comparison core or infer flame-detection thresholds/severity. Either keep PSI-101 as a source/reference card or expose an isolated single-run telemetry viewer (e.g. Run 89) strictly in source Volts/PtPerCC/MgPerM3 with explicit caveats."
+  }
+}

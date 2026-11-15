@@ -1,0 +1,154 @@
+/* Tokens. Light, cool paper; the flame stage is the only dark surface. */
+:root {
+  --bg: #eceff2;
+  --ink: #16202b;
+  --muted: #566270;
+  --rule: #c5cdd6;
+  --accent: #1b5e7b;
+  --gap: #8f4f06;
+  --gap-fill: #e9d3b4;
+  --stage: #0b0b0c;
+  --stage-ink: #c9d3de;
+  --font: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font: 400 15px/1.5 var(--font); font-variant-numeric: tabular-nums;
+}
+h1, h2, h3, p { margin: 0; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.wrap { max-width: 1180px; margin: 0 auto; padding: 0 20px; }
+
+/* Header */
+.top { border-bottom: 1px solid var(--rule); }
+.top-inner { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; padding-top: 22px; flex-wrap: wrap; }
+.top h1 { font-size: 26px; font-weight: 600; letter-spacing: -0.01em; }
+.lede { color: var(--muted); max-width: 62ch; margin-top: 2px; padding-bottom: 14px; }
+.tabs { display: flex; gap: 26px; }
+.tab {
+  background: none; border: 0; padding: 0 0 12px; font: 500 15px var(--font); color: var(--muted);
+  cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px;
+}
+.tab:hover { color: var(--ink); }
+.tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--ink); }
+
+/* Layout */
+.layout { display: grid; grid-template-columns: 270px minmax(0, 1fr); gap: 40px; padding-top: 28px; padding-bottom: 36px; align-items: start; }
+.rail { position: sticky; top: 16px; }
+.rail h2, .view-title { font-size: 13px; font-weight: 600; color: var(--muted); margin-bottom: 12px; }
+.field { display: block; font-weight: 500; margin-bottom: 4px; }
+select {
+  width: 100%; font: 400 15px var(--font); color: var(--ink); background: #fff;
+  border: 1px solid var(--rule); border-radius: 4px; padding: 8px 10px;
+}
+.hint { color: var(--muted); font-size: 13px; margin-top: 8px; max-width: 34ch; }
+
+.slider { margin-top: 22px; }
+.slider-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+.slider-head label { font-weight: 500; }
+.slider-head output { font-size: 20px; font-weight: 600; }
+.slider.idle .slider-head label, .slider.idle output { color: var(--muted); font-weight: 400; }
+.slider.idle input { opacity: .45; }
+input[type="range"] { width: 100%; accent-color: var(--accent); margin: 0; }
+
+.seg { display: grid; grid-template-columns: repeat(2, 1fr); gap: 4px; margin-bottom: 8px; }
+.seg button {
+  font: 400 13px var(--font); padding: 6px 8px; background: #fff; color: var(--ink); cursor: pointer;
+  border: 1px solid var(--rule); border-radius: 4px; text-align: left;
+}
+.seg button[aria-pressed="true"] { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+/* Shared view bits */
+.view-head { max-width: 62ch; margin-bottom: 20px; }
+.view-head h2 { font-size: 20px; font-weight: 600; color: var(--ink); margin-bottom: 6px; letter-spacing: -0.005em; }
+.view-head p { color: var(--muted); }
+.callout { border-left: 3px solid var(--accent); padding: 4px 0 4px 14px; max-width: 66ch; margin-bottom: 20px; }
+.callout.gap { border-left-color: var(--gap); }
+.callout strong { font-weight: 600; }
+
+/* Materials: ranked rows with an oxygen strip */
+.axis-row, .mrow { display: grid; grid-template-columns: 190px minmax(0, 1fr) 170px; gap: 18px; align-items: center; }
+.axis-row { color: var(--muted); font-size: 12px; padding-bottom: 6px; }
+.mrow { padding: 14px 0; border-top: 1px solid var(--rule); }
+.mrow:first-of-type { border-top-color: var(--ink); }
+.mname { font-weight: 600; font-size: 16px; }
+.msub { color: var(--muted); font-size: 13px; }
+.strip { width: 100%; height: 44px; display: block; }
+.mval { text-align: right; }
+.mval .big { font-size: 20px; font-weight: 600; }
+.mval .small { font-size: 13px; color: var(--muted); }
+.mval .none { font-size: 13px; color: var(--gap); }
+.mrow.faint .mname { color: var(--muted); }
+details.tests { grid-column: 1 / -1; font-size: 13px; }
+details.tests summary { cursor: pointer; color: var(--accent); width: fit-content; }
+details.tests table { border-collapse: collapse; margin-top: 8px; width: 100%; max-width: 560px; }
+details.tests th, details.tests td { text-align: right; padding: 3px 12px 3px 0; border-bottom: 1px solid var(--rule); font-weight: 400; }
+details.tests th:first-child, details.tests td:first-child { text-align: left; }
+details.tests th { color: var(--muted); }
+
+/* Fire view */
+.fire-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; }
+.canvas-wrap { background: var(--stage); border-radius: 6px; position: relative; overflow: hidden; }
+canvas#flame { display: block; width: 100%; height: 400px; }
+.stage-cap { position: absolute; left: 14px; bottom: 10px; color: var(--stage-ink); font-size: 13px; }
+.stage-phase { position: absolute; left: 14px; top: 12px; color: var(--stage-ink); font-size: 14px; font-weight: 500; }
+.stage-tag { position: absolute; right: 14px; top: 12px; color: #98a6b5; font-size: 12px; }
+.controls { display: flex; flex-wrap: wrap; gap: 14px 22px; align-items: center; }
+.controls .grow { flex: 1 1 260px; display: flex; align-items: center; gap: 12px; }
+.btn {
+  font: 500 14px var(--font); padding: 7px 14px; background: var(--ink); color: #fff;
+  border: 0; border-radius: 4px; cursor: pointer; min-width: 84px;
+}
+.btn.quiet { background: none; color: var(--ink); border: 1px solid var(--rule); min-width: 0; }
+.controls select { width: auto; }
+.controls label { font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+output.time { min-width: 7ch; text-align: right; font-weight: 500; }
+
+.evidence h3 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+.evidence .cond { color: var(--muted); font-size: 13px; margin-bottom: 10px; max-width: 70ch; }
+.bar { display: flex; height: 30px; border-radius: 3px; overflow: hidden; gap: 2px; max-width: 720px; }
+.bar span { display: flex; align-items: center; padding: 0 8px; font-size: 13px; color: #fff; min-width: 0; white-space: nowrap; overflow: hidden; }
+.o-Extinction { background: #1b5e7b; }
+.o-Disruption { background: #8a5a7a; }
+.o-Completion { background: #5f7a4a; }
+.o-other { background: #6c7682; }
+.facts { display: flex; flex-wrap: wrap; gap: 6px 28px; margin-top: 12px; font-size: 13px; color: var(--muted); }
+.facts b { color: var(--ink); font-weight: 600; font-size: 15px; margin-right: 4px; }
+
+.foot { color: var(--muted); font-size: 13px; padding-top: 18px; padding-bottom: 28px; border-top: 1px solid var(--rule); display: grid; gap: 6px; }
+.foot p { max-width: 90ch; }
+
+@media (max-width: 860px) {
+  .layout { grid-template-columns: 1fr; gap: 24px; }
+  .rail { position: static; }
+  .axis-row { display: none; }
+  .mrow { grid-template-columns: 1fr; gap: 8px; }
+  .mval { text-align: left; }
+  canvas#flame { height: 320px; }
+}
+@media (max-width: 640px) {
+  .stage-tag { left: 14px; right: 14px; top: 36px; text-align: left; font-size: 11px; line-height: 1.3; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tab, .btn { transition: none; }
+}
+
+/* Dark theme for the fire page (same tokens as the Material lab). Declared last so it wins. */
+:root { --bg: #050505; --ink: #f1eee8; --muted: #8f8b84; --rule: #202022; --accent: #f1eee8; --gap: #e8b45c; --gap-fill: rgba(232, 180, 92, .14); --panel: #0b0b0c; color-scheme: dark; }
+body.fire-page .layout { padding-top: 112px; }
+select { background: var(--panel); color: var(--ink); border-color: #3a3a3d; }
+.seg button { background: var(--panel); color: var(--ink); border-color: #3a3a3d; }
+.seg button[aria-pressed="true"] { background: var(--ink); color: #15161c; border-color: var(--ink); }
+.btn { color: #15161c; }
+.btn.quiet { color: var(--ink); }
+.slider.idle input { opacity: .45; }
+.slider-head output, .slider-head label { color: var(--ink); }
+.slider.idle .slider-head label, .slider.idle output { color: var(--muted); }
+.callout { color: #b0aca4; }
+.callout.gap { border-left-color: var(--gap); }
+.callout strong { color: var(--ink); }
+.foot { border-top-color: #202022; }

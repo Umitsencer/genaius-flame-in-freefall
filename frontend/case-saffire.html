@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>GeNAIus · What did the fire do to the air? (Saffire IV–VI)</title>
+  <meta name="description"
+    content="A real fire, lit on purpose in an empty NASA cargo spacecraft: how fast the cabin air changed, when the smoke reached the selected smoke criterion, and what the published Saffire IV–VI data can and cannot tell us.">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/lab.css">
+  <link rel="stylesheet" href="css/data.css">
+  <link rel="stylesheet" href="css/case.css">
+  <link rel="stylesheet" href="css/case-story.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/chat.css">
+</head>
+
+<body class="case-story">
+  <a class="skip" href="#main">Skip to case study content</a>
+
+  <main id="main" class="cs-page">
+
+    <!-- 1 · Hero: the question, in one breath -->
+    <header class="cs-hero">
+      <div class="cs-hero-text">
+        <p class="cs-kicker">Case study · NASA Saffire experiments · 2020–2023</p>
+        <h1 class="cs-title">What did the fire do to the air?</h1>
+        <p class="cs-lede">After a cargo ship leaves the International Space Station, NASA lit real fires inside it on
+          purpose — with nobody on board — before it burned up in the atmosphere.</p>
+        <p class="cs-lede">We follow one of those fires, <strong>Saffire VI-3</strong>, from ignition to the selected
+          smoke criterion, alongside the reported changes in the air.</p>
+        <div class="cs-hero-cta">
+          <a class="cs-btn primary" href="#s-story">▶ Watch the fire unfold</a>
+          <a class="cs-btn" href="#s-finding">Skip to the key finding</a>
+        </div>
+      </div>
+      <figure class="cs-hero-art" aria-hidden="true">
+        <svg viewBox="0 0 360 300" class="cs-module">
+          <defs>
+            <radialGradient id="glow" cx="50%" cy="58%" r="50%">
+              <stop offset="0%" stop-color="#ff9c87" stop-opacity=".55" />
+              <stop offset="60%" stop-color="#ff9c87" stop-opacity=".08" />
+              <stop offset="100%" stop-color="#ff9c87" stop-opacity="0" />
+            </radialGradient>
+            <linearGradient id="hull" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0" stop-color="#2a2a2e" />
+              <stop offset="1" stop-color="#141416" />
+            </linearGradient>
+            <linearGradient id="flameG" x1="0" x2="0" y1="1" y2="0">
+              <stop offset="0" stop-color="#7fb4ff" />
+              <stop offset=".35" stop-color="#ff9c87" />
+              <stop offset="1" stop-color="#ffd27a" stop-opacity=".2" />
+            </linearGradient>
+          </defs>
+          <circle cx="180" cy="160" r="150" fill="url(#glow)" class="cs-glow" />
+          <!-- generic pressurized module -->
+          <rect x="50" y="70" width="260" height="170" rx="70" fill="url(#hull)" stroke="#3a3a3d" stroke-width="2" />
+          <rect x="34" y="120" width="18" height="70" rx="6" fill="#1b1b1e" stroke="#3a3a3d" />
+          <rect x="308" y="120" width="18" height="70" rx="6" fill="#1b1b1e" stroke="#3a3a3d" />
+          <!-- flow duct with sample -->
+          <rect x="96" y="118" width="168" height="78" rx="10" fill="#0b0b0c" stroke="#58d1b8" stroke-opacity=".5" />
+          <g class="cs-air" stroke="#58d1b8" stroke-width="2" stroke-linecap="round" opacity=".7">
+            <line x1="104" y1="132" x2="126" y2="132" />
+            <line x1="104" y1="157" x2="126" y2="157" />
+            <line x1="104" y1="182" x2="126" y2="182" />
+          </g>
+          <rect x="150" y="150" width="70" height="14" rx="2" fill="#c9c3b8" opacity=".85" />
+          <g class="cs-flame">
+            <path d="M160 150 C 168 128, 176 140, 182 118 C 190 136, 198 126, 206 150 Z" fill="url(#flameG)" />
+            <path d="M172 150 C 178 138, 184 144, 188 132 C 192 142, 196 140, 198 150 Z" fill="#ffe7b0" opacity=".8" />
+          </g>
+          <!-- smoke puffs drifting downstream to sensor -->
+          <g class="cs-smoke" fill="#b0aca4">
+            <circle cx="232" cy="140" r="5" opacity=".35" />
+            <circle cx="244" cy="132" r="7" opacity=".25" />
+            <circle cx="256" cy="124" r="9" opacity=".18" />
+          </g>
+          <!-- sensor -->
+          <g transform="translate(268 84)">
+            <circle r="15" fill="#111113" stroke="#e6c15a" stroke-width="2" />
+            <circle r="4" fill="#e6c15a" class="cs-sensor-dot" />
+          </g>
+          <text x="180" y="270" text-anchor="middle" class="cs-art-cap">Illustration · not to scale</text>
+        </svg>
+      </figure>
+    </header>
+
+    <!-- 2 · Setup in three facts -->
+    <section class="cs-setup" aria-label="The setup">
+      <article class="cs-fact">
+        <span class="cs-ico" aria-hidden="true">🛰️</span>
+        <h3>An empty spacecraft</h3>
+        <p>A Cygnus cargo ship, far from the station. Free air inside: <b id="fx-volume">16.7 m³</b> — about one small
+          bedroom.</p>
+      </article>
+      <article class="cs-fact">
+        <span class="cs-ico" aria-hidden="true">🔥</span>
+        <h3>One sheet of plastic</h3>
+        <p>A 1 cm-thick sheet of acrylic (PMMA, the clear plastic of display cases), lit by a hot wire.</p>
+      </article>
+      <article class="cs-fact">
+        <span class="cs-ico" aria-hidden="true">🌬️</span>
+        <h3>Thin, oxygen-rich air</h3>
+        <p><b id="fx-pressure">54.6 kPa</b> (about half of sea-level pressure) with <b id="fx-oxygen">30.3 %</b>
+          oxygen — Earth air has 21 %. NASA calls this an exploration atmosphere.</p>
+      </article>
+    </section>
+
+    <!-- 3 · The story: interactive timeline -->
+    <section id="s-story" class="cs-section">
+      <p class="cs-step">Step 1 · Watch it happen</p>
+      <h2 class="cs-h2">Twenty-four minutes inside an empty spacecraft</h2>
+      <p class="cs-sub">Press play. The clock runs through the published events of Saffire VI-3 — the clock is illustrative between event markers.</p>
+
+      <div class="cs-player" id="story-player">
+        <div class="cs-player-top">
+          <button type="button" class="cs-play" id="tl-play" aria-label="Play the timeline">
+            <span class="cs-play-ico" aria-hidden="true">▶</span><span class="cs-play-txt">Play</span>
+          </button>
+          <div class="cs-clock" aria-live="off">
+            <span class="cs-clock-lbl">Experiment clock</span>
+            <span class="cs-clock-val" id="story-clock">00:00</span>
+          </div>
+          <div class="cs-silent" id="story-silent" hidden>
+            <span class="cs-clock-lbl">Elapsed since ignition, capped at the criterion</span>
+            <span class="cs-silent-val" id="story-silent-val">0 s</span>
+          </div>
+          <div class="cs-player-nav">
+            <button type="button" class="ghost sm" id="tl-prev" aria-label="Previous event">←</button>
+            <button type="button" class="ghost sm" id="tl-next" aria-label="Next event">→</button>
+            <button type="button" class="ghost sm" id="tl-reset">Show all</button>
+          </div>
+        </div>
+        <div id="timeline-out" class="cs-track-wrap"></div>
+        <div id="story-caption" class="cs-caption" aria-live="polite"></div>
+        <p class="small cs-tl-label" id="tl-step-label"></p>
+      </div>
+    </section>
+
+    <!-- 4 · Key finding -->
+    <section id="s-finding" class="cs-section">
+      <p class="cs-step">Step 2 · The key finding</p>
+      <h2 class="cs-h2" id="finding-headline">Elapsed from ignition: 5 min 44 s to the selected smoke criterion.</h2>
+      <p class="cs-sub">And by the time it did, the authors note, much of the harmful gas had already been released.</p>
+      <div class="cs-stats" id="finding-stats"></div>
+      <p class="cs-fine">Gas values are <em>increases</em> measured near one sensor in an empty spacecraft, compared by
+        the NASA authors with crew limits. They are not what a person would have breathed.</p>
+    </section>
+
+    <!-- 5 · Thin vs thick -->
+    <section id="s-compare" class="cs-section">
+      <p class="cs-step">Step 3 · Not every fire is the same</p>
+      <h2 class="cs-h2">Fabric and PMMA results in these tests</h2>
+      <p class="cs-sub">Five Saffire fires have published gas data. Grouped by what burned, the difference is hard to
+        miss.</p>
+      <div class="cs-versus" id="versus-out"></div>
+      <div id="air-charts-out"></div>
+    </section>
+
+    <!-- 6 · Why it matters -->
+    <section id="s-why" class="cs-section">
+      <p class="cs-step">Step 4 · Why this matters</p>
+      <h2 class="cs-h2">Catching smoke in space is harder than it sounds.</h2>
+      <div class="cs-why">
+        <article class="cs-card">
+          <span class="cs-ico" aria-hidden="true">🫧</span>
+          <h3>The smoke is tiny</h3>
+          <p>In Saffire IV–V, most of the smoke mass was in particles smaller than 1 micrometre (PM1) — dozens of
+            times thinner than a human hair.</p>
+          <p class="cs-src">Fortenberry, NTRS 20220009167</p>
+        </article>
+        <article class="cs-card">
+          <span class="cs-ico" aria-hidden="true">🔍</span>
+          <h3>No detector sees everything</h3>
+          <p>On the space station, the light-based smoke detector often missed the small particles from Teflon and
+            Kapton — materials common in electronics.</p>
+          <p class="cs-src">SAME / SAME-2 on the ISS (NIST 2018; AIAA 2012-3536)</p>
+        </article>
+        <article class="cs-card accent">
+          <span class="cs-ico" aria-hidden="true">❓</span>
+          <h3>The open question</h3>
+          <p>Could watching CO and CO₂ give an earlier warning than smoke alone? These results raise that question.
+            They do not answer it.</p>
+          <p class="cs-src">Our reading — not a NASA conclusion</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 7 · Honest limits -->
+    <section id="s-limits-short" class="cs-section">
+      <p class="cs-step">Step 5 · What this does not tell us</p>
+      <h2 class="cs-h2">We say what we don't know.</h2>
+      <div class="cs-limits">
+        <div class="cs-limit"><span aria-hidden="true">👤</span>
+          <p><b>No crew was on board.</b> This is not a crew-exposure or survival assessment.</p>
+        </div>
+        <div class="cs-limit"><span aria-hidden="true">📍</span>
+          <p><b>Increases near one sensor.</b> Not the full air a person would breathe in a cabin.</p>
+        </div>
+        <div class="cs-limit"><span aria-hidden="true">∅</span>
+          <p><b>V-3 and V-4 have no published gas data.</b> We show them as gaps, never as zero.</p>
+        </div>
+        <div class="cs-limit"><span aria-hidden="true">🌙</span>
+          <p><b>Microgravity is not the Moon or Mars.</b> These results are not carried over to partial gravity.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8 · Ask -->
+    <section id="s-ask" class="cs-section cs-ask">
+      <div>
+        <h2 class="cs-h2 sm">Ask the case</h2>
+        <p class="cs-sub">Answers come only from the published Saffire, SAME and Fortenberry sources, with citations.
+        </p>
+      </div>
+      <div class="ask-chips" id="case-ask-chips">
+        <button type="button" class="cs-chip"
+          data-q="When was the authors' selected 1 mg/m3 smoke-concentration criterion crossed in Saffire VI-3, and how long after ignition was that?">When
+          did smoke reach the selected smoke criterion?</button>
+        <button type="button" class="cs-chip"
+          data-q="What do Saffire IV–VI tell us about CO and CO2 levels compared to spacecraft limits?">How do CO and
+          CO₂ compare to NASA limits?</button>
+        <button type="button" class="cs-chip"
+          data-q="Compare gas emissions across thin and thick fuels in Saffire IV–VI.">Fabric vs plastic: which released
+          more gas?</button>
+        <button type="button" class="cs-chip"
+          data-q="What do SAME and Fortenberry say about smoke particle size and detector sensitivity?">Why are smoke
+          particles hard to detect?</button>
+        <button type="button" class="cs-chip"
+          data-q="Are gas or heat-release results reported for Saffire V-3 and V-4?">Why are V-3 and V-4 blank?</button>
+      </div>
+    </section>
+
+    <!-- 9 · For researchers: everything else, folded -->
+    <section id="s-expert" class="cs-section cs-expert">
+      <p class="cs-step">For researchers</p>
+      <h2 class="cs-h2 sm">Full data, sources and audit trail</h2>
+      <p class="cs-sub">Every number above traces back to a NASA report page or slide. Open a panel to check it.</p>
+
+      <details class="cs-det" id="s-conditions">
+        <summary><span>All 7 tests: conditions and flow schedule</span><span class="cs-det-tag">Reported + derived pO₂</span></summary>
+        <div class="cs-det-body">
+          <div class="cs-filters">
+            <label class="fld" for="case-test">Focus test
+              <select id="case-test">
+                <option value="VI-3" selected>VI-3 · Two-Sided PMMA</option>
+              </select>
+            </label>
+            <label class="fld" for="case-flight">Flight
+              <select id="case-flight">
+                <option value="">All 3 flights (IV, V, VI)</option>
+              </select>
+            </label>
+            <label class="fld" for="case-fuel">Fuel group
+              <select id="case-fuel">
+                <option value="">All fuel types</option>
+                <option value="thin_textile">Thin textiles (SIBAL / Cotton)</option>
+                <option value="thick_pmma">Thick / structured PMMA</option>
+              </select>
+            </label>
+            <button type="button" class="ghost sm" id="case-reset">Reset to VI-3</button>
+          </div>
+          <div id="rail-active" class="rail-box" aria-live="polite">
+            <p class="small">Loading case metadata...</p>
+          </div>
+          <p class="how">Derived oxygen partial pressure: <code>pO₂ = P × XO₂ / 100</code>. <code>V-3</code> and
+            <code>V-4</code> conditions come from NTRS <code>20210011521</code> Table 1.</p>
+          <div id="conditions-out"></div>
+          <div id="flow-protocol-out"></div>
+        </div>
+      </details>
+
+      <details class="cs-det" id="s-air">
+        <summary><span>Full measurement table (heat, temperature, CO₂, CO)</span><span class="cs-det-tag">NTRS 20240002981 Table 2</span></summary>
+        <div class="cs-det-body">
+          <p class="how">Increases measured near the Far Field Diagnostics (FFD) inlet relative to pre-burn baselines.
+            Reference limits cited by the authors: <code>NASA-STD-3001</code> 1-hour CO₂ (<code>3.0 mmHg</code>);
+            <code>JSC 20584</code> CO SMAC (<code>100 ppm</code> 24-hour, <code>425 ppm</code> 1-hour).</p>
+          <div id="air-table-out"></div>
+        </div>
+      </details>
+
+      <details class="cs-det" id="s-timeline">
+        <summary><span>Timeline sources and the derived 344 s</span><span class="cs-det-tag">Derived: 981 − 637</span></summary>
+        <div class="cs-det-body">
+          <p class="how">Ignition (<code>637 s</code>), flow step-down (<code>1120 s</code>) and end (<code>1420 s</code>)
+            come from NTRS <code>20240007488</code> slides 16–18. The <code>981 s</code> crossing of the authors' selected
+            <code>1 mg/m³</code> smoke-concentration criterion comes from NTRS <code>20240002981</code> p.5. The
+            <code>344 s</code> interval is computed by us (<code>981 − 637</code>); NASA does not label it "alarm
+            latency". Figure 7 plots ionization-detector voltage and DustTrak mass concentration separately, so this is
+            not evidence of a calibrated ionization-alarm setting.</p>
+          <div id="timeline-sources"></div>
+        </div>
+      </details>
+
+      <details class="cs-det" id="s-limits">
+        <summary><span>Evidence limits and unresolved source notes</span><span class="cs-det-tag">Audit 2026-11-14</span></summary>
+        <div class="cs-det-body">
+          <div class="callout gap" role="note">
+            <strong>Scientific &amp; Safety Scope Boundary:</strong> Verified measurements from published NASA reports
+            in unmanned Cygnus vehicles (16.7–19.0 m³ free air volume). <strong>Not</strong> a spacecraft fire-safety
+            certification, a material safety ranking, or a human crew exposure assessment.
+          </div>
+          <div id="limits-out"></div>
+        </div>
+      </details>
+
+      <details class="cs-det" id="s-related">
+        <summary><span>Related detection research (SAME &amp; Fortenberry)</span><span class="cs-det-tag">Separate studies</span></summary>
+        <div class="cs-det-body">
+          <p class="how">Background studies, not Cygnus gas measurements. Paywalled <em>Fire Safety Journal</em>
+            percentages are intentionally omitted.</p>
+          <div id="related-out"></div>
+        </div>
+      </details>
+
+      <details class="cs-det" id="s-sources">
+        <summary><span>Source ledger, coverage and export</span><span class="cs-det-tag">SHA-256 provenance</span></summary>
+        <div class="cs-det-body">
+          <div class="facts" id="case-facts" aria-live="polite"></div>
+          <div class="rail-actions">
+            <button type="button" class="ghost sm" id="case-export-json">Export JSON</button>
+            <button type="button" class="ghost sm" id="case-export-csv">Export CSV</button>
+            <span class="stat" id="case-export-msg" aria-live="polite"></span>
+          </div>
+          <p class="hint">Exports keep null values, derived tags, SHA-256 provenance and the non-certification limits.</p>
+          <div id="sources-out"></div>
+          <p class="hint">Mission context (cargo ship departs the ISS, fire is lit, ship later re-enters):
+            <a class="lnk" href="https://www.nasa.gov/?p=52717" target="_blank" rel="noopener noreferrer">NASA Glenn
+              Saffire release ↗</a> · Older single-sample cards: <a class="lnk" href="data.html#s-saffire">PSI-99
+              SAFFIRE-II ↗</a></p>
+        </div>
+      </details>
+    </section>
+
+    <div id="case-state" aria-live="polite"></div>
+
+    <footer class="foot">
+      <p>Saffire IV–VI case study · descriptive presentation of published NASA / NIST findings only · kept separate
+        from the core PSI-25 / PSI-69 tables. · <a href="./docs/AI_USE.md" target="_blank" rel="noopener">How AI &amp;
+          numerical checks work</a></p>
+      <p>Team GeNAIus, NASA Space Apps Challenge 2026.</p>
+    </footer>
+  </main>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/i18n-tr.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/nav.js" data-active="case"></script>
+  <script src="js/case-saffire.js"></script>
+  <script src="js/chat.js"></script>
+</body>
+
+</html>

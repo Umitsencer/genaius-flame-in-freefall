@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Material lab | Flame in Freefall</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <meta name="description" content="Explore what NASA's microgravity solid-material fire tests say about a chosen oxygen level.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/lab.css">
+  <link rel="stylesheet" href="css/range.css">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/nav.css">
+</head>
+<body class="material-lab-page">
+  <a class="skip" href="#main">Skip to the analysis</a>
+
+  <div class="layout">
+    <aside class="rail" aria-label="Filters">
+      <h2>Environment</h2>
+      <label class="fld" for="preset">Oxygen preset</label>
+      <select id="preset"></select>
+      <p class="hint" id="preset-note"></p>
+      <div class="sl"><div class="sl-h"><label for="o2">Oxygen</label><output id="o2-out"></output></div><input type="range" id="o2" min="10" max="45" step="0.5"></div>
+      <label class="fld" for="win">What counts as near</label>
+      <select id="win"><option value="1">Within 1 point</option><option value="2">Within 2 points</option><option value="3" selected>Within 3 points</option><option value="4">Within 4 points</option><option value="6">Within 6 points</option></select>
+      <p class="hint">Pressure and gravity are not recorded in these test tables, so they do not change any chart here.</p>
+
+      <h2 class="sp">Measure</h2>
+      <label class="fld" for="metric">Gas reading to compare</label>
+      <select id="metric"><option value="d_co">CO change (ppm)</option><option value="d_o2">Oxygen change (vol%)</option><option value="d_co2">CO&#8322; change (vol%)</option></select>
+      <label class="fld" for="group">Group by</label>
+      <select id="group"><option value="mat">Material</option><option value="shape">Material and shape</option></select>
+
+      <h2 class="sp">Filters</h2>
+      <label class="fld" for="agg-mode">Aggregation (BASS-II)</label>
+      <select id="agg-mode">
+        <option value="per_run">Per test run (129 runs)</option>
+        <option value="unique_sample_median">Unique Sample # median (107 samples)</option>
+      </select>
+      <p class="hint">PSI-25 BASS-II only — never pooled with PSI-26 or SAFFIRE.</p>
+      <fieldset><legend>Material</legend><div id="f-mat"></div></fieldset>
+      <label class="fld" for="f-restr">Airflow restriction (BASS-II)</label>
+      <select id="f-restr"><option value="any">Any</option><option value="0">0, least restricted</option><option value="1">1</option><option value="2">2, most restricted</option></select>
+      <label class="fld" for="f-pi">Investigator (BASS-II)</label>
+      <select id="f-pi"></select>
+      <button type="button" class="ghost" id="reset">Reset filters</button>
+      <button type="button" class="ghost" id="copylink">Copy link to this view</button>
+    </aside>
+
+    <main id="main" class="main">
+      <header class="head">
+        <h1>Material lab</h1>
+        <p>Which materials has NASA burned in microgravity, at what oxygen levels, and what did the gas readings show? Choose an oxygen level on the left, then read the charts below.</p>
+        <nav class="sub" aria-label="Sections">
+          <a href="#s-map">Evidence map</a><a href="#s-scatter">Compare measures</a><a href="#s-spread">Spread &amp; statistics</a><a href="#s-trend">Oxygen comparisons</a><a href="#s-coverage">Coverage</a><a href="#s-tests">All tests</a>
+        </nav>
+        <div class="facts" id="ov"></div>
+        <div id="callout" class="callout"></div>
+        <p class="small" id="note-over"></p>
+        <div id="picked" class="picked" hidden></div>
+      </header>
+
+      <section id="s-map">
+        <h2>Evidence map</h2>
+        <div id="map"></div>
+        <p class="small">Test coverage and nearby medians.</p>
+      </section>
+
+      <section id="s-scatter">
+        <h2>Compare any two measures</h2>
+        <div class="ctl">
+          <label>Across <select id="sx"><option value="o2v">Starting oxygen</option><option value="d_o2">Oxygen change</option><option value="d_co2">CO&#8322; change</option><option value="d_co">CO change</option></select></label>
+          <label>Up <select id="sy"><option value="d_co">CO change</option><option value="d_o2">Oxygen change</option><option value="d_co2">CO&#8322; change</option><option value="o2v">Starting oxygen</option></select></label>
+          <label>Colour by <select id="colorby"><option value="group">Group</option><option value="pi">Investigator</option><option value="restr">Airflow restriction</option></select></label>
+          <label class="chk2"><input type="checkbox" id="sc-bands" checked> Band medians</label>
+          <button type="button" class="ghost sm" data-svg="scatter">Save chart</button>
+        </div>
+        <div id="legend" class="legend"></div>
+        <div id="scatter"></div>
+        <p class="small">Measured relationships, not causation.</p>
+        <p class="stat" id="sc-stat"></p>
+      </section>
+
+      <section id="s-spread">
+        <h2>Spread &amp; statistics</h2>
+        <div class="ctl"><label class="chk2"><input type="checkbox" id="only-win"> Only tests near your oxygen</label><button type="button" class="ghost sm" data-svg="spread">Save chart</button></div>
+        <div id="spread"></div>
+        <p class="small">Median and spread.</p>
+        <div id="s-stats" class="lab-subsection">
+          <h3>Summary statistics</h3>
+          <div id="stats" class="scroll"></div>
+          <p class="small">Statistics across all filtered runs.</p>
+        </div>
+      </section>
+
+      <section id="s-trend">
+        <h2>Oxygen comparisons</h2>
+        <div id="s-compare" class="lab-subsection">
+          <h3>Two oxygen ranges, side by side</h3>
+          <div class="ctl">
+            <div id="rs-a"></div>
+            <div id="rs-b"></div>
+            <button type="button" class="ghost sm" data-svg="compare">Save chart</button>
+          </div>
+          <div id="compare"></div>
+          <p class="small">Two oxygen ranges compared.</p>
+          <p class="stat" id="cmp-note"></p>
+        </div>
+      </section>
+
+      <section id="s-coverage">
+        <h2>Coverage</h2>
+        <div class="ctl"><button type="button" class="ghost sm" data-svg="coverage">Save chart</button></div>
+        <div id="coverage"></div>
+        <p class="small">Test counts and data gaps.</p>
+      </section>
+
+      <section id="s-tests">
+        <h2>All tests</h2>
+        <div class="ctl"><button type="button" class="ghost sm" id="csv">Download filtered CSV</button><button type="button" class="ghost sm" id="json">Download filtered JSON</button></div>
+        <p class="stat" id="export-msg"></p>
+        <div id="tests" class="scroll"></div>
+        <p class="small">Test records and sources.</p>
+      </section>
+
+      <footer class="foot">
+        <p>Data: NASA Physical Sciences Informatics, PSI-25 BASS-II (129 microgravity runs across 107 unique Sample # specimens), public domain (CC0). Gas change is final minus initial reading only when both endpoints are measured. Negative invalid CO readings and above-limit (&gt;1000 ppm) readings are explicitly excluded and never coerced to zero. Condition comparison only — does not rate flammability or fire safety. · <a href="./docs/AI_USE.md" target="_blank" rel="noopener">How AI &amp; Numerical Verification Work</a></p>
+        <p>Team GeNAIus, NASA Space Apps Challenge 2026.</p>
+      </footer>
+    </main>
+  </div>
+  <div id="tip" class="tip" role="tooltip" hidden></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/stats.js"></script>
+  <script src="js/lib.js"></script>
+  <script src="js/share.js"></script>
+  <script src="js/range.js"></script>
+  <script src="js/lab-charts.js"></script>
+  <script src="js/lab.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/i18n-tr.js"></script>
+  <script src="js/nav.js" data-active="lab"></script>
+  <script src="js/chat.js"></script>
+</body>
+</html>
