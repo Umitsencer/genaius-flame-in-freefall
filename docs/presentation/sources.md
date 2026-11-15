@@ -1,6 +1,6 @@
 # English presentation - evidence and revision record
 
-Verified against local public-project files on **2026-11-15**. This revision replaces the English seven-slide story; the Turkish deck remains the earlier separate narrative. Screenshots are existing captures of the real application. No chart, measurement or screenshot value was fabricated.
+Verified against local public-project files on **2026-11-15**. The English and Turkish decks now follow the same seven-slide story, numerical claims and evidence boundaries. The Turkish translation retains the real English application screenshots. No chart, measurement or screenshot value was fabricated.
 
 ## Guide and rubric
 
@@ -36,7 +36,7 @@ AI coding assistants supported HTML/CSS/SVG design, wording and document prepara
 ## Reproduction
 
 - `index.html` and `genaius-presentation-en.pdf`: revised seven-slide English story.
-- `index-tr.html` and `genaius-presentation-tr.pdf`: preserved Turkish deck; earlier narrative.
+- `index-tr.html` and `genaius-presentation-tr.pdf`: synchronized Turkish translation, with shared English application screenshots.
 - `plan.md`: narrative, criterion mapping and acceptance criteria.
 - `speaker-notes.md`: English five-minute rehearsal script with Turkish cues.
 - `build.mjs`: optional Playwright/Chrome authoring tool; runtime application dependencies are unchanged.

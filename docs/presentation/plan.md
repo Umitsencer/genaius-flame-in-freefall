@@ -29,4 +29,4 @@ Use only existing application captures and original HTML/SVG diagrams. Do not ad
 - Show statistical evaluation as recorded results, not a newly executed benchmark.
 - Describe engineering impact as intended benefit; adoption/time savings are not measured.
 - Render and visually inspect every page; check assets, links, controls and UTF-8.
-- Preserve the existing Turkish version as a separate earlier narrative, not a claim of a synchronized translation.
+- Keep the Turkish HTML/PDF synchronized with the English narrative and numerical claims; retain the actual English application screenshots and inspect both language layouts separately.

@@ -2,7 +2,7 @@
 
 The English deck is rebuilt for the supplied judging criteria. Seven slides including title/introduction. These times are rehearsal targets, not a measured recording: **30 + 40 + 40 + 45 + 45 + 60 + 40 = 300 seconds**. The deck also works as a silent demo: claims, sources, screenshots and limitations are on-slide.
 
-Open `index.html` locally with its `assets/` folder, or share `genaius-presentation-en.pdf`. Arrow keys / PageUp / PageDown / Space navigate; Home / End jump; N shows cues; F enters fullscreen. The Turkish deck is the earlier page-oriented narrative and has not been updated to mirror this English revision.
+Open `index.html` (English) or `index-tr.html` (Turkish) locally with the `assets/` folder, or share the corresponding language PDF. Arrow keys / PageUp / PageDown / Space navigate; Home / End jump; N shows cues; F enters fullscreen. Both decks follow the same seven-slide story and evidence boundaries; the Turkish version retains English application screenshots.
 
 ## 1. A fire in space is not an Earth fire - 30 seconds
 
