@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="tr">
+<html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>GeNAIus | Flame in Freefall</title>
@@ -12,67 +12,67 @@
 </style>
 </head>
 <body><main id="deck">
-<section class="slide active" aria-label="Problem ve çözüm">
+<section class="slide active" aria-label="Problem and solution">
 <div class="top"><div class="brand">GeNAIus<span> / </span>Flame in Freefall</div><div>NASA Space Apps · Kırklareli</div></div>
-<p class="kicker">01 · Problem ve çözüm</p>
-<h1>Uzayda yanma farklı.<br>Doğru kanıtı bulmak zor.</h1>
-<p class="lead">Dağınık NASA deneylerini, karşılaştırılabilir ve kaynağı izlenebilir bir araştırma akışına dönüştürüyoruz.</p>
-<div class="grid3" style="margin-top:48px"><article class="card"><h2>Bul</h2><p>İhtiyacına uygun araştırma ve deney.</p></article><article class="card"><h2>Karşılaştır</h2><p>Gerçek koşullar ve geçerli ölçümler.</p></article><article class="card"><h2>Kaynağa dön</h2><p>Her sonuçta kayıt ve kanıt sınırı.</p></article></div>
-<p class="source">Bağlam: kullanıcı tarafından sağlanan challenge video transkripti. Uygulama: README.md, src/genaius/catalog.py ve data/processed/ manifestleri.</p>
-<aside class="notes">35 saniye. NASA'nın verisinin az olduğunu değil, dağınık olduğunu anlat. Üç fiil: bul, karşılaştır, kaynağa dön.</aside>
+<p class="kicker">01 · Problem and solution</p>
+<h1>Fire behaves differently in space.<br>Finding the right evidence is hard.</h1>
+<p class="lead">Turn scattered NASA experiments into a comparable, traceable research workflow.</p>
+<div class="grid3" style="margin-top:48px"><article class="card"><h2>Find</h2><p>Studies and tests relevant to your question.</p></article><article class="card"><h2>Compare</h2><p>Actual conditions and valid measurements.</p></article><article class="card"><h2>Trace the source</h2><p>Records and evidence limits behind each result.</p></article></div>
+<p class="source">Context: user-supplied challenge-video transcript. Implementation: README.md, src/genaius/catalog.py and data/processed/ manifests.</p>
+<aside class="notes">35 seconds. NASA data is scattered, not scarce. Three actions: find, compare, trace the source.</aside>
 </section>
 <section class="slide compact" aria-label="Material Lab">
 <div class="top"><div class="brand">GeNAIus<span> / </span>Material Lab</div><div>02 / 07</div></div>
-<p class="kicker">02 · Malzeme kanıtı</p><h1>Hangi oksijende ne ölçüldü?</h1>
-<div class="row"><div><ul class="points"><li><strong>Malzeme ve şekli seç.</strong><span>Ölçülmüş gaz değişimlerini incele.</span></li><li><strong>Dağılımı ve kapsamı gör.</strong><span>Tek bir ortalama yerine değişkenliği oku.</span></li><li><strong>Gerçek deneye ulaş.</strong><span>Eksik ölçüm sıfıra çevrilmez.</span></li></ul><div class="chips"><span class="chip"><b>129</b> koşu</span><span class="chip"><b>107</b> Sample #</span></div></div><figure class="shot"><img src="assets/material-lab.png" alt="Güncel Material Lab iki ölçüm karşılaştırması"><figcaption>Gerçek arayüz · PSI-25 BASS-II</figcaption></figure></div>
-<p class="note">Ölçüm karşılaştırmasıdır; malzeme güvenlik sıralaması değildir.</p>
-<p class="source">Kaynak: PSI-25 CSV/ReadMe; frontend/js/lab.js, stats.js; src/genaius/analytics.py. O₂ ve gaz alanlarında başlangıç/son ayrımı korunur.</p>
-<aside class="notes">40 saniye. Önce kullanıcı sorusu, sonra nokta grafiği. Regresyon yapıldığını söyleme: bu bölüm ölçümlerin betimsel analizi.</aside>
+<p class="kicker">02 · Material evidence</p><h1>What was measured, at which oxygen level?</h1>
+<div class="row"><div><ul class="points"><li><strong>Select material and shape.</strong><span>Inspect measured gas changes.</span></li><li><strong>See spread and coverage.</strong><span>Read variability beyond a single average.</span></li><li><strong>Open the actual test.</strong><span>Missing measurements stay missing.</span></li></ul><div class="chips"><span class="chip"><b>129</b> runs</span><span class="chip"><b>107</b> unique Sample #</span></div></div><figure class="shot"><img src="assets/material-lab.png" alt="Current Material Lab two-measure comparison"><figcaption>Actual interface · PSI-25 BASS-II</figcaption></figure></div>
+<p class="note">A measurement comparison, not a material safety ranking.</p>
+<p class="source">Sources: PSI-25 CSV/ReadMe; frontend/js/lab.js, stats.js; src/genaius/analytics.py. Initial and final O₂/gas fields remain distinct.</p>
+<aside class="notes">40 seconds. Start with the user question, then the scatter plot. This is descriptive analysis of measurements, not regression.</aside>
 </section>
-<section class="slide compact" aria-label="Senaryo ve modeller">
+<section class="slide compact" aria-label="Scenarios and models">
 <div class="top"><div class="brand">GeNAIus<span> / </span>Fire Animation & Models</div><div>03 / 07</div></div>
-<p class="kicker">03 · Koşulu ve veri desteğini sorgula</p><h1>Kanıt kapsamı ve model tahmini ayrı.</h1>
-<div class="splitshots"><figure class="shot"><img src="assets/scenario.png" alt="PMMA yüzde 34 oksijen için GAP sonucu"><figcaption>Senaryo: TESTED / PARTIAL / GAP</figcaption></figure><figure class="shot"><img src="assets/models.png" alt="Ridge K tahmini ve logistic sönme skoru"><figcaption>FLEX: Ridge K tahmini + Logistic Regression skoru</figcaption></figure></div>
-<div class="grid3" style="margin-top:25px"><article class="card"><h2>Animasyon</h2><p>Kavramsal anlatım; CFD veya deney tekrarı değil.</p></article><article class="card"><h2>Senaryo</h2><p>PMMA · %34 O₂ · Ay: indekslenen çekirdekte GAP.</p></article><article class="card"><h2>Modeller</h2><p>Veri desteği dışındaysa tahmin engellenir.</p></article></div>
-<p class="source">Kaynak: scenario_check.py (±0,05 O₂ yüzde puanı; ±0,01 atm); flex/training.py, flex_acceptance_v2.json. PSI-25/69 ayrı; logistic skor kalibre edilmiş güvenlik olasılığı değildir.</p>
-<aside class="notes">50 saniye. GAP yalnız indekslenen tablo için geçerli. Ridge yanma hızı sabiti K tahmini, logistic model sönme sınıflandırma skoru verir. Animasyon modellerin çıktısı değildir.</aside>
+<p class="kicker">03 · Query conditions and data support</p><h1>Separate evidence coverage from prediction.</h1>
+<div class="splitshots"><figure class="shot"><img src="assets/scenario.png" alt="GAP result for PMMA at 34 percent oxygen"><figcaption>Scenario: TESTED / PARTIAL / GAP</figcaption></figure><figure class="shot"><img src="assets/models.png" alt="Ridge K estimate and logistic extinction score"><figcaption>FLEX: Ridge K estimate + Logistic Regression score</figcaption></figure></div>
+<div class="grid3" style="margin-top:25px"><article class="card"><h2>Animation</h2><p>Conceptual illustration, not CFD or a test replay.</p></article><article class="card"><h2>Scenario</h2><p>PMMA · 34% O₂ · Moon: GAP in the indexed core.</p></article><article class="card"><h2>Models</h2><p>Predictions are blocked outside data support.</p></article></div>
+<p class="source">Sources: scenario_check.py (±0.05 O₂ percentage points; ±0.01 atm); flex/training.py, flex_acceptance_v2.json. PSI-25/69 remain separate; the logistic score is not a calibrated safety probability.</p>
+<aside class="notes">50 seconds. GAP applies only to indexed tables. Ridge estimates burning-rate constant K; logistic regression scores extinction. The animation is not model output.</aside>
 </section>
-<section class="slide compact" aria-label="SAFFIRE vaka incelemesi">
+<section class="slide compact" aria-label="SAFFIRE case study">
 <div class="top"><div class="brand">GeNAIus<span> / </span>SAFFIRE Case Study</div><div>04 / 07</div></div>
-<p class="kicker">04 · Yayımlanmış olayları bir araya getir</p><h1>Ateşlemeden seçili duman ölçütüne.</h1>
-<div class="row"><div><div class="key">344 <span style="font-size:40px">s</span></div><p class="label">981 − 637 · bizim türettiğimiz fark</p><ul class="points" style="margin-top:30px"><li><strong>637 s: ateşleme.</strong></li><li><strong>981 s: seçili 1 mg/m³ ölçütü.</strong></li><li><span>Bildirilen yanma süresi 780 s; akış durması ayrı olay.</span></li></ul></div><figure class="shot wideimg"><img src="assets/case-timeline.png" alt="Yeni Case Study VI-3 zaman çizelgesi"><figcaption>Gerçek arayüz · insansız Cygnus deneyi</figcaption></figure></div>
-<p class="note">Operasyonel alarm gecikmesi veya mürettebat maruziyeti iddiası yok.</p>
-<p class="source">NASA NTRS <a href="https://ntrs.nasa.gov/citations/20240002981">20240002981</a>, s.5 / Şekil 7; <a href="https://ntrs.nasa.gov/citations/20240007488">20240007488</a>, slayt 16–19, 21; saffire_case_reference.json.</p>
-<aside class="notes">45 saniye. 637 ve 981 raporlanmış zamanlar; 344 hesaplanan fark. Duman ölçütünü kalibre edilmiş dedektör alarm ayarı olarak sunma. Gaz artışını solunan dozla eşitleme.</aside>
+<p class="kicker">04 · Connect published observations</p><h1>From ignition to a selected smoke criterion.</h1>
+<div class="row"><div><div class="key">344 <span style="font-size:40px">s</span></div><p class="label">981 − 637 · our derived interval</p><ul class="points" style="margin-top:30px"><li><strong>637 s: ignition.</strong></li><li><strong>981 s: selected 1 mg/m³ criterion.</strong></li><li><span>Reported burn duration: 780 s. Flow termination is a separate event.</span></li></ul></div><figure class="shot wideimg"><img src="assets/case-timeline.png" alt="Current Case Study VI-3 timeline"><figcaption>Actual interface · uncrewed Cygnus experiment</figcaption></figure></div>
+<p class="note">No claim of operational alarm latency or crew exposure.</p>
+<p class="source">NASA NTRS <a href="https://ntrs.nasa.gov/citations/20240002981">20240002981</a>, p.5 / Fig.7; <a href="https://ntrs.nasa.gov/citations/20240007488">20240007488</a>, slides 16–19, 21; saffire_case_reference.json.</p>
+<aside class="notes">45 seconds. 637 and 981 are reported times; 344 is derived. Do not present the smoke criterion as a calibrated alarm setting or gas increases as an inhaled dose.</aside>
 </section>
-<section class="slide compact" aria-label="Veri ve kaynaklar">
+<section class="slide compact" aria-label="Data and sources">
 <div class="top"><div class="brand">GeNAIus<span> / </span>Data & Sources</div><div>05 / 07</div></div>
-<p class="kicker">05 · Cevaptan kaynak kaydına</p><h1>Her sonucun arkasındaki veriyi aç.</h1>
-<div class="row"><div><ul class="points"><li><strong>24 çalışma katalogda.</strong><span>Hepsi tam sayısal entegrasyon değil.</span></li><li><strong>403 çekirdek deney.</strong><span>129 BASS-II + 274 FLEX; CFI ve SAFFIRE ayrı.</span></li><li><strong>Karşılaştır ve dışa aktar.</strong><span>Test kimliği, birim, satır ve SHA-256 izi.</span></li></ul></div><figure class="shot"><img src="assets/data-records.png" alt="Güncel Data sayfasındaki çekirdek kayıtlar"><figcaption>Gerçek arayüz · kayıttan ayrıntıya geçiş</figcaption></figure></div>
-<p class="note">SHA-256 dosya kimliğini doğrular; bilimsel doğruluğu tek başına kanıtlamaz.</p>
-<p class="source">Kaynak: catalog.py, data/loader.py, data/query.py; psi_24_source_manifest.json ve psi_core_manifest.json. CFI ve SAFFIRE-II çekirdek ortalamalarına katılmaz.</p>
-<aside class="notes">40 saniye. Katalog ile analiz edilen satırları ayır. Bir satırın ayrıntısını canlıda açabilirsiniz; sunumda kaynak izinin amacını vurgulayın.</aside>
+<p class="kicker">05 · From answer to source record</p><h1>Open the data behind every result.</h1>
+<div class="row"><div><ul class="points"><li><strong>24 catalogued studies.</strong><span>Not all are fully integrated numerically.</span></li><li><strong>403 core test runs.</strong><span>129 BASS-II + 274 FLEX; CFI and SAFFIRE stay separate.</span></li><li><strong>Compare and export.</strong><span>Test IDs, units, rows and SHA-256 provenance.</span></li></ul></div><figure class="shot"><img src="assets/data-records.png" alt="Core records in the current Data page"><figcaption>Actual interface · from record to detail</figcaption></figure></div>
+<p class="note">SHA-256 checks file identity; it does not establish scientific validity.</p>
+<p class="source">Sources: catalog.py, data/loader.py, data/query.py; psi_24_source_manifest.json and psi_core_manifest.json. CFI and SAFFIRE-II are excluded from pooled core averages.</p>
+<aside class="notes">40 seconds. Distinguish catalogue entries from analysed rows. Open a record live if needed; explain why provenance matters.</aside>
 </section>
-<section class="slide compact" aria-label="Asistan ve teknik motor">
+<section class="slide compact" aria-label="Assistant and technical engine">
 <div class="top"><div class="brand">GeNAIus<span> / </span>Evidence Assistant</div><div>06 / 07</div></div>
-<p class="kicker">06 · Önce kanıt, sonra açıklama</p><h1>Sayılar tablodan. Açıklama kaynakla.</h1>
-<div class="flow"><article class="card"><h2>NASA dosyaları</h2><p>CSV · XLSX · PDF · DOCX</p></article><span class="arrow">→</span><article class="card"><h2>Tipli kayıtlar</h2><p>Tablo sorgusu + BM25 pasaj araması</p></article><span class="arrow">→</span><article class="card"><h2>İsteğe bağlı LLM</h2><p>OpenRouter / NVIDIA Nemotron</p></article><span class="arrow">→</span><article class="card"><h2>Denetim</h2><p>Şema · atıf · sayı/birim · yedek cevap</p></article></div>
-<ul class="points"><li><strong>Tablo ve senaryo soruları: sıfır LLM çağrısı.</strong></li><li><span>BM25 sözcüksel arama; embedding / vektör veritabanı yok.</span></li><li><span>Geçersiz model cevabı reddedilir; tam anlamsal doğruluk garantisi verilmez.</span></li></ul>
+<p class="kicker">06 · Evidence first, explanation second</p><h1>Numbers from tables. Explanations with sources.</h1>
+<div class="flow"><article class="card"><h2>NASA files</h2><p>CSV · XLSX · PDF · DOCX</p></article><span class="arrow">→</span><article class="card"><h2>Typed records</h2><p>Table queries + BM25 passage retrieval</p></article><span class="arrow">→</span><article class="card"><h2>Optional LLM</h2><p>OpenRouter / NVIDIA Nemotron</p></article><span class="arrow">→</span><article class="card"><h2>Validation</h2><p>Schema · citations · numbers/units · fallback</p></article></div>
+<ul class="points"><li><strong>Table and scenario queries: zero LLM calls.</strong></li><li><span>BM25 lexical retrieval; no embeddings or vector database.</span></li><li><span>Invalid model responses are rejected; full semantic correctness is not guaranteed.</span></li></ul>
 <div class="chips"><span class="chip">FastAPI + Pydantic</span><span class="chip">SVG + Canvas</span><span class="chip">scikit-learn + GroupKFold</span></div>
-<p class="source">Kaynak: retrieval/bm25.py, answering/, numerical_audit.py, openrouter.py, flex/training.py. Bazı grafik istatistikleri tarayıcıda; model ve cevap hesapları Python'da.</p>
-<aside class="notes">50 saniye. LLM anahtara ve sağlayıcıya bağlıdır. Demo makinesindeki rozetini kontrol edin. 120B/bit gibi ayrıntılar yerine rolünü anlatın: kaynaklı açıklama, hesap makinesi değil.</aside>
+<p class="source">Sources: retrieval/bm25.py, answering/, numerical_audit.py, openrouter.py, flex/training.py. Some chart statistics run in the browser; model and answer calculations run in Python.</p>
+<aside class="notes">50 seconds. LLM availability depends on credentials and provider. Check the demo badge. Explain its role: source-grounded wording, not a calculator.</aside>
 </section>
-<section class="slide" aria-label="Katkı ve kapanış">
+<section class="slide" aria-label="Contribution and closing">
 <div class="top"><div class="brand">GeNAIus<span> / </span>Flame in Freefall</div><div>07 / 07</div></div>
-<p class="kicker">07 · Challenge'a katkımız</p><h1>Kanıtı bul.<br>Sınırını gör. Kaynağına dön.</h1>
-<div class="grid3"><article class="card"><h2>Araştırmayı bul</h2><p>Katalog ve kaynaklı rapor erişimi.</p></article><article class="card"><h2>Modellemeyi destekle</h2><p>İzlenebilir veri ve ayrı FLEX tahminleri.</p></article><article class="card"><h2>Boşlukları görünür kıl</h2><p>Ek deney ve kontrol araştırmalarına başlangıç.</p></article></div>
+<p class="kicker">07 · Our contribution to the challenge</p><h1>Find the evidence.<br>See its limits. Trace its source.</h1>
+<div class="grid3"><article class="card"><h2>Find research</h2><p>Catalogue and source-linked report access.</p></article><article class="card"><h2>Support modelling</h2><p>Traceable data and separate FLEX estimates.</p></article><article class="card"><h2>Expose evidence gaps</h2><p>A starting point for further tests and control research.</p></article></div>
 <p class="footerline">Know what was tested. See what is missing. Trace every claim.</p>
-<p class="note">Hedef kullanıcı: yanma araştırmacıları ve uzay aracı / yaşam alanı mühendislik ekipleri.</p>
-<p class="source">Public kaynak kodu: <a href="https://github.com/Umitsencer/genaius-flame-in-freefall">github.com/Umitsencer/genaius-flame-in-freefall</a> · Team GeNAIus · Bağımsız araştırma prototipi; NASA onayı veya güvenlik sertifikası değildir.</p>
-<aside class="notes">40 saniye. Üç katkıyı challenge hedeflerine bağla. Yeni fizik keşfi veya güvenlik sertifikası iddiası yapma. Son cümleyi yavaş oku, demo sorularına geç.</aside>
+<p class="note">For combustion researchers and spacecraft / habitat engineering teams.</p>
+<p class="source">Public source: <a href="https://github.com/Umitsencer/genaius-flame-in-freefall">github.com/Umitsencer/genaius-flame-in-freefall</a> · Team GeNAIus · Independent research prototype; no NASA endorsement or safety certification.</p>
+<aside class="notes">40 seconds. Connect the three contributions to the challenge. Do not claim new physics or safety certification. Read the closing line slowly, then invite demo questions.</aside>
 </section>
 </main>
-<nav aria-label="Sunum kontrolleri"><button id="prev" aria-label="Önceki slayt">←</button><span id="counter">1 / 7</span><button id="next" aria-label="Sonraki slayt">→</button><button id="notes" aria-label="Sunucu notları">N · Notlar</button><button id="full" aria-label="Tam ekran">F · Tam ekran</button></nav>
+<nav aria-label="Presentation controls"><button id="prev" aria-label="Previous slide">←</button><span id="counter">1 / 7</span><button id="next" aria-label="Next slide">→</button><button id="notes" aria-label="Presenter notes">N · Notes</button><button id="full" aria-label="Fullscreen">F · Fullscreen</button></nav>
 <aside id="speaker" hidden aria-live="polite"></aside>
 <script>
 (function(){'use strict';var slides=Array.from(document.querySelectorAll('.slide')),i=0,deck=document.getElementById('deck'),speaker=document.getElementById('speaker');

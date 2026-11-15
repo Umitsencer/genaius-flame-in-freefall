@@ -1,6 +1,6 @@
 # Presentation source and revision record
 
-Verified against the public delivery snapshot on **2026-11-15**. The HTML and PDF use the same slide content. Screenshots were captured from the current local public application with Playwright/Chrome; only floating navigation/chat chrome was hidden for capture. Displayed data was not composited or fabricated.
+Verified against the public delivery snapshot on **2026-11-15**. The HTML and the single canonical PDF use the same seven English slides. Screenshots were captured from the current local public application with Playwright/Chrome; only floating navigation/chat chrome was hidden for capture. Displayed data was not composited or fabricated.
 
 | Slide | Evidence |
 |---|---|

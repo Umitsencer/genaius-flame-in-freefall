@@ -1,8 +1,8 @@
 # GeNAIus — five-minute jury presentation
 
-Slides are in Turkish; the spoken script below is in English. Times are targets, not a measured recording. Rehearse once and adjust pauses rather than rushing. The deck contains seven slides: **35 + 40 + 50 + 45 + 40 + 50 + 40 = 300 seconds**.
+Slides and the spoken script below are in English. Times are targets, not a measured recording. Rehearse once and adjust pauses rather than rushing. The deck contains seven slides: **35 + 40 + 50 + 45 + 40 + 50 + 40 = 300 seconds**.
 
-Open `index.html` in Chrome/Edge. Arrow keys, PageUp/PageDown or Space navigate; Home/End jump; **N** toggles short Turkish presenter cues; **F** enters fullscreen. The PDF contains slides only, without presenter notes.
+Open `index.html` in Chrome/Edge. Arrow keys, PageUp/PageDown or Space navigate; Home/End jump; **N** toggles short English presenter cues; **F** enters fullscreen. The single canonical PDF contains English slides only, without presenter notes. Turkish rehearsal cues below are for the presenters.
 
 ## 1. Problem and solution — 35 seconds
 
