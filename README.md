@@ -14,11 +14,20 @@
 
 [Quick start](#quick-start) · [Architecture](docs/ARCHITECTURE.md) · [Data & models](docs/DATA_AND_MODELS.md) · [AI transparency](docs/AI_USE.md) · [Testing](docs/TESTING.md) · [Security](SECURITY.md)
 
-[English slides (HTML)](docs/presentation/index.html) · [English PDF](docs/presentation/genaius-presentation-en.pdf) · [Türkçe slaytlar (HTML)](docs/presentation/index-tr.html) · [Türkçe PDF](docs/presentation/genaius-presentation-tr.pdf) · [Speaker notes](docs/presentation/speaker-notes.md)
-
 </div>
 
 ---
+
+## Presentation / Sunum
+
+Both versions contain seven slides. / Her iki sürüm de yedi slayttır.
+
+| Language / Dil | Slides / Slaytlar |
+|---|---|
+| **English** | **[Open PDF](docs/presentation/genaius-presentation-en.pdf)** · [Download PDF](https://github.com/Umitsencer/genaius-flame-in-freefall/raw/refs/heads/main/docs/presentation/genaius-presentation-en.pdf) |
+| **Türkçe** | **[PDF'yi aç](docs/presentation/genaius-presentation-tr.pdf)** · [PDF'yi indir](https://github.com/Umitsencer/genaius-flame-in-freefall/raw/refs/heads/main/docs/presentation/genaius-presentation-tr.pdf) |
+
+[Speaker notes / Konuşmacı notları](docs/presentation/speaker-notes.md). Editable HTML sources: [English](docs/presentation/index.html) · [Türkçe](docs/presentation/index-tr.html). Download an HTML source together with its `assets/` folder to present it locally; GitHub displays HTML as source code.
 
 ## Why GeNAIus?
 
