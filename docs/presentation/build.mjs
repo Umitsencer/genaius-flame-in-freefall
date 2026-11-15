@@ -42,10 +42,11 @@ if (process.argv.includes('--capture')) {
   }
 }
 await page.setViewportSize({ width: 1600, height: 900 });
-await page.goto(pathToFileURL(path.join(root, 'index.html')).href, { waitUntil: 'networkidle' });
+for (const language of ['en', 'tr']) {
+await page.goto(pathToFileURL(path.join(root, language === 'en' ? 'index.html' : 'index-tr.html')).href, { waitUntil: 'networkidle' });
 await page.evaluate(() => document.fonts.ready);
 await page.emulateMedia({ media: 'print' });
-await page.pdf({ path: path.join(root, 'genaius-presentation.pdf'), printBackground: true, preferCSSPageSize: true });
+await page.pdf({ path: path.join(root, 'genaius-presentation-' + language + '.pdf'), printBackground: true, preferCSSPageSize: true });
 await page.emulateMedia({ media: 'screen' });
 await page.evaluate(() => window.goSlide(0));
 await page.keyboard.press('ArrowRight');
@@ -61,10 +62,11 @@ if (previews) {
   await fs.mkdir(previews, { recursive: true });
   for (let i = 0; i < 7; i++) {
     await page.evaluate(n => window.goSlide(n), i);
-    await page.screenshot({ path: path.join(previews, 'slide-' + (i + 1) + '.png') });
+    await page.screenshot({ path: path.join(previews, language + '-slide-' + (i + 1) + '.png') });
   }
 }
 const overflow = await page.evaluate(() => Array.from(document.querySelectorAll('.slide')).map((s, i) => ({ slide: i + 1, overflow: s.scrollHeight > s.clientHeight + 2 })));
-console.log(JSON.stringify({ pageErrors: errors, overflow }));
-await browser.close();
+console.log(JSON.stringify({ language, pageErrors: errors, overflow }));
 if (errors.length || overflow.some(x => x.overflow)) process.exitCode = 1;
+}
+await browser.close();

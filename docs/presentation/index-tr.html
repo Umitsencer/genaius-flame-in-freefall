@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GeNAIus | Flame in Freefall</title>
+<style>
+:root{--bg:#101114;--panel:#1b1d22;--text:#f4eee3;--muted:#b8b4ad;--red:#ff654b;--teal:#78d8c1;--line:#36383f}
+*{box-sizing:border-box}body{margin:0;background:#08090b;color:var(--text);font-family:Arial,'Segoe UI',sans-serif}#deck{position:fixed;width:1600px;height:900px;left:50%;top:50%;transform-origin:center;background:var(--bg)}
+.slide{display:none;width:1600px;height:900px;padding:58px 72px 64px;position:relative;overflow:hidden}.slide.active{display:block}.top{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:18px;letter-spacing:1px;margin-bottom:38px}.brand{color:var(--text);font-weight:700}.brand span{color:var(--red)}.kicker{color:var(--red);font-size:18px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin:0 0 18px}h1{font-family:Georgia,serif;font-size:64px;line-height:1.08;letter-spacing:-1.7px;margin:0 0 32px;max-width:1400px}h2{font-size:28px;margin:0 0 20px}.lead{font-size:30px;line-height:1.5;max-width:1030px;color:var(--muted)}.row{display:grid;grid-template-columns:.9fr 1.35fr;gap:44px;align-items:center}.row.equal{grid-template-columns:1fr 1fr}.points{padding:0;list-style:none;display:grid;gap:25px;font-size:26px;line-height:1.45;margin:0}.points li{border-left:3px solid var(--red);padding-left:20px}.points strong{display:block;margin-bottom:5px}.points span{color:var(--muted);font-size:23px}.shot{margin:0;border:1px solid var(--line);background:#070708;border-radius:18px;padding:12px;overflow:hidden}.shot img{display:block;width:100%;max-height:390px;object-fit:contain;object-position:center}.shot figcaption{font-size:17px;color:var(--muted);padding:12px 6px 2px}.chips{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}.chip{border:1px solid var(--line);border-radius:25px;padding:12px 20px;font-size:20px}.chip b{color:var(--teal)}.source{position:absolute;bottom:28px;left:72px;right:72px;padding-top:12px;border-top:1px solid var(--line);font-size:14px;color:var(--muted);line-height:1.3}.source a{color:inherit}.note{font-size:20px;line-height:1.45;color:var(--muted);margin-top:24px}.accent{color:var(--teal)}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:28px}.card .n{font-size:64px;font-weight:700;color:var(--teal);margin-bottom:14px}.card p{font-size:23px;line-height:1.4;color:var(--muted);margin:0}.flow{display:flex;gap:12px;align-items:stretch;margin:35px 0}.flow .card{flex:1;padding:24px 20px}.flow h2{font-size:23px}.flow p{font-size:19px}.arrow{align-self:center;color:var(--red);font-size:30px}.wideimg img{max-height:340px}.compact h1{font-size:56px}.splitshots{display:grid;grid-template-columns:1fr 1fr;gap:22px}.splitshots .shot img{height:245px}.footerline{margin-top:40px;color:var(--teal);font-size:32px;font-weight:600}.key{font-size:116px;color:var(--teal);line-height:1;margin-bottom:10px}.label{font-size:22px;color:var(--muted)}nav{position:fixed;right:20px;bottom:14px;display:flex;gap:8px;align-items:center;font-size:14px;z-index:10}button{border:1px solid #565860;background:#17191e;color:var(--text);padding:10px 16px;border-radius:9px;cursor:pointer}button:focus-visible{outline:3px solid var(--teal)}#counter{padding:0 10px}aside.notes{display:none}#speaker{position:fixed;bottom:64px;left:20px;right:20px;background:#08090bf5;border:1px solid var(--teal);padding:22px;font-size:21px;line-height:1.5;z-index:11;max-height:35vh;overflow:auto}#speaker[hidden]{display:none}
+@media print{@page{size:1600px 900px;margin:0}body{background:var(--bg);print-color-adjust:exact;-webkit-print-color-adjust:exact}#deck{position:static;transform:none!important;width:1600px;height:auto}.slide{display:block!important;break-after:page;page-break-after:always}.slide:last-child{break-after:auto;page-break-after:auto}nav,#speaker{display:none!important}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style>
+</head>
+<body><main id="deck">
+<section class="slide active" aria-label="Problem ve çözüm">
+<div class="top"><div class="brand">GeNAIus<span> / </span>Flame in Freefall</div><div>NASA Space Apps · Kırklareli</div></div>
+<p class="kicker">01 · Problem ve çözüm</p>
+<h1>Uzayda yanma farklı.<br>Doğru kanıtı bulmak zor.</h1>
+<p class="lead">Dağınık NASA deneylerini, karşılaştırılabilir ve kaynağı izlenebilir bir araştırma akışına dönüştürüyoruz.</p>
+<div class="grid3" style="margin-top:48px"><article class="card"><h2>Bul</h2><p>İhtiyacına uygun araştırma ve deney.</p></article><article class="card"><h2>Karşılaştır</h2><p>Gerçek koşullar ve geçerli ölçümler.</p></article><article class="card"><h2>Kaynağa dön</h2><p>Her sonuçta kayıt ve kanıt sınırı.</p></article></div>
+<p class="source">Bağlam: kullanıcı tarafından sağlanan challenge video transkripti. Uygulama: README.md, src/genaius/catalog.py ve data/processed/ manifestleri.</p>
+<aside class="notes">35 saniye. NASA'nın verisinin az olduğunu değil, dağınık olduğunu anlat. Üç fiil: bul, karşılaştır, kaynağa dön.</aside>
+</section>
+<section class="slide compact" aria-label="Material Lab">
+<div class="top"><div class="brand">GeNAIus<span> / </span>Material Lab</div><div>02 / 07</div></div>
+<p class="kicker">02 · Malzeme kanıtı</p><h1>Hangi oksijende ne ölçüldü?</h1>
+<div class="row"><div><ul class="points"><li><strong>Malzeme ve şekli seç.</strong><span>Ölçülmüş gaz değişimlerini incele.</span></li><li><strong>Dağılımı ve kapsamı gör.</strong><span>Tek bir ortalama yerine değişkenliği oku.</span></li><li><strong>Gerçek deneye ulaş.</strong><span>Eksik ölçüm sıfıra çevrilmez.</span></li></ul><div class="chips"><span class="chip"><b>129</b> koşu</span><span class="chip"><b>107</b> Sample #</span></div></div><figure class="shot"><img src="assets/material-lab.png" alt="Güncel Material Lab iki ölçüm karşılaştırması"><figcaption>Gerçek arayüz · PSI-25 BASS-II</figcaption></figure></div>
+<p class="note">Ölçüm karşılaştırmasıdır; malzeme güvenlik sıralaması değildir.</p>
+<p class="source">Kaynak: PSI-25 CSV/ReadMe; frontend/js/lab.js, stats.js; src/genaius/analytics.py. O₂ ve gaz alanlarında başlangıç/son ayrımı korunur.</p>
+<aside class="notes">40 saniye. Önce kullanıcı sorusu, sonra nokta grafiği. Regresyon yapıldığını söyleme: bu bölüm ölçümlerin betimsel analizi.</aside>
+</section>
+<section class="slide compact" aria-label="Senaryo ve modeller">
+<div class="top"><div class="brand">GeNAIus<span> / </span>Fire Animation & Models</div><div>03 / 07</div></div>
+<p class="kicker">03 · Koşulu ve veri desteğini sorgula</p><h1>Kanıt kapsamı ve model tahmini ayrı.</h1>
+<div class="splitshots"><figure class="shot"><img src="assets/scenario.png" alt="PMMA yüzde 34 oksijen için GAP sonucu"><figcaption>Senaryo: TESTED / PARTIAL / GAP</figcaption></figure><figure class="shot"><img src="assets/models.png" alt="Ridge K tahmini ve logistic sönme skoru"><figcaption>FLEX: Ridge K tahmini + Logistic Regression skoru</figcaption></figure></div>
+<div class="grid3" style="margin-top:25px"><article class="card"><h2>Animasyon</h2><p>Kavramsal anlatım; CFD veya deney tekrarı değil.</p></article><article class="card"><h2>Senaryo</h2><p>PMMA · %34 O₂ · Ay: indekslenen çekirdekte GAP.</p></article><article class="card"><h2>Modeller</h2><p>Veri desteği dışındaysa tahmin engellenir.</p></article></div>
+<p class="source">Kaynak: scenario_check.py (±0,05 O₂ yüzde puanı; ±0,01 atm); flex/training.py, flex_acceptance_v2.json. PSI-25/69 ayrı; logistic skor kalibre edilmiş güvenlik olasılığı değildir.</p>
+<aside class="notes">50 saniye. GAP yalnız indekslenen tablo için geçerli. Ridge yanma hızı sabiti K tahmini, logistic model sönme sınıflandırma skoru verir. Animasyon modellerin çıktısı değildir.</aside>
+</section>
+<section class="slide compact" aria-label="SAFFIRE vaka incelemesi">
+<div class="top"><div class="brand">GeNAIus<span> / </span>SAFFIRE Case Study</div><div>04 / 07</div></div>
+<p class="kicker">04 · Yayımlanmış olayları bir araya getir</p><h1>Ateşlemeden seçili duman ölçütüne.</h1>
+<div class="row"><div><div class="key">344 <span style="font-size:40px">s</span></div><p class="label">981 − 637 · bizim türettiğimiz fark</p><ul class="points" style="margin-top:30px"><li><strong>637 s: ateşleme.</strong></li><li><strong>981 s: seçili 1 mg/m³ ölçütü.</strong></li><li><span>Bildirilen yanma süresi 780 s; akış durması ayrı olay.</span></li></ul></div><figure class="shot wideimg"><img src="assets/case-timeline.png" alt="Yeni Case Study VI-3 zaman çizelgesi"><figcaption>Gerçek arayüz · insansız Cygnus deneyi</figcaption></figure></div>
+<p class="note">Operasyonel alarm gecikmesi veya mürettebat maruziyeti iddiası yok.</p>
+<p class="source">NASA NTRS <a href="https://ntrs.nasa.gov/citations/20240002981">20240002981</a>, s.5 / Şekil 7; <a href="https://ntrs.nasa.gov/citations/20240007488">20240007488</a>, slayt 16–19, 21; saffire_case_reference.json.</p>
+<aside class="notes">45 saniye. 637 ve 981 raporlanmış zamanlar; 344 hesaplanan fark. Duman ölçütünü kalibre edilmiş dedektör alarm ayarı olarak sunma. Gaz artışını solunan dozla eşitleme.</aside>
+</section>
+<section class="slide compact" aria-label="Veri ve kaynaklar">
+<div class="top"><div class="brand">GeNAIus<span> / </span>Data & Sources</div><div>05 / 07</div></div>
+<p class="kicker">05 · Cevaptan kaynak kaydına</p><h1>Her sonucun arkasındaki veriyi aç.</h1>
+<div class="row"><div><ul class="points"><li><strong>24 çalışma katalogda.</strong><span>Hepsi tam sayısal entegrasyon değil.</span></li><li><strong>403 çekirdek deney.</strong><span>129 BASS-II + 274 FLEX; CFI ve SAFFIRE ayrı.</span></li><li><strong>Karşılaştır ve dışa aktar.</strong><span>Test kimliği, birim, satır ve SHA-256 izi.</span></li></ul></div><figure class="shot"><img src="assets/data-records.png" alt="Güncel Data sayfasındaki çekirdek kayıtlar"><figcaption>Gerçek arayüz · kayıttan ayrıntıya geçiş</figcaption></figure></div>
+<p class="note">SHA-256 dosya kimliğini doğrular; bilimsel doğruluğu tek başına kanıtlamaz.</p>
+<p class="source">Kaynak: catalog.py, data/loader.py, data/query.py; psi_24_source_manifest.json ve psi_core_manifest.json. CFI ve SAFFIRE-II çekirdek ortalamalarına katılmaz.</p>
+<aside class="notes">40 saniye. Katalog ile analiz edilen satırları ayır. Bir satırın ayrıntısını canlıda açabilirsiniz; sunumda kaynak izinin amacını vurgulayın.</aside>
+</section>
+<section class="slide compact" aria-label="Asistan ve teknik motor">
+<div class="top"><div class="brand">GeNAIus<span> / </span>Evidence Assistant</div><div>06 / 07</div></div>
+<p class="kicker">06 · Önce kanıt, sonra açıklama</p><h1>Sayılar tablodan. Açıklama kaynakla.</h1>
+<div class="flow"><article class="card"><h2>NASA dosyaları</h2><p>CSV · XLSX · PDF · DOCX</p></article><span class="arrow">→</span><article class="card"><h2>Tipli kayıtlar</h2><p>Tablo sorgusu + BM25 pasaj araması</p></article><span class="arrow">→</span><article class="card"><h2>İsteğe bağlı LLM</h2><p>OpenRouter / NVIDIA Nemotron</p></article><span class="arrow">→</span><article class="card"><h2>Denetim</h2><p>Şema · atıf · sayı/birim · yedek cevap</p></article></div>
+<ul class="points"><li><strong>Tablo ve senaryo soruları: sıfır LLM çağrısı.</strong></li><li><span>BM25 sözcüksel arama; embedding / vektör veritabanı yok.</span></li><li><span>Geçersiz model cevabı reddedilir; tam anlamsal doğruluk garantisi verilmez.</span></li></ul>
+<div class="chips"><span class="chip">FastAPI + Pydantic</span><span class="chip">SVG + Canvas</span><span class="chip">scikit-learn + GroupKFold</span></div>
+<p class="source">Kaynak: retrieval/bm25.py, answering/, numerical_audit.py, openrouter.py, flex/training.py. Bazı grafik istatistikleri tarayıcıda; model ve cevap hesapları Python'da.</p>
+<aside class="notes">50 saniye. LLM anahtara ve sağlayıcıya bağlıdır. Demo makinesindeki rozetini kontrol edin. 120B/bit gibi ayrıntılar yerine rolünü anlatın: kaynaklı açıklama, hesap makinesi değil.</aside>
+</section>
+<section class="slide" aria-label="Katkı ve kapanış">
+<div class="top"><div class="brand">GeNAIus<span> / </span>Flame in Freefall</div><div>07 / 07</div></div>
+<p class="kicker">07 · Challenge'a katkımız</p><h1>Kanıtı bul.<br>Sınırını gör. Kaynağına dön.</h1>
+<div class="grid3"><article class="card"><h2>Araştırmayı bul</h2><p>Katalog ve kaynaklı rapor erişimi.</p></article><article class="card"><h2>Modellemeyi destekle</h2><p>İzlenebilir veri ve ayrı FLEX tahminleri.</p></article><article class="card"><h2>Boşlukları görünür kıl</h2><p>Ek deney ve kontrol araştırmalarına başlangıç.</p></article></div>
+<p class="footerline">Know what was tested. See what is missing. Trace every claim.</p>
+<p class="note">Hedef kullanıcı: yanma araştırmacıları ve uzay aracı / yaşam alanı mühendislik ekipleri.</p>
+<p class="source">Public kaynak kodu: <a href="https://github.com/Umitsencer/genaius-flame-in-freefall">github.com/Umitsencer/genaius-flame-in-freefall</a> · Team GeNAIus · Bağımsız araştırma prototipi; NASA onayı veya güvenlik sertifikası değildir.</p>
+<aside class="notes">40 saniye. Üç katkıyı challenge hedeflerine bağla. Yeni fizik keşfi veya güvenlik sertifikası iddiası yapma. Son cümleyi yavaş oku, demo sorularına geç.</aside>
+</section>
+</main>
+<nav aria-label="Sunum kontrolleri"><button id="prev" aria-label="Önceki slayt">←</button><span id="counter">1 / 7</span><button id="next" aria-label="Sonraki slayt">→</button><button id="notes" aria-label="Sunucu notları">N · Notlar</button><button id="full" aria-label="Tam ekran">F · Tam ekran</button></nav>
+<aside id="speaker" hidden aria-live="polite"></aside>
+<script>
+(function(){'use strict';var slides=Array.from(document.querySelectorAll('.slide')),i=0,deck=document.getElementById('deck'),speaker=document.getElementById('speaker');
+function fit(){deck.style.transform='translate(-50%,-50%) scale('+Math.min(innerWidth/1600,innerHeight/900)+')'}
+function go(n){i=Math.max(0,Math.min(slides.length-1,n));slides.forEach(function(s,k){s.classList.toggle('active',k===i);s.setAttribute('aria-hidden',String(k!==i))});document.getElementById('counter').textContent=(i+1)+' / '+slides.length;document.getElementById('prev').disabled=i===0;document.getElementById('next').disabled=i===slides.length-1;speaker.textContent=slides[i].querySelector('.notes').textContent;history.replaceState(null,'','#'+(i+1))}
+function full(){if(document.fullscreenElement)document.exitFullscreen();else document.documentElement.requestFullscreen()}
+window.goSlide=go;document.getElementById('prev').onclick=function(){go(i-1)};document.getElementById('next').onclick=function(){go(i+1)};document.getElementById('notes').onclick=function(){speaker.hidden=!speaker.hidden};document.getElementById('full').onclick=full;
+addEventListener('keydown',function(e){if(e.ctrlKey||e.metaKey||e.altKey)return;if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();go(i+1)}else if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();go(i-1)}else if(e.key==='Home')go(0);else if(e.key==='End')go(slides.length-1);else if(e.key.toLowerCase()==='n')speaker.hidden=!speaker.hidden;else if(e.key.toLowerCase()==='f')full()});addEventListener('resize',fit);fit();go((parseInt(location.hash.slice(1),10)||1)-1);
+})();
+</script></body></html>

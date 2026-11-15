@@ -14,7 +14,7 @@
 
 [Quick start](#quick-start) · [Architecture](docs/ARCHITECTURE.md) · [Data & models](docs/DATA_AND_MODELS.md) · [AI transparency](docs/AI_USE.md) · [Testing](docs/TESTING.md) · [Security](SECURITY.md)
 
-[Jury slides (HTML)](docs/presentation/index.html) · [Slides (PDF)](docs/presentation/genaius-presentation.pdf) · [English speaker notes](docs/presentation/speaker-notes.md)
+[English slides (HTML)](docs/presentation/index.html) · [English PDF](docs/presentation/genaius-presentation-en.pdf) · [Türkçe slaytlar (HTML)](docs/presentation/index-tr.html) · [Türkçe PDF](docs/presentation/genaius-presentation-tr.pdf) · [Speaker notes](docs/presentation/speaker-notes.md)
 
 </div>
 

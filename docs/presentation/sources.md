@@ -1,6 +1,6 @@
 # Presentation source and revision record
 
-Verified against the public delivery snapshot on **2026-11-15**. The HTML and the single canonical PDF use the same seven English slides. Screenshots were captured from the current local public application with Playwright/Chrome; only floating navigation/chat chrome was hidden for capture. Displayed data was not composited or fabricated.
+Verified against the public delivery snapshot on **2026-11-15**. English and Turkish versions each contain seven slides with equivalent claims. The Turkish deck retains English screenshots of the application. Screenshots were captured from the current local public application with Playwright/Chrome; only floating navigation/chat chrome was hidden for capture. Displayed data was not composited or fabricated.
 
 | Slide | Evidence |
 |---|---|
@@ -25,9 +25,10 @@ Verified against the public delivery snapshot on **2026-11-15**. The HTML and th
 ## Files and reproduction
 
 - `index.html`: seven-slide HTML presentation; no CDN dependency.
-- `genaius-presentation.pdf`: print rendering of that HTML, 16:9.
+- `genaius-presentation-en.pdf`: English print rendering of `index.html`, 16:9.
+- `index-tr.html` and `genaius-presentation-tr.pdf`: Turkish slide text with shared application screenshots, 16:9.
 - `speaker-notes.md`: English script and Turkish cues, target 300 seconds; no spoken timing measurement claimed.
 - `assets/`: actual delivery UI captures.
 - `build.mjs`: optional authoring tool; install Playwright in the authoring environment and provide Chrome through `CHROME_PATH` if needed. `PLAYWRIGHT_MODULE` may point to an existing Playwright package directory. Application runtime dependencies remain unchanged.
 
-Run the application, set `GENAIUS_DEMO_URL` if different from localhost:8783, then run `node docs/presentation/build.mjs --capture`. To regenerate the PDF without new screenshots, omit `--capture`. Rendering uses the browser's print engine; fonts use local Arial/Segoe UI/Georgia fallbacks.
+Run the application, set `GENAIUS_DEMO_URL` if different from localhost:8783, then run `node docs/presentation/build.mjs --capture`. To regenerate both language PDFs without new screenshots, omit `--capture`. Rendering uses the browser's print engine; fonts use local Arial/Segoe UI/Georgia fallbacks.

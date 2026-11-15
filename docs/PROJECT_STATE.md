@@ -4,7 +4,7 @@ Last verified: 2026-11-15.
 
 ## Jury presentation
 
-`docs/presentation/index.html` and the single canonical `genaius-presentation.pdf` contain seven English slides with an English five-minute speaker script. Current UI captures show Material Lab, canonical scenario matching, the restored FLEX model panel, the revised VI-3 story and Data records. Old tolerances, obsolete UI screenshots and operational-alarm wording were replaced. `sources.md` records the claim boundaries and reproduction method. The PDF has seven 16:9 pages; all pages were rendered and visually inspected. HTML navigation, print layout and local assets were checked with headless Chrome; this does not replace broader manual acceptance of the application.
+`docs/presentation/` contains English (`index.html`, `genaius-presentation-en.pdf`) and Turkish (`index-tr.html`, `genaius-presentation-tr.pdf`) versions, each with seven 16:9 slides. Both share current English application screenshots and equivalent evidence boundaries. The English five-minute script includes Turkish rehearsal cues. `sources.md` records sources and reproduction. Both PDFs were rendered and visually inspected; HTML navigation, print layout and local assets were checked with headless Chrome. This does not replace broader manual acceptance of the application.
 
 ## Objective
 
