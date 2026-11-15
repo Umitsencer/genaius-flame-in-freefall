@@ -1,55 +1,55 @@
-# GeNAIus — five-minute jury presentation
+# English jury presentation - five-minute script
 
-Slides and the spoken script below are in English. Times are targets, not a measured recording. Rehearse once and adjust pauses rather than rushing. The deck contains seven slides: **35 + 40 + 50 + 45 + 40 + 50 + 40 = 300 seconds**.
+The English deck is rebuilt for the supplied judging criteria. Seven slides including title/introduction. These times are rehearsal targets, not a measured recording: **30 + 40 + 40 + 45 + 45 + 60 + 40 = 300 seconds**. The deck also works as a silent demo: claims, sources, screenshots and limitations are on-slide.
 
-Open `index.html` (English) or `index-tr.html` (Turkish) in Chrome/Edge. Arrow keys, PageUp/PageDown or Space navigate; Home/End jump; **N** toggles presenter cues; **F** enters fullscreen. The two language-specific PDFs contain slides only, without presenter notes. Turkish rehearsal cues below are for the presenters.
+Open `index.html` locally with its `assets/` folder, or share `genaius-presentation-en.pdf`. Arrow keys / PageUp / PageDown / Space navigate; Home / End jump; N shows cues; F enters fullscreen. The Turkish deck is the earlier page-oriented narrative and has not been updated to mirror this English revision.
 
-## 1. Problem and solution — 35 seconds
+## 1. A fire in space is not an Earth fire - 30 seconds
 
-> Fire behaves differently in microgravity. Buoyancy-driven flow is greatly reduced, so ignition, flame shape and extinction can differ from what we expect on Earth. NASA has decades of experiments, but the evidence is spread across tables and reports. GeNAIus helps researchers find the relevant study, compare actual measurements, and trace a result back to its source. Our contribution is a clearer path through the evidence, with its limits visible.
+> We are Team GeNAIus, working on Flame in Freefall. When researchers study fire in a spacecraft, an Earth-based assumption or a nearby experiment may not describe the condition they need. NASA provides experimental evidence, but the relevant facts span tables, reports and different physical regimes. GeNAIus helps users find that evidence and distinguish four things: what was measured, what we calculated, what a model estimates, and what remains unsupported.
 
-**Türkçe ipucu:** Dağınık veri → ilgili deney → kaynaklı sonuç. Yeni fizik keşfi iddiası yok.
+**Türkçe ipucu:** Problem veri yokluğu değil, uygun kanıta ulaşma ve bağlamı koruma. Ekip adları ilk slaytta.
 
-## 2. Material Lab — 40 seconds
+## 2. Different experiments, different questions - 40 seconds
 
-> Material Lab uses 129 BASS-II runs across 107 unique sample identifiers. We choose the oxygen level, material and geometry, then inspect measured gas changes. Each point represents a test. The charts show the distribution of valid readings, while the coverage view shows where tests are missing. Missing or invalid endpoints are not turned into zero. We can open the actual record behind a result. This supports evidence comparison, not a ranking of the safest material.
+> NASA data is the foundation of our solution. BASS-II contributes 129 solid-material runs across 107 sample identifiers. FLEX contributes 274 liquid-droplet runs, with atmosphere, pressure, diameter and experiment-end information. Together these form our 403-run core, but we analyse each study within its own context. A broader catalog supports discovery across 24 studies. CFI, SAFFIRE-II and published SAFFIRE and SAME findings provide separate supporting evidence. We do not treat all catalog entries as fully integrated numerical datasets.
 
-**Türkçe ipucu:** Bir nokta = bir deney. Medyan ve dağılımı anlat; regresyon burada değil.
+**Türkçe ipucu:** Katı ve sıvı deneylerini tek ortalamada karıştırmıyoruz. 24 katalog, 403 çekirdek koşu.
 
-## 3. Fire, scenarios and models — 50 seconds
+## 3. From question to actual test - 40 seconds
 
-> The animation provides a conceptual view of droplet burning. It is not CFD or a measured video replay. The scenario checker has a separate job: compare selected conditions with indexed table records. TESTED, PARTIAL and GAP describe evidence coverage. For example, PMMA at 34 percent oxygen under a Moon-like scenario gives GAP in our indexed core; that does not mean NASA never tested it. We also provide two separate FLEX models: Ridge estimates the burning-rate constant, and logistic regression gives an uncalibrated extinction score. Both are restricted by experimental support and are distinct from measured NASA results.
+> Imagine a researcher comparing material measurements. In Material Lab, they select oxygen, material and shape, then inspect valid gas changes and their distribution. Each plotted point corresponds to a recorded test. Instead of ending at a chart or chatbot sentence, the workflow leads back to the test identifier, units and source location, with an exportable record. Missing or invalid measurements remain visible rather than becoming zeros. This is a comparison of evidence, not a ranking of safe materials.
 
-**Türkçe ipucu:** Animasyon / kapsam / tahmin üç ayrı işlev. Toleranslar ±0,05 O₂ yüzde puanı, ±0,01 atm. Modeller için güvenlik olasılığı deme.
+**Türkçe ipucu:** Üç adım: seç, karşılaştır, kaynağı aç. Gerçek ekranı göster; zaman kazancı ölçtük deme.
 
-## 4. SAFFIRE case study — 45 seconds
+## 4. Nearby is not the same - 45 seconds
 
-> Our case study follows a real fire experiment in an uncrewed Cygnus spacecraft. In VI-3, ignition is reported at 637 seconds. The authors' selected one milligram per cubic metre smoke-concentration criterion is crossed at 981 seconds. We calculate the 344-second interval between these timestamps. This is not an operational alarm-latency measurement. The reported burn duration of 780 seconds is shown separately from the fan shutdown. Conditions, gas increases and source pages remain linked, and unpublished gas values for V-3 and V-4 remain missing.
+> Next, ask whether PMMA at 34 percent oxygen has a matching test for a Moon habitat. The screenshot shows a gap in our indexed core, not proof that NASA has never tested such a condition. TESTED requires a recorded match to all supplied conditions. PARTIAL means material and oxygen match but another condition differs or is unrecorded. GAP means no material-and-oxygen match. The separate nearby-FLEX view can use a wider search window; it never upgrades a scenario to TESTED. The animation itself is conceptual, not a physical simulation.
 
-**Türkçe ipucu:** 637 ve 981 raporlanmış; 344 hesaplanmış. 780 saniyeyi fan kapanışıyla karıştırma.
+**Türkçe ipucu:** ±2 yakın FLEX araması ile ±0,05 senaryo eşleşmesini karıştırma. GAP evrensel yokluk değil.
 
-## 5. Data and traceability — 40 seconds
+## 5. 344 seconds that need context - 45 seconds
 
-> The catalog contains 24 studies, but catalog coverage is not full numerical integration. Our core contains 403 runs: 129 BASS-II and 274 FLEX. CFI and SAFFIRE-II are separate modules. Users can compare selected records and export the same filtered subset. A record retains its raw value, unit, status, source line and file fingerprint. The fingerprint identifies the source file; it does not prove scientific truth. This makes the analysis inspectable and helps researchers reuse the evidence responsibly.
+> The case study shows why context matters. In the uncrewed Cygnus Saffire VI-3 experiment, ignition is reported at 637 seconds. The authors' selected one milligram per cubic metre smoke-concentration criterion is crossed at 981 seconds. We explicitly derive the 344-second difference. We do not call it an operational alarm delay or a crew exposure measurement. The interface connects these events to test conditions, gas results and the original report locations. The contribution is an inspectable case, not a claim of a new physical discovery.
 
-**Türkçe ipucu:** 24 çalışma ≠ 403 tam entegre araştırma. Kaynak satırı ve dosya kimliği.
+**Türkçe ipucu:** 637 ve 981 raporlanmış, 344 türetilmiş. Alarmın çalışmadığını veya insanın zehirlendiğini söyleme.
 
-## 6. Evidence assistant and technical engine — 50 seconds
+## 6. Calculations outside the language model - 60 seconds
 
-> Table questions are calculated directly from eligible records. Report questions use BM25 lexical retrieval; there is no embedding model or vector database in this version. When enabled, the NVIDIA model through OpenRouter receives a bounded evidence bundle and produces an explanation. Its schema, citations, numbers and units are checked. Invalid output is rejected in favour of deterministic evidence. This reduces specific errors but does not guarantee full semantic correctness. FastAPI and Pydantic support the backend; JavaScript, SVG and Canvas support the interface. Some chart statistics are calculated in the browser. FLEX training uses scikit-learn and grouped cross-validation.
+> Different tasks use different tools. Python calculates supported table answers and scenario coverage. BM25 retrieves report passages. An optional NVIDIA model through OpenRouter explains the supplied evidence; it does not replace the calculations. Schema, citation and numerical checks can reject a response and return deterministic evidence, though they cannot guarantee full semantic correctness. Separate scikit-learn models estimate FLEX burning-rate constant and score extinction. Recorded grouped validation gives regression R-squared of about 0.708. Classification has an important weakness: 32 of 82 non-extinction runs were falsely labelled extinction at the chosen threshold. We disclose that failure because these are research estimates, not spacecraft safety probabilities.
 
-**Türkçe ipucu:** LLM durumu demo makinesine bağlı. Anahtar yoksa deterministik cevaplar çalışır. Model adı yerine kanıttaki rolünü vurgula.
+**Türkçe ipucu:** R² doğruluk yüzdesi değil. Model başarısızlığını saklamadan sınırını söyle. LLM isteğe bağlı; anahtar projede yok.
 
-## 7. Contribution and close — 40 seconds
+## 7. Contribution and impact - 40 seconds
 
-> GeNAIus addresses the challenge through three contributions. First, it helps users find relevant combustion research. Second, it provides traceable data and separate statistical estimates to support modelling. Third, it makes gaps visible before users transfer findings to unsupported conditions. The intended users are combustion researchers and spacecraft or habitat engineering teams reviewing evidence. This is a research prototype, not a certification tool. Know what was tested. See what is missing. Trace every claim.
+> Our contribution is to connect evidence without hiding its boundaries. Researchers and engineering teams can compare measurements, trace claims, inspect coverage, and keep model estimates separate. This provides a starting point for evidence review and further experiment planning. We have not measured adoption or time savings, and this prototype does not certify spacecraft safety. Next, we would validate it with expert-reviewed questions, user studies and broader experimental coverage. The public project contains the source, data documentation and reproduction steps. Know what was tested. See what still needs evidence.
 
-**Türkçe ipucu:** Üç katkıyı challenge'a bağla. Son üç cümleyi yavaş söyle.
+**Türkçe ipucu:** Etki hedefini ölçülmüş etki diye sunma. Sonraki adım uzman değerlendirmesi ve kullanıcı çalışması.
 
-## Optional live demo questions
+## Presentation and submission checks
 
-- `What was the highest oxygen level tested on solid materials?` — deterministic PSI-25 table answer.
-- `What happened in Saffire VI-3?` — case-scoped evidence; optional LLM if configured.
-- `Was PMMA at 34% oxygen tested for a Moon habitat?` — indexed coverage gap, not a universal claim.
-
-Check the actual LLM badge before presenting. Do not claim that the clean public installation includes a key or always produces model-written answers.
+- The user-supplied guide requires English slides, no more than seven including title, names, challenge and publicly accessible demo/project links.
+- The guide describes a video alternative of at most 30 seconds; the five-minute live script is not a submission video.
+- Ask an unauthenticated teammate to open the final PDF and repository. Repository push success is not a substitute for that access check.
+- The local app requires setup; do not represent the repository as an already hosted web application.
+- Scientific novelty, adoption, quantitative time savings and safety certification have not been established.

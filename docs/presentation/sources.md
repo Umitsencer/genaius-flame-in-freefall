@@ -1,34 +1,47 @@
-# Presentation source and revision record
+# English presentation - evidence and revision record
 
-Verified against the public delivery snapshot on **2026-11-15**. English and Turkish versions each contain seven slides with equivalent claims. The Turkish deck retains English screenshots of the application. Screenshots were captured from the current local public application with Playwright/Chrome; only floating navigation/chat chrome was hidden for capture. Displayed data was not composited or fabricated.
+Verified against local public-project files on **2026-11-15**. This revision replaces the English seven-slide story; the Turkish deck remains the earlier separate narrative. Screenshots are existing captures of the real application. No chart, measurement or screenshot value was fabricated.
 
-| Slide | Evidence |
+## Guide and rubric
+
+The user supplied an eight-page Turkish project-submission guide and the five judging criteria (Impact, Creativity, Validity, Relevance, Presentation). Relevant guide pages: 2-3 for public links and demo format, 4 for NASA data and references, 5 for AI disclosures, 6-7 for English-only slides, seven-slide maximum and team names. The guide was read locally; it was not independently authenticated as the live global policy. All five team names were explicitly confirmed.
+
+## Claim-to-source record
+
+| Slide | Evidence and limits |
 |---|---|
-| 1 | User-supplied challenge-video transcript; README and catalog implementation. The original video was not independently reopened for this presentation. |
-| 2 | PSI-25 records and manifests; `frontend/js/lab.js`, `stats.js`, `src/genaius/analytics.py`. Screenshot: Material Lab two-measure comparison. |
-| 3 | `src/genaius/scenario_check.py`, `schemas/scenario.py`, `flex/training.py`, `data/processed/flex_acceptance_v2.json`; current scenario result and model cards. |
-| 4 | `data/processed/saffire_case_reference.json`, `src/genaius/saffire_case.py`; NTRS [20240002981](https://ntrs.nasa.gov/citations/20240002981), p.5/Fig.7 and [20240007488](https://ntrs.nasa.gov/citations/20240007488), slides 16–19/21. Published source locators come from the audited case record; PDFs were not re-audited in this presentation-only task. |
-| 5 | Core/catalog manifests, `catalog.py`, `data/loader.py`, `data/query.py`; current Data record table. |
-| 6 | `retrieval/bm25.py`, `answering/`, `numerical_audit.py`, `openrouter.py`, `flex/training.py`, `frontend/js/stats.js`; no claim of embedding integration. |
-| 7 | Demonstrated source workflow and application scope; no claim of certification, new physical discovery or competition result. |
+| 1 | NASA NTRS 20240002981, public abstract; README project scope. Original SVG explains evidence types, not experimental physics. |
+| 2 | `data/processed/psi_core_manifest.json`: 129 PSI-25 and 274 PSI-69 runs; `psi_24_source_manifest.json`: 24 studies; `docs/DATA_AND_MODELS.md`: source separation and 107 sample IDs. |
+| 3 | Actual Material Lab capture; `frontend/js/lab.js`, `stats.js`, `src/genaius/analytics.py`, `data/query.py`: measurement filtering, comparison and record provenance. No user-impact metric is asserted. |
+| 4 | Actual scenario capture; `src/genaius/scenario_check.py`: ±0.05 oxygen percentage points, ±0.01 atm; `analytics.py` and `frontend/js/fire.js`: independent nearby-FLEX search starting at ±2 points / ±0.1 atm, widening for sample count. GAP refers only to indexed sources. |
+| 5 | `saffire_case_reference.json`; NTRS [20240002981](https://ntrs.nasa.gov/citations/20240002981), p.5/Fig.7, and [20240007488](https://ntrs.nasa.gov/citations/20240007488), slides 16-19/21. Source locators and timestamps are inherited from the audited case record; the original NASA PDFs were not re-audited in this deck task. |
+| 6 | `docs/AI_USE.md`, `answering/`, `retrieval/bm25.py`, `openrouter.py`; `flex_acceptance_v2.json`: grouped atmosphere+pressure regression R² 0.7078 and classification false positives 32/82 at threshold 0.5. Recorded results, not newly run evaluation. |
+| 7 | Implemented workflow supports intended researcher utility. Expert validation and user studies are proposed; no adoption, novelty-first, safety or time-saving claim. |
 
-## Corrections to the older deck
+## Primary NASA resources
 
-- Scenario tolerances are **±0.05 O₂ percentage points / ±0.01 atm**, not ±2 / ±0.1.
-- Scenario sources are canonical PSI-25 and PSI-69 records kept separate; the old 262-row combined frontend fixture is not the active scenario source.
-- The FLEX prediction panel is visible again. Ridge and logistic outputs are shown as estimates; they do not drive the animation.
-- Case Study uses the new story layout. The 1 mg/m³ value is the authors' smoke-concentration criterion, not a demonstrated calibrated alarm setting.
-- The 344-second derived interval and 780-second reported burn duration are separate from flow termination.
-- Old notes about an uncorrected Spearman `NaN` and map-class mismatch are removed; those defects were corrected in the delivery snapshot.
-- Public applications do not ship API credentials. The deck describes optional LLM capability instead of promising its activation on every machine.
+- [BASS-II experimental data and ReadMe](https://doi.org/10.60555/4qc4-de67)
+- [FLEX experimental data](https://doi.org/10.60555/mbq8-0451)
+- [BASS-II summary report](https://ntrs.nasa.gov/citations/20210011385)
+- [FLEX detailed report](https://ntrs.nasa.gov/citations/20150023456)
+- [Saffire VI report](https://ntrs.nasa.gov/citations/20240002981)
+- [Saffire VI presentation](https://ntrs.nasa.gov/citations/20240007488)
 
-## Files and reproduction
+Some NASA endpoints can fail in automated tools. This revision checks repository source records, not universal current URL availability.
 
-- `index.html`: seven-slide HTML presentation; no CDN dependency.
-- `genaius-presentation-en.pdf`: English print rendering of `index.html`, 16:9.
-- `index-tr.html` and `genaius-presentation-tr.pdf`: Turkish slide text with shared application screenshots, 16:9.
-- `speaker-notes.md`: English script and Turkish cues, target 300 seconds; no spoken timing measurement claimed.
-- `assets/`: actual delivery UI captures.
-- `build.mjs`: optional authoring tool; install Playwright in the authoring environment and provide Chrome through `CHROME_PATH` if needed. `PLAYWRIGHT_MODULE` may point to an existing Playwright package directory. Application runtime dependencies remain unchanged.
+## AI and visual provenance
 
-Run the application, set `GENAIUS_DEMO_URL` if different from localhost:8783, then run `node docs/presentation/build.mjs --capture`. To regenerate both language PDFs without new screenshots, omit `--capture`. Rendering uses the browser's print engine; fonts use local Arial/Segoe UI/Georgia fallbacks.
+AI coding assistants supported HTML/CSS/SVG design, wording and document preparation. Scientific claims were checked against the cited project artifacts. Visuals comprise original code-native SVG and actual application screenshots; no generated photographs, synthetic experimental data, external logo or copied third-party slide design is used. This disclosure does not certify overall competition eligibility.
+
+## Reproduction
+
+- `index.html` and `genaius-presentation-en.pdf`: revised seven-slide English story.
+- `index-tr.html` and `genaius-presentation-tr.pdf`: preserved Turkish deck; earlier narrative.
+- `plan.md`: narrative, criterion mapping and acceptance criteria.
+- `speaker-notes.md`: English five-minute rehearsal script with Turkish cues.
+- `build.mjs`: optional Playwright/Chrome authoring tool; runtime application dependencies are unchanged.
+- `assets/`: actual application captures shared by both decks.
+
+With Playwright available, run `node docs/presentation/build.mjs --lang=en` to rebuild only the English PDF. Set `PLAYWRIGHT_MODULE` and `CHROME_PATH` if required. Without a language argument, both PDFs are rebuilt. Use `--capture` only with the application running (default localhost:8783); it replaces screenshots. Fonts are local Arial/Segoe UI/Georgia fallbacks.
+
+Before delivery, check seven-page count, English content, asset paths, controls, overflow and every rendered page. Confirm public access in a browser without login separately from the build.

@@ -4,7 +4,7 @@ Last verified: 2026-11-15.
 
 ## Jury presentation
 
-`docs/presentation/` contains English (`index.html`, `genaius-presentation-en.pdf`) and Turkish (`index-tr.html`, `genaius-presentation-tr.pdf`) versions, each with seven 16:9 slides. Both share current English application screenshots and equivalent evidence boundaries. The English five-minute script includes Turkish rehearsal cues. `sources.md` records sources and reproduction. Both PDFs were rendered and visually inspected; HTML navigation, print layout and local assets were checked with headless Chrome. This does not replace broader manual acceptance of the application.
+The English jury deck (`docs/presentation/index.html`, `genaius-presentation-en.pdf`) was rebuilt around the supplied five judging criteria and submission guide: seven 16:9 slides, confirmed team names, NASA-data integration, a measured-data workflow, scenario coverage, VI-3 case evidence, methods/limits and intended impact. `plan.md` maps slides to criteria; `speaker-notes.md` contains a five-minute English rehearsal script with Turkish cues; `sources.md` records claim provenance and AI assistance. The earlier Turkish HTML/PDF is preserved as a separate narrative, not a synchronized translation. All seven revised English PDF pages were rendered and visually inspected; navigation, asset/encoding links and footer clearance were checked. No application code or model evaluation was changed or rerun. Scenario strict matching (±0.05 O₂ points / ±0.01 atm) is distinct from nearby-FLEX search (starting ±2 points / ±0.1 atm). This presentation check does not establish competition eligibility or safety certification.
 
 ## Objective
 

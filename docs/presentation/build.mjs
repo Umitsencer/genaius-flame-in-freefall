@@ -42,7 +42,10 @@ if (process.argv.includes('--capture')) {
   }
 }
 await page.setViewportSize({ width: 1600, height: 900 });
-for (const language of ['en', 'tr']) {
+const languageOption = process.argv.find(arg => arg.startsWith('--lang='));
+const languages = languageOption ? [languageOption.slice(7)] : ['en', 'tr'];
+if (languages.some(language => !['en', 'tr'].includes(language))) throw Error('Use --lang=en or --lang=tr');
+for (const language of languages) {
 await page.goto(pathToFileURL(path.join(root, language === 'en' ? 'index.html' : 'index-tr.html')).href, { waitUntil: 'networkidle' });
 await page.evaluate(() => document.fonts.ready);
 await page.emulateMedia({ media: 'print' });
@@ -65,8 +68,18 @@ if (previews) {
     await page.screenshot({ path: path.join(previews, language + '-slide-' + (i + 1) + '.png') });
   }
 }
-const overflow = await page.evaluate(() => Array.from(document.querySelectorAll('.slide')).map((s, i) => ({ slide: i + 1, overflow: s.scrollHeight > s.clientHeight + 2 })));
+const overflow = [];
+for (let i = 0; i < 7; i++) {
+  await page.evaluate(n => window.goSlide(n), i);
+  overflow.push(await page.evaluate(n => {
+    const slide = document.querySelectorAll('.slide')[n];
+    const footer = slide.querySelector('.source').getBoundingClientRect();
+    const content = Array.from(slide.children).filter(el => !el.matches('.source,.notes'));
+    const bottom = Math.max(...content.map(el => el.getBoundingClientRect().bottom));
+    return { slide: n + 1, overflow: slide.scrollHeight > slide.clientHeight + 2, footerCollision: bottom > footer.top - 8 };
+  }, i));
+}
 console.log(JSON.stringify({ language, pageErrors: errors, overflow }));
-if (errors.length || overflow.some(x => x.overflow)) process.exitCode = 1;
+if (errors.length || overflow.some(x => x.overflow || x.footerCollision)) process.exitCode = 1;
 }
 await browser.close();
