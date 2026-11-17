@@ -2,7 +2,7 @@
 
 <img src="frontend/assets/logo.jpg" width="100" alt="GeNAIus logo">
 
-# GeNAIus · Flame in Freefall
+# GenAIus · Flame in Freefall
 
 **Explore NASA combustion experiments. Compare measured evidence. Trace every claim.**
 
